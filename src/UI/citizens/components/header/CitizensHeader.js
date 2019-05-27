@@ -1,11 +1,16 @@
 import React from 'react';
 
+import {
+  HeaderContainer,
+  HeaderTitle
+} from './CitizensHeaderStyle';
+
 const CitizensHeader = () => (
-  <header role="banner">
-    <h1>
+  <HeaderContainer>
+    <HeaderTitle>
       Speck Academy Booking App!
-    </h1>
-  </header>
+    </HeaderTitle>
+  </HeaderContainer>
 );
 
 export default CitizensHeader;
