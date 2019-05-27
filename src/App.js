@@ -1,14 +1,22 @@
 import React from 'react';
 import { Normalize } from 'styled-normalize';
+import { BrowserRouter as Router, Route, Switch } from 'react-router';
 
 import GlobalStyle from './globalStyle';
+import { AdminHallsPage, AdminRequestsPage, AdminReservationsPage } from './UI/admin';
+import { CitizensPage } from './UI/citizens';
 
 const App = () => (
-  <React.Fragment>
+  <Router>
     <Normalize />
     <GlobalStyle />
-    <h1>Hello World!</h1>
-  </React.Fragment>
+    <Switch>
+      <Route path="/" exact component={CitizensPage} />
+      <Route path="/admin-halls" component={AdminHallsPage} />
+      <Route path="/admin-requests" component={AdminRequestsPage} />
+      <Route path="/admin-reservations" component={AdminReservationsPage} />
+    </Switch>
+  </Router>
 );
 
 export default App;

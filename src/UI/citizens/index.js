@@ -1,0 +1,1 @@
+export { default as CitizensPage } from './pages/CitizensPage';
