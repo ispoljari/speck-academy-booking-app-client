@@ -1,6 +1,6 @@
 import React from 'react';
 import { Normalize } from 'styled-normalize';
-import { Router, Route, Switch } from 'react-router';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './globalStyle';
 import { AdminHallsPage, AdminRequestsPage, AdminReservationsPage } from './UI/admin';
