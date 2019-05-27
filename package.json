@@ -11,6 +11,8 @@
     "styled-normalize": "^8.0.6"
   },
   "scripts": {
+    "precommit": "pretty-quick --staged",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
