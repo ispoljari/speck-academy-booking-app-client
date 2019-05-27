@@ -11,12 +11,16 @@
     "styled-normalize": "^8.0.6"
   },
   "scripts": {
-    "precommit": "pretty-quick --staged",
     "pretty": "prettier --write \"./**/*.{js,jsx,json}\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "author": "Speck Academy",
   "license": "ISC",
