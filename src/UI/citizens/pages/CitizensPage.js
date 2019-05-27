@@ -13,11 +13,11 @@ import { Footer } from '../../common';
 const CitizensPage = () => (
   <React.Fragment>
     <CitizensHeader />
-    <CitizensSelectHall />
+    {/* <CitizensSelectHall />
     <CitizensSelectDateTime />
     <CitizensEditEventInfo />
     <CitizensSubmitRequest />
-    <Footer />
+    <Footer /> */}
   </React.Fragment>
 );
 
