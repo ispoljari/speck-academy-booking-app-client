@@ -75,4 +75,45 @@ const Podebljano = styled.span`
   font-weight: bold;
 `;
 
-export { Container, Krug, Broj, Datum, Oznacite, Podebljano };
+const OdaberiteDatum = styled.div`
+  position: absolute;
+  top: 152px;
+  left: 130px;
+  width: 185px;
+  height: 24px;
+  font-family: PoppinsRegular;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #434343;
+`;
+
+const OdaberiteVrijeme = styled.div`
+  position: absolute;
+  top: 152px;
+  left: 390px;
+  width: 185px;
+  height: 24px;
+  font-family: PoppinsRegular;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #434343;
+`;
+
+export {
+  Container,
+  Krug,
+  Broj,
+  Datum,
+  Oznacite,
+  Podebljano,
+  OdaberiteDatum,
+  OdaberiteVrijeme
+};

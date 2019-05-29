@@ -6,7 +6,9 @@ import {
   Broj,
   Datum,
   Oznacite,
-  Podebljano
+  Podebljano,
+  OdaberiteDatum,
+  OdaberiteVrijeme
 } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
@@ -29,6 +31,8 @@ const CitizensSelectDateTime = () => (
       Označite slobodan termin na kalendaru za Vaš odabir:{' '}
       <Podebljano>Konferencijska dvorana RCTP.</Podebljano>
     </Oznacite>
+    <OdaberiteDatum>ODABERITE DATUM:</OdaberiteDatum>
+    <OdaberiteVrijeme>ODABERITE VRIJEME:</OdaberiteVrijeme>
   </Container>
 );
 
