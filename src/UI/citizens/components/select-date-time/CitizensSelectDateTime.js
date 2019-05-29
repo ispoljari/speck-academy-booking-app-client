@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { Container, Krug, Broj, Datum } from './StyleCitizensSelectDateTime';
+import {
+  Container,
+  Krug,
+  Broj,
+  Datum,
+  Oznacite,
+  Podebljano
+} from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
   <Container>
@@ -17,7 +24,11 @@ const CitizensSelectDateTime = () => (
     />
     <Krug />
     <Broj>2</Broj>
-    <Datum>Odaberite datum i vrijeme</Datum>
+    <Datum>Odaberite datum i vrijeme:</Datum>
+    <Oznacite>
+      Označite slobodan termin na kalendaru za Vaš odabir:{' '}
+      <Podebljano>Konferencijska dvorana RCTP.</Podebljano>
+    </Oznacite>
   </Container>
 );
 

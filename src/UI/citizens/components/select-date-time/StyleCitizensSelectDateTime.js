@@ -55,4 +55,24 @@ const Datum = styled.div`
   color: #000000;
 `;
 
-export { Container, Krug, Broj, Datum };
+const Oznacite = styled.div`
+  position: absolute;
+  top: 94px;
+  left: 130px;
+  width: 764px;
+  height: 24px;
+  font-family: PoppinsRegular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+`;
+
+const Podebljano = styled.span`
+  font-weight: bold;
+`;
+
+export { Container, Krug, Broj, Datum, Oznacite, Podebljano };
