@@ -141,6 +141,60 @@ const Kraj = styled.div`
   color: #000000;
 `;
 
+const Unos = styled.div`
+  position: absolute;
+  top: 208px;
+  left: 114px;
+  height: 32px;
+  opacity: 0.5;
+  font-family: Poppins-ExtraLight;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+`;
+
+const Rectangle = styled.div`
+  position: relative;
+  width: 244px;
+  height: 32px;
+  border-radius: 2px;
+  border: solid 1px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  margin-left: 16px;
+  display: inline-block;
+`;
+
+const UnosTexta = styled.div`
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 220px;
+  height: 16px;
+  font-family: Poppins-Medium;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #e5e5e5;
+`;
+
+const Vector = styled.div`
+  position: absolute;
+  top: 13px;
+  left: 220px;
+  width: 8px;
+  height: 4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #555;
+`;
+
 export {
   Container,
   Krug,
@@ -151,5 +205,9 @@ export {
   OdaberiteDatum,
   OdaberiteVrijeme,
   Pocetak,
-  Kraj
+  Kraj,
+  Unos,
+  Rectangle,
+  UnosTexta,
+  Vector
 };

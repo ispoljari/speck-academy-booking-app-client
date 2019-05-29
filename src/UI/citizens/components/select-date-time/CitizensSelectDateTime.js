@@ -10,7 +10,11 @@ import {
   OdaberiteDatum,
   OdaberiteVrijeme,
   Pocetak,
-  Kraj
+  Kraj,
+  Unos,
+  Rectangle,
+  UnosTexta,
+  Vector
 } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
@@ -37,6 +41,20 @@ const CitizensSelectDateTime = () => (
     <OdaberiteVrijeme>ODABERITE VRIJEME:</OdaberiteVrijeme>
     <Pocetak>POČETAK</Pocetak>
     <Kraj>KRAJ</Kraj>
+    <Unos>
+      <Rectangle>
+        <UnosTexta>DATUM...</UnosTexta>
+        <Vector />
+      </Rectangle>
+      <Rectangle>
+        <UnosTexta>VRIJEME...</UnosTexta>
+        <Vector />
+      </Rectangle>
+      <Rectangle>
+        <UnosTexta>VRIJEME...</UnosTexta>
+        <Vector />
+      </Rectangle>
+    </Unos>
   </Container>
 );
 
