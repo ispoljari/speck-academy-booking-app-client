@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Krug } from './StyleCitizensSelectDateTime';
+import { Container, Krug, Broj } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
   <Container>
@@ -16,6 +16,7 @@ const CitizensSelectDateTime = () => (
       href="//fonts.googleapis.com/css?family=Lora"
     />
     <Krug />
+    <Broj>2</Broj>
   </Container>
 );
 

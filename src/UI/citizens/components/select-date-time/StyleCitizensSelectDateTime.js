@@ -20,4 +20,23 @@ const Krug = styled.div`
   border-radius: 50%;
 `;
 
-export { Container, Krug };
+const Broj = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 76px;
+  height: 145px;
+  opacity: 0.4;
+  font-family: Poppins;
+  font-size: 96px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #82d4a7;
+  margin-left: 38px;
+  text-align: center;
+`;
+
+export { Container, Krug, Broj };
