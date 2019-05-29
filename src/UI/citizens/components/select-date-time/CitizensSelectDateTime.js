@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Krug, Broj } from './StyleCitizensSelectDateTime';
+import { Container, Krug, Broj, Datum } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
   <Container>
@@ -17,6 +17,7 @@ const CitizensSelectDateTime = () => (
     />
     <Krug />
     <Broj>2</Broj>
+    <Datum>Odaberite datum i vrijeme</Datum>
   </Container>
 );
 

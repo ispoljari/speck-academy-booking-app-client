@@ -39,4 +39,20 @@ const Broj = styled.div`
   text-align: center;
 `;
 
-export { Container, Krug, Broj };
+const Datum = styled.div`
+  position: absolute;
+  top: 32px;
+  left: 130px;
+  width: 576px;
+  height: 40px;
+  font-family: Lora;
+  font-size: 32px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+`;
+
+export { Container, Krug, Broj, Datum };
