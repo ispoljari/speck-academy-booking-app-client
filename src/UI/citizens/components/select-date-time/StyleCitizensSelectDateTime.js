@@ -168,22 +168,6 @@ const Rectangle = styled.div`
   display: inline-block;
 `;
 
-const UnosTexta = styled.div`
-  position: absolute;
-  top: 6px;
-  left: 8px;
-  width: 220px;
-  height: 16px;
-  font-family: Poppins-Medium;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #e5e5e5;
-`;
-
 const Vector = styled.div`
   position: absolute;
   top: 13px;
@@ -193,6 +177,13 @@ const Vector = styled.div`
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #555;
+`;
+
+const Input = styled.input`
+  position: absolute;
+  width: 244px;
+  height: 32px;
+  content: attr(placeholder) !important;
 `;
 
 export {
@@ -208,6 +199,6 @@ export {
   Kraj,
   Unos,
   Rectangle,
-  UnosTexta,
-  Vector
+  Vector,
+  Input
 };

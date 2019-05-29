@@ -13,8 +13,8 @@ import {
   Kraj,
   Unos,
   Rectangle,
-  UnosTexta,
-  Vector
+  Vector,
+  Input
 } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
@@ -43,15 +43,15 @@ const CitizensSelectDateTime = () => (
     <Kraj>KRAJ</Kraj>
     <Unos>
       <Rectangle>
-        <UnosTexta>DATUM...</UnosTexta>
+        <Input placeholder="DATUM..." type="text" />
         <Vector />
       </Rectangle>
       <Rectangle>
-        <UnosTexta>VRIJEME...</UnosTexta>
+        <Input placeholder="VRIJEME..." type="text" />
         <Vector />
       </Rectangle>
       <Rectangle>
-        <UnosTexta>VRIJEME...</UnosTexta>
+        <Input placeholder="VRIJEME..." type="text" />
         <Vector />
       </Rectangle>
     </Unos>
