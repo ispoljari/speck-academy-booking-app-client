@@ -8,7 +8,9 @@ import {
   Oznacite,
   Podebljano,
   OdaberiteDatum,
-  OdaberiteVrijeme
+  OdaberiteVrijeme,
+  Pocetak,
+  Kraj
 } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
@@ -33,6 +35,8 @@ const CitizensSelectDateTime = () => (
     </Oznacite>
     <OdaberiteDatum>ODABERITE DATUM:</OdaberiteDatum>
     <OdaberiteVrijeme>ODABERITE VRIJEME:</OdaberiteVrijeme>
+    <Pocetak>POČETAK</Pocetak>
+    <Kraj>KRAJ</Kraj>
   </Container>
 );
 

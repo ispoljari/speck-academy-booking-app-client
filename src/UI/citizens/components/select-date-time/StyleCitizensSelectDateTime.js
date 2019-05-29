@@ -107,6 +107,40 @@ const OdaberiteVrijeme = styled.div`
   color: #434343;
 `;
 
+const Pocetak = styled.div`
+  position: absolute;
+  top: 184px;
+  left: 390px;
+  width: 185px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins-ExtraLight;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+`;
+
+const Kraj = styled.div`
+  position: absolute;
+  top: 184px;
+  left: 650px;
+  width: 185px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins-ExtraLight;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+`;
+
 export {
   Container,
   Krug,
@@ -115,5 +149,7 @@ export {
   Oznacite,
   Podebljano,
   OdaberiteDatum,
-  OdaberiteVrijeme
+  OdaberiteVrijeme,
+  Pocetak,
+  Kraj
 };
