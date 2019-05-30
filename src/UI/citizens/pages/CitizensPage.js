@@ -14,10 +14,12 @@ const CitizensPage = () => (
   <React.Fragment>
     <CitizensHeader />
     <CitizensSelectHall />
-    {/*<CitizensSelectDateTime /> //prije mojeg dijela moram staviti /*da bude u komentaru
-       <CitizensEditEventInfo />
+    {
+      <CitizensSelectDateTime /> //prije mojeg dijela moram staviti /*da bude u komentaru
+      /* <CitizensEditEventInfo />
     <CitizensSubmitRequest />
-    <Footer /> */}
+    <Footer /> */
+    }
   </React.Fragment>
 );
 
