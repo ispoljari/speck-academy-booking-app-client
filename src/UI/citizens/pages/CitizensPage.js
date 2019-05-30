@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   CitizensHeader,
+  CitizensAdminLogin,
   CitizensSelectHall,
   CitizensSelectDateTime,
   CitizensEditEventInfo,
@@ -14,6 +15,7 @@ const CitizensPage = () => (
   <React.Fragment>
     <CitizensHeader />
     <CitizensSelectHall />
+    <CitizensAdminLogin />
     {/* <CitizensSelectDateTime />
     <CitizensEditEventInfo />
     <CitizensSubmitRequest />
