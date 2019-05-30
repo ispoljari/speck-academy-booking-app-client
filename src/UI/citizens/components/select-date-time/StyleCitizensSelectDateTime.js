@@ -186,6 +186,108 @@ const Input = styled.input`
   content: attr(placeholder) !important;
 `;
 
+const Timeline = styled.div`
+  position: absolute;
+  top: 272px;
+  left: 130px;
+  width: 750px;
+  height: 64px;
+  //border-style: solid
+`;
+
+const Time = styled.div`
+  width: 50px;
+  height: 16px;
+  //border-style: solid;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  text-align: center;
+`;
+
+const Prazno = styled.div`
+  width: 25px;
+  height: 48px;
+  display: inline-block;
+`;
+
+const TimeDivide = styled.div`
+  width: 12.5px;
+  height: 48px;
+  //border-style: solid;
+  border-left: 0.5px dashed rgba(0, 0, 0, 0.1);
+  display: inline-block;
+`;
+
+const TimeDivideFull = styled.div`
+  width: 12.5px;
+  height: 48px;
+  //border-style: solid;
+  border-left: 0.5px solid rgba(0, 0, 0, 0.2);
+  display: inline-block;
+`;
+
+const Zauzeto = styled.div`
+  position: absolute;
+  top: 24px;
+  left: 76px;
+  width: 212px;
+  height: 32px;
+  border-radius: 2px;
+  background-color: #0f4850;
+`;
+
+const Slobodno = styled.div`
+  position: absolute;
+  top: 24px;
+  left: 312px;
+  width: 150px;
+  height: 32px;
+  border-radius: 2px;
+  background-color: #93e9bb;
+`;
+
+const Zauzeto1 = styled.div`
+  position: absolute;
+  top: 24px;
+  left: 550px;
+  width: 88px;
+  height: 32px;
+  border-radius: 2px;
+  background-color: #0f4850;
+`;
+
+const Legenda1 = styled.div`
+  position: absolute;
+  top: 368px;
+  left: 130px;
+  width: 200px;
+  height: 40px;
+  border-style: solid;
+`;
+
+const Legenda2 = styled.div`
+  position: absolute;
+  top: 416px;
+  left: 130px;
+  width: 200px;
+  height: 40px;
+  border-style: solid;
+`;
+
+const LegendaBoja = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+`;
+
 export {
   Container,
   Krug,
@@ -200,5 +302,16 @@ export {
   Unos,
   Rectangle,
   Vector,
-  Input
+  Input,
+  Timeline,
+  Time,
+  Prazno,
+  TimeDivide,
+  TimeDivideFull,
+  Zauzeto,
+  Slobodno,
+  Zauzeto1,
+  Legenda1,
+  Legenda2,
+  LegendaBoja
 };

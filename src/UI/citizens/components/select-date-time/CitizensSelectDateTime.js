@@ -14,7 +14,18 @@ import {
   Unos,
   Rectangle,
   Vector,
-  Input
+  Input,
+  Timeline,
+  Time,
+  Prazno,
+  TimeDivide,
+  TimeDivideFull,
+  Zauzeto,
+  Slobodno,
+  Zauzeto1,
+  Legenda1,
+  Legenda2,
+  LegendaBoja
 } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
@@ -55,6 +66,90 @@ const CitizensSelectDateTime = () => (
         <Vector />
       </Rectangle>
     </Unos>
+    <Timeline>
+      <Time>8</Time>
+      <Time>9</Time>
+      <Time>10</Time>
+      <Time>11</Time>
+      <Time>12</Time>
+      <Time>13</Time>
+      <Time>14</Time>
+      <Time>15</Time>
+      <Time>16</Time>
+      <Time>17</Time>
+      <Time>18</Time>
+      <Time>19</Time>
+      <Time>20</Time>
+      <Time>21</Time>
+      <Time>22</Time>
+      <Prazno />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <Zauzeto />
+      <Slobodno />
+      <Zauzeto1 />
+    </Timeline>
+    <Legenda1>
+      <LegendaBoja style={{ backgroundColor: '#0f4850' }} />
+    </Legenda1>
+    <Legenda2>
+      <LegendaBoja style={{ backgroundColor: '#93e9bb' }} />
+    </Legenda2>
   </Container>
 );
 
