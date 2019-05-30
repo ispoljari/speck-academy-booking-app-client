@@ -25,7 +25,8 @@ import {
   Zauzeto1,
   Legenda1,
   Legenda2,
-  LegendaBoja
+  LegendaBoja,
+  LegendaText
 } from './StyleCitizensSelectDateTime';
 
 const CitizensSelectDateTime = () => (
@@ -146,9 +147,11 @@ const CitizensSelectDateTime = () => (
     </Timeline>
     <Legenda1>
       <LegendaBoja style={{ backgroundColor: '#0f4850' }} />
+      <LegendaText>Zauzeti termini</LegendaText>
     </Legenda1>
     <Legenda2>
       <LegendaBoja style={{ backgroundColor: '#93e9bb' }} />
+      <LegendaText>Slobodni termini</LegendaText>
     </Legenda2>
   </Container>
 );

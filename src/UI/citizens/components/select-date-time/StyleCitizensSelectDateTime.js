@@ -192,13 +192,11 @@ const Timeline = styled.div`
   left: 130px;
   width: 750px;
   height: 64px;
-  //border-style: solid
 `;
 
 const Time = styled.div`
   width: 50px;
   height: 16px;
-  //border-style: solid;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
@@ -221,7 +219,6 @@ const Prazno = styled.div`
 const TimeDivide = styled.div`
   width: 12.5px;
   height: 48px;
-  //border-style: solid;
   border-left: 0.5px dashed rgba(0, 0, 0, 0.1);
   display: inline-block;
 `;
@@ -229,7 +226,6 @@ const TimeDivide = styled.div`
 const TimeDivideFull = styled.div`
   width: 12.5px;
   height: 48px;
-  //border-style: solid;
   border-left: 0.5px solid rgba(0, 0, 0, 0.2);
   display: inline-block;
 `;
@@ -270,7 +266,7 @@ const Legenda1 = styled.div`
   left: 130px;
   width: 200px;
   height: 40px;
-  border-style: solid;
+  display: inline-block;
 `;
 
 const Legenda2 = styled.div`
@@ -279,13 +275,29 @@ const Legenda2 = styled.div`
   left: 130px;
   width: 200px;
   height: 40px;
-  border-style: solid;
 `;
 
 const LegendaBoja = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 2px;
+  display: inline-block;
+`;
+
+const LegendaText = styled.div`
+  position: absolute;
+  margin: 8px;
+  margin-top: 13px;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  display: inline-block;
+  vertical-align: middle;
 `;
 
 export {
@@ -313,5 +325,6 @@ export {
   Zauzeto1,
   Legenda1,
   Legenda2,
-  LegendaBoja
+  LegendaBoja,
+  LegendaText
 };
