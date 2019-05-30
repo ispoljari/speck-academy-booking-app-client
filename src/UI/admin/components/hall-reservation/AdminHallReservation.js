@@ -1,114 +1,159 @@
 import React from 'react';
-import styled from 'styled-components/macro';
-import arena from '../../../../util/images/arena.webp';
 
-const Wrapper = styled.div`
-  box-sizing: border-box;
-  width: 632px;
-  height: 470px;
-  border-radius: 4px;
-  border: solid 1px #d9d9d9;
-  background-color: #ffffff;
-  padding: 32px;
-`;
+import {
+  Container,
+  Krug,
+  Broj,
+  Datum,
+  Oznacite,
+  Podebljano,
+  OdaberiteDatum,
+  OdaberiteVrijeme,
+  Pocetak,
+  Kraj,
+  Unos,
+  Rectangle,
+  Vector,
+  Input,
+  Timeline,
+  Time,
+  Prazno,
+  TimeDivide,
+  TimeDivideFull,
+  Zauzeto,
+  Slobodno,
+  Zauzeto1,
+  Legenda1,
+  Legenda2,
+  LegendaBoja,
+  LegendaText
+} from './style.js';
 
-const Title = styled.div`
-  font-family: Lora;
-  font-size: 32px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-`;
-const TopPart = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-const ArenaPicture = styled.img`
-  width: 244px;
-  height: 136px;
-  border-radius: 2px;
-  border: solid 1px #229c7f;
-  margin-bottom: 8px;
-`;
-const MidPart = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding-top: 24px;
-`;
-const MidRightPart = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-left: 24px;
-`;
-const SlimText = styled.div`
-  width: 204px;
-  height: 24px;
-  font-family: Poppins;
-  font-size: 16px;
-`;
-const Rectangle = styled.div`
-  box-sizing: border-box;
-  width: 300px;
-  height: 32px;
-  border-radius: 2px;
-  border: solid 1px rgba(0, 0, 0, 0.15);
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
-  margin: 4px 0 12px;
-`;
-const Opis = styled.div`
-  width: 100%;
-`;
-const BigRectangle = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: 104px;
-  border-radius: 2px;
-  border: solid 1px rgba(0, 0, 0, 0.15);
-  padding: 8px 16px;
-`;
-const Button = styled.button`
-  width: 356px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: #0f4850;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
-  color: #ffffff;
-  text-align: center;
-  margin-left: 114px;
-  margin-top: 24px;
-`;
-
-const EditHallComponent = () => (
-  <Wrapper>
-    <TopPart>
-      <Title>Uredi podatke o dvorani</Title>
-    </TopPart>
-    <MidPart>
-      <ArenaPicture src={arena} />
-      <MidRightPart>
-        <SlimText>NAZIV</SlimText>
-        <Rectangle>Velika Sportska Dvorana</Rectangle>
-        <SlimText>LOKACIJA</SlimText>
-        <Rectangle>Potocka ul. 27</Rectangle>
-      </MidRightPart>
-    </MidPart>
-    <Opis>
-      <SlimText>OPIS</SlimText>
-      <BigRectangle>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum,
-        leo pulvinar aliquet sagittis, neque ligula sagittis augue, eget finibus
-        lectus leo nec ipsum.{' '}
-      </BigRectangle>
-    </Opis>
-    <Button>SPREMI</Button>
-  </Wrapper>
+const CitizensSelectDateTime = () => (
+  <Container>
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/poppins"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Lora"
+    />
+    <Krug />
+    <Broj>2</Broj>
+    <Datum>Odaberite datum i vrijeme:</Datum>
+    <Oznacite>
+      Označite slobodan termin na kalendaru za Vaš odabir:{' '}
+      <Podebljano>Konferencijska dvorana RCTP.</Podebljano>
+    </Oznacite>
+    <OdaberiteDatum>ODABERITE DATUM:</OdaberiteDatum>
+    <OdaberiteVrijeme>ODABERITE VRIJEME:</OdaberiteVrijeme>
+    <Pocetak>POČETAK</Pocetak>
+    <Kraj>KRAJ</Kraj>
+    <Unos>
+      <Rectangle>
+        <Input placeholder="DATUM..." type="date" />
+        <Vector />
+      </Rectangle>
+      <Rectangle>
+        <Input placeholder="VRIJEME..." type="text" />
+        <Vector />
+      </Rectangle>
+      <Rectangle>
+        <Input placeholder="VRIJEME..." type="text" />
+        <Vector />
+      </Rectangle>
+    </Unos>
+    <Timeline>
+      <Time>8</Time>
+      <Time>9</Time>
+      <Time>10</Time>
+      <Time>11</Time>
+      <Time>12</Time>
+      <Time>13</Time>
+      <Time>14</Time>
+      <Time>15</Time>
+      <Time>16</Time>
+      <Time>17</Time>
+      <Time>18</Time>
+      <Time>19</Time>
+      <Time>20</Time>
+      <Time>21</Time>
+      <Time>22</Time>
+      <Prazno />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivide />
+      <TimeDivideFull />
+      <Zauzeto />
+      <Slobodno />
+      <Zauzeto1 />
+    </Timeline>
+    <Legenda1>
+      <LegendaBoja style={{ backgroundColor: '#0f4850' }} />
+      <LegendaText>Zauzeti termini</LegendaText>
+    </Legenda1>
+    <Legenda2>
+      <LegendaBoja style={{ backgroundColor: '#93e9bb' }} />
+      <LegendaText>Odabrani termin</LegendaText>
+    </Legenda2>
+  </Container>
 );
 
-export default EditHallComponent;
+export default CitizensSelectDateTime;

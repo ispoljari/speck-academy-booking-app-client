@@ -9,6 +9,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import EditHallComponent from './UI/admin/components/hall-reservation/AdminHallReservation.js';
+//import EditHallComponent from './UI/admin/components/edit-hall/AdminEditHall.js';
+import CitizensSelectDateTime from './UI/admin/components/hall-reservation/AdminHallReservation.js';
 
-ReactDOM.render(<EditHallComponent />, document.getElementById('root'));
+ReactDOM.render(<CitizensSelectDateTime />, document.getElementById('root'));
