@@ -151,7 +151,7 @@ const CitizensSelectDateTime = () => (
     </Legenda1>
     <Legenda2>
       <LegendaBoja style={{ backgroundColor: '#93e9bb' }} />
-      <LegendaText>Odabrani termini</LegendaText>
+      <LegendaText>Odabrani termin</LegendaText>
     </Legenda2>
   </Container>
 );
