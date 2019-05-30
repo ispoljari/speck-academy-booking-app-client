@@ -1,11 +1,25 @@
 import React from 'react';
 
-import { HallReqContainer, HallReqTitle } from './AdminHallRequestStyle';
+import {
+  HallReqContainer,
+  HallReqTitle,
+  HallDiv,
+  ImageDiv,
+  TextDiv,
+  ButtonDiv,
+  ImageHall
+} from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
-  <HallReqContainer>
-    <HallReqTitle>Konferencijska Dvorana RCTP</HallReqTitle>
-  </HallReqContainer>
+  <HallDiv>
+    <ImageDiv>
+      <ImageHall />
+    </ImageDiv>
+
+    <TextDiv />
+
+    <ButtonDiv />
+  </HallDiv>
 );
 
 export default AdminHallRequest;
