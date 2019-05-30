@@ -85,7 +85,7 @@ const Button = styled.button`
   margin-top: 24px;
 `;
 
-const EditHallComponent = () => (
+const EditHallComponent = props => (
   <Wrapper>
     <TopPart>
       <Title>Uredi podatke o dvorani</Title>
@@ -94,18 +94,14 @@ const EditHallComponent = () => (
       <ArenaPicture src={arena} />
       <MidRightPart>
         <SlimText>NAZIV</SlimText>
-        <Rectangle>Velika Sportska Dvorana</Rectangle>
+        <Rectangle>{props.naziv}</Rectangle>
         <SlimText>LOKACIJA</SlimText>
-        <Rectangle>Potocka ul. 27</Rectangle>
+        <Rectangle>{props.lokacija}</Rectangle>
       </MidRightPart>
     </MidPart>
     <Opis>
       <SlimText>OPIS</SlimText>
-      <BigRectangle>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum,
-        leo pulvinar aliquet sagittis, neque ligula sagittis augue, eget finibus
-        lectus leo nec ipsum.{' '}
-      </BigRectangle>
+      <BigRectangle>{props.opis}</BigRectangle>
     </Opis>
     <Button>SPREMI</Button>
   </Wrapper>

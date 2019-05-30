@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import EditHallComponent from './UI/admin/components/edit-hall/AdminEditHall.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <EditHallComponent
+    naziv="Velika Dvorana"
+    lokacija="krizevci 123"
+    opis="Lorem ipsum blablalndjshibkdsub"
+  />,
+  document.getElementById('root')
+);
