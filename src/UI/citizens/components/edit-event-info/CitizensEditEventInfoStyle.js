@@ -25,4 +25,8 @@ const MainDescription = styled.p`
   color: #000000;
 `;
 
-export { MainContainer, MainHeader, MainDescription };
+export {
+  MainContainer,
+  MainHeader,
+  MainDescription,
+};
