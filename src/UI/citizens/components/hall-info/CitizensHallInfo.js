@@ -1,4 +1,5 @@
 import React from 'react';
+import Radnik from '../../../../images/radnik.png';
 
 import {
   HallInfoContainer,
@@ -12,7 +13,7 @@ const CitizensHallInfo = () => (
   <HallInfoContainer>
     <HallInfoTitle>Informacije</HallInfoTitle>
     <HallInfoPanel>
-      <HallImage />
+      <HallImage img src={Radnik} />
       <HallDescription />
     </HallInfoPanel>
   </HallInfoContainer>
