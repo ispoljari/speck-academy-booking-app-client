@@ -1,36 +1,56 @@
 import React from 'react';
 
 import {
-  HeaderContainer,
-  HeaderTitle,
-  divKrug,
-  divBroj
+  Container,
+  Title,
+  Krug,
+  Broj,
+  Mail,
+  Adresa,
+  Mobitel,
+  Kontakt,
+  Opis,
+  Nesto,
+  Button2
 } from './CitizensSubmitRequestStyle';
 
 const CitizensSubmitRequest = () => (
-  <HeaderContainer>
-    <divKrug>
-      <divBroj>4</divBroj>
-    </divKrug>
+  <Container>
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/poppins"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Lora"
+    />
 
-    <HeaderTitle>Kraj</HeaderTitle>
+    <Krug />
+    <Broj>4</Broj>
 
-    <bodyTitle>
+    <Title>Kraj</Title>
+
+    <Opis>
       Nakon što ste ispunili sve podatke, pošaljite svoj zahtjev na razmatranje.
-      Povratnu informaciju ćete dobiti u što kraćem roku.
-      <br />
+      Povratnu informaciju ćete dobiti u <p>što kraćem roku.</p>
       <br />
       Za sva dodatnja pitanja, kontaktirajte nas:
+    </Opis>
+    <Nesto>
+      <Mail>E-MAIL</Mail>
+      <Adresa>info@grad-krizevci.hr</Adresa>
       <br />
-      <br />
-      <divMail>E-MAIL</divMail>
-      <divAdresa>info@grad-krizevci.hr</divAdresa>
-      <br />
-      <br />
-      <divKontakt>MOBITEL</divKontakt>
-      <divMobitel>099 / 12 34 5678</divMobitel>
-    </bodyTitle>
-  </HeaderContainer>
+    </Nesto>
+    <Nesto>
+      <Kontakt>MOBITEL</Kontakt>
+      <Mobitel>099 / 12 34 5678</Mobitel>
+    </Nesto>
+
+    <Button2>POŠALJITE ZAHTIJEV</Button2>
+  </Container>
 );
 
 export default CitizensSubmitRequest;
