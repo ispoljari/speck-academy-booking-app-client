@@ -230,6 +230,12 @@ const TimeDivideFull = styled.div`
   display: inline-block;
 `;
 
+const TimeDivideWrapper = styled.div`
+  width: 52px;
+  height: 48px;
+  display: inline-block;
+`;
+
 const Zauzeto = styled.div`
   position: absolute;
   top: 24px;
@@ -320,6 +326,7 @@ export {
   Prazno,
   TimeDivide,
   TimeDivideFull,
+  TimeDivideWrapper,
   Zauzeto,
   Slobodno,
   Zauzeto1,

@@ -20,6 +20,7 @@ import {
   Prazno,
   TimeDivide,
   TimeDivideFull,
+  TimeDivideWrapper,
   Zauzeto,
   Slobodno,
   Zauzeto1,
@@ -28,6 +29,52 @@ import {
   LegendaBoja,
   LegendaText
 } from './style.js';
+
+const a = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 222];
+
+/*const TimeLine2 = (props) => {
+  return (
+    {a.map(i => {
+      return
+      <div>
+        <Time>8</Time>
+        <TimeDivideFull />
+        <TimeDivide />
+        <TimeDivide />
+        <TimeDivide />
+      </div>
+      })}
+      )
+
+    };
+*/
+
+const TimeLine2 = () => {
+  return (
+    <div>
+      {a.map(i => {
+        return <Time>{i}</Time>;
+      })}
+    </div>
+  );
+};
+
+const TimeLine3 = () => {
+  return (
+    <div>
+      {a.map(i => {
+        return (
+          <TimeDivideWrapper>
+            <TimeDivideFull />
+            <TimeDivide />
+            <TimeDivide />
+            <TimeDivide />
+          </TimeDivideWrapper>
+        );
+      })}
+    </div>
+  );
+};
 
 const CitizensSelectDateTime = () => (
   <Container>
@@ -68,79 +115,9 @@ const CitizensSelectDateTime = () => (
       </Rectangle>
     </Unos>
     <Timeline>
-      <Time>8</Time>
-      <Time>9</Time>
-      <Time>10</Time>
-      <Time>11</Time>
-      <Time>12</Time>
-      <Time>13</Time>
-      <Time>14</Time>
-      <Time>15</Time>
-      <Time>16</Time>
-      <Time>17</Time>
-      <Time>18</Time>
-      <Time>19</Time>
-      <Time>20</Time>
-      <Time>21</Time>
-      <Time>22</Time>
+      <TimeLine2 />
       <Prazno />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
+      <TimeLine3 />
       <Zauzeto />
       <Slobodno />
       <Zauzeto1 />
@@ -157,3 +134,4 @@ const CitizensSelectDateTime = () => (
 );
 
 export default CitizensSelectDateTime;
+//export TimeLine2, CitizensSelectDateTime;
