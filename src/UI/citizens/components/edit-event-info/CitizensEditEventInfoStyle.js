@@ -25,8 +25,11 @@ const MainDescription = styled.p`
   color: #000000;
 `;
 
-export {
-  MainContainer,
-  MainHeader,
-  MainDescription,
-};
+const FormHeader = styled.h5`
+  text-transform: uppercase;
+  font-family: Poppins;
+  font-size: 16px;
+  color: #434343;
+`;
+
+export { MainContainer, MainHeader, MainDescription, FormHeader };
