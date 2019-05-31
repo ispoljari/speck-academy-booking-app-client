@@ -6,15 +6,23 @@ import {
   HallInfoTitle,
   HallInfoPanel,
   HallImage,
-  HallDescription
+  HallName,
+  HallNameTitle
 } from './CitizensHallInfoStyle';
 
 const CitizensHallInfo = () => (
   <HallInfoContainer>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora&display=swap"
+      rel="stylesheet"
+    />
+
     <HallInfoTitle>Informacije</HallInfoTitle>
     <HallInfoPanel>
       <HallImage img src={Radnik} />
-      <HallDescription />
+      <HallName>
+        <HallNameTitle>VELIKA SPORTSKA DVORANA</HallNameTitle>
+      </HallName>
     </HallInfoPanel>
   </HallInfoContainer>
 );
