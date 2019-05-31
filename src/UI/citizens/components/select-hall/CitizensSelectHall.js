@@ -14,6 +14,10 @@ import hallImage03 from '../../../../images/gradska-knjiznica.png';
 
 import hallImage04 from '../../../../images/turisticki-dom@3x.png';
 
+//styles
+
+import { ScreenCanvas } from './SelectHallStyle.js';
+
 // example of component logic that shows how to fetch data from the API
 // remove the code from this component and refactor it into a functional CitizensSelectHall component according to the design mockup
 
@@ -64,17 +68,6 @@ import hallImage04 from '../../../../images/turisticki-dom@3x.png';
 //     );
 //   }
 // }
-
-//cijeli viewport
-const ScreenCanvas = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: 1080px;
-  background-color: #f4f5f7;
-`;
-//cijeli viewport end
 
 const DivImage = styled.div`
   display: flex; 
