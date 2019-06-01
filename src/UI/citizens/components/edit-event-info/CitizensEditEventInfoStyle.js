@@ -26,8 +26,7 @@ const MainDescription = styled.p`
   paddng-bottom: 16px;
 `;
 
-const FormContainer = styled.form`
-`;
+const FormContainer = styled.form``;
 
 const FormHeader = styled.h5`
   text-transform: uppercase;
@@ -62,21 +61,29 @@ const FormInputText = styled.textarea`
 `;
 
 const FormInlineLabel = styled.h6`
-    text-transform: uppercase;
-    opacity: 0.5;
-    font-family: Poppins;
-    font-size: 12px;
-    font-weight: 200;
-    color: #000000;
-    margin-top: 8px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  color: #000000;
+  margin-top: 8px;
 `;
 
 const FormInlineInput = styled.span`
-    display: inline-block;
-    width: 374px;
-    margin-right: 7px;
+  display: inline-block;
+  width: 374px;
+  margin-right: 7px;
 `;
 
-export { MainContainer, MainHeader, MainDescription,
-    FormContainer, FormHeader, FormInput, FormInputText,
-    FormInlineLabel, FormInlineInput };
+export {
+  MainContainer,
+  MainHeader,
+  MainDescription,
+  FormContainer,
+  FormHeader,
+  FormInput,
+  FormInputText,
+  FormInlineLabel,
+  FormInlineInput
+};
