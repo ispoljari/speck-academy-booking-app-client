@@ -16,7 +16,7 @@ export const HallImage = styled.img.attrs({
   src: 'url.props'
 })`
   width: 244px;
-  height: 136px;
+  height: 138px;
   z-index: 0;
   object-fit: contain;
   border-radius: 2px;
@@ -28,7 +28,7 @@ export const DivImage = styled.div`
   display: flex; 
   flex-direction: row;
   justify-content: center
-  background-color: #93e9bb;
+  ${'' /* background-color: #93e9bb; */}
   width: 244px;
   height: 136px;
   margin: 10px;

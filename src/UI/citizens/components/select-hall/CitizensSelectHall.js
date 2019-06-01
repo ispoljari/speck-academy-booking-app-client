@@ -14,6 +14,8 @@ import hallImage03 from '../../../../images/gradska-knjiznica.png';
 
 import hallImage04 from '../../../../images/turisticki-dom@3x.png';
 
+import hallImage05 from '../../../../images/konf-dvorana-1@3x.png';
+
 //styles
 
 import {
@@ -134,11 +136,7 @@ class CitizensSelectHall extends React.Component {
             </DivImage>
 
             <DivImage>
-              <HallImage
-                src={
-                  'https://mir-s3-cdn-cf.behance.net/project_modules/disp/78528a63003363.5aa278dba00fe.jpg'
-                }
-              />
+              <HallImage src={hallImage05} />
               <ImeDvoranePlaceholder>
                 <ImeDvoraneText>Konferencijska dvorana RCTP</ImeDvoraneText>
               </ImeDvoranePlaceholder>
