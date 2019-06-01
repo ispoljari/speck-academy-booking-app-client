@@ -4,7 +4,7 @@ import { API_BASE_URL } from '../../../../config';
 
 import HallImage from './HallImage';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import hallImage01 from '../../../../images/01.png';
 
@@ -27,7 +27,10 @@ import {
   SubheadlineText,
   LayoutFirstRow,
   LayoutSecondRow,
-  MainContainer
+  MainContainer,
+  Elipse,
+  Number,
+  LayoutWrapper
 } from './SelectHallStyle.js';
 
 // example of component logic that shows how to fetch data from the API
@@ -86,62 +89,67 @@ class CitizensSelectHall extends React.Component {
     return (
       <ScreenCanvas>
         <MainContainer>
+          <Elipse>
+            <Number>1</Number>
+          </Elipse>
           <HeadlineText>Odaberite dvoranu</HeadlineText>
           <SubheadlineText>
             Pronađite dvoranu koja vam odgovara. Za dodatne informacije kliknite
             na SVG ikonu.
           </SubheadlineText>
-          <LayoutFirstRow>
-            <DivImage>
-              <HallImage src={hallImage01} />
-              <ImeDvoranePlaceholder>
-                <ImeDvoraneText>
-                  Velika sportska <br />
-                  dvorana
-                </ImeDvoraneText>
-              </ImeDvoranePlaceholder>
-            </DivImage>
+          <LayoutWrapper>
+            <LayoutFirstRow>
+              <DivImage>
+                <HallImage src={hallImage01} />
+                <ImeDvoranePlaceholder>
+                  <ImeDvoraneText>
+                    Velika sportska <br />
+                    dvorana
+                  </ImeDvoraneText>
+                </ImeDvoranePlaceholder>
+              </DivImage>
 
-            <DivImage>
-              <HallImage src={hallImage02} />
-              <ImeDvoranePlaceholder>
-                <ImeDvoraneText>
-                  Dvorana Hrvatskog <br />
-                  doma
-                </ImeDvoraneText>
-              </ImeDvoranePlaceholder>
-            </DivImage>
+              <DivImage>
+                <HallImage src={hallImage02} />
+                <ImeDvoranePlaceholder>
+                  <ImeDvoraneText>
+                    Dvorana Hrvatskog <br />
+                    doma
+                  </ImeDvoraneText>
+                </ImeDvoranePlaceholder>
+              </DivImage>
 
-            <DivImage>
-              <HallImage src={hallImage03} />
-              <ImeDvoranePlaceholder>
-                <ImeDvoraneText>
-                  Dvorana Gradske <br />
-                  knjižnice
-                </ImeDvoraneText>
-              </ImeDvoranePlaceholder>
-            </DivImage>
-          </LayoutFirstRow>
+              <DivImage>
+                <HallImage src={hallImage03} />
+                <ImeDvoranePlaceholder>
+                  <ImeDvoraneText>
+                    Dvorana Gradske <br />
+                    knjižnice
+                  </ImeDvoraneText>
+                </ImeDvoranePlaceholder>
+              </DivImage>
+            </LayoutFirstRow>
 
-          <LayoutSecondRow>
-            <DivImage>
-              <HallImage src={hallImage04} />
-              <ImeDvoranePlaceholder>
-                <ImeDvoraneText>
-                  Dvorana TIC
-                  <br />
-                  (Turistički dom)
-                </ImeDvoraneText>
-              </ImeDvoranePlaceholder>
-            </DivImage>
+            <LayoutSecondRow>
+              <DivImage>
+                <HallImage src={hallImage04} />
+                <ImeDvoranePlaceholder>
+                  <ImeDvoraneText>
+                    Dvorana TIC
+                    <br />
+                    (Turistički dom)
+                  </ImeDvoraneText>
+                </ImeDvoranePlaceholder>
+              </DivImage>
 
-            <DivImage>
-              <HallImage src={hallImage05} />
-              <ImeDvoranePlaceholder>
-                <ImeDvoraneText>Konferencijska dvorana RCTP</ImeDvoraneText>
-              </ImeDvoranePlaceholder>
-            </DivImage>
-          </LayoutSecondRow>
+              <DivImage>
+                <HallImage src={hallImage05} />
+                <ImeDvoranePlaceholder>
+                  <ImeDvoraneText>Konferencijska dvorana RCTP</ImeDvoraneText>
+                </ImeDvoranePlaceholder>
+              </DivImage>
+            </LayoutSecondRow>
+          </LayoutWrapper>
         </MainContainer>
       </ScreenCanvas>
     );

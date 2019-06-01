@@ -30,7 +30,7 @@ export const DivImage = styled.div`
   justify-content: center
   ${'' /* background-color: #93e9bb; */}
   width: 244px;
-  height: 136px;
+  height: 138px;
   margin: 10px;
   
 `;
@@ -93,6 +93,13 @@ export const SubheadlineText = styled.div`
 `;
 
 //Dovrane layout
+
+export const LayoutWrapper = styled.div`
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const LayoutFirstRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -103,6 +110,7 @@ export const LayoutSecondRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: -5px;
 `;
 // kraj Dvorane layout
 
@@ -115,4 +123,26 @@ export const MainContainer = styled.div`
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
+`;
+
+export const Elipse = styled.div`
+  display: flex;
+  ${'' /* align-items: center; */}
+  width: 152px;
+  height: 152px;
+  opacity: 0.9;
+  border: solid 16px rgba(130, 212, 167, 0.4);
+  border-radius: 50%;
+  position: absolute;
+  margin: 16px;
+`;
+
+export const Number = styled.div`
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-size: 96px;
+  font-weight: 800;
+  text-align: center;
+  margin-left: 38px;
+  color: #82d4a7;
 `;
