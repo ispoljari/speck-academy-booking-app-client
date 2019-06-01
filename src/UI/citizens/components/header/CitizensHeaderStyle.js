@@ -82,13 +82,13 @@ const Gumb = styled.button`
   width: 108px;
   height: 24px;
   font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #0f4850;
+  color: #229c7f;
 `;
 
 const Naslov = styled.div`
@@ -144,6 +144,76 @@ const Okvir3 = styled.div`
   margin-top:20px;
   `;
 
+const Kontakt = styled.div`
+  left: 65px;
+  top: 166px
+  position: absolute;
+  display: inline-block;
+  width: 64px;
+  height: 24px;
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #229c7f;
+`;
+
+const Mobitel = styled.div`
+left: 142px;
+  top: 168px
+  position: absolute;
+  display: inline-block;
+  width: 168px;
+  height: 24px;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-left: 13px;
+`;
+
+const Mail = styled.div`
+left: 65px;
+  top: 136px
+  position: absolute;
+  display: inline-block;
+  width: 64px;
+  height: 24px;
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #229c7f;
+`;
+
+const Adresa = styled.div`
+left: 142px;
+  top: 138px
+  position: absolute;
+  display: inline-block;
+  width: 168px;
+  height: 24px;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-left: 13px;
+`;
+
 export {
   HeaderContainer,
   Okvir3,
@@ -152,6 +222,10 @@ export {
   Naslov,
   Okvir,
   Gumb,
+  Kontakt,
+  Mobitel,
+  Mail,
+  Adresa,
   HeaderTitle,
   RezervacijaDvoranaMalo,
   RezervacijaDvorana,

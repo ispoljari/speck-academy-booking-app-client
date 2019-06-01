@@ -9,6 +9,10 @@ import {
   Okvir2,
   Naslov,
   Text,
+  Kontakt,
+  Mobitel,
+  Mail,
+  Adresa,
   Okvir3,
   HeaderImage
 } from './CitizensHeaderStyle';
@@ -44,6 +48,11 @@ const CitizensHeader = () => (
           <br />
           git kontaktirajte nas putem e-maila ili poziva.
         </Text>
+        <Mail>E-MAIL</Mail>
+        <Adresa>info@grad-krizevci.hr</Adresa>
+        <br />
+        <Kontakt>MOBITEL</Kontakt>
+        <Mobitel>099 / 12 34 5678</Mobitel>
       </Naslov>
     </Okvir3>
 
