@@ -1,5 +1,5 @@
 import React from 'react';
-import Radnik from '../../../../images/radnik.png';
+import hallImage from '../../../../images/radnik.png';
 
 import {
   HallInfoContainer,
@@ -12,14 +12,9 @@ import {
 
 const CitizensHallInfo = () => (
   <HallInfoContainer>
-    <link
-      href="https://fonts.googleapis.com/css?family=Lora&display=swap"
-      rel="stylesheet"
-    />
-
     <HallInfoTitle>Informacije</HallInfoTitle>
     <HallInfoPanel>
-      <HallImage img src={Radnik} />
+      <HallImage img src={hallImage} />
       <HallName>
         <HallNameTitle>VELIKA SPORTSKA DVORANA</HallNameTitle>
       </HallName>
