@@ -92,6 +92,26 @@ const Gumb = styled.button`
 `;
 
 const Naslov = styled.div`
+left: 20px;
+  top: 32px
+  position: absolute;
+  position: relative;
+  width: 576px;
+  height: 40px;
+  font-family: Lora;
+  font-size: 32px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+`;
+
+const Naslov1 = styled.div`
+left: 32px;
+  top: 32px
+  position: absolute;
   position: relative;
   width: 576px;
   height: 40px;
@@ -106,6 +126,23 @@ const Naslov = styled.div`
 `;
 
 const Text = styled.div`
+left: 32px;
+  top: 88px
+  position: absolute;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+`;
+
+const Text1 = styled.div`
+left: 16px;
+  top: 88px
+  position: absolute;
   font-family: Poppins;
   font-size: 14px;
   font-weight: normal;
@@ -151,6 +188,7 @@ const Kontakt = styled.div`
   display: inline-block;
   width: 64px;
   height: 24px;
+  text-align: right;
   font-family: Poppins-Regular;
   font-size: 16px;
   font-weight: normal;
@@ -186,6 +224,7 @@ left: 65px;
   display: inline-block;
   width: 64px;
   height: 24px;
+  text-align: right;
   font-family: Poppins-Regular;
   font-size: 16px;
   font-weight: normal;
@@ -218,8 +257,10 @@ export {
   HeaderContainer,
   Okvir3,
   Text,
+  Text1,
   Okvir2,
   Naslov,
+  Naslov1,
   Okvir,
   Gumb,
   Kontakt,
