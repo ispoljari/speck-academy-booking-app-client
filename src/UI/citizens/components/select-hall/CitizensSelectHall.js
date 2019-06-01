@@ -16,7 +16,17 @@ import hallImage04 from '../../../../images/turisticki-dom@3x.png';
 
 //styles
 
-import { ScreenCanvas } from './SelectHallStyle.js';
+import {
+  ScreenCanvas,
+  DivImage,
+  ImeDvoranePlaceholder,
+  ImeDvoraneText,
+  HeadlineText,
+  SubheadlineText,
+  LayoutFirstRow,
+  LayoutSecondRow,
+  MainContainer
+} from './SelectHallStyle.js';
 
 // example of component logic that shows how to fetch data from the API
 // remove the code from this component and refactor it into a functional CitizensSelectHall component according to the design mockup
@@ -68,97 +78,6 @@ import { ScreenCanvas } from './SelectHallStyle.js';
 //     );
 //   }
 // }
-
-const DivImage = styled.div`
-  display: flex; 
-  flex-direction: row;
-  justify-content: center
-  background-color: #93e9bb;
-  width: 244px;
-  height: 136px;
-  margin: 10px;
-  
-`;
-const ImeDvoranePlaceholder = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 155px;
-  height: 48px;
-  border-radius: 3px;
-  background-color: #808080;
-  align-self: flex-end;
-  position: absolute;
-`;
-//tipografija
-const ImeDvoraneText = styled.div`
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-  font-family: Poppins, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.14;
-  letter-spacing: normal;
-  color: #ffffff;
-  text-align: center;
-`;
-
-const HeadlineText = styled.div`
-  margin-left: 125px;
-  margin-top: 25px;
-  margin-bottom: 5px;
-  font-family: Lora, Georgia, serif;
-  font-size: 32px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-`;
-
-const SubheadlineText = styled.div`
-  margin-left: 125px;
-  margin-bottom: 15px;
-  width: 764px;
-  height: 24px;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-`;
-
-//Dovrane layout
-const LayoutFirstRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-const LayoutSecondRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-// kraj Dvorane layout
-
-const MainContainer = styled.div`
-  margin-top: 4em;
-  ${'' /* display: flex; */}
-  ${'' /* flex-directon: row; */}
-  width: 1024px;
-  height: 472px;
-  border-radius: 4px;
-  border: solid 1px #d9d9d9;
-  background-color: #ffffff;
-`;
 
 class CitizensSelectHall extends React.Component {
   render() {
