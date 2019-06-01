@@ -32,6 +32,9 @@ const TextDiv = styled.div`
   border: 1px solid black;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  box-sizing: border-box;
 `;
 
 const ButtonDiv = styled.div`
@@ -50,7 +53,6 @@ const ImageHall = styled.div`
   object-fit: cover;
 `;
 const HeaderHall = styled.div`
-{
   width: 278px;
   height: 32px;
   font-family: Lora;
@@ -61,8 +63,8 @@ const HeaderHall = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
-  margin-top:16px;
-  `;
+  margin-top: 16px;
+`;
 
 const AdressHall = styled.div`
   width: 117px;
@@ -79,6 +81,49 @@ const AdressHall = styled.div`
   margin-top: 25px;
 `;
 
+const EventItem = styled.div`
+  width: 504px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: #229c7f;
+  margin-top: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 16px;
+  padding: 2px 8px;
+  box-sizing: border-box;
+`;
+
+const EventName = styled.div`
+  width: 508px;
+  height: 24px;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 12px;
+`;
+
+const EventDesc = styled.div`
+  width: 504px;
+  height: 64px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 8px;
+`;
+
 export {
   HallReqContainer,
   HallReqTitle,
@@ -88,5 +133,8 @@ export {
   ButtonDiv,
   ImageHall,
   HeaderHall,
-  AdressHall
+  AdressHall,
+  EventItem,
+  EventName,
+  EventDesc
 };
