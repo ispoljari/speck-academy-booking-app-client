@@ -7,7 +7,9 @@ import {
   ImageDiv,
   TextDiv,
   ButtonDiv,
-  ImageHall
+  ImageHall,
+  HeaderHall,
+  AdressHall
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
@@ -16,7 +18,10 @@ const AdminHallRequest = () => (
       <ImageHall />
     </ImageDiv>
 
-    <TextDiv />
+    <TextDiv>
+      <HeaderHall>Konferencijska Dvorana RCP</HeaderHall>
+      <AdressHall>Franje Tuđmana 20 </AdressHall>
+    </TextDiv>
 
     <ButtonDiv />
   </HallDiv>

@@ -23,12 +23,15 @@ const ImageDiv = styled.div`
   height: 352px;
   width: 248px;
   border: 1px solid black;
+  display: flex;
 `;
 
 const TextDiv = styled.div`
   height: 352px;
   width: 504px;
   border: 1px solid black;
+  display: flex;
+  flex-direction: row;
 `;
 
 const ButtonDiv = styled.div`
@@ -46,6 +49,35 @@ const ImageHall = styled.div`
   margin-left: 16px;
   object-fit: cover;
 `;
+const HeaderHall = styled.div`
+{
+  width: 278px;
+  height: 32px;
+  font-family: Lora;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top:16px;
+  `;
+
+const AdressHall = styled.div`
+  width: 117px;
+  height: 20px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 25px;
+`;
 
 export {
   HallReqContainer,
@@ -54,5 +86,7 @@ export {
   ImageDiv,
   TextDiv,
   ButtonDiv,
-  ImageHall
+  ImageHall,
+  HeaderHall,
+  AdressHall
 };
