@@ -14,7 +14,12 @@ import {
   EventName,
   EventDesc,
   LeftText,
-  RightText
+  RightText,
+  DateInfo,
+  Datum,
+  DatumInput,
+  Time,
+  TimeInput
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
@@ -35,7 +40,13 @@ const AdminHallRequest = () => (
         leo. Suspendisse potenti. Pellentesque a cursus libero. Praesent ligula
         lectus, elementum nec tristique non, vehicula at leo.
       </EventDesc>
-      <LeftText />
+      <LeftText>
+        <DateInfo> TRAŽENI TERMIN</DateInfo>
+        <Datum>DATUM</Datum>
+        <DatumInput>25.04.2019</DatumInput>
+        <Time>VRIJEME</Time>
+        <TimeInput>09:00 - 22:00 </TimeInput>
+      </LeftText>
       <RightText />
     </TextDiv>
 

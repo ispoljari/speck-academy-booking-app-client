@@ -126,7 +126,9 @@ const LeftText = styled.div`
   width: 252px;
   height: 160px;
   box-sizing: border-box;
-  background-color: #229c7f;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 `;
 
 const RightText = styled.div`
@@ -134,6 +136,88 @@ const RightText = styled.div`
   height: 160px;
   box-sizing: border-box;
   background-color: #229c7f;
+  display: flex;
+  align-content: flex-start;
+`;
+
+const DateInfo = styled.div`
+  width: 244px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: #229c7f;
+  padding: 2px 8px;
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+`;
+
+const Datum = styled.div`
+  width: 40px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  box-sizing: border-box;
+  margin-top: 12px;
+  padding-left: 5px;
+`;
+
+const DatumInput = styled.div`
+  width: 145px;
+  height: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 12px;
+  margin-left: 35px;
+`;
+
+const Time = styled.div`
+  width: 45px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  box-sizing: border-box;
+  margin-top: 8px;
+`;
+
+const TimeInput = styled.div`
+  width: 145px;
+  height: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 8px;
+  margin-left: 30px;
 `;
 
 export {
@@ -150,5 +234,10 @@ export {
   EventName,
   EventDesc,
   LeftText,
-  RightText
+  RightText,
+  DateInfo,
+  Datum,
+  DatumInput,
+  Time,
+  TimeInput
 };
