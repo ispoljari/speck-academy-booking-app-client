@@ -23,7 +23,7 @@ const MainDescription = styled.p`
   font-family: Poppins;
   font-size: 14px;
   color: #000000;
-  paddng-bottom: 16px;
+  padding-bottom: 16px;
 `;
 
 const FormContainer = styled.form``;
@@ -44,11 +44,17 @@ const FormInput = styled.input`
   border: solid 1px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 `;
 
 const FormInputText = styled.textarea`
   width: 100%;
   height: 136px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
   padding-left: 8px;
   padding-top: 6px;
   padding-right: 8px;
@@ -58,6 +64,15 @@ const FormInputText = styled.textarea`
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
+`;
+
+const FormInputTextCharacterCounter = styled.p`
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  color: #000000;
+  text-align: end;
 `;
 
 const FormInlineLabel = styled.h6`
@@ -84,6 +99,7 @@ export {
   FormHeader,
   FormInput,
   FormInputText,
+  FormInputTextCharacterCounter,
   FormInlineLabel,
   FormInlineInput
 };

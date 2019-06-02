@@ -8,6 +8,7 @@ import {
   FormHeader,
   FormInput,
   FormInputText,
+  FormInputTextCharacterCounter,
   FormInlineLabel,
   FormInlineInput
 } from './CitizensEditEventInfoStyle';
@@ -24,7 +25,10 @@ const CitizensEditEventInfo = () => (
       <FormHeader>Naziv događaja:</FormHeader>
       <FormInput />
       <FormHeader>Opis događaja:</FormHeader>
-      <FormInputText value="Opišite svoj događaj..." />
+      <FormInputText placeholder="OPIŠITE SVOJ DOGAĐAJ..." />
+      <FormInputTextCharacterCounter>
+        0 / 500 znakova
+      </FormInputTextCharacterCounter>
       <FormHeader>Vaši kontakt podaci:</FormHeader>
       <FormInlineInput>
         <FormInlineLabel>Ime i prezime</FormInlineLabel>
