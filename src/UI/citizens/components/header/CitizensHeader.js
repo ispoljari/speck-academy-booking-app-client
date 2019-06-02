@@ -46,7 +46,7 @@ const CitizensHeader = () => (
       <Text1>
         Ako imate pitanja ili ste naišli na nejasnoće,
         <br />
-        git kontaktirajte nas putem e-maila ili poziva.
+        kontaktirajte nas putem e-maila ili poziva.
       </Text1>
       <Mail>E-MAIL</Mail>
       <Adresa>info@grad-krizevci.hr</Adresa>
