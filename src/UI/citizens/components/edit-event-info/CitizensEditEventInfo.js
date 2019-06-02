@@ -2,6 +2,8 @@ import React from 'react';
 
 import {
   MainContainer,
+  CricleMark,
+  NumberMark,
   MainHeader,
   MainDescription,
   FormContainer,
@@ -16,6 +18,9 @@ import {
 
 const CitizensEditEventInfo = () => (
   <MainContainer>
+    <CricleMark>
+      <NumberMark>3</NumberMark>
+    </CricleMark>
     <MainHeader>Podaci o događaju i Vama</MainHeader>
     <MainDescription>
       Recite nam ime svog događaja i pobliže ga objasnite. Nemojte zaboraviti

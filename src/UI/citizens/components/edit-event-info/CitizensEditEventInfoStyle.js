@@ -20,7 +20,7 @@ const MainHeader = styled.h1`
 `;
 
 const MainDescription = styled.p`
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 14px;
   color: #000000;
   padding-bottom: 16px;
@@ -30,7 +30,7 @@ const FormContainer = styled.form``;
 
 const FormHeader = styled.h5`
   text-transform: uppercase;
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 16px;
   font-weight: normal;
   color: #434343;
@@ -58,7 +58,7 @@ const FormInput = styled.input`
 const FormInputText = styled.textarea`
   width: 100%;
   height: 136px;
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   padding-left: 8px;
@@ -75,7 +75,7 @@ const FormInputText = styled.textarea`
 
 const FormInputTextCharacterCounter = styled.p`
   opacity: 0.5;
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 12px;
   font-weight: 200;
   color: #000000;
@@ -85,7 +85,7 @@ const FormInputTextCharacterCounter = styled.p`
 const FormInlineLabel = styled.h6`
   text-transform: uppercase;
   opacity: 0.5;
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 12px;
   font-weight: 200;
   color: #000000;
@@ -95,6 +95,27 @@ const FormInlineLabel = styled.h6`
 const FormInlineInput = styled.span`
   display: inline-block;
   width: 374px;
+`;
+
+const CricleMark = styled.div`
+  width: 152px;
+  height: 152px;
+  opacity: 0.2;
+  border: solid 16px rgba(130, 212, 167, 0.4);
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 16px;
+  margin-left: -114px;
+`;
+
+const NumberMark = styled.div`
+  position: absolute;
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 96px;
+  font-weight: 800;
+  text-align: center;
+  margin-left: 38px;
+  color: #82d4a7;
 `;
 
 export {
@@ -108,5 +129,7 @@ export {
   FormInputText,
   FormInputTextCharacterCounter,
   FormInlineLabel,
-  FormInlineInput
+  FormInlineInput,
+  CricleMark,
+  NumberMark
 };
