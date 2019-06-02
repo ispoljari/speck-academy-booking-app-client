@@ -22,14 +22,12 @@ const HallDiv = styled.div`
 const ImageDiv = styled.div`
   height: 352px;
   width: 248px;
-  border: 1px solid black;
   display: flex;
 `;
 
 const TextDiv = styled.div`
   height: 352px;
   width: 504px;
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -124,6 +122,20 @@ const EventDesc = styled.div`
   margin-top: 8px;
 `;
 
+const LeftText = styled.div`
+  width: 252px;
+  height: 160px;
+  box-sizing: border-box;
+  background-color: #229c7f;
+`;
+
+const RightText = styled.div`
+  width: 252px;
+  height: 160px;
+  box-sizing: border-box;
+  background-color: #229c7f;
+`;
+
 export {
   HallReqContainer,
   HallReqTitle,
@@ -136,5 +148,7 @@ export {
   AdressHall,
   EventItem,
   EventName,
-  EventDesc
+  EventDesc,
+  LeftText,
+  RightText
 };

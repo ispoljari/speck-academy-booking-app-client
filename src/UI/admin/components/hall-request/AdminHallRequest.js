@@ -12,7 +12,9 @@ import {
   AdressHall,
   EventItem,
   EventName,
-  EventDesc
+  EventDesc,
+  LeftText,
+  RightText
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
@@ -33,6 +35,8 @@ const AdminHallRequest = () => (
         leo. Suspendisse potenti. Pellentesque a cursus libero. Praesent ligula
         lectus, elementum nec tristique non, vehicula at leo.
       </EventDesc>
+      <LeftText />
+      <RightText />
     </TextDiv>
 
     <ButtonDiv />
