@@ -21,7 +21,7 @@ const HallDiv = styled.div`
 
 const ImageDiv = styled.div`
   height: 352px;
-  width: 248px;
+  width: 268px;
   display: flex;
 `;
 
@@ -37,8 +37,8 @@ const TextDiv = styled.div`
 
 const ButtonDiv = styled.div`
   height: 352px;
-  width: 266px;
-  border: 1px solid black;
+  width: 260px;
+  background-color: red;
 `;
 
 const ImageHall = styled.div`
@@ -77,6 +77,7 @@ const AdressHall = styled.div`
   letter-spacing: normal;
   color: #000000;
   margin-top: 25px;
+  margin-left: 24px;
 `;
 
 const EventItem = styled.div`
@@ -120,6 +121,7 @@ const EventDesc = styled.div`
   letter-spacing: normal;
   color: #000000;
   margin-top: 8px;
+  text-align: justify;
 `;
 
 const LeftText = styled.div`
@@ -135,9 +137,9 @@ const RightText = styled.div`
   width: 252px;
   height: 160px;
   box-sizing: border-box;
-  background-color: #229c7f;
   display: flex;
   align-content: flex-start;
+  flex-wrap: wrap;
 `;
 
 const DateInfo = styled.div`
@@ -220,6 +222,94 @@ const TimeInput = styled.div`
   margin-left: 30px;
 `;
 
+const ContactInfo = styled.div`
+  width: 244px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: #229c7f;
+  padding: 2px 8px;
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  box-sizing: border-box;
+  margin-left: 8px;
+`;
+
+const Namesurname = styled.div`
+  width: 82px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  box-sizing: border-box;
+  margin-top: 12px;
+  white-space: nowrap;
+  margin-left: 10px;
+`;
+
+const NamesurnameInput = styled.div`
+  width: 135px;
+  height: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 12px;
+  margin-left: 19px;
+  white-space: nowrap;
+  text-align: left;
+`;
+
+const Organizacija = styled.div`
+  width: 83px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 8px;
+  margin-left: 6px;
+  white-space: nowrap;
+`;
+
+const OrganizacijaInput = styled.div`
+  width: 135px;
+  height: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 12px;
+  margin-left: 19px;
+  white-space: nowrap;
+  text-align: left;
+`;
+
 export {
   HallReqContainer,
   HallReqTitle,
@@ -239,5 +329,10 @@ export {
   Datum,
   DatumInput,
   Time,
-  TimeInput
+  TimeInput,
+  ContactInfo,
+  Namesurname,
+  NamesurnameInput,
+  Organizacija,
+  OrganizacijaInput
 };

@@ -19,7 +19,11 @@ import {
   Datum,
   DatumInput,
   Time,
-  TimeInput
+  TimeInput,
+  ContactInfo,
+  Namesurname,
+  NamesurnameInput,
+  Organizacija
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
@@ -47,7 +51,12 @@ const AdminHallRequest = () => (
         <Time>VRIJEME</Time>
         <TimeInput>09:00 - 22:00 </TimeInput>
       </LeftText>
-      <RightText />
+      <RightText>
+        <ContactInfo>KONTAKT PODACI</ContactInfo>
+        <Namesurname>IME I PREZIME</Namesurname>
+        <NamesurnameInput>Ivana Horvatić</NamesurnameInput>
+        <Organizacija>ORGANIZACIJA</Organizacija>
+      </RightText>
     </TextDiv>
 
     <ButtonDiv />
