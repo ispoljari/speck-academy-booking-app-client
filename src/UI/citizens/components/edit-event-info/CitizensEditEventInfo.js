@@ -6,6 +6,7 @@ import {
   MainDescription,
   FormContainer,
   FormHeader,
+  FormContainerInfoGroup,
   FormInput,
   FormInputText,
   FormInputTextCharacterCounter,
@@ -30,22 +31,24 @@ const CitizensEditEventInfo = () => (
         0 / 500 znakova
       </FormInputTextCharacterCounter>
       <FormHeader>Vaši kontakt podaci:</FormHeader>
-      <FormInlineInput>
-        <FormInlineLabel>Ime i prezime</FormInlineLabel>
-        <FormInput />
-      </FormInlineInput>
-      <FormInlineInput>
-        <FormInlineLabel>Organizacija (neobavezno)</FormInlineLabel>
-        <FormInput />
-      </FormInlineInput>
-      <FormInlineInput>
-        <FormInlineLabel>E-mail adresa</FormInlineLabel>
-        <FormInput />
-      </FormInlineInput>
-      <FormInlineInput>
-        <FormInlineLabel>Broj telefona/Mobitela</FormInlineLabel>
-        <FormInput />
-      </FormInlineInput>
+      <FormContainerInfoGroup>
+        <FormInlineInput>
+          <FormInlineLabel>Ime i prezime</FormInlineLabel>
+          <FormInput />
+        </FormInlineInput>
+        <FormInlineInput>
+          <FormInlineLabel>Organizacija (neobavezno)</FormInlineLabel>
+          <FormInput />
+        </FormInlineInput>
+        <FormInlineInput>
+          <FormInlineLabel>E-mail adresa</FormInlineLabel>
+          <FormInput />
+        </FormInlineInput>
+        <FormInlineInput>
+          <FormInlineLabel>Broj telefona/Mobitela</FormInlineLabel>
+          <FormInput />
+        </FormInlineInput>
+      </FormContainerInfoGroup>
     </FormContainer>
   </MainContainer>
 );

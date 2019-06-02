@@ -37,6 +37,12 @@ const FormHeader = styled.h5`
   padding-top: 16px;
 `;
 
+const FormContainerInfoGroup = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
 const FormInput = styled.input`
   width: 100%;
   height: 32px;
@@ -64,6 +70,7 @@ const FormInputText = styled.textarea`
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
+  resize: none;
 `;
 
 const FormInputTextCharacterCounter = styled.p`
@@ -88,7 +95,6 @@ const FormInlineLabel = styled.h6`
 const FormInlineInput = styled.span`
   display: inline-block;
   width: 374px;
-  margin-right: 7px;
 `;
 
 export {
@@ -97,6 +103,7 @@ export {
   MainDescription,
   FormContainer,
   FormHeader,
+  FormContainerInfoGroup,
   FormInput,
   FormInputText,
   FormInputTextCharacterCounter,
