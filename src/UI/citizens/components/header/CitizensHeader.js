@@ -13,6 +13,7 @@ import {
   Text1,
   Kontakt,
   Mobitel,
+  Gumb,
   Mail,
   Adresa,
   Okvir3,
@@ -23,7 +24,7 @@ import headerImage from '../../../../images/headerimage.jpg';
 const CitizensHeader = () => (
   <HeaderContainer>
     <Okvir>
-      <button type="button">ADMIN LOGIN</button>
+      <Gumb>ADMIN LOGIN</Gumb>
     </Okvir>
     <HeaderImage src={headerImage} />
     <RezervacijaDvorana>

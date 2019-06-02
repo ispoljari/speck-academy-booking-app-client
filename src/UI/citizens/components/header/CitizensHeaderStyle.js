@@ -34,6 +34,7 @@ const HeaderButton = styled.div`
 const HeaderImage = styled.img`
 width: 100%;
 height: 336px;
+object-fit: cover;
 top center / 200px 200px;
 `;
 
@@ -78,17 +79,19 @@ const Okvir = styled.div`
   background-color: #ffffff;
   `;
 
-const Gumb = styled.button`
-  width: 108px;
-  height: 24px;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #229c7f;
+const Gumb = styled.div`
+left: 12px;
+top: 9px
+position: absolute;
+width: 108px;
+height: 24px;
+font-family: Poppins;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+color: #0f4850;
 `;
 
 const Naslov = styled.div`
