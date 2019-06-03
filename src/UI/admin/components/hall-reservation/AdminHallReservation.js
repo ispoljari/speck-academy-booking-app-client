@@ -10,8 +10,10 @@ import {
   HourDiv,
   Line,
   OneDayDivRow,
+  OneDayDivRowText,
   ReservationDynamicDiv,
   PopUpInfo,
+  PopUpInfoText,
   //Table,
   //TableData,
   Info,
@@ -49,26 +51,41 @@ const ScheduleComponenet = () => (
         </HoursDivRow>
         <Line />
         <OneDayDivRow>
-          PON
+          <OneDayDivRowText>PON</OneDayDivRowText>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
         </OneDayDivRow>
         <OneDayDivRow>
-          UTO
+          <OneDayDivRowText>UTO</OneDayDivRowText>
           <ReservationDynamicDiv>
-            <PopUpInfo />
+            <PopUpInfo>
+              <PopUpInfoText>
+                24. sastanak Križevačke gospodarske komore samostalnih obrtnika.
+              </PopUpInfoText>
+            </PopUpInfo>
           </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
         </OneDayDivRow>
         <OneDayDivRow>
-          SRI
+          <OneDayDivRowText>SRI</OneDayDivRowText>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
         </OneDayDivRow>
-        <OneDayDivRow>ČET</OneDayDivRow>
-        <OneDayDivRow>PET</OneDayDivRow>
-        <OneDayDivRow>SUB</OneDayDivRow>
-        <OneDayDivRow>NED</OneDayDivRow>
+        <OneDayDivRow>
+          <OneDayDivRowText>ČET</OneDayDivRowText>
+        </OneDayDivRow>
+        <OneDayDivRow>
+          <OneDayDivRowText>PET</OneDayDivRowText>
+          <ReservationDynamicDiv> </ReservationDynamicDiv>
+          <ReservationDynamicDiv> </ReservationDynamicDiv>
+          <ReservationDynamicDiv> </ReservationDynamicDiv>
+        </OneDayDivRow>
+        <OneDayDivRow>
+          <OneDayDivRowText>SUB</OneDayDivRowText>
+        </OneDayDivRow>
+        <OneDayDivRow>
+          <OneDayDivRowText>NED</OneDayDivRowText>
+        </OneDayDivRow>
       </TableWrapper>
 
       {/*<Table />*/}

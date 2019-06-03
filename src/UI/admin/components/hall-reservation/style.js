@@ -138,6 +138,24 @@ const OneDayDivRow = styled.div.attrs({
   margin-bottom: 0px;
 `;
 
+const OneDayDivRowText = styled.p.attrs({
+  'data-id': 'OneDayDivRowText'
+})`
+  width: 40px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin: auto;
+  position: absolute;
+`;
+
 //TODO position this div(s) dynamicaly
 //width and margin-left and opacitiy
 //onclick -> change to -> border: solid 1px #0f4951;
@@ -150,17 +168,32 @@ const ReservationDynamicDiv = styled.div.attrs({
   border-radius: 2px;
   border: solid 1px #ffffff;
   background-color: #93e9bb;
-  {/*border: solid 1px #0f4951;
+  border: solid 1px #0f4951;
 
   display: inline-block;
-  margin-left: 29px;
+  margin-left: 64px;
 `;
 
 const PopUpInfo = styled.div.attrs({
   'data-id': 'PopUpInfo'
 })`
-  width: 384px;
-  height: 192px;
+  width: 184px;
+  height: 72px;
+  border-radius: 2px;
+
+  box-shadow: 0 2px 4px 0 rgba(154, 158, 156, 0.5);
+  background-color: #ffffff;
+
+  margin-top: 16px;
+  position: absolute;
+  border: solid 1px black;
+`;
+
+const PopUpInfoText = styled.h1.attrs({
+  'data-id': 'PopUpInfoText'
+})`
+  width: 168px;
+  height: 60px;
   opacity: 0.7;
   font-family: Poppins;
   font-size: 14px;
@@ -170,6 +203,8 @@ const PopUpInfo = styled.div.attrs({
   line-height: normal;
   letter-spacing: normal;
   color: #434343;
+
+  position: relative;
 `;
 
 /*
@@ -314,8 +349,10 @@ export {
   HourDiv,
   Line,
   OneDayDivRow,
+  OneDayDivRowText,
   ReservationDynamicDiv,
   PopUpInfo,
+  PopUpInfoText,
   //Table,
   //TableData,
   Info,
