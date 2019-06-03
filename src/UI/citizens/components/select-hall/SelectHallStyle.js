@@ -11,20 +11,9 @@ export const ScreenCanvas = styled.div`
 `;
 //cijeli viewport end
 
-//slika dvorane
-// export const HallImage = styled.img.attrs({
-//   src: 'url.props'
-// })`
-//   width: 244px;
-//   height: 138px;
-//   z-index: 0;
-//   object-fit: contain;
-//   border-radius: 2px;
-//   border: solid 1px rgba(0, 0, 0, 0.5);
-// `;
-
 export const HallImage = styled.div`
   background-image: url(${props => props.img});
+  position: relative;
   width: 244px;
   height: 138px;
   background-size: cover;
@@ -34,63 +23,26 @@ export const HallImage = styled.div`
   flex-direction: row;
   flex-wrap: wrap; /* enable flex items to wrap */
   justify-content: center;
+  margin: 5px;
 `;
 
 // slika dvorane end
 
-export const DivImage = styled.div`
-  display: flex; 
-  flex-direction: row;
-  justify-content: center
-  ${'' /* background-color: #93e9bb; */}
-  width: 244px;
-  height: 138px;
-  margin: 10px;
-  
-`;
-// export const ImeDvoranePlaceholder = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 155px;
-//   height: 48px;
-//   border-radius: 3px;
-//   background-color: #808080;
-//   align-self: flex-end;
-//   position: absolute;
-// `;
+//info-icon
 
-export const ImeDvoranePlaceholder = styled.div`
-  align-self: flex-end;
-  width: 155px;
-  height: 48px;
-  border-radius: 3px;
-  background-color: #808080;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.14;
-  color: #ffffff;
-  text-align: center;
-}
+export const InfoIcon = styled.div`
+  background-image: url(${props => props.img});
+  background-size: cover;
+  border-radius: 50%;
+  filter: drop-shadow(1px 1px 10px #000);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 10px;
+  left: 215px;
 `;
 
 //tipografija
-// export const ImeDvoraneText = styled.div`
-//   display: flex;
-
-//   justify-content: center;
-//   align-items: center;
-//   font-family: Poppins, Arial, sans-serif;
-//   font-size: 14px;
-//   font-weight: 500;
-//   font-style: normal;
-//   font-stretch: normal;
-//   line-height: 1.14;
-//   letter-spacing: normal;
-//   color: #ffffff;
-//   text-align: center;
-// `;
 
 export const HeadlineText = styled.div`
   margin-left: 125px;

@@ -16,20 +16,20 @@ import hallImage04 from '../../../../images/turisticki-dom@3x.png';
 
 import hallImage05 from '../../../../images/konf-dvorana-1@3x.png';
 
-import Icon from '../../../../images/info-icon.svg';
+import Icon from '../../../../images/info-icon@3x.png';
 
 //styles
 
 import {
   ScreenCanvas,
   HallNameText,
-  HallNameTextHover,
   HallNameTextCenter,
   HeadlineText,
   SubheadlineText,
   FirstRow,
   SecondRow,
   MainContainer,
+  InfoIcon,
   Elipse,
   Number,
   LayoutWrapper
@@ -102,6 +102,9 @@ class CitizensSelectHall extends React.Component {
           <LayoutWrapper>
             <FirstRow>
               <HallImage img={hallImage01}>
+                <a href="">
+                  <InfoIcon img={Icon} />
+                </a>
                 <HallNameText>
                   <HallNameTextCenter>
                     Velika sportska dvorana
@@ -110,6 +113,9 @@ class CitizensSelectHall extends React.Component {
               </HallImage>
 
               <HallImage img={hallImage02}>
+                <a href="">
+                  <InfoIcon img={Icon} />
+                </a>
                 <HallNameText>
                   <HallNameTextCenter>
                     Dvorana Hrvatskog doma
@@ -118,6 +124,9 @@ class CitizensSelectHall extends React.Component {
               </HallImage>
 
               <HallImage img={hallImage03}>
+                <a href="">
+                  <InfoIcon img={Icon} />
+                </a>
                 <HallNameText>
                   <HallNameTextCenter>
                     Dvorana Gradske knjižnice
@@ -128,6 +137,9 @@ class CitizensSelectHall extends React.Component {
 
             <SecondRow>
               <HallImage img={hallImage04}>
+                <a href="">
+                  <InfoIcon img={Icon} />
+                </a>
                 <HallNameText>
                   <HallNameTextCenter>
                     Dvorana TIC (Turistički Dom)
@@ -136,6 +148,9 @@ class CitizensSelectHall extends React.Component {
               </HallImage>
 
               <HallImage img={hallImage05}>
+                <a href="">
+                  <InfoIcon img={Icon} />
+                </a>
                 <HallNameText>
                   <HallNameTextCenter>
                     Konferencijska dvorana RCTP
