@@ -12,6 +12,7 @@ const Box = styled.div`
 
     props.pos && (sumCSS += `position: ${props.pos};`);
     props.top && (sumCSS += `top: ${props.top};`);
+    props.right && (sumCSS += `right: ${props.right};`);
     props.left && (sumCSS += `left: ${props.left};`);
     props.wd && (sumCSS += `width: ${props.wd};`);
     props.maxWd && (sumCSS += `max-width: ${props.maxWd};`);
