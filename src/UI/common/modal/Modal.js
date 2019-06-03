@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import * as Styled from './ModalStyle';
 
-class Modal extends Component {
-  state = {
-    visible: false
-  };
+const Modal = props => (
+  <Styled.ModalContainer visible={props.visible}>
+    I'm a dumb modal component.
+  </Styled.ModalContainer>
+);
 
-  render() {
-    return (
-      <Styled.ModalContainer visible>
-        I'm a dumb modal component.
-      </Styled.ModalContainer>
-    )
-  }
-}
+export default Modal;
