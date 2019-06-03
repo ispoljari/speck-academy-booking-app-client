@@ -74,9 +74,9 @@ export const TextInfoIcon = styled.img`
 //tipografija
 
 export const HeadlineText = styled.div`
-  margin-left: 125px;
-  margin-top: 25px;
-  margin-bottom: 5px;
+  margin-left: 130px;
+  margin-top: 32px;
+
   font-family: Lora, Georgia, serif;
   font-size: 32px;
   font-weight: bold;
@@ -88,8 +88,9 @@ export const HeadlineText = styled.div`
 `;
 
 export const SubheadlineText = styled.div`
-  margin-left: 125px;
-  margin-bottom: 15px;
+  margin-left: 130px;
+  margin-top: 16px;
+  margin-bottom: 22px;
   width: 764px;
   height: 24px;
   font-family: Poppins, sans serif;
@@ -124,15 +125,17 @@ export const HallNameTextCenter = styled.div`
 //Dovrane layout
 
 export const LayoutWrapper = styled.div`
-  height: 10%;
+  ${'' /* height: 10%; */}
   display: flex;
   flex-direction: column;
+  margin-left: -10px;
 `;
 
 export const FirstRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 
 export const SecondRow = styled.div`
@@ -158,7 +161,7 @@ export const Elipse = styled.div`
   ${'' /* align-items: center; */}
   width: 152px;
   height: 152px;
-  opacity: 0.9;
+  opacity: 0.4;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
   position: absolute;
@@ -173,6 +176,6 @@ export const Number = styled.div`
   text-align: center;
   ${'' /* upitno */}
   top: 10px;
-  margin-left: 38px;
+  margin-left: 40px;
   color: #82d4a7;
 `;
