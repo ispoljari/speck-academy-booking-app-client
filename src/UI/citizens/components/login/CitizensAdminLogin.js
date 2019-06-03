@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  LoginContainer,
+  Container,
   TitleAdminLogin,
   FormComponentBox,
   FormComponent,
@@ -12,7 +12,7 @@ import {
 } from './CitizensAdminLoginStyle';
 
 const CitizensAdminLogin = () => (
-  <LoginContainer>
+  <Container>
     <TitleAdminLogin>Admin Login</TitleAdminLogin>
     <FormComponentBox>
       <FormComponent>
@@ -27,7 +27,7 @@ const CitizensAdminLogin = () => (
     <LoginSubmitButton>
       <LoginSubmitButtonText>PRIJAVI ME</LoginSubmitButtonText>
     </LoginSubmitButton>
-  </LoginContainer>
+  </Container>
 );
 
 export default CitizensAdminLogin;
