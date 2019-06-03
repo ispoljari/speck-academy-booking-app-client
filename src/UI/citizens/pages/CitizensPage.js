@@ -18,6 +18,7 @@ const CitizensPage = () => (
     <CitizensEditEventInfo />
     <CitizensSubmitRequest />
     <Footer /> */}
+    <Modal />
   </React.Fragment>
 );
 
