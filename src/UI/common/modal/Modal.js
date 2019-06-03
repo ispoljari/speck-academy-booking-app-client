@@ -9,9 +9,9 @@ class Modal extends Component {
 
   render() {
     return (
-      <div>
+      <Styled.ModalContainer visible>
         I'm a dumb modal component.
-      </div>
+      </Styled.ModalContainer>
     )
   }
 }
