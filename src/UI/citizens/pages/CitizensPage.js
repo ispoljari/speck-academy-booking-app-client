@@ -8,7 +8,7 @@ import {
   CitizensSubmitRequest
 } from '../';
 
-import { Footer } from '../../common';
+import { Footer, Modal } from '../../common';
 
 const CitizensPage = () => (
   <React.Fragment>
