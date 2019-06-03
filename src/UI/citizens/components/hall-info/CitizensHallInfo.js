@@ -7,7 +7,15 @@ import {
   HallInfoPanel,
   HallImage,
   HallName,
-  HallNameTitle
+  HallNameTitle,
+  HallDescription,
+  HallInfo,
+  HallInfoName,
+  HallInfoDescription,
+  HallLocation,
+  HallDesc,
+  HallAddress,
+  HallDetail
 } from './CitizensHallInfoStyle';
 
 const CitizensHallInfo = () => (
@@ -15,9 +23,26 @@ const CitizensHallInfo = () => (
     <HallInfoTitle>Informacije</HallInfoTitle>
     <HallInfoPanel>
       <HallImage img src={hallImage} />
-      <HallName>
-        <HallNameTitle>VELIKA SPORTSKA DVORANA</HallNameTitle>
-      </HallName>
+      <HallDescription>
+        <HallName>
+          <HallNameTitle>VELIKA SPORTSKA DVORANA</HallNameTitle>
+        </HallName>
+
+        <HallInfo>
+          <HallInfoName>
+            <HallLocation>LOKACIJA</HallLocation>
+            <HallDesc>OPIS</HallDesc>
+          </HallInfoName>
+          <HallInfoDescription>
+            <HallAddress>Potočka ul.27</HallAddress>
+            <HallDetail>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+              dictum, leo pulvinar aliquet sagittis, neque ligula sagittis
+              augue, eget finibus lectus leo nec ipsum.{' '}
+            </HallDetail>
+          </HallInfoDescription>
+        </HallInfo>
+      </HallDescription>
     </HallInfoPanel>
   </HallInfoContainer>
 );
