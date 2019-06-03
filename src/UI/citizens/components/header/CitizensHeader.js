@@ -17,7 +17,12 @@ import {
   Mail,
   Adresa,
   Okvir3,
-  HeaderImage
+  HeaderImage,
+  Footer1,
+  Footer2,
+  Footer3,
+  Footer4,
+  Linija
 } from './CitizensHeaderStyle';
 import headerImage from '../../../../images/headerimage.jpg';
 
@@ -56,6 +61,16 @@ const CitizensHeader = () => (
     </Okvir3>
 
     <HeaderTitle />
+    <Footer1>
+      Stranica izrađena u sklopu
+      <Footer2>Speck Akademije 2019</Footer2>
+    </Footer1>
+
+    <Footer3>
+      Copyright 2019 by
+      <Footer4>Speck d.o.o.</Footer4>
+    </Footer3>
+    <Linija />
   </HeaderContainer>
 );
 

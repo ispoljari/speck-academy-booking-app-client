@@ -32,11 +32,11 @@ const HeaderButton = styled.div`
 `;
 
 const HeaderImage = styled.img`
-width: 100%;
-height: 336px;
-object-fit: cover;
-top center / 200px 200px;
-`;
+  width: 100%;
+  height: 336px;
+  object-fit: cover;
+  top center / 200px 200px;
+  `;
 
 const RezervacijaDvorana = styled.div`
   left: 208px;
@@ -80,22 +80,22 @@ const Okvir = styled.div`
   `;
 
 const Gumb = styled.div`
-left: 12px;
-top: 9px
-position: absolute;
-width: 108px;
-height: 24px;
-font-family: Poppins;
-font-weight: 500;
-font-style: normal;
-font-stretch: normal;
-line-height: normal;
-letter-spacing: normal;
-color: #0f4850;
-`;
+  left: 12px;
+  top: 9px
+  position: absolute;
+  width: 108px;
+  height: 24px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f4850;
+  `;
 
 const Naslov = styled.div`
-left: 20px;
+  left: 20px;
   top: 32px
   position: absolute;
   position: relative;
@@ -112,7 +112,7 @@ left: 20px;
 `;
 
 const Naslov1 = styled.div`
-left: 32px;
+  left: 32px;
   top: 32px
   position: absolute;
   position: relative;
@@ -129,7 +129,7 @@ left: 32px;
 `;
 
 const Text = styled.div`
-left: 32px;
+  left: 32px;
   top: 88px
   position: absolute;
   font-family: Poppins;
@@ -143,7 +143,7 @@ left: 32px;
 `;
 
 const Text1 = styled.div`
-left: 16px;
+  left: 16px;
   top: 88px
   position: absolute;
   font-family: Poppins;
@@ -200,10 +200,10 @@ const Kontakt = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #229c7f;
-`;
+  `;
 
 const Mobitel = styled.div`
-left: 142px;
+  left: 142px;
   top: 168px
   position: absolute;
   display: inline-block;
@@ -218,11 +218,10 @@ left: 142px;
   letter-spacing: normal;
   color: #000000;
   margin-left: 13px;
-`;
+  `;
 
 const Mail = styled.div`
-left: 65px;
-  top: 136px
+  left: 65px;top: 136px
   position: absolute;
   display: inline-block;
   width: 64px;
@@ -236,10 +235,10 @@ left: 65px;
   line-height: normal;
   letter-spacing: normal;
   color: #229c7f;
-`;
+  `;
 
 const Adresa = styled.div`
-left: 142px;
+  left: 142px;
   top: 138px
   position: absolute;
   display: inline-block;
@@ -254,7 +253,78 @@ left: 142px;
   letter-spacing: normal;
   color: #000000;
   margin-left: 13px;
+  `;
+
+const Footer1 = styled.div`
+  left: 413px;
+  top: 2566px
+  position: absolute;
+  width: 299px;
+  height: 18px;
+  display: inline;
+  opacity: 0.5;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #434343;
+  `;
+
+const Footer2 = styled.div`
+  width: 299px;
+  height: 18px;
+  display: inline;
+  margin-left: 3px;
+  opacity: 0.5;
+  font-family: Poppins-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
 `;
+const Footer3 = styled.div`
+  left: 727px;
+  top: 2566px
+  position: absolute;
+  width: 299px;
+  height: 18px;
+  display: inline;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(67, 67, 67, 0.5);
+  `;
+const Footer4 = styled.div`
+  width: 299px;
+  height: 18px;
+  display: inline;
+  margin-left: 3px;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #229c7f;
+`;
+
+const Linija = styled.div`
+  left: 715px;
+  top: 2566px
+  position: absolute;
+  border-left: 2px solid rgba(67, 67, 67, 0.5);
+  height: 16px;
+  `;
 
 export {
   HeaderContainer,
@@ -274,5 +344,10 @@ export {
   RezervacijaDvoranaMalo,
   RezervacijaDvorana,
   HeaderImage,
-  HeaderButton
+  HeaderButton,
+  Footer1,
+  Footer2,
+  Footer3,
+  Footer4,
+  Linija
 };
