@@ -27,4 +27,11 @@ const Box = styled.div`
   }}
 `;
 
-export { ModalContainer, Box };
+const Button = styled.button`
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+  cursor: pointer;
+`;
+
+export { ModalContainer, Box, Button };
