@@ -8,7 +8,7 @@ const MainContainer = styled.div`
   background-color: #ffffff;
   padding-left: 130px;
   padding-right: 130px;
-  padding-bottom: 32px;
+  padding-bottom: 24px;
 `;
 
 const MainHeader = styled.h1`
