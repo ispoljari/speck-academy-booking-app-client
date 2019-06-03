@@ -30,7 +30,9 @@ import {
   Phone,
   PhoneInput,
   ButtonUp,
-  ButtonDown
+  ButtonDown,
+  Podneseno,
+  PodnesenoDatum
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
@@ -72,7 +74,10 @@ const AdminHallRequest = () => (
     </TextDiv>
 
     <ButtonDiv>
-      <ButtonUp />
+      <ButtonUp>
+        <Podneseno>PODNESENO</Podneseno>
+        <PodnesenoDatum>28.02.2019., 16:58</PodnesenoDatum>
+      </ButtonUp>
       <ButtonDown />
     </ButtonDiv>
   </HallDiv>

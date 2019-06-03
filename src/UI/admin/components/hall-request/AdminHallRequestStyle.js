@@ -66,7 +66,7 @@ const HeaderHall = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 16px;
+  margin-top: 17px;
 `;
 
 const AdressHall = styled.div`
@@ -81,7 +81,7 @@ const AdressHall = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 25px;
+  margin-top: 24px;
   margin-left: 24px;
 `;
 
@@ -391,13 +391,46 @@ const PhoneInput = styled.div`
 const ButtonUp = styled.div`
   height: 176px;
   width: 260px;
-  background-color: blue;
 `;
 
 const ButtonDown = styled.div`
   height: 176px;
   width: 260px;
   background-color: yellow;
+`;
+
+const Podneseno = styled.div`
+  width: 74px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 16px;
+  margin-left: 174px;
+  margin-right: 16px;
+`;
+
+const PodnesenoDatum = styled.div`
+  width: 114px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #229c7f;
+  margin-top: 8px;
+  margin-left: 154px;
+  margin-right: 16px;
 `;
 
 export {
@@ -430,5 +463,7 @@ export {
   Phone,
   PhoneInput,
   ButtonUp,
-  ButtonDown
+  ButtonDown,
+  Podneseno,
+  PodnesenoDatum
 };
