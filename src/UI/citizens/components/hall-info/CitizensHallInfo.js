@@ -27,7 +27,6 @@ const CitizensHallInfo = () => (
         <HallName>
           <HallNameTitle>VELIKA SPORTSKA DVORANA</HallNameTitle>
         </HallName>
-
         <HallInfo>
           <HallInfoName>
             <HallLocation>LOKACIJA</HallLocation>
@@ -38,7 +37,7 @@ const CitizensHallInfo = () => (
             <HallDetail>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
               dictum, leo pulvinar aliquet sagittis, neque ligula sagittis
-              augue, eget finibus lectus leo nec ipsum.{' '}
+              augue, eget finibus lectus leo nec ipsum.
             </HallDetail>
           </HallInfoDescription>
         </HallInfo>
