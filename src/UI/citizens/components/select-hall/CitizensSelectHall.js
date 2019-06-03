@@ -21,6 +21,7 @@ import Icon from '../../../../images/info-icon@3x.png';
 //styles
 
 import {
+  StyledLink,
   ScreenCanvas,
   HallNameText,
   HallNameTextCenter,
@@ -107,9 +108,11 @@ class CitizensSelectHall extends React.Component {
                   <InfoIcon img={Icon} />
                 </a>
                 <HallNameText>
-                  <HallNameTextCenter>
-                    Velika sportska dvorana
-                  </HallNameTextCenter>
+                  <StyledLink to="">
+                    <HallNameTextCenter>
+                      Velika sportska dvorana
+                    </HallNameTextCenter>{' '}
+                  </StyledLink>
                 </HallNameText>
               </HallImage>
 
@@ -118,9 +121,11 @@ class CitizensSelectHall extends React.Component {
                   <InfoIcon img={Icon} />
                 </a>
                 <HallNameText>
-                  <HallNameTextCenter>
-                    Dvorana Hrvatskog doma
-                  </HallNameTextCenter>
+                  <StyledLink to="">
+                    <HallNameTextCenter>
+                      Dvorana Hrvatskog doma
+                    </HallNameTextCenter>
+                  </StyledLink>
                 </HallNameText>
               </HallImage>
 
@@ -129,9 +134,11 @@ class CitizensSelectHall extends React.Component {
                   <InfoIcon img={Icon} />
                 </a>
                 <HallNameText>
-                  <HallNameTextCenter>
-                    Dvorana Gradske knjižnice
-                  </HallNameTextCenter>
+                  <StyledLink to="">
+                    <HallNameTextCenter>
+                      Dvorana Gradske knjižnice
+                    </HallNameTextCenter>
+                  </StyledLink>
                 </HallNameText>
               </HallImage>
             </FirstRow>
@@ -142,9 +149,11 @@ class CitizensSelectHall extends React.Component {
                   <InfoIcon img={Icon} />
                 </a>
                 <HallNameText>
-                  <HallNameTextCenter>
-                    Dvorana TIC (Turistički Dom)
-                  </HallNameTextCenter>
+                  <StyledLink to="">
+                    <HallNameTextCenter>
+                      Dvorana TIC (Turistički Dom)
+                    </HallNameTextCenter>
+                  </StyledLink>
                 </HallNameText>
               </HallImage>
 
@@ -153,9 +162,11 @@ class CitizensSelectHall extends React.Component {
                   <InfoIcon img={Icon} />
                 </a>
                 <HallNameText>
-                  <HallNameTextCenter>
-                    Konferencijska dvorana RCTP
-                  </HallNameTextCenter>
+                  <StyledLink to="">
+                    <HallNameTextCenter>
+                      Konferencijska dvorana RCTP
+                    </HallNameTextCenter>
+                  </StyledLink>
                 </HallNameText>
               </HallImage>
             </SecondRow>

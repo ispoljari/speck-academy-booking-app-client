@@ -1,5 +1,24 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  color: #ffffff;
+  text-align: center;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
+
 //cijeli viewport
 export const ScreenCanvas = styled.div`
   display: flex;
@@ -34,7 +53,7 @@ export const InfoIcon = styled.div`
   background-image: url(${props => props.img});
   background-size: cover;
   border-radius: 50%;
-  filter: drop-shadow(1px 1px 10px #000);
+  filter: drop-shadow(1px 1px 1px #000);
   width: 16px;
   height: 16px;
   position: absolute;
@@ -73,13 +92,8 @@ export const SubheadlineText = styled.div`
   margin-bottom: 15px;
   width: 764px;
   height: 24px;
-  font-family: Poppins;
+  font-family: Poppins, sans serif;
   font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
