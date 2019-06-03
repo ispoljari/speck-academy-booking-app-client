@@ -26,7 +26,7 @@ const Modal = props => (
           <Button pos="absolute" right="32px" p="0">
             &#10005;
           </Button>
-          <div style={{ height: '270px' }}>Dummy</div>
+          {props.children}
         </Box>
       </Box>
     </Box>
