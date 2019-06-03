@@ -27,8 +27,8 @@ import {
   ImeDvoraneText,
   HeadlineText,
   SubheadlineText,
-  LayoutFirstRow,
-  LayoutSecondRow,
+  FirstRow,
+  SecondRow,
   MainContainer,
   Elipse,
   Number,
@@ -100,7 +100,7 @@ class CitizensSelectHall extends React.Component {
             na SVG ikonu.
           </SubheadlineText>
           <LayoutWrapper>
-            <LayoutFirstRow>
+            <FirstRow>
               <DivImage>
                 <HallImage src={hallImage01} />
                 <ImeDvoranePlaceholder>
@@ -130,9 +130,9 @@ class CitizensSelectHall extends React.Component {
                   </ImeDvoraneText>
                 </ImeDvoranePlaceholder>
               </DivImage>
-            </LayoutFirstRow>
+            </FirstRow>
 
-            <LayoutSecondRow>
+            <SecondRow>
               <DivImage>
                 <HallImage src={hallImage04} />
                 <ImeDvoranePlaceholder>
@@ -150,7 +150,7 @@ class CitizensSelectHall extends React.Component {
                   <ImeDvoraneText>Konferencijska dvorana RCTP</ImeDvoraneText>
                 </ImeDvoranePlaceholder>
               </DivImage>
-            </LayoutSecondRow>
+            </SecondRow>
           </LayoutWrapper>
         </MainContainer>
       </ScreenCanvas>

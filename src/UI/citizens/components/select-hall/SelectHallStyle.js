@@ -100,17 +100,16 @@ export const LayoutWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const LayoutFirstRow = styled.div`
+export const FirstRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
 `;
 
-export const LayoutSecondRow = styled.div`
+export const SecondRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: -5px;
 `;
 // kraj Dvorane layout
 
