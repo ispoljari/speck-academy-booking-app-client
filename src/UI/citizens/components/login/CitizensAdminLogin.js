@@ -2,34 +2,31 @@ import React from 'react';
 
 import {
   LoginContainer,
-  DataContainer,
   TitleAdminLogin,
+  FormComponentBox,
   FormComponent,
   FormComponentName,
   FormComponentInput,
   LoginSubmitButton,
-  LoginSubmitButtonText,
-  FormComponent2,
-  FormComponentName2,
-  FormComponentInput2
+  LoginSubmitButtonText
 } from './CitizensAdminLoginStyle';
 
 const CitizensAdminLogin = () => (
   <LoginContainer>
-    <DataContainer>
-      <TitleAdminLogin>Admin Login</TitleAdminLogin>
+    <TitleAdminLogin>Admin Login</TitleAdminLogin>
+    <FormComponentBox>
       <FormComponent>
         <FormComponentName>KORISNIČKO IME</FormComponentName>
         <FormComponentInput />
       </FormComponent>
-      <FormComponent2>
-        <FormComponentName2>LOZINKA</FormComponentName2>
-        <FormComponentInput2 />
-      </FormComponent2>
-      <LoginSubmitButton>
-        <LoginSubmitButtonText>PRIJAVI ME</LoginSubmitButtonText>
-      </LoginSubmitButton>
-    </DataContainer>
+      <FormComponent>
+        <FormComponentName>LOZINKA</FormComponentName>
+        <FormComponentInput />
+      </FormComponent>
+    </FormComponentBox>
+    <LoginSubmitButton>
+      <LoginSubmitButtonText>PRIJAVI ME</LoginSubmitButtonText>
+    </LoginSubmitButton>
   </LoginContainer>
 );
 
