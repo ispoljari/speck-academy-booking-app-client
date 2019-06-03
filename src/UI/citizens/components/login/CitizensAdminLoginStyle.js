@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const LoginContainer = styled.div`
+  box-sizing: border-box;
+  padding: 32px;
   margin: auto;
   width: 632px;
   height: 264px;
@@ -9,15 +11,10 @@ const LoginContainer = styled.div`
   background-color: #ffffff;
 `;
 
-const DataContainer = styled.div`
-  background-colour: yellow;
-  margin: 32px;
-`;
-
 const TitleAdminLogin = styled.div`
   width: 568px;
   height: 40px;
-  font-family: Lora;
+  font-family: 'Lora', serif;
   font-size: 32px;
   font-weight: bold;
   font-style: normal;
@@ -25,24 +22,21 @@ const TitleAdminLogin = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin-bottom: 24px;
+`;
+
+const FormComponentBox = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const FormComponent = styled.div`
-  display: inline-block;
-  width: 282px;
+  width: 272px;
   heihgt: 64px;
-  margin-top: 24px;
-`;
-
-const FormComponent2 = styled.div`
-  display: inline-block;
-  width: 282px;
-  heihgt: 64px;
-  margin-top: 24px;
 `;
 
 const FormComponentName = styled.div`
-  width: 185px;
+  width: 100%;
   height: 24px;
   font-family: Poppins;
   font-size: 16px;
@@ -63,7 +57,7 @@ const FormComponentInput = styled.input`
 `;
 
 const LoginSubmitButton = styled.button`
-  margin-top: 25px;
+  margin-top: 30px;
   margin-left: 106px;
   width: 356px;
   height: 40px;
@@ -83,39 +77,13 @@ const LoginSubmitButtonText = styled.p`
   margin: auto;
 `;
 
-const FormComponentName2 = styled.div`
-  width: 185px;
-  height: 24px;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-  margin-left: 8px;
-`;
-
-const FormComponentInput2 = styled.input`
-  margin-top: 8px;
-  width: 272px;
-  height: 32px;
-  border-radius: 2px;
-  border: solid 1px rgba(0, 0, 0, 0.15);
-  margin-left: 8px;
-`;
-
 export {
   LoginContainer,
-  DataContainer,
   TitleAdminLogin,
+  FormComponentBox,
   FormComponent,
   FormComponentName,
   FormComponentInput,
   LoginSubmitButton,
-  LoginSubmitButtonText,
-  FormComponent2,
-  FormComponentName2,
-  FormComponentInput2
+  LoginSubmitButtonText
 };
