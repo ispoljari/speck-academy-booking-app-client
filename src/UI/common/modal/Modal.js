@@ -20,6 +20,7 @@ const Modal = props => (
         transf="translate(-50%, -50%)"
         wd="80%"
         maxWd="632px"
+        borderRadius="4px"
       >
         <Box p="32px" pos="relative">
           <Button pos="absolute" right="32px" p="0">

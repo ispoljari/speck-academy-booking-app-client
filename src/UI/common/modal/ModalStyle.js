@@ -14,6 +14,7 @@ const stylesAPI = css`
     props.maxHg && (sumCSS += `max-height: ${props.maxHg};`);
 
     props.transf && (sumCSS += `transform: ${props.transf};`);
+    props.borderRadius && (sumCSS += `border-radius: ${props.borderRadius};`);
     props.p && (sumCSS += `padding: ${props.p};`);
     props.backgroundColor &&
       (sumCSS += `background-color: ${props.backgroundColor};`);
@@ -34,7 +35,6 @@ const Box = styled.div`
 
 const Button = styled.button`
   border: 0;
-
   font-size: 20px;
   cursor: pointer;
   color: #c9c9c9;
