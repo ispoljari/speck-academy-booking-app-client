@@ -4,7 +4,15 @@ import * as Styled from './ModalStyle';
 
 const Modal = props => (
   <Styled.ModalContainer visible={props.visible}>
-    I'm a dumb modal component.
+    <Styled.Box
+      pos="fixed"
+      top="0"
+      left="0"
+      wd="100%"
+      hg="100%"
+    >
+      Hello
+    </Styled.Box>
   </Styled.ModalContainer>
 );
 
