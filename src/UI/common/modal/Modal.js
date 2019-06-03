@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ModalContainer } from './ModalStyle';
+import * as Styled from './ModalStyle';
 
 class Modal extends Component {
   state = {
