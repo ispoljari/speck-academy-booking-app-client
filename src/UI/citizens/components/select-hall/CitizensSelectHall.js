@@ -16,6 +16,8 @@ import hallImage04 from '../../../../images/turisticki-dom@3x.png';
 
 import hallImage05 from '../../../../images/konf-dvorana-1@3x.png';
 
+import Icon from '../../../../images/info-icon.svg';
+
 //styles
 
 import {

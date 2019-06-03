@@ -115,14 +115,14 @@ export const LayoutSecondRow = styled.div`
 // kraj Dvorane layout
 
 export const MainContainer = styled.div`
-  margin-top: 4em;
-  ${'' /* display: flex; */}
-  ${'' /* flex-directon: row; */}
   width: 1024px;
   height: 472px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
 `;
 
 export const Elipse = styled.div`
@@ -143,6 +143,8 @@ export const Number = styled.div`
   font-size: 96px;
   font-weight: 800;
   text-align: center;
+  ${'' /* upitno */}
+  top: 10px;
   margin-left: 38px;
   color: #82d4a7;
 `;
