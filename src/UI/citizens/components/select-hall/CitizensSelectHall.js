@@ -102,7 +102,7 @@ class CitizensSelectHall extends React.Component {
           <LayoutWrapper>
             <FirstRow>
               <DivImage>
-                <HallImage src={hallImage01} />
+                <HallImage img={hallImage01} />
                 <ImeDvoranePlaceholder>
                   <ImeDvoraneText>
                     Velika sportska <br />

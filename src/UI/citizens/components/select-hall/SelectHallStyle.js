@@ -12,16 +12,23 @@ export const ScreenCanvas = styled.div`
 //cijeli viewport end
 
 //slika dvorane
-export const HallImage = styled.img.attrs({
-  src: 'url.props'
-})`
+// export const HallImage = styled.img.attrs({
+//   src: 'url.props'
+// })`
+//   width: 244px;
+//   height: 138px;
+//   z-index: 0;
+//   object-fit: contain;
+//   border-radius: 2px;
+//   border: solid 1px rgba(0, 0, 0, 0.5);
+// `;
+
+export const HallImage = styled.div`
+  background-image: url(${props => props.img});
   width: 244px;
   height: 138px;
-  z-index: 0;
-  object-fit: contain;
-  border-radius: 2px;
-  border: solid 1px rgba(0, 0, 0, 0.5);
 `;
+
 // slika dvorane end
 
 export const DivImage = styled.div`
