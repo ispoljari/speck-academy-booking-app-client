@@ -2,8 +2,8 @@ import React from 'react';
 
 import { ModalContainer, Box, Button } from './ModalStyle';
 
-const Modal = props => (
-  <ModalContainer visible={props.visible}>
+const Modal = ({ visible, handleClose, children }) => (
+  <ModalContainer visible={visible}>
     <Box
       pos="fixed"
       top="0"
@@ -23,10 +23,10 @@ const Modal = props => (
         borderRadius="4px"
       >
         <Box p="32px" pos="relative">
-          <Button pos="absolute" right="32px" p="0">
+          <Button pos="absolute" right="32px" p="0" onClick={handleClose}>
             &#10005;
           </Button>
-          {props.children}
+          {children}
         </Box>
       </Box>
     </Box>
