@@ -30,10 +30,6 @@ const Broj = styled.div`
   font-family: Poppins;
   font-size: 96px;
   font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #82d4a7;
   margin-left: 38px;
   text-align: center;
@@ -48,10 +44,6 @@ const Datum = styled.div`
   font-family: Lora;
   font-size: 32px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
@@ -63,11 +55,6 @@ const Oznacite = styled.div`
   height: 24px;
   font-family: PoppinsRegular;
   font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
@@ -83,11 +70,6 @@ const OdaberiteDatum = styled.div`
   height: 24px;
   font-family: PoppinsRegular;
   font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #434343;
 `;
 
@@ -99,11 +81,6 @@ const OdaberiteVrijeme = styled.div`
   height: 24px;
   font-family: PoppinsRegular;
   font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #434343;
 `;
 
@@ -117,10 +94,6 @@ const Pocetak = styled.div`
   font-family: Poppins-ExtraLight;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
@@ -134,10 +107,6 @@ const Kraj = styled.div`
   font-family: Poppins-ExtraLight;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
@@ -150,10 +119,6 @@ const Unos = styled.div`
   font-family: Poppins-ExtraLight;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
@@ -200,10 +165,6 @@ const Time = styled.div`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: inline-block;
@@ -219,22 +180,14 @@ const Prazno = styled.div`
 const TimeDivide = styled.div`
   width: 12.5px;
   height: 48px;
-  border-left: 0.5px dashed rgba(0, 0, 0, 0.1);
-  display: inline-block;
-`;
-
-const TimeDivideFull = styled.div`
-  width: 12.5px;
-  height: 48px;
-  border-left: 0.5px solid rgba(0, 0, 0, 0.2);
   display: inline-block;
 `;
 
 const Zauzeto = styled.div`
   position: absolute;
   top: 24px;
-  left: 76px;
-  width: 212px;
+  //left: 76px;
+  //width: 212px;
   height: 32px;
   border-radius: 2px;
   background-color: #0f4850;
@@ -290,11 +243,6 @@ const LegendaText = styled.div`
   margin-top: 13px;
   font-family: Poppins-Regular;
   font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   display: inline-block;
   vertical-align: middle;
@@ -319,7 +267,6 @@ export {
   Time,
   Prazno,
   TimeDivide,
-  TimeDivideFull,
   Zauzeto,
   Slobodno,
   Zauzeto1,

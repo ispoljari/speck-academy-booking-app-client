@@ -19,7 +19,6 @@ import {
   Time,
   Prazno,
   TimeDivide,
-  TimeDivideFull,
   Zauzeto,
   Slobodno,
   Zauzeto1,
@@ -28,6 +27,63 @@ import {
   LegendaBoja,
   LegendaText
 } from './StyleCitizensSelectDateTime';
+
+var poc = [
+  { datum: new Date(2019, 2, 11, 9, 30) },
+  { datum: new Date(2019, 2, 11, 17, 15) }
+];
+var kraj = [
+  { datum: new Date(2019, 2, 11, 12, 45) },
+  { datum: new Date(2019, 2, 11, 21) }
+];
+
+function displaytimeline() {
+  let divs = [];
+  for (var i = 0; i < 57; i++) {
+    if (i % 4 == 0) {
+      divs.push(
+        <TimeDivide style={{ borderLeft: ' 0.5px solid rgba(0, 0, 0, 0.2)' }} />
+      );
+    } else {
+      divs.push(
+        <TimeDivide
+          style={{ borderLeft: ' 0.5px dashed rgba(0, 0, 0, 0.1)' }}
+        />
+      );
+    }
+  }
+  return divs;
+}
+
+function displaytime() {
+  let divs = [];
+  for (var i = 8; i < 23; i++) {
+    divs.push(<Time>{i}</Time>);
+  }
+  return divs;
+}
+
+function crtajZauzeto(poc, kraj) {
+  const a = poc.length;
+  let divs = [];
+  for (var i = 0; i < a; i++) {
+    var pocetak =
+      25 +
+      (poc[i].datum.getHours() - 8) * 50 +
+      (poc[i].datum.getMinutes() / 15) * 12.5;
+    var krj =
+      25 +
+      (kraj[i].datum.getHours() - 8) * 50 +
+      (kraj[i].datum.getMinutes() / 15) * 12.5;
+    var width = krj - pocetak;
+    var style = {
+      left: pocetak,
+      width: width
+    };
+    divs.push(<Zauzeto style={style} />);
+  }
+  return divs;
+}
 
 const CitizensSelectDateTime = () => (
   <Container>
@@ -68,79 +124,10 @@ const CitizensSelectDateTime = () => (
       </Rectangle>
     </Unos>
     <Timeline>
-      <Time>8</Time>
-      <Time>9</Time>
-      <Time>10</Time>
-      <Time>11</Time>
-      <Time>12</Time>
-      <Time>13</Time>
-      <Time>14</Time>
-      <Time>15</Time>
-      <Time>16</Time>
-      <Time>17</Time>
-      <Time>18</Time>
-      <Time>19</Time>
-      <Time>20</Time>
-      <Time>21</Time>
-      <Time>22</Time>
+      {displaytime()}
       <Prazno />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivide />
-      <TimeDivideFull />
+      {displaytimeline()}
+      {crtajZauzeto(poc, kraj)}
       <Zauzeto />
       <Slobodno />
       <Zauzeto1 />
