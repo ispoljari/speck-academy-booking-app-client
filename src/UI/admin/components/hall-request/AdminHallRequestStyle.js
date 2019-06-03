@@ -39,6 +39,11 @@ const ButtonDiv = styled.div`
   height: 352px;
   width: 260px;
   background-color: red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  box-sizing: border-box;
 `;
 
 const ImageHall = styled.div`
@@ -122,6 +127,7 @@ const EventDesc = styled.div`
   color: #000000;
   margin-top: 8px;
   text-align: justify;
+  box-sizing: border-box;
 `;
 
 const LeftText = styled.div`
@@ -131,6 +137,7 @@ const LeftText = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  margin-top: 24px;
 `;
 
 const RightText = styled.div`
@@ -140,6 +147,7 @@ const RightText = styled.div`
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
+  margin-top: 24px;
 `;
 
 const DateInfo = styled.div`
@@ -304,10 +312,92 @@ const OrganizacijaInput = styled.div`
   line-height: 1.05;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 12px;
-  margin-left: 19px;
+  margin-top: 8px;
+  margin-left: 21px;
   white-space: nowrap;
   text-align: left;
+`;
+
+const Email = styled.div`
+  width: 83px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 8px;
+  margin-left: 10px;
+  white-space: nowrap;
+  text-align: right;
+`;
+
+const EmailInput = styled.div`
+  width: 135px;
+  height: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 8px;
+  margin-left: 18px;
+  white-space: nowrap;
+  text-align: left;
+`;
+
+const Phone = styled.div`
+  width: 83px;
+  height: 16px;
+  opacity: 0.5;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 8px;
+  margin-left: 10px;
+  white-space: nowrap;
+  text-align: right;
+`;
+
+const PhoneInput = styled.div`
+  width: 135px;
+  height: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.05;
+  letter-spacing: normal;
+  color: #000000;
+  margin-top: 8px;
+  margin-left: 18px;
+  white-space: nowrap;
+  text-align: left;
+`;
+
+const ButtonUp = styled.div`
+  height: 176px;
+  width: 260px;
+  background-color: blue;
+`;
+
+const ButtonDown = styled.div`
+  height: 176px;
+  width: 260px;
+  background-color: yellow;
 `;
 
 export {
@@ -334,5 +424,11 @@ export {
   Namesurname,
   NamesurnameInput,
   Organizacija,
-  OrganizacijaInput
+  OrganizacijaInput,
+  Email,
+  EmailInput,
+  Phone,
+  PhoneInput,
+  ButtonUp,
+  ButtonDown
 };

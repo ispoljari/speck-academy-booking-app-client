@@ -23,7 +23,14 @@ import {
   ContactInfo,
   Namesurname,
   NamesurnameInput,
-  Organizacija
+  Organizacija,
+  OrganizacijaInput,
+  Email,
+  EmailInput,
+  Phone,
+  PhoneInput,
+  ButtonUp,
+  ButtonDown
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
@@ -56,10 +63,18 @@ const AdminHallRequest = () => (
         <Namesurname>IME I PREZIME</Namesurname>
         <NamesurnameInput>Ivana Horvatić</NamesurnameInput>
         <Organizacija>ORGANIZACIJA</Organizacija>
+        <OrganizacijaInput>Speck agency d.o.o</OrganizacijaInput>
+        <Email>E-MAIL</Email>
+        <EmailInput>hello@speck.agency</EmailInput>
+        <Phone>TEL / MOB</Phone>
+        <PhoneInput>099 / 12 34 567</PhoneInput>
       </RightText>
     </TextDiv>
 
-    <ButtonDiv />
+    <ButtonDiv>
+      <ButtonUp />
+      <ButtonDown />
+    </ButtonDiv>
   </HallDiv>
 );
 
