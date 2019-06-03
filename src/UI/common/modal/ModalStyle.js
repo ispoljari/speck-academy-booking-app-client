@@ -1,12 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const ModalContainer = styled.div`
-  display: ${props => (props.visible ? 'block' : 'none')};
-`;
-
-const Box = styled.div`
-  display: block;
-
+const stylesAPI = css`
   ${props => {
     let sumCSS = ``;
 
@@ -20,6 +14,7 @@ const Box = styled.div`
     props.maxHg && (sumCSS += `max-height: ${props.maxHg};`);
 
     props.transf && (sumCSS += `transform: ${props.transf};`);
+    props.p && (sumCSS += `padding: ${props.p};`);
     props.backgroundColor &&
       (sumCSS += `background-color: ${props.backgroundColor};`);
 
@@ -27,11 +22,24 @@ const Box = styled.div`
   }}
 `;
 
+const ModalContainer = styled.div`
+  display: ${props => (props.visible ? 'block' : 'none')};
+`;
+
+const Box = styled.div`
+  display: block;
+
+  ${stylesAPI};
+`;
+
 const Button = styled.button`
   border: 0;
-  padding: 0;
-  font-size: 16px;
+
+  font-size: 20px;
   cursor: pointer;
+  color: #c9c9c9;
+
+  ${stylesAPI};
 `;
 
 export { ModalContainer, Box, Button };

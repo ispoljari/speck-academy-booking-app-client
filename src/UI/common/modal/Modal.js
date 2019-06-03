@@ -21,8 +21,12 @@ const Modal = props => (
         wd="80%"
         maxWd="632px"
       >
-        <Styled.Box pos="fixed" top="32px" right="32px" />
-        <div style={{ width: '600px', height: '270px' }}>Dummy</div>
+        <Styled.Box p="32px" pos="relative">
+          <Styled.Button pos="absolute" right="32px" p="0">
+            &#10005;
+          </Styled.Button>
+          <div style={{ height: '270px' }}>Dummy</div>
+        </Styled.Box>
       </Styled.Box>
     </Styled.Box>
   </Styled.ModalContainer>
