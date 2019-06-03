@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const LoginContainer = styled.div`
+const Container = styled.div`
   box-sizing: border-box;
   padding: 32px;
   margin: auto;
@@ -17,10 +17,6 @@ const TitleAdminLogin = styled.div`
   font-family: 'Lora', serif;
   font-size: 32px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-bottom: 24px;
 `;
@@ -40,11 +36,6 @@ const FormComponentName = styled.div`
   height: 24px;
   font-family: Poppins;
   font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
@@ -69,16 +60,12 @@ const LoginSubmitButtonText = styled.p`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #ffffff;
   margin: auto;
 `;
 
 export {
-  LoginContainer,
+  Container,
   TitleAdminLogin,
   FormComponentBox,
   FormComponent,
