@@ -30,6 +30,7 @@ import {
   SecondRow,
   MainContainer,
   InfoIcon,
+  TextInfoIcon,
   Elipse,
   Number,
   LayoutWrapper
@@ -97,7 +98,7 @@ class CitizensSelectHall extends React.Component {
           <HeadlineText>Odaberite dvoranu</HeadlineText>
           <SubheadlineText>
             Pronađite dvoranu koja vam odgovara. Za dodatne informacije kliknite
-            na SVG ikonu.
+            na <TextInfoIcon src={Icon} /> ikonu.
           </SubheadlineText>
           <LayoutWrapper>
             <FirstRow>

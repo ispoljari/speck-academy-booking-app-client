@@ -42,6 +42,16 @@ export const InfoIcon = styled.div`
   left: 215px;
 `;
 
+export const TextInfoIcon = styled.img`
+  src: url(${props => props.img});
+  vertical-align: -10%;
+  border-radius: 50%;
+  filter: drop-shadow(1px 1px 1px #000);
+  width: 16px;
+  height: 16px;
+  position: relative;
+`;
+
 //tipografija
 
 export const HeadlineText = styled.div`
