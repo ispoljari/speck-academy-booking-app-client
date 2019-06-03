@@ -12,7 +12,17 @@ const Modal = props => (
       hg="100%"
       backgroundColor="#5f6d75"
     >
-      Hello
+      <Styled.Box
+        pos="fixed"
+        backgroundColor="#ffffff"
+        top="50%"
+        left="50%"
+        transf="translate(-50%, -50%)"
+        wd="80%"
+        maxWd="632px"
+      >
+        Hello
+      </Styled.Box>
     </Styled.Box>
   </Styled.ModalContainer>
 );
