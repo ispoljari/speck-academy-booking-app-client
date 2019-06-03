@@ -1,10 +1,10 @@
 import React from 'react';
 
-import * as Styled from './ModalStyle';
+import { ModalContainer, Box, Button } from './ModalStyle';
 
 const Modal = props => (
-  <Styled.ModalContainer visible={props.visible}>
-    <Styled.Box
+  <ModalContainer visible={props.visible}>
+    <Box
       pos="fixed"
       top="0"
       left="0"
@@ -12,7 +12,7 @@ const Modal = props => (
       hg="100%"
       backgroundColor="#5f6d75"
     >
-      <Styled.Box
+      <Box
         pos="fixed"
         backgroundColor="#ffffff"
         top="50%"
@@ -21,15 +21,15 @@ const Modal = props => (
         wd="80%"
         maxWd="632px"
       >
-        <Styled.Box p="32px" pos="relative">
-          <Styled.Button pos="absolute" right="32px" p="0">
+        <Box p="32px" pos="relative">
+          <Button pos="absolute" right="32px" p="0">
             &#10005;
-          </Styled.Button>
+          </Button>
           <div style={{ height: '270px' }}>Dummy</div>
-        </Styled.Box>
-      </Styled.Box>
-    </Styled.Box>
-  </Styled.ModalContainer>
+        </Box>
+      </Box>
+    </Box>
+  </ModalContainer>
 );
 
 export default Modal;
