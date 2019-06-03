@@ -153,7 +153,7 @@ export const MainContainer = styled.div`
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  padding-top: 15px;
+  ${'' /* padding-top: 15px; */}
 `;
 
 export const Elipse = styled.div`
