@@ -22,9 +22,8 @@ import Icon from '../../../../images/info-icon.svg';
 
 import {
   ScreenCanvas,
-  DivImage,
-  ImeDvoranePlaceholder,
-  ImeDvoraneText,
+  HallNameText,
+  HallNameTextCenter,
   HeadlineText,
   SubheadlineText,
   FirstRow,
@@ -101,55 +100,47 @@ class CitizensSelectHall extends React.Component {
           </SubheadlineText>
           <LayoutWrapper>
             <FirstRow>
-              <DivImage>
-                <HallImage img={hallImage01} />
-                <ImeDvoranePlaceholder>
-                  <ImeDvoraneText>
-                    Velika sportska <br />
-                    dvorana
-                  </ImeDvoraneText>
-                </ImeDvoranePlaceholder>
-              </DivImage>
+              <HallImage img={hallImage01}>
+                <HallNameText>
+                  <HallNameTextCenter>
+                    Velika sportska dvorana
+                  </HallNameTextCenter>
+                </HallNameText>
+              </HallImage>
 
-              <DivImage>
-                <HallImage src={hallImage02} />
-                <ImeDvoranePlaceholder>
-                  <ImeDvoraneText>
-                    Dvorana Hrvatskog <br />
-                    doma
-                  </ImeDvoraneText>
-                </ImeDvoranePlaceholder>
-              </DivImage>
+              <HallImage img={hallImage02}>
+                <HallNameText>
+                  <HallNameTextCenter>
+                    Dvorana Hrvatskog doma
+                  </HallNameTextCenter>
+                </HallNameText>
+              </HallImage>
 
-              <DivImage>
-                <HallImage src={hallImage03} />
-                <ImeDvoranePlaceholder>
-                  <ImeDvoraneText>
-                    Dvorana Gradske <br />
-                    knjižnice
-                  </ImeDvoraneText>
-                </ImeDvoranePlaceholder>
-              </DivImage>
+              <HallImage img={hallImage03}>
+                <HallNameText>
+                  <HallNameTextCenter>
+                    Dvorana Gradske knjižnice
+                  </HallNameTextCenter>
+                </HallNameText>
+              </HallImage>
             </FirstRow>
 
             <SecondRow>
-              <DivImage>
-                <HallImage src={hallImage04} />
-                <ImeDvoranePlaceholder>
-                  <ImeDvoraneText>
-                    Dvorana TIC
-                    <br />
-                    (Turistički dom)
-                  </ImeDvoraneText>
-                </ImeDvoranePlaceholder>
-              </DivImage>
+              <HallImage img={hallImage04}>
+                <HallNameText>
+                  <HallNameTextCenter>
+                    Dvorana TIC (Turistički Dom)
+                  </HallNameTextCenter>
+                </HallNameText>
+              </HallImage>
 
-              <DivImage>
-                <HallImage src={hallImage05} />
-                <ImeDvoranePlaceholder>
-                  <ImeDvoraneText>Konferencijska dvorana RCTP</ImeDvoraneText>
-                </ImeDvoranePlaceholder>
-              </DivImage>
+              <HallImage img={hallImage05}>
+                <HallNameText>
+                  <HallNameTextCenter>
+                    Konferencijska dvorana RCTP
+                  </HallNameTextCenter>
+                </HallNameText>
+              </HallImage>
             </SecondRow>
           </LayoutWrapper>
         </MainContainer>

@@ -27,6 +27,13 @@ export const HallImage = styled.div`
   background-image: url(${props => props.img});
   width: 244px;
   height: 138px;
+  background-size: cover;
+  border-radius: 2px;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* enable flex items to wrap */
+  justify-content: center;
 `;
 
 // slika dvorane end
@@ -41,34 +48,49 @@ export const DivImage = styled.div`
   margin: 10px;
   
 `;
+// export const ImeDvoranePlaceholder = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 155px;
+//   height: 48px;
+//   border-radius: 3px;
+//   background-color: #808080;
+//   align-self: flex-end;
+//   position: absolute;
+// `;
+
 export const ImeDvoranePlaceholder = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  align-self: flex-end;
   width: 155px;
   height: 48px;
   border-radius: 3px;
   background-color: #808080;
-  align-self: flex-end;
-  position: absolute;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  color: #ffffff;
+  text-align: center;
+}
 `;
 
 //tipografija
-export const ImeDvoraneText = styled.div`
-  display: flex;
+// export const ImeDvoraneText = styled.div`
+//   display: flex;
 
-  justify-content: center;
-  align-items: center;
-  font-family: Poppins, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.14;
-  letter-spacing: normal;
-  color: #ffffff;
-  text-align: center;
-`;
+//   justify-content: center;
+//   align-items: center;
+//   font-family: Poppins, Arial, sans-serif;
+//   font-size: 14px;
+//   font-weight: 500;
+//   font-style: normal;
+//   font-stretch: normal;
+//   line-height: 1.14;
+//   letter-spacing: normal;
+//   color: #ffffff;
+//   text-align: center;
+// `;
 
 export const HeadlineText = styled.div`
   margin-left: 125px;
@@ -97,6 +119,27 @@ export const SubheadlineText = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+`;
+
+export const HallNameText = styled.div`
+  align-self: flex-end;
+  width: 155px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #808080;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  color: #ffffff;
+  text-align: center;
+`;
+
+export const HallNameTextCenter = styled.div`
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 //Dovrane layout
