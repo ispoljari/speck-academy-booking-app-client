@@ -140,6 +140,8 @@ const OneDayDivRow = styled.div.attrs({
 
 //TODO position this div(s) dynamicaly
 //width and margin-left and opacitiy
+//onclick -> change to -> border: solid 1px #0f4951;
+//onHover -> add this -> box-shadow: 0 0 4px 0 #9da8a5;
 const ReservationDynamicDiv = styled.div.attrs({
   'data-id': 'ReservationDynamicDiv'
 })`
@@ -148,9 +150,26 @@ const ReservationDynamicDiv = styled.div.attrs({
   border-radius: 2px;
   border: solid 1px #ffffff;
   background-color: #93e9bb;
+  {/*border: solid 1px #0f4951;
 
   display: inline-block;
   margin-left: 29px;
+`;
+
+const PopUpInfo = styled.div.attrs({
+  'data-id': 'PopUpInfo'
+})`
+  width: 384px;
+  height: 192px;
+  opacity: 0.7;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #434343;
 `;
 
 /*
@@ -296,6 +315,7 @@ export {
   Line,
   OneDayDivRow,
   ReservationDynamicDiv,
+  PopUpInfo,
   //Table,
   //TableData,
   Info,

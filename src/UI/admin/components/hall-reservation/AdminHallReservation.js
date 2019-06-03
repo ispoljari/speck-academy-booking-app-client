@@ -11,6 +11,7 @@ import {
   Line,
   OneDayDivRow,
   ReservationDynamicDiv,
+  PopUpInfo,
   //Table,
   //TableData,
   Info,
@@ -54,7 +55,9 @@ const ScheduleComponenet = () => (
         </OneDayDivRow>
         <OneDayDivRow>
           UTO
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
+          <ReservationDynamicDiv>
+            <PopUpInfo />
+          </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
         </OneDayDivRow>
