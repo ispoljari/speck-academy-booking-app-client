@@ -133,6 +133,9 @@ export const HallNameText = styled.div`
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
+  &:hover {
+    background-color: #229c7f;
+  }
 `;
 
 export const HallNameTextCenter = styled.div`

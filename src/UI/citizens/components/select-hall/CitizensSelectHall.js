@@ -23,6 +23,7 @@ import Icon from '../../../../images/info-icon.svg';
 import {
   ScreenCanvas,
   HallNameText,
+  HallNameTextHover,
   HallNameTextCenter,
   HeadlineText,
   SubheadlineText,
