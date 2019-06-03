@@ -10,6 +10,7 @@ const Modal = props => (
       left="0"
       wd="100%"
       hg="100%"
+      backgroundColor="#5f6d75"
     >
       Hello
     </Styled.Box>

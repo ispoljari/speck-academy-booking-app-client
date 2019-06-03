@@ -17,7 +17,10 @@ const Box = styled.div`
     props.maxWd && (sumCSS += `max-width: ${props.maxWd};`);
     props.hg && (sumCSS += `height: ${props.hg};`);
     props.maxHg && (sumCSS += `max-height: ${props.maxHg};`);
+
     props.transf && (sumCSS += `transform: ${props.transf};`);
+    props.backgroundColor &&
+      (sumCSS += `background-color: ${props.backgroundColor};`);
 
     return sumCSS;
   }}
