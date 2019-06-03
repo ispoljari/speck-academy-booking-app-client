@@ -12,6 +12,7 @@ const stylesAPI = css`
     props.maxWd && (sumCSS += `max-width: ${props.maxWd};`);
     props.hg && (sumCSS += `height: ${props.hg};`);
     props.maxHg && (sumCSS += `max-height: ${props.maxHg};`);
+    props.zIndex && (sumCSS += `z-index: ${props.zIndex};`);
 
     props.transf && (sumCSS += `transform: ${props.transf};`);
     props.borderRadius && (sumCSS += `border-radius: ${props.borderRadius};`);

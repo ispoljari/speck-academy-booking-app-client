@@ -10,7 +10,8 @@ const Modal = ({ visible, handleClose, children }) => (
       left="0"
       wd="100%"
       hg="100%"
-      backgroundColor="#5f6d75"
+      backgroundColor="rgba(0,0,0,0.6)"
+      zIndex="100"
     >
       <Box
         pos="fixed"

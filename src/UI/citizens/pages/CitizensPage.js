@@ -8,7 +8,7 @@ import {
   CitizensSubmitRequest
 } from '../';
 
-import { Footer, Modal } from '../../common';
+import { Footer } from '../../common';
 
 const CitizensPage = () => (
   <React.Fragment>
@@ -18,7 +18,6 @@ const CitizensPage = () => (
     <CitizensEditEventInfo />
     <CitizensSubmitRequest />
     <Footer /> */}
-    <Modal visible />
   </React.Fragment>
 );
 
