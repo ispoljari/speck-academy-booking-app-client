@@ -37,7 +37,11 @@ const CitizensHallInfo = () => (
             <HallDetail>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
               dictum, leo pulvinar aliquet sagittis, neque ligula sagittis
-              augue, eget finibus lectus leo nec ipsum.
+              augue, eget finibus lectus leo nec ipsum. Que ligula sagittis
+              augue, eget finibus lectus leo nec ipsumLorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Nunc dictum, leo pulvinar
+              aliquet sagittis, neque ligula sagittis augue, eget finibus lectus
+              leo nec ipsum
             </HallDetail>
           </HallInfoDescription>
         </HallInfo>
