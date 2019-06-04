@@ -78,7 +78,8 @@ function crtajZauzeto(poc, kraj) {
     var width = krj - pocetak;
     var style = {
       left: pocetak,
-      width: width
+      width: width,
+      backgroundColor: '#0f4850'
     };
     divs.push(<Zauzeto style={style} />);
   }

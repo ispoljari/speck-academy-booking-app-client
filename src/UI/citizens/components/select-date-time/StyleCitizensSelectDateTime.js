@@ -190,7 +190,7 @@ const Zauzeto = styled.div`
   //width: 212px;
   height: 32px;
   border-radius: 2px;
-  background-color: #0f4850;
+  //background-color: #0f4850;
 `;
 
 const Slobodno = styled.div`
