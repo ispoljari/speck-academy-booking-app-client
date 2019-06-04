@@ -168,10 +168,13 @@ const ReservationDynamicDiv = styled.div.attrs({
   border-radius: 2px;
   border: solid 1px #ffffff;
   background-color: #93e9bb;
-  border: solid 1px #0f4951;
 
   display: inline-block;
   margin-left: 64px;
+
+  &:hover {
+    box-shadow: 0 0 4px 0 #9da8a5;
+  }
 `;
 
 const PopUpInfo = styled.div.attrs({
@@ -187,7 +190,11 @@ const PopUpInfo = styled.div.attrs({
   margin-top: 16px;
   position: absolute;
   border: solid 1px black;
-  visibility: visible;
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+
+  &:hover {
+    ${props => alert('props.visible:' + props.visible)};
+  }
 `;
 
 const PopUpInfoText = styled.h1.attrs({

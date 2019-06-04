@@ -26,6 +26,16 @@ import {
 
 let a = [1, 2, 3, 4, 5, 6];
 
+function myFunction() {
+  alert('isVisible:' + isVisible);
+  isVisible = false;
+  alert('isVisible:' + isVisible);
+  return myFunction;
+}
+let isVisible = true;
+
+//const PopUpInfo = visible
+
 const ScheduleComponenet = props => (
   <MainWrapper>
     <MainTitleWrapper>
@@ -94,7 +104,16 @@ const ScheduleComponenet = props => (
           <OneDayDivRowText>PET</OneDayDivRowText>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
+          <ReservationDynamicDiv onMouseOver={myFunction}>
+            <PopUpInfo visible={isVisible}>
+              <PopUpInfoText>
+                {props.dummyDataArray[0].hallReservaltions[0]
+                  .reservationDescription +
+                  'EEE' +
+                  isVisible}
+              </PopUpInfoText>
+            </PopUpInfo>
+          </ReservationDynamicDiv>
         </OneDayDivRow>
         <OneDayDivRow>
           <OneDayDivRowText>SUB</OneDayDivRowText>
