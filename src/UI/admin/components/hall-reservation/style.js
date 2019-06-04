@@ -187,6 +187,7 @@ const PopUpInfo = styled.div.attrs({
   margin-top: 16px;
   position: absolute;
   border: solid 1px black;
+  visibility: visible;
 `;
 
 const PopUpInfoText = styled.h1.attrs({

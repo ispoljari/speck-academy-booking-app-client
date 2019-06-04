@@ -24,6 +24,8 @@ import {
   InfoEraseButtonText
 } from './style.js';
 
+let a = [1, 2, 3, 4, 5, 6];
+
 const ScheduleComponenet = props => (
   <MainWrapper>
     <MainTitleWrapper>
@@ -48,16 +50,34 @@ const ScheduleComponenet = props => (
           <HourDiv />
         </HoursDivRow>
         <Line />
-        <OneDayDivRow>
-          <OneDayDivRowText>PON</OneDayDivRowText>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
-        </OneDayDivRow>
+        {
+          <OneDayDivRow>
+            <OneDayDivRowText>PON</OneDayDivRowText>
+            {a.map(i => {
+              return (
+                <ReservationDynamicDiv>
+                  {/*                     <PopUpInfo >
+                        <PopUpInfoText>{
+                        props.dummyDataArray[0].hallReservaltions[0].reservationDescription
+                        }</PopUpInfoText>
+                      </PopUpInfo>*/}
+                  }}
+                </ReservationDynamicDiv>
+              );
+            })}
+          </OneDayDivRow>
+        }
         <OneDayDivRow>
           <OneDayDivRowText>UTO</OneDayDivRowText>
           <ReservationDynamicDiv>
             <PopUpInfo>
-              <PopUpInfoText>{props.dummyDataArray[0].event}</PopUpInfoText>
+              <PopUpInfoText>
+                {
+                  //props.dummyDataArray[0].event
+                  props.dummyDataArray[0].hallReservaltions[0]
+                    .reservationDescription
+                }
+              </PopUpInfoText>
             </PopUpInfo>
           </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
@@ -184,10 +204,23 @@ const ScheduleComponenet = props => (
       </Table>*/}
 
       <Info>
-        <InfoTitle>{props.dummyDataArray[0].event}</InfoTitle>
+        <InfoTitle>
+          {
+            //props.dummyDataArray[0].event
+            props.dummyDataArray[0].hallReservaltions[0].reservationDescription
+          }
+        </InfoTitle>
         <InfoTime>
-          {props.dummyDataArray[0].startTime.toString().substring(4, 25)} -{' '}
-          {props.dummyDataArray[0].endTime.toString().substring(4, 25)}
+          {//props.dummyDataArray[0].startTime.toString().substring(4, 25)
+          props.dummyDataArray[0].hallReservaltions[0].reservationDate +
+            ' ' +
+            props.dummyDataArray[0].hallReservaltions[0]
+              .reservationStartTime}{' '}
+          -
+          {
+            //props.dummyDataArray[0].endTime.toString().substring(4, 25)
+            props.dummyDataArray[0].hallReservaltions[0].reservationEndTime
+          }
         </InfoTime>
         <InfoButton />
         <InfoEraseButton>
