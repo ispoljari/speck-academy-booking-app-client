@@ -24,9 +24,7 @@ import {
   InfoEraseButtonText
 } from './style.js';
 
-//const a = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 222];
-
-const ScheduleComponenet = () => (
+const ScheduleComponenet = props => (
   <MainWrapper>
     <MainTitleWrapper>
       <MainTitle>Moj Veeeliki naslov</MainTitle>
@@ -59,9 +57,7 @@ const ScheduleComponenet = () => (
           <OneDayDivRowText>UTO</OneDayDivRowText>
           <ReservationDynamicDiv>
             <PopUpInfo>
-              <PopUpInfoText>
-                24. sastanak Križevačke gospodarske komore samostalnih obrtnika.
-              </PopUpInfoText>
+              <PopUpInfoText>{props.dummyDataArray[0].event}</PopUpInfoText>
             </PopUpInfo>
           </ReservationDynamicDiv>
           <ReservationDynamicDiv> </ReservationDynamicDiv>
@@ -188,10 +184,11 @@ const ScheduleComponenet = () => (
       </Table>*/}
 
       <Info>
-        <InfoTitle>
-          Bad to the minton, Bad to the minton, Bad to the minton
-        </InfoTitle>
-        <InfoTime>23.11.2018., 12:15 - 15:45</InfoTime>
+        <InfoTitle>{props.dummyDataArray[0].event}</InfoTitle>
+        <InfoTime>
+          {props.dummyDataArray[0].startTime.toString().substring(4, 25)} -{' '}
+          {props.dummyDataArray[0].endTime.toString().substring(4, 25)}
+        </InfoTime>
         <InfoButton />
         <InfoEraseButton>
           <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
