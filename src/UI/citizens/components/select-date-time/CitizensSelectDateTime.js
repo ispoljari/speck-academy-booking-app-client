@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Container,
   Krug,
@@ -86,6 +85,12 @@ function crtajZauzeto(poc, kraj) {
   return divs;
 }
 
+function addDays(date, days) {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
 const CitizensSelectDateTime = () => (
   <Container>
     <link
@@ -112,15 +117,27 @@ const CitizensSelectDateTime = () => (
     <Kraj>KRAJ</Kraj>
     <Unos>
       <Rectangle>
-        <Input placeholder="DATUM..." type="text" />
+        <Input
+          placeholder="Datum..."
+          type="text"
+          onfocus="(this.type='date')"
+        />
         <Vector />
       </Rectangle>
       <Rectangle>
-        <Input placeholder="VRIJEME..." type="text" />
+        <Input
+          placeholder="Vrijeme..."
+          type="text"
+          onfocus="(this.type='date')"
+        />
         <Vector />
       </Rectangle>
       <Rectangle>
-        <Input placeholder="VRIJEME..." type="text" />
+        <Input
+          placeholder="Vrijeme..."
+          type="text"
+          onfocus="(this.type='date')"
+        />
         <Vector />
       </Rectangle>
     </Unos>

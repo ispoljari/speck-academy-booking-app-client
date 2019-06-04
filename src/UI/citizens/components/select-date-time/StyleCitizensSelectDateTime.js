@@ -145,10 +145,9 @@ const Vector = styled.div`
 `;
 
 const Input = styled.input`
-  position: absolute;
+  // position: absolute;
   width: 244px;
   height: 32px;
-  content: attr(placeholder) !important;
 `;
 
 const Timeline = styled.div`
