@@ -15,8 +15,11 @@ const HallDiv = styled.div`
   margin: auto;
   width: 1024px;
   height: 352px;
-  border: 1px solid black;
+  border-radius: 4px;
+  border: solid 1px #d9d9d9;
+  background-color: #ffffff;
   display: flex;
+  box-sizing: border-box;
 `;
 
 const ImageDiv = styled.div`
@@ -38,7 +41,6 @@ const TextDiv = styled.div`
 const ButtonDiv = styled.div`
   height: 352px;
   width: 260px;
-  background-color: red;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -66,7 +68,7 @@ const HeaderHall = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 17px;
+  margin-top: 16px;
 `;
 
 const AdressHall = styled.div`
@@ -81,7 +83,7 @@ const AdressHall = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 24px;
+  margin-top: 25px;
   margin-left: 24px;
 `;
 
@@ -391,12 +393,13 @@ const PhoneInput = styled.div`
 const ButtonUp = styled.div`
   height: 176px;
   width: 260px;
+  box-sizing: border-box;
 `;
 
 const ButtonDown = styled.div`
   height: 176px;
   width: 260px;
-  background-color: yellow;
+  box-sizing: border-box;
 `;
 
 const Podneseno = styled.div`
@@ -412,7 +415,7 @@ const Podneseno = styled.div`
   letter-spacing: normal;
   color: #000000;
   margin-top: 16px;
-  margin-left: 174px;
+  margin-left: 170px;
   margin-right: 16px;
 `;
 
@@ -429,8 +432,47 @@ const PodnesenoDatum = styled.div`
   letter-spacing: normal;
   color: #229c7f;
   margin-top: 8px;
-  margin-left: 154px;
+  margin-left: 149px;
   margin-right: 16px;
+`;
+
+const ButtonAcc = styled.div`
+  width: 228px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #0f4951;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  box-sizing: border-box;
+  margin-top: 72px;
+  margin-left: 16px;
+  padding: 9px 12px 12px 7px;
+  text-align: center;
+`;
+
+const ButtonDen = styled.div`
+  width: 228px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #0f4951;
+  background-color: #ffffff;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f4951;
+  box-sizing: border-box;
+  margin-left: 16px;
+  margin-top: 8px;
+  padding: 9px 12px 12px 7px;
+  text-align: center;
 `;
 
 export {
@@ -465,5 +507,7 @@ export {
   ButtonUp,
   ButtonDown,
   Podneseno,
-  PodnesenoDatum
+  PodnesenoDatum,
+  ButtonAcc,
+  ButtonDen
 };

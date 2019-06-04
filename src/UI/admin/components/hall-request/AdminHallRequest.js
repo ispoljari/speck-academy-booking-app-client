@@ -32,7 +32,9 @@ import {
   ButtonUp,
   ButtonDown,
   Podneseno,
-  PodnesenoDatum
+  PodnesenoDatum,
+  ButtonAcc,
+  ButtonDen
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = () => (
@@ -78,7 +80,10 @@ const AdminHallRequest = () => (
         <Podneseno>PODNESENO</Podneseno>
         <PodnesenoDatum>28.02.2019., 16:58</PodnesenoDatum>
       </ButtonUp>
-      <ButtonDown />
+      <ButtonDown>
+        <ButtonAcc>PRIHVATI</ButtonAcc>
+        <ButtonDen>ODBIJ</ButtonDen>
+      </ButtonDown>
     </ButtonDiv>
   </HallDiv>
 );
