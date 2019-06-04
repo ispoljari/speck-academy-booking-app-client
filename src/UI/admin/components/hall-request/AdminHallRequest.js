@@ -37,7 +37,7 @@ import {
   ButtonDen
 } from './AdminHallRequestStyle';
 
-const AdminHallRequest = () => (
+const AdminHallRequest = props => (
   <HallDiv>
     <ImageDiv>
       <ImageHall />
@@ -60,7 +60,7 @@ const AdminHallRequest = () => (
         <Datum>DATUM</Datum>
         <DatumInput>25.04.2019</DatumInput>
         <Time>VRIJEME</Time>
-        <TimeInput>09:00 - 22:00 </TimeInput>
+        <TimeInput>09:00 - 22:00</TimeInput>
       </LeftText>
       <RightText>
         <ContactInfo>KONTAKT PODACI</ContactInfo>
