@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 const HallInfoContainer = styled.div`
   width: 632px;
-  height: 270px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   margin: 0 auto;
-  padding: 32px 32px 38px 32px;
+  padding: 32px;
 `;
 
 const HallInfoTitle = styled.h2`
@@ -14,13 +13,13 @@ const HallInfoTitle = styled.h2`
   height: 40px;
   font-family: 'Lora', serif;
   font-size: 32px;
+  margin-bottom: 24px;
   font-weight: bold;
 `;
 
 const HallInfoPanel = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
   justify-content: space-between;
 `;
 
@@ -48,9 +47,8 @@ const HallNameTitle = styled.h3`
   display: inline;
   position: center;
   width: 170px;
-  height: 18px;
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #ffffff;
   padding: 1px 50px 1px 8px;
