@@ -1,46 +1,52 @@
 import styled, { css } from 'styled-components';
 
-const stylesAPI = css`
-  ${props => {
-    let sumCSS = ``;
-
-    props.pos && (sumCSS += `position: ${props.pos};`);
-    props.top && (sumCSS += `top: ${props.top};`);
-    props.right && (sumCSS += `right: ${props.right};`);
-    props.left && (sumCSS += `left: ${props.left};`);
-    props.wd && (sumCSS += `width: ${props.wd};`);
-    props.maxWd && (sumCSS += `max-width: ${props.maxWd};`);
-    props.hg && (sumCSS += `height: ${props.hg};`);
-    props.maxHg && (sumCSS += `max-height: ${props.maxHg};`);
-    props.zIndex && (sumCSS += `z-index: ${props.zIndex};`);
-
-    props.transf && (sumCSS += `transform: ${props.transf};`);
-    props.borderRadius && (sumCSS += `border-radius: ${props.borderRadius};`);
-    props.p && (sumCSS += `padding: ${props.p};`);
-    props.backgroundColor &&
-      (sumCSS += `background-color: ${props.backgroundColor};`);
-
-    return sumCSS;
-  }}
-`;
-
 const ModalContainer = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
 `;
 
-const Box = styled.div`
-  display: block;
+const ModalOuterBox = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
 
-  ${stylesAPI};
+  background-color: rgba(0, 0, 0, 0.6);
+`;
+
+const ModalInnerBox = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 632px;
+  transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  border-radius: 4px;
+`;
+
+const ModalContentWrapper = styled.div`
+  position: relative;
+  padding: 32px;
 `;
 
 const Button = styled.button`
+  position: absolute;
+  right: 32px;
+  padding: 0;
+
   border: 0;
   font-size: 20px;
   cursor: pointer;
   color: #c9c9c9;
-
-  ${stylesAPI};
 `;
 
-export { ModalContainer, Box, Button };
+export {
+  ModalContainer,
+  ModalInnerBox,
+  ModalOuterBox,
+  ModalContentWrapper,
+  Button
+};
