@@ -6,7 +6,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   font-family: Poppins;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
@@ -19,7 +19,7 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-//cijeli viewport
+// viewport
 export const ScreenCanvas = styled.div`
   display: flex;
   flex-direction: row;
@@ -28,7 +28,7 @@ export const ScreenCanvas = styled.div`
   height: 1080px;
   background-color: #f4f5f7;
 `;
-//cijeli viewport end
+//viewport end
 
 export const HallImage = styled.div`
   background-image: url(${props => props.img});
@@ -76,14 +76,9 @@ export const TextInfoIcon = styled.img`
 export const HeadlineText = styled.div`
   margin-left: 130px;
   margin-top: 32px;
-
   font-family: Lora, Georgia, serif;
   font-size: 32px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  font-weight: 800;
   color: #000000;
 `;
 
@@ -92,7 +87,7 @@ export const SubheadlineText = styled.div`
   margin-top: 16px;
   margin-bottom: 22px;
   width: 764px;
-  height: 24px;
+  min-height: 24px;
   font-family: Poppins, sans serif;
   font-size: 14px;
   color: #000000;

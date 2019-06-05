@@ -96,6 +96,7 @@ class CitizensSelectHall extends React.Component {
           <Elipse>
             <Number>1</Number>
           </Elipse>
+
           <HeadlineText>Odaberite dvoranu</HeadlineText>
           <SubheadlineText>
             Pronađite dvoranu koja vam odgovara. Za dodatne informacije kliknite
