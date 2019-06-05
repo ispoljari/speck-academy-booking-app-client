@@ -3,7 +3,6 @@ import styled from 'styled-components/macro';
 import Plus from '../../../../images/PlusSign.svg';
 
 const Wrapper = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +20,7 @@ const PlusSign = styled.img`
   height: 104px;
 `;
 
-const ButtonAdd = styled.div`
+const ButtonAdd = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,18 +39,14 @@ const ButtonAdd = styled.div`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #93e9bb;
 `;
 
-const AddHallComponent = () => (
+const AdminAddHallComponent = () => (
   <Wrapper>
     <PlusSign src={Plus} />
     <ButtonAdd>DODAJ NOVU DVORANU</ButtonAdd>
   </Wrapper>
 );
 
-export default AddHallComponent;
+export default AdminAddHallComponent;
