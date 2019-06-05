@@ -101,7 +101,7 @@ export const HallNameText = styled.div`
   background-color: #808080;
   font-family: Poppins;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
