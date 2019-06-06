@@ -1,169 +1,127 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
-  position: relative;
+import { Link } from 'react-router-dom';
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.14;
+  color: #ffffff;
+  text-align: center;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
+
+export const Container = styled.div`
   width: 1024px;
-  height: 263px;
-  margin-left: 208px;
-  margin-top: 32px;
+  min-height: 263px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
+  margin: 0 auto;
+  position: relative;
 `;
 
-const Krug = styled.div`
+export const Title = styled.p`
+  font-family: Lora, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 20px;
+`;
+export const LayoutContainer = styled.div`
+  //margin: 0 auto;
+  margin-left: 130px;
+  margin-top: 33px;
+`;
+
+export const MainText = styled.p`
+  font-family: Poppins;
+  font-size: 14px;
+  color: #000000;
+`;
+
+export const Description = styled.div`
+  width: 764px;
+  // font-family: Poppins;
+  //   font-size: 14px;
+  //   color: #000000;
+  margin-bottom: 20px;
+`;
+
+export const Contact = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ContactLeft = styled.div`
+  //background-color: yellow;
+  margin-right: 13px;
+
+  text-align: end;
+  color: #229c7f;
+  font-family: Poppins;
+  font-size: 14px;
+`;
+export const ContactRight = styled.div`
+  //background-color: blue;
+  font-family: Poppins;
+  font-size: 14px;
+  color: #000000;
+  width: 168px;
+`;
+
+export const Button = styled.div`
+  width: 374px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #0f4850;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 32px;
+  &:hover {
+    background-color: #229c7f;
+  }
+`;
+
+export const ButtonText = styled.p`
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Poppins;
+  font-size: 14px;
+  text-decoration: none;
+`;
+
+export const Circle = styled.div`
   margin: 16px;
   width: 152px;
   height: 152px;
   opacity: 0.2;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
+  position: absolute;
 `;
 
-const Broj = styled.div`
-  position: absolute;
-  top: 32px;
-  left: 16px;
-  width: 76px;
-  height: 145px;
-  opacity: 0.4;
-  font-family: Poppins-Regular;
+export const Number = styled.div`
+  font-family: Poppins, sans-serif;
   font-size: 96px;
   font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #82d4a7;
-  margin-left: 38px;
+  top: 10px;
   text-align: center;
+  color: #82d4a7;
 `;
 
-const Title = styled.h1`
-  position: absolute;
-  top: 16px;
-  left: 130px;
-  width: 576px;
-  height: 40px;
-  font-family: Lora;
-  font-size: 32px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
+export const SectorDown = styled.div`
+  //background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
 `;
-
-const Mail = styled.div`
-  display: inline-block;
-  width: 64px;
-  height: 24px;
-  font-family: Poppins-Regular;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #229c7f;
-`;
-
-const Adresa = styled.div`
-  display: inline-block;
-  width: 168px;
-  height: 24px;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-  margin-left: 13px;
-`;
-
-const Kontakt = styled.div`
-  display: inline-block;
-  width: 64px;
-  height: 24px;
-  font-family: Poppins-Regular;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #229c7f;
-`;
-
-const Mobitel = styled.div`
-  display: inline-block;
-  width: 168px;
-  height: 24px;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-  margin-left: 13px;
-`;
-const Opis = styled.div`
-  left: 130px;
-  top: 88px;
-  position: absolute;
-  width: 764px;
-  height: 88px;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-  display: block;
-`;
-
-const Nesto = styled.div`
-  margin-left: 130px;
-  display: inline;
-`;
-
-const Button2 = styled.button`
-  position: absolute;
-  top: 182px;
-  right: 32px;
-  width: 374px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: #0f4850;
-  font-family: Poppins-Medium;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #ffffff;
-  display: inline;
-  border: 1px solid #008cba;
-`;
-
-export {
-  Container,
-  Title,
-  Krug,
-  Broj,
-  Mail,
-  Adresa,
-  Mobitel,
-  Kontakt,
-  Opis,
-  Nesto,
-  Button2
-};
