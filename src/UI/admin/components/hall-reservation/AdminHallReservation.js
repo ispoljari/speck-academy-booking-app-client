@@ -25,6 +25,8 @@ import {
   InfoEraseButtonText
 } from './style.js';
 
+import dataArray from './newData.js';
+
 let daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
 let hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
 
@@ -73,90 +75,105 @@ function calcPositionAndLEngth(date, startTime, endTime) {
 
 function refresfInfo() {}
 
-const ScheduleComponenet = props => (
-  <MainWrapper>
-    <MainTitleWrapper>
-      <MainTitle>Moj Veeeliki naslov</MainTitle>
-    </MainTitleWrapper>
-    <TableAndInfoWrapper>
-      <TableWrapper>
-        <HoursDivRow>
-          {hoursOfDay.map(hour => {
-            return <HourDiv>{hour}</HourDiv>;
-          })}
-          <LastHourDiv>22</LastHourDiv>
-        </HoursDivRow>
-        <Line />
+//const ScheduleComponenet = props => (
+class ScheduleComponenet extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { dummyDataArray: dataArray };
+  }
 
-        {daysOfWeek.map(day => {
-          return (
-            <OneDayDivRow>
-              <OneDayDivRowText onclick={refresfInfo}>{day}</OneDayDivRowText>
+  render() {
+    return (
+      <MainWrapper>
+        <MainTitleWrapper>
+          <MainTitle>Moj Veeeliki naslov</MainTitle>
+        </MainTitleWrapper>
+        <TableAndInfoWrapper>
+          <TableWrapper>
+            <HoursDivRow>
+              {hoursOfDay.map(hour => {
+                return <HourDiv>{hour}</HourDiv>;
+              })}
+              <LastHourDiv>22</LastHourDiv>
+            </HoursDivRow>
+            <Line />
 
-              {props.dummyDataArray[0].hallReservaltions.map(
-                hallReservaltions => {
-                  //calcPositionAndLEngth(hallReservaltions.reservationDate, hallReservaltions.reservationStartTime, hallReservaltions.reservationEndTime);
-                  let obj = calcPositionAndLEngth(
-                    hallReservaltions.reservationDate,
-                    hallReservaltions.reservationStartTime,
-                    hallReservaltions.reservationEndTime
-                  );
-                  console.log('obj: ' + obj);
-                  return (
-                    <ReservationDynamicDiv
-                      length={obj.length}
-                      start={obj.start}
-                      exist={obj.exist}
-                    >
-                      <PopUpInfo position={props}>
-                        <PopUpInfoText>
-                          {//props.dummyDataArray[0].event
-                          //props.dummyDataArray[0].hallReservaltions[0]
-                          //.
-                          hallReservaltions.reservationDescription +
-                            ' ' +
-                            hallReservaltions.reservationDate +
-                            ' ' +
-                            hallReservaltions.reservationStartTime +
-                            ' ' +
-                            hallReservaltions.reservationEndTime}
-                        </PopUpInfoText>
-                      </PopUpInfo>
-                    </ReservationDynamicDiv>
-                  );
-                }
-              )}
-            </OneDayDivRow>
-          );
-        })}
-      </TableWrapper>
+            {daysOfWeek.map(day => {
+              return (
+                <OneDayDivRow>
+                  <OneDayDivRowText onClick={refresfInfo}>
+                    {day}
+                  </OneDayDivRowText>
 
-      <Info>
-        <InfoTitle>
-          {
-            //props.dummyDataArray[0].event
-            props.dummyDataArray[0].hallReservaltions[0].reservationDescription
-          }
-        </InfoTitle>
-        <InfoTime>
-          {//props.dummyDataArray[0].startTime.toString().substring(4, 25)
-          props.dummyDataArray[0].hallReservaltions[0].reservationDate +
-            ' ' +
-            props.dummyDataArray[0].hallReservaltions[0]
-              .reservationStartTime}{' '}
-          -
-          {
-            //props.dummyDataArray[0].endTime.toString().substring(4, 25)
-            props.dummyDataArray[0].hallReservaltions[0].reservationEndTime
-          }
-        </InfoTime>
-        <InfoButton />
-        <InfoEraseButton>
-          <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
-        </InfoEraseButton>
-      </Info>
-    </TableAndInfoWrapper>
-  </MainWrapper>
-);
+                  {this.state.dummyDataArray[0].hallReservaltions.map(
+                    hallReservaltions => {
+                      //calcPositionAndLEngth(hallReservaltions.reservationDate, hallReservaltions.reservationStartTime, hallReservaltions.reservationEndTime);
+                      let obj = calcPositionAndLEngth(
+                        hallReservaltions.reservationDate,
+                        hallReservaltions.reservationStartTime,
+                        hallReservaltions.reservationEndTime
+                      );
+                      console.log('obj: ' + obj);
+                      return (
+                        <ReservationDynamicDiv
+                          length={obj.length}
+                          start={obj.start}
+                          exist={obj.exist}
+                        >
+                          <PopUpInfo position={this.state}>
+                            <PopUpInfoText>
+                              {//this.state.dummyDataArray[0].event
+                              //this.state.dummyDataArray[0].hallReservaltions[0]
+                              //.
+                              hallReservaltions.reservationTitle +
+                                ' ' +
+                                hallReservaltions.reservationDate +
+                                ' ' +
+                                hallReservaltions.reservationStartTime +
+                                ' ' +
+                                hallReservaltions.reservationEndTime}
+                            </PopUpInfoText>
+                          </PopUpInfo>
+                        </ReservationDynamicDiv>
+                      );
+                    }
+                  )}
+                </OneDayDivRow>
+              );
+            })}
+          </TableWrapper>
+
+          <Info>
+            <InfoTitle>
+              {
+                //this.state.dummyDataArray[0].event
+                this.state.dummyDataArray[0].hallReservaltions[0]
+                  .reservationTitle
+              }
+            </InfoTitle>
+            <InfoTime>
+              {//this.state.dummyDataArray[0].startTime.toString().substring(4, 25)
+              this.state.dummyDataArray[0].hallReservaltions[0]
+                .reservationDate +
+                ' ' +
+                this.state.dummyDataArray[0].hallReservaltions[0]
+                  .reservationStartTime}{' '}
+              -
+              {
+                //this.state.dummyDataArray[0].endTime.toString().substring(4, 25)
+                this.state.dummyDataArray[0].hallReservaltions[0]
+                  .reservationEndTime
+              }
+            </InfoTime>
+            <InfoButton />
+            <InfoEraseButton>
+              <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
+            </InfoEraseButton>
+          </Info>
+        </TableAndInfoWrapper>
+      </MainWrapper>
+    );
+  }
+}
 
 export default ScheduleComponenet;
