@@ -68,7 +68,7 @@ const HeaderHall = styled.div`
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 16px;
+  margin-top: 18px;
 `;
 
 const AdressHall = styled.div`
@@ -187,7 +187,7 @@ const Datum = styled.div`
 `;
 
 const DatumInput = styled.div`
-  width: 145px;
+  width: 152px;
   height: 16px;
   font-family: Poppins;
   font-size: 12px;
@@ -197,8 +197,8 @@ const DatumInput = styled.div`
   line-height: 1.05;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 12px;
-  margin-left: 35px;
+  margin-top: 15px;
+  margin-left: 16px;
 `;
 
 const Time = styled.div`
@@ -228,8 +228,8 @@ const TimeInput = styled.div`
   line-height: 1.05;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 8px;
-  margin-left: 30px;
+  margin-top: 11px;
+  margin-left: 12px;
 `;
 
 const ContactInfo = styled.div`
@@ -267,6 +267,7 @@ const Namesurname = styled.div`
   margin-top: 12px;
   white-space: nowrap;
   margin-left: 10px;
+  text-align: right;
 `;
 
 const NamesurnameInput = styled.div`
@@ -280,10 +281,9 @@ const NamesurnameInput = styled.div`
   line-height: 1.05;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 12px;
+  margin-top: 15px;
   margin-left: 19px;
   white-space: nowrap;
-  text-align: left;
 `;
 
 const Organizacija = styled.div`
@@ -301,6 +301,7 @@ const Organizacija = styled.div`
   margin-top: 8px;
   margin-left: 6px;
   white-space: nowrap;
+  text-align: left;
 `;
 
 const OrganizacijaInput = styled.div`
@@ -314,7 +315,7 @@ const OrganizacijaInput = styled.div`
   line-height: 1.05;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 8px;
+  margin-top: 10px;
   margin-left: 21px;
   white-space: nowrap;
   text-align: left;
@@ -349,7 +350,7 @@ const EmailInput = styled.div`
   line-height: 1.05;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 8px;
+  margin-top: 11px;
   margin-left: 18px;
   white-space: nowrap;
   text-align: left;
@@ -384,7 +385,7 @@ const PhoneInput = styled.div`
   line-height: 1.05;
   letter-spacing: normal;
   color: #000000;
-  margin-top: 8px;
+  margin-top: 11px;
   margin-left: 18px;
   white-space: nowrap;
   text-align: left;
@@ -448,7 +449,7 @@ const ButtonAcc = styled.div`
   letter-spacing: normal;
   color: #ffffff;
   box-sizing: border-box;
-  margin-top: 72px;
+  margin-top: 75px;
   margin-left: 16px;
   padding: 9px 12px 12px 7px;
   text-align: center;
@@ -470,7 +471,7 @@ const ButtonDen = styled.div`
   color: #0f4951;
   box-sizing: border-box;
   margin-left: 16px;
-  margin-top: 8px;
+  margin-top: 12px;
   padding: 9px 12px 12px 7px;
   text-align: center;
 `;
