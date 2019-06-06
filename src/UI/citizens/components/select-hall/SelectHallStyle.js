@@ -74,7 +74,7 @@ export const TextInfoIcon = styled.img`
 //tipografija
 
 export const HeadlineText = styled.div`
-  margin-left: 130px;
+  margin-left: 5px;
   margin-top: 32px;
   font-family: Lora, Georgia, serif;
   font-size: 32px;
@@ -83,7 +83,7 @@ export const HeadlineText = styled.div`
 `;
 
 export const SubheadlineText = styled.div`
-  margin-left: 130px;
+  margin-left: 5px;
   margin-top: 16px;
   margin-bottom: 22px;
   width: 764px;
@@ -123,7 +123,9 @@ export const LayoutWrapper = styled.div`
   ${'' /* height: 10%; */}
   display: flex;
   flex-direction: column;
-  margin-left: -10px;
+
+  max-width: 742px;
+  align-self: center;
 `;
 
 export const FirstRow = styled.div`
@@ -148,6 +150,7 @@ export const MainContainer = styled.div`
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
+
   ${'' /* padding-top: 15px; */}
 `;
 

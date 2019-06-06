@@ -96,13 +96,13 @@ class CitizensSelectHall extends React.Component {
           <Elipse>
             <Number>1</Number>
           </Elipse>
-
-          <HeadlineText>Odaberite dvoranu</HeadlineText>
-          <SubheadlineText>
-            Pronađite dvoranu koja vam odgovara. Za dodatne informacije kliknite
-            na <TextInfoIcon src={Icon} /> ikonu.
-          </SubheadlineText>
           <LayoutWrapper>
+            <HeadlineText>Odaberite dvoranu</HeadlineText>
+            <SubheadlineText>
+              Pronađite dvoranu koja vam odgovara. Za dodatne informacije
+              kliknite na <TextInfoIcon src={Icon} /> ikonu.
+            </SubheadlineText>
+
             <FirstRow>
               <HallImage img={hallImage01}>
                 <a href="">
