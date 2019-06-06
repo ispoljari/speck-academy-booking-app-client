@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components/macro';
 
 const Wrapper = styled.div`
@@ -77,7 +76,8 @@ const DescriptionMain = styled.div`
   background-color: #ffffff;
 `;
 
-const Headline = styled.div`
+const Headline = styled.h2`
+  margin: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -96,7 +96,8 @@ const Description = styled(Headline)`
 
 const Location = styled(Headline)``;
 
-const Text = styled.div`
+const Text = styled.h3`
+  margin: 0px;
   display: flex;
   margin-left: 22px;
   opacity: 0.5;
@@ -136,30 +137,20 @@ const Button = styled.button`
   width: 96px;
   height: 40px;
   border-radius: 4px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 const ButtonDelete = styled(Button)`
   border: solid 1px #0f4850;
   background-color: #ffffff;
-
-   {
-    /* stil za tekst unutar buttona */
-  }
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
   color: #0f4850;
 `;
 
 const ButtonEdit = styled(Button)`
   background-color: #0f4850;
-
-   {
-    /* stil za tekst unutar buttona */
-  }
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
+  border-width: 0px;
   color: #ffffff;
 `;
 
@@ -177,6 +168,7 @@ export {
   Location,
   LocationText,
   Footer,
+  Button,
   ButtonDelete,
   ButtonEdit
 };

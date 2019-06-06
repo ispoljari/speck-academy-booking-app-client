@@ -1,17 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import Plus from '../../../../images/PlusSign.svg';
+import { Wrapper, Button } from '../available-hall/AdminAvailableHallStyle.js';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 374px;
-  height: 400px;
-  border-radius: 4px;
-  border: solid 1px #229c7f;
-  background-color: #ffffff;
+const WrapperAdd = styled(Wrapper)`
+  border: solid 1px #93e9bb;
 `;
 
 const PlusSign = styled.img`
@@ -20,33 +13,19 @@ const PlusSign = styled.img`
   height: 104px;
 `;
 
-const ButtonAdd = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  box-sizing: border-box;
+const ButtonAdd = styled(Button)`
   margin-top: 100px;
   width: 206px;
-  height: 40px;
-  border-radius: 4px;
   border: solid 1px #93e9bb;
   background-color: #ffffff;
-
-   {
-    /* stil za tekst unutar buttona */
-  }
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
   color: #93e9bb;
 `;
 
-const AdminAddHallComponent = () => (
-  <Wrapper>
+const AdminAddHall = () => (
+  <WrapperAdd>
     <PlusSign src={Plus} />
     <ButtonAdd>DODAJ NOVU DVORANU</ButtonAdd>
-  </Wrapper>
+  </WrapperAdd>
 );
 
-export default AdminAddHallComponent;
+export default AdminAddHall;
