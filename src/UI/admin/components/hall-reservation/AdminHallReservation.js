@@ -71,6 +71,8 @@ function calcPositionAndLEngth(date, startTime, endTime) {
   return existStartLength;
 }
 
+function refresfInfo() {}
+
 const ScheduleComponenet = props => (
   <MainWrapper>
     <MainTitleWrapper>
@@ -89,7 +91,7 @@ const ScheduleComponenet = props => (
         {daysOfWeek.map(day => {
           return (
             <OneDayDivRow>
-              <OneDayDivRowText>{day}</OneDayDivRowText>
+              <OneDayDivRowText onclick={refresfInfo}>{day}</OneDayDivRowText>
 
               {props.dummyDataArray[0].hallReservaltions.map(
                 hallReservaltions => {

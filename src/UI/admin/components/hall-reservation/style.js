@@ -113,8 +113,8 @@ const HourDiv = styled.div.attrs({
   position: relative;
 
   text-align: center;
-  border: 0.2px solid black;
-  background-color: yellow;
+  //border: 0.2px solid black;
+  //background-color: yellow;
 `;
 
 const LastHourDiv = styled.div.attrs({
@@ -134,8 +134,8 @@ const LastHourDiv = styled.div.attrs({
   display: inline-block;
   position: relative;
 
-  border: 0px solid black;
-  background-color: yellow;
+  //border: 0px solid black;
+  //background-color: yellow;
   margin-left: 17px;
 `;
 
@@ -232,6 +232,7 @@ const PopUpInfo = styled.div.attrs({
   border: solid 1px black;
   //visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   visibility: hidden;
+  z-index: 10;
 `;
 
 const PopUpInfoText = styled.h1.attrs({
