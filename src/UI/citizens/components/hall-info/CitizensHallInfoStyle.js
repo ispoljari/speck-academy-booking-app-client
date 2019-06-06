@@ -5,7 +5,7 @@ const HallInfoContainer = styled.div`
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   margin: 0 auto;
-  padding: 32px;
+  padding: 32px 32px 5px 32px;
 `;
 
 const HallInfoTitle = styled.h2`
@@ -94,14 +94,14 @@ const HallDesc = styled.p`
 `;
 
 const HallAddress = styled.p`
-  width: 218px;
+  width: 212px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
 `;
 
 const HallDetail = styled.p`
-  width: 218px;
+  width: 212px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
