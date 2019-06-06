@@ -88,7 +88,6 @@ const HallDesc = styled.p`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 600;
-  font-style: normal;
   color: #229c7f;
   padding-top: 8px;
   padding-left: 37px;
