@@ -8,6 +8,7 @@ import {
   TableWrapper,
   HoursDivRow,
   HourDiv,
+  LastHourDiv,
   Line,
   OneDayDivRow,
   OneDayDivRowText,
@@ -24,17 +25,51 @@ import {
   InfoEraseButtonText
 } from './style.js';
 
-let a = [1, 2, 3, 4, 5, 6];
+let daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
+let hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
 
 function myFunction() {
-  alert('isVisible:' + isVisible);
+  /*  alert('isVisible:' + isVisible);
   isVisible = false;
   alert('isVisible:' + isVisible);
-  return myFunction;
+  return myFunction;*/
 }
 let isVisible = true;
 
 //const PopUpInfo = visible
+
+function calcPositionAndLEngth(date, startTime, endTime) {
+  const offset = 69;
+  let existStartLength = {
+    exist: true,
+    start: 0,
+    length: 0
+  };
+  console.log(startTime + ' ' + endTime);
+  existStartLength.start =
+    new Date(date + ' ' + startTime) - new Date(date + ' 00:00:00');
+  console.log(
+    'provjera' +
+      new Date(date + ' ' + startTime) +
+      ' ' +
+      new Date(date + ' 00:00:00')
+  );
+  existStartLength.start = existStartLength.start / 1000 / 60 / 60;
+  console.log(existStartLength.start);
+  existStartLength.start = existStartLength.start - 8;
+  existStartLength.start = existStartLength.start * 50;
+  existStartLength.start = existStartLength.start + offset;
+  console.log(existStartLength.start);
+  //existStartLength.start = existStartLength.start * 50;
+
+  existStartLength.length =
+    new Date(date + ' ' + endTime) - new Date(date + ' ' + startTime);
+  existStartLength.length = existStartLength.length / 1000 / 60 / 60;
+  existStartLength.length = existStartLength.length * 50;
+  console.log(existStartLength.length);
+
+  return existStartLength;
+}
 
 const ScheduleComponenet = props => (
   <MainWrapper>
@@ -44,183 +79,55 @@ const ScheduleComponenet = props => (
     <TableAndInfoWrapper>
       <TableWrapper>
         <HoursDivRow>
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
-          <HourDiv />
+          {hoursOfDay.map(hour => {
+            return <HourDiv>{hour}</HourDiv>;
+          })}
+          <LastHourDiv>22</LastHourDiv>
         </HoursDivRow>
         <Line />
-        {
-          <OneDayDivRow>
-            <OneDayDivRowText>PON</OneDayDivRowText>
-            {a.map(i => {
-              return (
-                <ReservationDynamicDiv>
-                  {/*                     <PopUpInfo >
-                        <PopUpInfoText>{
-                        props.dummyDataArray[0].hallReservaltions[0].reservationDescription
-                        }</PopUpInfoText>
-                      </PopUpInfo>*/}
-                  }}
-                </ReservationDynamicDiv>
-              );
-            })}
-          </OneDayDivRow>
-        }
-        <OneDayDivRow>
-          <OneDayDivRowText>UTO</OneDayDivRowText>
-          <ReservationDynamicDiv>
-            <PopUpInfo>
-              <PopUpInfoText>
-                {
-                  //props.dummyDataArray[0].event
-                  props.dummyDataArray[0].hallReservaltions[0]
-                    .reservationDescription
-                }
-              </PopUpInfoText>
-            </PopUpInfo>
-          </ReservationDynamicDiv>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
-        </OneDayDivRow>
-        <OneDayDivRow>
-          <OneDayDivRowText>SRI</OneDayDivRowText>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
-        </OneDayDivRow>
-        <OneDayDivRow>
-          <OneDayDivRowText>ČET</OneDayDivRowText>
-        </OneDayDivRow>
-        <OneDayDivRow>
-          <OneDayDivRowText>PET</OneDayDivRowText>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
-          <ReservationDynamicDiv> </ReservationDynamicDiv>
-          <ReservationDynamicDiv onMouseOver={myFunction}>
-            <PopUpInfo visible={isVisible}>
-              <PopUpInfoText>
-                {props.dummyDataArray[0].hallReservaltions[0]
-                  .reservationDescription +
-                  'EEE' +
-                  isVisible}
-              </PopUpInfoText>
-            </PopUpInfo>
-          </ReservationDynamicDiv>
-        </OneDayDivRow>
-        <OneDayDivRow>
-          <OneDayDivRowText>SUB</OneDayDivRowText>
-        </OneDayDivRow>
-        <OneDayDivRow>
-          <OneDayDivRowText>NED</OneDayDivRowText>
-        </OneDayDivRow>
-      </TableWrapper>
 
-      {/*<Table />*/}
-      {/*
-      <Table id="leaderboard_view" >
-      
-      <tbody>
-        <tr>
-          <th></th>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
-          <th>11</th>
-          <th>12</th>
-          <th>13</th>
-          <th>14</th>
-          <th>15</th>
-          <th>16</th>
-          <th>17</th>
-          <th>18</th>
-          <th>19</th>
-          <th>20</th>
-        </tr>
-        <tr>
-          <th>PON</th>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-        </tr>
-        <tr>
-          <th>UTO</th>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-        </tr>
-        <tr>
-          <th>SRI</th>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-        </tr>
-        <tr>
-          <th>ČET</th>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-        </tr>
-        <tr>
-          <th>PET</th>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-          <TableData></TableData><TableData></TableData><TableData></TableData><TableData></TableData>
-        </tr>
-      </tbody>
-      </Table>*/}
+        {daysOfWeek.map(day => {
+          return (
+            <OneDayDivRow>
+              <OneDayDivRowText>{day}</OneDayDivRowText>
+
+              {props.dummyDataArray[0].hallReservaltions.map(
+                hallReservaltions => {
+                  //calcPositionAndLEngth(hallReservaltions.reservationDate, hallReservaltions.reservationStartTime, hallReservaltions.reservationEndTime);
+                  let obj = calcPositionAndLEngth(
+                    hallReservaltions.reservationDate,
+                    hallReservaltions.reservationStartTime,
+                    hallReservaltions.reservationEndTime
+                  );
+                  console.log('obj: ' + obj);
+                  return (
+                    <ReservationDynamicDiv
+                      length={obj.length}
+                      start={obj.start}
+                      exist={obj.exist}
+                    >
+                      <PopUpInfo position={props}>
+                        <PopUpInfoText>
+                          {//props.dummyDataArray[0].event
+                          //props.dummyDataArray[0].hallReservaltions[0]
+                          //.
+                          hallReservaltions.reservationDescription +
+                            ' ' +
+                            hallReservaltions.reservationDate +
+                            ' ' +
+                            hallReservaltions.reservationStartTime +
+                            ' ' +
+                            hallReservaltions.reservationEndTime}
+                        </PopUpInfoText>
+                      </PopUpInfo>
+                    </ReservationDynamicDiv>
+                  );
+                }
+              )}
+            </OneDayDivRow>
+          );
+        })}
+      </TableWrapper>
 
       <Info>
         <InfoTitle>

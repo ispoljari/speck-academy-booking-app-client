@@ -12,12 +12,12 @@ const dataArray = [
       {
         id: 1,
         hallFk: 1,
-        reservationTitle: 'Speck party 3.0',
+        reservationTitle: 'Speck party 1.0',
         reservationDescription: 'neki opis bla bla bla bla bla',
         reservationStatus: 'pending',
         reservationDate: '2019-06-15',
-        reservationStartTime: '19:30:00',
-        reservationEndTime: '23:30:00',
+        reservationStartTime: '9:30:00',
+        reservationEndTime: '9:45:00',
         citizenFullName: 'Marino Kolari†',
         citizenOrganization: 'SPECK',
         citizenEmail: 'marino.kolaric@email.com',
@@ -28,12 +28,28 @@ const dataArray = [
       {
         id: 2,
         hallFk: 1,
+        reservationTitle: 'Speck party 2.0',
+        reservationDescription: 'neki opis bla bla bla bla bla',
+        reservationStatus: 'pending',
+        reservationDate: '2019-06-15',
+        reservationStartTime: '10:30:00',
+        reservationEndTime: '11:30:00',
+        citizenFullName: 'Marino Kolari†',
+        citizenOrganization: 'SPECK',
+        citizenEmail: 'marino.kolaric@email.com',
+        citizenPhoneNumber: '097...',
+        createdAt: '2019-06-02T06:37:50.860037',
+        updatedAt: '2019-06-02T06:37:50.860037'
+      },
+      {
+        id: 3,
+        hallFk: 1,
         reservationTitle: 'Speck party 3.0',
         reservationDescription: 'neki opis bla bla bla bla bla',
         reservationStatus: 'pending',
         reservationDate: '2019-06-15',
-        reservationStartTime: '19:30:00',
-        reservationEndTime: '23:30:00',
+        reservationStartTime: '15:00:00',
+        reservationEndTime: '16:30:00',
         citizenFullName: 'Marino Kolari†',
         citizenOrganization: 'SPECK',
         citizenEmail: 'marino.kolaric@email.com',
@@ -44,7 +60,7 @@ const dataArray = [
     ]
   },
   {
-    id: 2,
+    id: 22,
     name: 'Dvorana Hrvatskog doma',
     address: 'Ul. Antuna Gustava Matoça 4',
     pictureUrl:
@@ -54,7 +70,7 @@ const dataArray = [
     updatedAt: '2019-06-02T04:24:11.216Z',
     hallReservaltions: [
       {
-        id: 3,
+        id: 23,
         hallFk: 2,
         reservationTitle: 'Speck party 3.0',
         reservationDescription: 'neki opis bla bla bla bla bla',
@@ -70,7 +86,7 @@ const dataArray = [
         updatedAt: '2019-06-02T07:12:36.676017'
       },
       {
-        id: 4,
+        id: 24,
         hallFk: 2,
         reservationTitle: 'Re-volt',
         reservationDescription: 'igranje re-volta',
@@ -88,7 +104,7 @@ const dataArray = [
     ]
   },
   {
-    id: 5,
+    id: 25,
     name: 'Konferencijske dvorane RCTP (Razvojni centar i tehnoloçki park)',
     address: 'Franje TuĐmana 20',
     pictureUrl: 'https://rctp.hr/wp-content/uploads/2018/11/konf-dvorana-2.jpg',
@@ -97,7 +113,7 @@ const dataArray = [
     updatedAt: '2019-06-02T04:36:57.945Z',
     hallReservaltions: [
       {
-        id: 5,
+        id: 55,
         hallFk: 5,
         reservationTitle: 'Board games',
         reservationDescription: 'Zabava uz board gameove',
@@ -115,5 +131,135 @@ const dataArray = [
     ]
   }
 ];
+/*
+{
+  id: 4,
+  hallFk: 1,
+  reservationTitle: 'Speck party 4.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-16',
+  reservationStartTime: '17:00:00',
+  reservationEndTime: '21:45:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+{
+  id: 5,
+  hallFk: 1,
+  reservationTitle: 'Speck party 5.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-16',
+  reservationStartTime: '9:30:00',
+  reservationEndTime: '10:15:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+{
+  id: 6,
+  hallFk: 1,
+  reservationTitle: 'Speck party 6.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-16',
+  reservationStartTime: '19:00:00',
+  reservationEndTime: '22:30:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+{
+  id: 7,
+  hallFk: 1,
+  reservationTitle: 'Speck party 7.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-16',
+  reservationStartTime: '8:15:00',
+  reservationEndTime: '8:30:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+{
+  id: 8,
+  hallFk: 1,
+  reservationTitle: 'Speck party 8.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-18',
+  reservationStartTime: '19:30:00',
+  reservationEndTime: '23:30:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+{
+  id: 9,
+  hallFk: 1,
+  reservationTitle: 'Speck party 9.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-19',
+  reservationStartTime: '14:30:00',
+  reservationEndTime: '17:30:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+{
+  id: 10,
+  hallFk: 1,
+  reservationTitle: 'Speck party 10.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-19',
+  reservationStartTime: '19:30:00',
+  reservationEndTime: '21:00:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+{
+  id: 11,
+  hallFk: 1,
+  reservationTitle: 'Speck party 11.0',
+  reservationDescription: 'neki opis bla bla bla bla bla',
+  reservationStatus: 'pending',
+  reservationDate: '2019-06-20',
+  reservationStartTime: '19:30:00',
+  reservationEndTime: '23:30:00',
+  citizenFullName: 'Marino Kolari†',
+  citizenOrganization: 'SPECK',
+  citizenEmail: 'marino.kolaric@email.com',
+  citizenPhoneNumber: '097...',
+  createdAt: '2019-06-02T06:37:50.860037',
+  updatedAt: '2019-06-02T06:37:50.860037'
+},
+*/
 
 export default dataArray;

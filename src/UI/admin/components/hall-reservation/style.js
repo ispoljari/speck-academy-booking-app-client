@@ -62,13 +62,13 @@ const TableWrapper = styled.div.attrs({
   'data-id': 'TableWrapper'
 })`
   position: relative;
-  width: 776px;
+  width: 817px;
   height: 208px;
 
   background-color: white;
-  margin-left: 24px;
+  margin-left: 0px;
   margin-right: 0px;
-  margin-top: 16px;
+  margin-top: 0px;
   margin-bottom: 0px;
   display: inline-block;
 `;
@@ -76,7 +76,7 @@ const TableWrapper = styled.div.attrs({
 const HoursDivRow = styled.div.attrs({
   'data-id': 'HoursDivRow'
 })`
-  width: 708px;
+  width: 733px;
   height: 16px;
   font-family: Poppins;
   font-size: 12px;
@@ -91,7 +91,7 @@ const HoursDivRow = styled.div.attrs({
   margin-right: 0px;
   margin-top: 24px;
   margin-bottom: 0px;
-  background-color: blue;
+  //background-color: blue;
 `;
 
 //TODO position this div(s) with repeat
@@ -112,8 +112,31 @@ const HourDiv = styled.div.attrs({
   display: inline-block;
   position: relative;
 
+  text-align: center;
   border: 0.2px solid black;
   background-color: yellow;
+`;
+
+const LastHourDiv = styled.div.attrs({
+  'data-id': 'LastHourDiv'
+})`
+  width: 16px;
+  height: 16px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.5);
+
+  display: inline-block;
+  position: relative;
+
+  border: 0px solid black;
+  background-color: yellow;
+  margin-left: 17px;
 `;
 
 const Line = styled.div.attrs({
@@ -122,20 +145,22 @@ const Line = styled.div.attrs({
   width: 776px;
   height: 0px;
   border: solid 1px rgba(0, 0, 0, 0.15);
+  margin-left: 24px;
+  margin-bottom: 4px;
 `;
 
 const OneDayDivRow = styled.div.attrs({
   'data-id': 'OneDayDivRow'
 })`
-  width: 747px;
+  width: 776px;
   height: 16px;
   border-radius: 2px;
   background-color: #f0f0f0;
 
-  margin-left: 29px;
+  margin-left: 24px;
   margin-right: 0px;
-  margin-top: 5px;
-  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 8px;
 `;
 
 const OneDayDivRowText = styled.p.attrs({
@@ -152,7 +177,9 @@ const OneDayDivRowText = styled.p.attrs({
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+
   margin: auto;
+  margin-left: 5px;
   position: absolute;
 `;
 
@@ -163,17 +190,30 @@ const OneDayDivRowText = styled.p.attrs({
 const ReservationDynamicDiv = styled.div.attrs({
   'data-id': 'ReservationDynamicDiv'
 })`
-  width: 175px;
+  position: absolute;
+  width: ${props => {
+    console.log('props.length: ' + Math.random() + ' ' + props.length);
+    return props.length + 'px';
+  }};
+  margin-left: ${props => {
+    console.log('props.start: ' + Math.random() + ' ' + props.start);
+    return props.start + 'px';
+  }};
+
+  //width: 12.5px;
   height: 14px;
   border-radius: 2px;
   border: solid 1px #ffffff;
   background-color: #93e9bb;
 
   display: inline-block;
-  margin-left: 64px;
+  //margin-left: 64px;
 
   &:hover {
     box-shadow: 0 0 4px 0 #9da8a5;
+  }
+  &:hover div {
+    visibility: visible;
   }
 `;
 
@@ -190,11 +230,8 @@ const PopUpInfo = styled.div.attrs({
   margin-top: 16px;
   position: absolute;
   border: solid 1px black;
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-
-  &:hover {
-    ${props => alert('props.visible:' + props.visible)};
-  }
+  //visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  visibility: hidden;
 `;
 
 const PopUpInfoText = styled.h1.attrs({
@@ -248,7 +285,7 @@ const Info = styled.div.attrs({
   background-color: #edf5f1;
 
   position: absolute;
-  margin-left: 17px;
+  margin-left: 0px;
   margin-right: 7px;
   margin-top: 16px;
   margin-bottom: 0px;
@@ -355,6 +392,7 @@ export {
   TableWrapper,
   HoursDivRow,
   HourDiv,
+  LastHourDiv,
   Line,
   OneDayDivRow,
   OneDayDivRowText,
