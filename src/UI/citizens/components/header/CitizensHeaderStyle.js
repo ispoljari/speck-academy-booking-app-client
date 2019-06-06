@@ -5,55 +5,24 @@ const HeaderContainer = styled.header`
   padding: 20px;
 `;
 
-const HeaderTitle = styled.h1`
-  width: 576px;
-  height: 40px;
-  font-family: Lora;
-  font-size: 32px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #000000;
-`;
-
-const HeaderButton = styled.div`
-  width: 108px;
-  height: 24px;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #0f4850;
-`;
-
-const HeaderImage = styled.img`
-  width: 100%;
+const Header = styled.div`
+  width: 1440px;
   height: 336px;
-  object-fit: cover;
-  top center / 200px 200px;
-  `;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(${props => props.imgSrc});
+`;
 
 const RezervacijaDvorana = styled.div`
-  left: 208px;
-  top: 145.6px
-  position: absolute;
-  width: 1024px;
-  height: 89.6px;
+  padding-top: 146px;
+  width: 100%;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   font-family: Lora;
   font-size: 48px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #ffffff;
-  `;
+`;
 
 const RezervacijaDvoranaMalo = styled.div`
   width: 1024px;
@@ -62,16 +31,18 @@ const RezervacijaDvoranaMalo = styled.div`
   font-family: Lora;
   font-size: 20px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #ffffff;
 `;
-const Okvir = styled.div`
-  left: 1092px;
+const Okvir = styled.button`
+  right: 8px;
   top: 32px
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Poppins;
+  font-weight: 500;
+  color: #0f4850;
   width: 132px;
   height: 40px;
   border-radius: 4px;
@@ -79,85 +50,44 @@ const Okvir = styled.div`
   background-color: #ffffff;
   `;
 
-const Gumb = styled.div`
-  left: 12px;
-  top: 9px
-  position: absolute;
-  width: 108px;
-  height: 24px;
-  font-family: Poppins;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #0f4850;
-  `;
-
 const Naslov = styled.div`
-  left: 20px;
-  top: 32px
-  position: absolute;
-  position: relative;
+  padding: 32px;
   width: 576px;
   height: 40px;
   font-family: Lora;
   font-size: 32px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
 const Naslov1 = styled.div`
-  left: 32px;
-  top: 32px
-  position: absolute;
-  position: relative;
+  padding: 32px;
   width: 576px;
   height: 40px;
   font-family: Lora;
   font-size: 32px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
 const Text = styled.div`
-  left: 32px;
-  top: 88px
-  position: absolute;
+  padding: 32px;
+  padding-top: 16px;
   font-family: Poppins;
   font-size: 14px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
 const Text1 = styled.div`
-  left: 16px;
-  top: 88px
-  position: absolute;
+  padding: 16px;
   font-family: Poppins;
   font-size: 14px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 `;
 
 const Okvir2 = styled.div`
-  left: 208px;
   top: 288px
   position: absolute;
   width: 634px;
@@ -165,13 +95,10 @@ const Okvir2 = styled.div`
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
-  padding:10px;
-  margin-left: 20px;
-  margin-top:20px;
   `;
 
 const Okvir3 = styled.div`
-  left: 858px;
+  right: 0px;
   top: 288px
   position: absolute;
   width: 374px;
@@ -179,9 +106,6 @@ const Okvir3 = styled.div`
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
-  padding:10px;
-  margin-left: 20px;
-  margin-top:20px;
   `;
 
 const Kontakt = styled.div`
@@ -194,11 +118,6 @@ const Kontakt = styled.div`
   text-align: right;
   font-family: Poppins-Regular;
   font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #229c7f;
   `;
 
@@ -212,16 +131,13 @@ const Mobitel = styled.div`
   font-family: Poppins-Regular;
   font-size: 14px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-left: 13px;
   `;
 
 const Mail = styled.div`
-  left: 65px;top: 136px
+  left: 65px;
+  top: 136px
   position: absolute;
   display: inline-block;
   width: 64px;
@@ -230,16 +146,12 @@ const Mail = styled.div`
   font-family: Poppins-Regular;
   font-size: 16px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #229c7f;
   `;
 
 const Adresa = styled.div`
   left: 142px;
-  top: 138px
+  top: 136px
   position: absolute;
   display: inline-block;
   width: 168px;
@@ -247,87 +159,20 @@ const Adresa = styled.div`
   font-family: Poppins-Regular;
   font-size: 14px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-left: 13px;
   `;
 
-const Footer1 = styled.div`
-  left: 413px;
-  top: 2566px
+const Container = styled.div`
+  left: 208px;
   position: absolute;
-  width: 299px;
-  height: 18px;
-  display: inline;
-  opacity: 0.5;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #434343;
-  `;
-
-const Footer2 = styled.div`
-  width: 299px;
-  height: 18px;
-  display: inline;
-  margin-left: 3px;
-  opacity: 0.5;
-  font-family: Poppins-Bold;
-  font-size: 14px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  width: 1024px;
+  height: 496px;
 `;
-const Footer3 = styled.div`
-  left: 727px;
-  top: 2566px
-  position: absolute;
-  width: 299px;
-  height: 18px;
-  display: inline;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: rgba(67, 67, 67, 0.5);
-  `;
-const Footer4 = styled.div`
-  width: 299px;
-  height: 18px;
-  display: inline;
-  margin-left: 3px;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #229c7f;
-`;
-
-const Linija = styled.div`
-  left: 715px;
-  top: 2566px
-  position: absolute;
-  border-left: 2px solid rgba(67, 67, 67, 0.5);
-  height: 16px;
-  `;
 
 export {
   HeaderContainer,
+  Header,
   Okvir3,
   Text,
   Text1,
@@ -335,19 +180,11 @@ export {
   Naslov,
   Naslov1,
   Okvir,
-  Gumb,
   Kontakt,
   Mobitel,
   Mail,
   Adresa,
-  HeaderTitle,
   RezervacijaDvoranaMalo,
   RezervacijaDvorana,
-  HeaderImage,
-  HeaderButton,
-  Footer1,
-  Footer2,
-  Footer3,
-  Footer4,
-  Linija
+  Container
 };
