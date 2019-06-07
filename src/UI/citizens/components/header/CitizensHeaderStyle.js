@@ -2,21 +2,21 @@ import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
   width: 1440px;
-  padding: 20px;
+  padding: 32px;
 `;
 
 const Header = styled.div`
   width: 1440px;
   height: 336px;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   background-image: url(${props => props.imgSrc});
 `;
 
-const RezervacijaDvorana = styled.div`
-  padding-top: 146px;
+const HeaderTitle = styled.div`
+  margin-top: 74px;
   width: 100%;
+  height: 90px;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   font-family: Lora;
   font-size: 48px;
@@ -24,22 +24,13 @@ const RezervacijaDvorana = styled.div`
   color: #ffffff;
 `;
 
-const RezervacijaDvoranaMalo = styled.div`
-  width: 1024px;
-  height: 89.6px;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-  font-family: Lora;
+const HeaderTitleSmall = styled(HeaderTitle)`
+  margin-top: 0px;
   font-size: 20px;
-  font-weight: bold;
-  color: #ffffff;
 `;
-const Okvir = styled.button`
-  right: 8px;
-  top: 32px
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+const Admin = styled.button`
+  margin-left: 884px;
   font-family: Poppins;
   font-weight: 500;
   color: #0f4850;
@@ -48,20 +39,11 @@ const Okvir = styled.button`
   border-radius: 4px;
   border: solid 1px #0f4850;
   background-color: #ffffff;
-  `;
-
-const Naslov = styled.div`
-  padding: 32px;
-  width: 576px;
-  height: 40px;
-  font-family: Lora;
-  font-size: 32px;
-  font-weight: bold;
-  color: #000000;
 `;
 
-const Naslov1 = styled.div`
-  padding: 32px;
+const Title = styled.div`
+  margin: 32px;
+  margin-bottom: 0px;
   width: 576px;
   height: 40px;
   font-family: Lora;
@@ -71,8 +53,8 @@ const Naslov1 = styled.div`
 `;
 
 const Text = styled.div`
-  padding: 32px;
-  padding-top: 16px;
+  margin: 32px;
+  margin-top: 16px;
   font-family: Poppins;
   font-size: 14px;
   font-weight: normal;
@@ -80,111 +62,82 @@ const Text = styled.div`
 `;
 
 const Text1 = styled.div`
-  padding: 16px;
+  margin: 16px;
   font-family: Poppins;
   font-size: 14px;
   font-weight: normal;
   color: #000000;
 `;
 
-const Okvir2 = styled.div`
-  top: 288px
-  position: absolute;
+const ContactInformation1 = styled.div`
   width: 634px;
-  height: 208px;    
-  border-radius: 4px;
-  border: solid 1px #d9d9d9;
-  background-color: #ffffff;
-  `;
-
-const Okvir3 = styled.div`
-  right: 0px;
-  top: 288px
-  position: absolute;
-  width: 374px;
   height: 208px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
-  `;
+`;
 
-const Kontakt = styled.div`
-  left: 65px;
-  top: 166px
-  position: absolute;
-  display: inline-block;
-  width: 64px;
-  height: 24px;
-  text-align: right;
-  font-family: Poppins-Regular;
-  font-size: 16px;
-  color: #229c7f;
-  `;
-
-const Mobitel = styled.div`
-  left: 142px;
-  top: 168px
-  position: absolute;
-  display: inline-block;
-  width: 168px;
-  height: 24px;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  font-weight: normal;
-  color: #000000;
-  margin-left: 13px;
-  `;
+const ContactInformation = styled(ContactInformation1)`
+  width: 374px;
+`;
 
 const Mail = styled.div`
-  left: 65px;
-  top: 136px
-  position: absolute;
   display: inline-block;
+  margin-right: 13px;
   width: 64px;
   height: 24px;
   text-align: right;
   font-family: Poppins-Regular;
   font-size: 16px;
-  font-weight: normal;
   color: #229c7f;
-  `;
+`;
 
 const Adresa = styled.div`
-  left: 142px;
-  top: 136px
-  position: absolute;
-  display: inline-block;
+  display: inline;
   width: 168px;
-  height: 24px;
   font-family: Poppins-Regular;
   font-size: 14px;
   font-weight: normal;
   color: #000000;
   margin-left: 13px;
-  `;
+`;
 
 const Container = styled.div`
-  left: 208px;
-  position: absolute;
+  margin-left: 208px;
+  padding-top: 32px;
   width: 1024px;
   height: 496px;
+`;
+
+const ContactBox = styled.div`
+  width: 232px;
+  height: 54px;
+  margin: 65px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+`;
+
+const Container1 = styled.div`
+  width: 1024px;
+  margin-top: 53px;
+  display: inline-flex;
+  justify-content: space-between;
 `;
 
 export {
   HeaderContainer,
   Header,
-  Okvir3,
+  ContactInformation,
   Text,
   Text1,
-  Okvir2,
-  Naslov,
-  Naslov1,
-  Okvir,
-  Kontakt,
-  Mobitel,
+  ContactInformation1,
+  Title,
+  Admin,
   Mail,
   Adresa,
-  RezervacijaDvoranaMalo,
-  RezervacijaDvorana,
-  Container
+  HeaderTitleSmall,
+  HeaderTitle,
+  Container,
+  ContactBox,
+  Container1
 };
