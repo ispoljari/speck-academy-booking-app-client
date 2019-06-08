@@ -1,33 +1,36 @@
 import React from 'react';
 
 import {
+  Body,
   Container,
   TitleAdminLogin,
-  FormComponentBox,
-  FormComponent,
-  FormComponentName,
-  FormComponentInput,
-  LoginSubmitButton,
-  LoginSubmitButtonText
+  ComponentBox,
+  Component,
+  ComponentName,
+  ComponentInput,
+  SubmitButton,
+  SubmitButtonText
 } from './CitizensAdminLoginStyle';
 
 const CitizensAdminLogin = () => (
-  <Container>
-    <TitleAdminLogin>Admin Login</TitleAdminLogin>
-    <FormComponentBox>
-      <FormComponent>
-        <FormComponentName>KORISNIČKO IME</FormComponentName>
-        <FormComponentInput />
-      </FormComponent>
-      <FormComponent>
-        <FormComponentName>LOZINKA</FormComponentName>
-        <FormComponentInput />
-      </FormComponent>
-    </FormComponentBox>
-    <LoginSubmitButton>
-      <LoginSubmitButtonText>PRIJAVI ME</LoginSubmitButtonText>
-    </LoginSubmitButton>
-  </Container>
+  <Body>
+    <Container>
+      <TitleAdminLogin>Admin Login</TitleAdminLogin>
+      <ComponentBox>
+        <Component>
+          <ComponentName>KORISNIČKO IME</ComponentName>
+          <ComponentInput />
+        </Component>
+        <Component>
+          <ComponentName>LOZINKA</ComponentName>
+          <ComponentInput />
+        </Component>
+      </ComponentBox>
+      <SubmitButton>
+        <SubmitButtonText>PRIJAVI ME</SubmitButtonText>
+      </SubmitButton>
+    </Container>
+  </Body>
 );
 
 export default CitizensAdminLogin;
