@@ -9,6 +9,8 @@ import {
   CitizensSubmitRequest
 } from '../';
 
+import Error404 from '../../common/error404/Error404';
+
 import { Footer } from '../../common';
 
 const CitizensPage = () => (
@@ -16,6 +18,7 @@ const CitizensPage = () => (
     <CitizensHeader />
     <CitizensSelectHall />
     <CitizensAdminLogin />
+    <Error404 />
     {/* <CitizensSelectDateTime />
     <CitizensEditEventInfo />
     <CitizensSubmitRequest />
