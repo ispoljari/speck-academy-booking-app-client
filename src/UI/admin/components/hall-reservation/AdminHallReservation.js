@@ -27,9 +27,9 @@ import {
 
 import dataArray from './newData.js';
 
-//let daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
+let daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
 //javascript maps days like this
-let daysOfWeek = [1, 2, 3, 4, 5, 6, 0];
+let daysOfWeekNumerals = [1, 2, 3, 4, 5, 6, 0];
 
 let hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
 
@@ -77,11 +77,22 @@ function calcPositionAndLEngth(date, startTime, endTime) {
 
 function refresfInfo() {}
 
+function testFunkc() {
+  console.log('dfsjhksjh');
+}
+
 class ScheduleComponenet extends React.Component {
   constructor(props) {
     super(props);
     this.state = { dummyDataArray: dataArray };
     this.state.test = 55;
+    this.state.currentReservationActive = {
+      reservationTitle: '',
+      reservationDate: '',
+      reservationStartTime: '',
+      reservationEndTime: ''
+    };
+
     //this.state.dummyDataArray
   }
   //calcPositionAndLEngth();
@@ -102,12 +113,12 @@ class ScheduleComponenet extends React.Component {
             </HoursDivRow>
             <Line />
 
-            {daysOfWeek.map(day => {
+            {daysOfWeekNumerals.map(day => {
               console.log('DAAAAAY:' + day);
               return (
                 <OneDayDivRow>
                   <OneDayDivRowText onClick={refresfInfo}>
-                    {day}
+                    {daysOfWeek[(day + 6) % 7]}
                   </OneDayDivRowText>
 
                   {this.state.dummyDataArray[0].hallReservaltions.map(
@@ -142,6 +153,12 @@ class ScheduleComponenet extends React.Component {
                             length={obj.length}
                             start={obj.start}
                             exist={obj.exist}
+                            onClick={() => {
+                              console.log(hallReservaltions);
+                              this.setState({
+                                currentReservationActive: hallReservaltions
+                              });
+                            }}
                           >
                             <PopUpInfo position={this.state}>
                               <PopUpInfoText>
@@ -152,9 +169,15 @@ class ScheduleComponenet extends React.Component {
                                   ' ' +
                                   hallReservaltions.reservationDate +
                                   ' ' +
-                                  hallReservaltions.reservationStartTime +
+                                  hallReservaltions.reservationStartTime.slice(
+                                    0,
+                                    -3
+                                  ) +
                                   ' ' +
-                                  hallReservaltions.reservationEndTime}
+                                  hallReservaltions.reservationEndTime.slice(
+                                    0,
+                                    -3
+                                  )}
                               </PopUpInfoText>
                             </PopUpInfo>
                           </ReservationDynamicDiv>
@@ -171,23 +194,27 @@ class ScheduleComponenet extends React.Component {
             <InfoTitle>
               {
                 //this.state.dummyDataArray[0].event
-                this.state.dummyDataArray[0].hallReservaltions[0]
-                  .reservationTitle
+                //this.state.dummyDataArray[0].hallReservaltions[0]
+                //.reservationTitle
+                //this.state.currentReservationActive.reservationTitle === undefined ? "WWWWWWWW" : this.state.currentReservationActive.reservationTitle
+                this.state.currentReservationActive.reservationTitle
+                //this.state.currentReservationActive
               }
             </InfoTitle>
             <InfoTime>
               {//this.state.dummyDataArray[0].startTime.toString().substring(4, 25)
-              this.state.dummyDataArray[0].hallReservaltions[0]
-                .reservationDate +
+              this.state.currentReservationActive.reservationDate +
                 ' ' +
-                this.state.dummyDataArray[0].hallReservaltions[0]
-                  .reservationStartTime}{' '}
+                this.state.currentReservationActive.reservationStartTime.slice(
+                  0,
+                  -3
+                )}{' '}
               -
-              {
-                //this.state.dummyDataArray[0].endTime.toString().substring(4, 25)
-                this.state.dummyDataArray[0].hallReservaltions[0]
-                  .reservationEndTime
-              }
+              {//this.state.dummyDataArray[0].endTime.toString().substring(4, 25)
+              this.state.currentReservationActive.reservationEndTime.slice(
+                0,
+                -3
+              )}
             </InfoTime>
             <InfoButton />
             <InfoEraseButton>
