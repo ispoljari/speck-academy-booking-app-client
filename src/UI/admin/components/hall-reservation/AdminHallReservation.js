@@ -27,7 +27,10 @@ import {
 
 import dataArray from './newData.js';
 
-let daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
+//let daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
+//javascript maps days like this
+let daysOfWeek = [1, 2, 3, 4, 5, 6, 0];
+
 let hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
 
 function myFunction() {
@@ -58,11 +61,10 @@ function calcPositionAndLEngth(date, startTime, endTime) {
   );
   existStartLength.start = existStartLength.start / 1000 / 60 / 60;
   console.log(existStartLength.start);
-  existStartLength.start = existStartLength.start - 8;
-  existStartLength.start = existStartLength.start * 50;
-  existStartLength.start = existStartLength.start + offset;
+  existStartLength.start = existStartLength.start - 8; //because we start at 8 o'clock
+  existStartLength.start = existStartLength.start * 50; // hours to pixels
+  existStartLength.start = existStartLength.start + offset; // adding offset
   console.log(existStartLength.start);
-  //existStartLength.start = existStartLength.start * 50;
 
   existStartLength.length =
     new Date(date + ' ' + endTime) - new Date(date + ' ' + startTime);
@@ -75,12 +77,14 @@ function calcPositionAndLEngth(date, startTime, endTime) {
 
 function refresfInfo() {}
 
-//const ScheduleComponenet = props => (
 class ScheduleComponenet extends React.Component {
   constructor(props) {
     super(props);
     this.state = { dummyDataArray: dataArray };
+    this.state.test = 55;
+    //this.state.dummyDataArray
   }
+  //calcPositionAndLEngth();
 
   render() {
     return (
@@ -99,6 +103,7 @@ class ScheduleComponenet extends React.Component {
             <Line />
 
             {daysOfWeek.map(day => {
+              console.log('DAAAAAY:' + day);
               return (
                 <OneDayDivRow>
                   <OneDayDivRowText onClick={refresfInfo}>
@@ -107,35 +112,54 @@ class ScheduleComponenet extends React.Component {
 
                   {this.state.dummyDataArray[0].hallReservaltions.map(
                     hallReservaltions => {
-                      //calcPositionAndLEngth(hallReservaltions.reservationDate, hallReservaltions.reservationStartTime, hallReservaltions.reservationEndTime);
-                      let obj = calcPositionAndLEngth(
-                        hallReservaltions.reservationDate,
-                        hallReservaltions.reservationStartTime,
-                        hallReservaltions.reservationEndTime
-                      );
-                      console.log('obj: ' + obj);
-                      return (
-                        <ReservationDynamicDiv
-                          length={obj.length}
-                          start={obj.start}
-                          exist={obj.exist}
-                        >
-                          <PopUpInfo position={this.state}>
-                            <PopUpInfoText>
-                              {//this.state.dummyDataArray[0].event
-                              //this.state.dummyDataArray[0].hallReservaltions[0]
-                              //.
-                              hallReservaltions.reservationTitle +
-                                ' ' +
-                                hallReservaltions.reservationDate +
-                                ' ' +
-                                hallReservaltions.reservationStartTime +
-                                ' ' +
-                                hallReservaltions.reservationEndTime}
-                            </PopUpInfoText>
-                          </PopUpInfo>
-                        </ReservationDynamicDiv>
-                      );
+                      if (
+                        new Date(
+                          hallReservaltions.reservationDate + ' 00:00:00'
+                        ).getDay() === day
+                      ) {
+                        //
+                        // if (true) {
+                        console.log('day: ' + day);
+                        console.log(
+                          'hallReservaltions.reservationDate' +
+                            hallReservaltions.reservationDate
+                        );
+                        console.log(
+                          'AAAAAAAAAAA' +
+                            new Date(
+                              hallReservaltions.reservationDate + ' 00:00:00'
+                            ).getDay()
+                        );
+                        let obj = calcPositionAndLEngth(
+                          hallReservaltions.reservationDate,
+                          hallReservaltions.reservationStartTime,
+                          hallReservaltions.reservationEndTime
+                        );
+                        console.log('obj: ' + obj);
+                        console.log('TEEEEEEEEEEEST ' + this.state.test);
+                        return (
+                          <ReservationDynamicDiv
+                            length={obj.length}
+                            start={obj.start}
+                            exist={obj.exist}
+                          >
+                            <PopUpInfo position={this.state}>
+                              <PopUpInfoText>
+                                {//this.state.dummyDataArray[0].event
+                                //this.state.dummyDataArray[0].hallReservaltions[0]
+                                //.
+                                hallReservaltions.reservationTitle +
+                                  ' ' +
+                                  hallReservaltions.reservationDate +
+                                  ' ' +
+                                  hallReservaltions.reservationStartTime +
+                                  ' ' +
+                                  hallReservaltions.reservationEndTime}
+                              </PopUpInfoText>
+                            </PopUpInfo>
+                          </ReservationDynamicDiv>
+                        );
+                      }
                     }
                   )}
                 </OneDayDivRow>
