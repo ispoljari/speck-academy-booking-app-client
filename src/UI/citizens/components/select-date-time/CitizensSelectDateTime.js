@@ -1,30 +1,29 @@
 import React from 'react';
 import {
-  Container,
-  Krug,
-  Broj,
+  HeadContainer,
+  Circle,
+  Number,
   Title,
   SubTitle,
   Hlabel,
   Label,
   LabelContainer,
-  UnosDatum,
-  UnosVremena,
-  UnosContainer,
+  DateInput,
+  TimeInput,
+  InputsContainer,
   Vector,
   Timeline,
   Time,
-  Prazno,
   TimeDivide,
-  Zauzeto,
-  Legenda,
-  LegendaOpis,
-  LegendaBoja,
-  LegendaText,
+  DrawFromDB,
+  Legend,
+  LegendDesc,
+  LegendColor,
+  LegendText,
   Field
 } from './StyleCitizensSelectDateTime';
 
-var novi = {
+var reservation = {
   id: 2,
   name: 'Dvorana Hrvatskog doma',
   address: 'Ul. Antuna Gustava Matoça 4',
@@ -57,7 +56,7 @@ var novi = {
       reservationDescription: 'neki opis bla bla bla bla bla',
       reservationStatus: 'pending',
       reservationDate: '2019-06-20',
-      reservationStartTime: '17:00:00',
+      reservationStartTime: '13:00:00',
       reservationEndTime: '18:00:00',
       citizenFullName: 'Ivan Ivic',
       citizenOrganization: 'neka organizacija',
@@ -85,7 +84,7 @@ var novi = {
   ]
 };
 
-var Odabrano = [
+var selected = [
   {
     datum: new Date(2019, 2, 11),
     pocetak: new Date(2019, 2, 11, 19, 30),
@@ -93,8 +92,10 @@ var Odabrano = [
   }
 ];
 
-function displaytimeline() {
+function displayTimeline() {
   let divs = [];
+  divs.push(<TimeDivide />);
+  divs.push(<TimeDivide />);
   for (var i = 0; i < 57; i++) {
     if (i % 4 == 0) {
       divs.push(<TimeDivide left="0.5px solid rgba(0, 0, 0, 0.2)" />);
@@ -105,7 +106,7 @@ function displaytimeline() {
   return divs;
 }
 
-function displaytime() {
+function displayTime() {
   let divs = [];
   for (var i = 8; i < 23; i++) {
     divs.push(<Time>{i}</Time>);
@@ -113,41 +114,49 @@ function displaytime() {
   return divs;
 }
 
-function crtajOdabrano(Odabrano) {
+function drawSelected(selected) {
   let divs = [];
-  var poc =
+  var begin =
     25 +
-    (Odabrano[0].pocetak.getHours() - 8) * 50 +
-    (Odabrano[0].pocetak.getMinutes() / 15) * 12.5;
-  var krj =
+    (selected[0].pocetak.getHours() - 8) * 50 +
+    (selected[0].pocetak.getMinutes() / 15) * 12.5;
+  var end =
     25 +
-    (Odabrano[0].kraj.getHours() - 8) * 50 +
-    (Odabrano[0].kraj.getMinutes() / 15) * 12.5;
-  var width = krj - poc;
-  divs.push(<Zauzeto left={poc} duljina={width} background="#93e9bb" />);
+    (selected[0].kraj.getHours() - 8) * 50 +
+    (selected[0].kraj.getMinutes() / 15) * 12.5;
+  var width = end - begin;
+  divs.push(
+    <DrawFromDB left={begin + 'px'} wdh={width + 'px'} background="#93e9bb" />
+  );
   return divs;
 }
 
-function ispis(novi) {
+function drawFromDataBase(reservation) {
   let divs = [];
-  var a = novi.hallReservaltions.length;
+  var a = reservation.hallReservaltions.length;
   for (var i = 0; i < a; i++) {
-    var kraj = novi.hallReservaltions[i].reservationEndTime.split(':');
-    var poc = novi.hallReservaltions[i].reservationStartTime.split(':');
-    var Pocetak = 25 + (poc[0] - 8) * 50 + (poc[1] / 15) * 12.5;
-    var Kraj = 25 + (kraj[0] - 8) * 50 + (kraj[1] / 15) * 12.5;
+    var end = reservation.hallReservaltions[i].reservationEndTime.split(':');
+    var begin = reservation.hallReservaltions[i].reservationStartTime.split(
+      ':'
+    );
+    var beginLeft = 25 + (begin[0] - 8) * 50 + (begin[1] / 15) * 12.5;
+    var width = 25 + (end[0] - 8) * 50 + (end[1] / 15) * 12.5;
     divs.push(
-      <Zauzeto left={Pocetak} duljina={Kraj - Pocetak} background="#0f4850" />
+      <DrawFromDB
+        left={beginLeft + 'px'}
+        wdh={width - beginLeft + 'px'}
+        background="#0f4850"
+      />
     );
   }
   return divs;
 }
 
 const CitizensSelectDateTime = () => (
-  <Container>
-    <Krug>
-      <Broj>2</Broj>
-    </Krug>
+  <HeadContainer>
+    <Circle>
+      <Number>2</Number>
+    </Circle>
     <Field>
       <Title>Odaberite datum i vrijeme:</Title>
       <SubTitle>
@@ -160,42 +169,49 @@ const CitizensSelectDateTime = () => (
         <Label>POČETAK</Label>
         <Label>KRAJ</Label>
       </LabelContainer>
-      <UnosContainer>
-        <UnosDatum>
+      <InputsContainer>
+        <DateInput>
           <input type="date" required="required" placeholder="DATUM..." />
           <span />
           <Vector />
-        </UnosDatum>
-        <UnosVremena>
+        </DateInput>
+        <TimeInput>
           <input type="time" required="required" placeholder="DATUM..." />
           <span />
           <Vector />
-        </UnosVremena>
-        <UnosVremena>
-          <input type="time" required="required" placeholder="DATUM..." />
+        </TimeInput>
+        <TimeInput>
+          <input
+            type="time"
+            required="required"
+            placeholder="DATUM..."
+            min="08:00"
+            max="22:00"
+            required
+            step="900"
+          />
           <span />
           <Vector />
-        </UnosVremena>
-      </UnosContainer>
+        </TimeInput>
+      </InputsContainer>
       <Timeline>
-        {displaytime()}
-        <Prazno />
-        {displaytimeline()}
-        {ispis(novi)}
-        {crtajOdabrano(Odabrano)}
+        {displayTime()}
+        {displayTimeline()}
+        {drawFromDataBase(reservation)}
+        {drawSelected(selected)}
       </Timeline>
-      <Legenda>
-        <LegendaOpis>
-          <LegendaBoja boja="#0f4850" />
-          <LegendaText>Zauzeti termini</LegendaText>
-        </LegendaOpis>
-        <LegendaOpis>
-          <LegendaBoja boja="#93e9bb" />
-          <LegendaText>Odabrani termin</LegendaText>
-        </LegendaOpis>
-      </Legenda>
+      <Legend>
+        <LegendDesc>
+          <LegendColor col="#0f4850" />
+          <LegendText>Zauzeti termini</LegendText>
+        </LegendDesc>
+        <LegendDesc>
+          <LegendColor col="#93e9bb" />
+          <LegendText>Odabrani termin</LegendText>
+        </LegendDesc>
+      </Legend>
     </Field>
-  </Container>
+  </HeadContainer>
 );
 
 export default CitizensSelectDateTime;

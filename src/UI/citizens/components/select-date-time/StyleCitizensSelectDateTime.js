@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const HeadContainer = styled.div`
   width: 1024px;
   height: 488px;
   border-radius: 4px;
@@ -10,7 +10,7 @@ const Container = styled.div`
   margin-top: 32px;
 `;
 
-const Krug = styled.div`
+const Circle = styled.div`
   display: flex;
   min-width: 152px;
   height: 152px;
@@ -20,7 +20,7 @@ const Krug = styled.div`
   margin: 16px;
 `;
 
-const Broj = styled.div`
+const Number = styled.div`
   width: 76px;
   height: 145px;
   opacity: 0.4;
@@ -71,7 +71,7 @@ const Label = styled.div`
   font-size: 12px;
   font-weight: 200;
   display: inline-block;
-  margin-right: 75px;
+  margin-right: 78px;
   width: 185px;
   opacity: 0.5;
 `;
@@ -82,22 +82,20 @@ const LabelContainer = styled.div`
   margin-top: 8px;
 `;
 
-const UnosDatum = styled.div`
-  width: 244px;
-  height: 32px;
+const DateInput = styled.div`
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 15px;
   line-height: 32px;
   position: relative;
   input {
     border-radius: 2px;
     border: solid 0px rgba(0, 0, 0, 0);
-    width: 240px;
+    width: 244px;
     :invalid + span:after {
       margin-left: 8px;
       content: 'DATUM...';
@@ -114,7 +112,7 @@ const UnosDatum = styled.div`
   }
 `;
 
-const UnosVremena = styled(UnosDatum)`
+const TimeInput = styled(DateInput)`
   input {
     :invalid + span:after {
       margin-left: 8px;
@@ -123,7 +121,7 @@ const UnosVremena = styled(UnosDatum)`
   }
 `;
 
-const UnosContainer = styled(LabelContainer)`
+const InputsContainer = styled(LabelContainer)`
   margin-left: 0px;
 `;
 
@@ -156,12 +154,6 @@ const Time = styled.div`
   text-align: center;
 `;
 
-const Prazno = styled.div`
-  width: 25px;
-  height: 48px;
-  display: inline-block;
-`;
-
 const TimeDivide = styled.div(props => ({
   borderLeft: props.left,
   width: '12.5px',
@@ -169,33 +161,35 @@ const TimeDivide = styled.div(props => ({
   display: 'inline-block'
 }));
 
-const Zauzeto = styled.div(props => ({
-  left: props.left,
-  width: props.duljina,
-  background: props.background,
-  position: 'absolute',
-  top: '42px',
-  height: '32px'
-}));
+const DrawFromDB = styled.div`
+  left: ${props => props.left};
+  width: ${props => props.wdh};
+  background: ${props => props.background};
+  position: absolute;
+  top: 42px;
+  height: 32px;
+  border-radius: 4px;
+  border: solid 1px #d9d9d9;
+`;
 
-const Legenda = styled.div`
+const Legend = styled.div`
   margin-top: 25px;
 `;
 
-const LegendaOpis = styled.div`
+const LegendDesc = styled.div`
   margin-top: 8px;
   width: 200px;
   height: 40px;
 `;
 
-const LegendaBoja = styled.div(props => ({
-  width: '40px',
-  height: '40px',
-  display: 'inline-block',
-  background: props.boja
-}));
+const LegendColor = styled.div`
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background: ${props => props.col};
+`;
 
-const LegendaText = styled.div`
+const LegendText = styled.div`
   margin-left: 8px;
   font-family: Poppins-Regular;
   font-size: 14px;
@@ -205,26 +199,25 @@ const LegendaText = styled.div`
 `;
 
 export {
-  Container,
-  Krug,
-  Broj,
+  HeadContainer,
+  Circle,
+  Number,
   Title,
   SubTitle,
   Hlabel,
   Label,
   LabelContainer,
-  UnosDatum,
-  UnosContainer,
-  UnosVremena,
+  DateInput,
+  InputsContainer,
+  TimeInput,
   Vector,
   Timeline,
   Time,
-  Prazno,
   TimeDivide,
-  Zauzeto,
-  Legenda,
-  LegendaOpis,
-  LegendaBoja,
-  LegendaText,
+  DrawFromDB,
+  Legend,
+  LegendDesc,
+  LegendColor,
+  LegendText,
   Field
 };
