@@ -9,7 +9,6 @@ import {
   AdminHallsPage
 } from './UI/admin';
 import { CitizensPage } from './UI/citizens';
-import Footer from './UI/common/footer/Footer';
 
 const App = () => (
   <Router>
@@ -17,7 +16,6 @@ const App = () => (
     <GlobalStyle />
     <Switch>
       <Route path="/" exact component={CitizensPage} />
-      <Route path="/" exact component={Footer} />
       <Route path="/admin-requests" component={AdminRequestsPage} />
       {/* <Route path="/admin-reservations" component={AdminReservationsPage} />
     <Route path="/admin-halls" component={AdminHallsPage} /> */}
