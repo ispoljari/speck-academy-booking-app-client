@@ -75,7 +75,7 @@ const HallInfoDescription = styled.div`
   padding: 17px 0 0 0;
 `;
 
-const HallLocation = styled.p`
+const HallLocation = styled.h3`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 600;
@@ -83,13 +83,13 @@ const HallLocation = styled.p`
   padding-left: 7px;
 `;
 
-const HallDesc = styled.p`
+const HallDesc = styled.h3`
   width: 28px;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 600;
   color: #229c7f;
-  padding-top: 8px;
+  padding-top: 12px;
   padding-left: 37px;
 `;
 
@@ -106,7 +106,7 @@ const HallDetail = styled.p`
   font-family: Poppins;
   font-size: 12px;
   line-height: 1.05;
-  padding-top: 8px;
+  padding-top: 12px;
 `;
 
 export {
