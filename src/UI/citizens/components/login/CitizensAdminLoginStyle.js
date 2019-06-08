@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 
+const Body = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
 const Container = styled.div`
-  box-sizing: border-box;
+  box-sizing: Border-box;
   padding: 32px;
   margin: auto;
   width: 632px;
@@ -21,17 +28,17 @@ const TitleAdminLogin = styled.div`
   margin-bottom: 24px;
 `;
 
-const FormComponentBox = styled.div`
+const ComponentBox = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const FormComponent = styled.div`
+const Component = styled.div`
   width: 272px;
-  heihgt: 64px;
+  height: 64px;
 `;
 
-const FormComponentName = styled.div`
+const ComponentName = styled.div`
   width: 100%;
   height: 24px;
   font-family: Poppins;
@@ -39,7 +46,7 @@ const FormComponentName = styled.div`
   color: #000000;
 `;
 
-const FormComponentInput = styled.input`
+const ComponentInput = styled.input`
   margin-top: 8px;
   width: 272px;
   height: 32px;
@@ -47,7 +54,7 @@ const FormComponentInput = styled.input`
   border: solid 1px rgba(0, 0, 0, 0.15);
 `;
 
-const LoginSubmitButton = styled.button`
+const SubmitButton = styled.button`
   margin-top: 30px;
   margin-left: 106px;
   width: 356px;
@@ -56,7 +63,7 @@ const LoginSubmitButton = styled.button`
   background-color: #0f4951;
 `;
 
-const LoginSubmitButtonText = styled.p`
+const SubmitButtonText = styled.p`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
@@ -65,12 +72,13 @@ const LoginSubmitButtonText = styled.p`
 `;
 
 export {
+  Body,
   Container,
   TitleAdminLogin,
-  FormComponentBox,
-  FormComponent,
-  FormComponentName,
-  FormComponentInput,
-  LoginSubmitButton,
-  LoginSubmitButtonText
+  ComponentBox,
+  Component,
+  ComponentName,
+  ComponentInput,
+  SubmitButton,
+  SubmitButtonText
 };
