@@ -93,7 +93,9 @@ class ScheduleComponenet extends React.Component {
       reservationTitle: '',
       reservationDate: '',
       reservationStartTime: '',
-      reservationEndTime: ''
+      reservationEndTime: '',
+      reservationDescription: 'testić',
+      infoVisibility: 'hidden'
     };
 
     //this.state.dummyDataArray
@@ -163,7 +165,7 @@ class ScheduleComponenet extends React.Component {
                               });
                             }}
                           >
-                            <PopUpInfo position={this.state}>
+                            <PopUpInfo>
                               <PopUpInfoText>
                                 {//this.state.dummyDataArray[0].event
                                 //this.state.dummyDataArray[0].hallReservaltions[0]
@@ -219,7 +221,44 @@ class ScheduleComponenet extends React.Component {
                 -3
               )}
             </InfoTime>
-            <Details img={DetailsIcon} />
+            <Details
+              img={DetailsIcon}
+              onClick={() => {
+                //console.log(this.state.currentReservationActive.reservationDescription);
+                //this.state.currentReservationActive.infoVisibility = 'visible';
+                this.setState({
+                  currentReservationActive: {
+                    reservationTitle: this.state.currentReservationActive
+                      .reservationTitle,
+                    reservationDate: this.state.currentReservationActive
+                      .reservationDate,
+                    reservationStartTime: this.state.currentReservationActive
+                      .reservationStartTime,
+                    reservationEndTime: this.state.currentReservationActive
+                      .reservationEndTime,
+                    reservationDescription: this.state.currentReservationActive
+                      .reservationDescription,
+                    infoVisibility: 'visible'
+                  }
+                });
+
+                console.log(
+                  'currentReservationActive' +
+                    this.state.currentReservationActive
+                );
+              }}
+            >
+              <PopUpInfo
+                style={{
+                  visibility: this.state.currentReservationActive.infoVisibility
+                }}
+              >
+                <PopUpInfoText>
+                  {this.state.currentReservationActive.reservationDescription}
+                </PopUpInfoText>
+              </PopUpInfo>
+            </Details>
+
             <InfoEraseButton>
               <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
             </InfoEraseButton>

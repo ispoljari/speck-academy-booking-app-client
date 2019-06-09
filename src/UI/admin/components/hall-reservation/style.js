@@ -28,7 +28,7 @@ const MainTitleWrapper = styled.div.attrs({
   justify-content: center;
 `;
 
-const MainTitle = styled.h1.attrs({
+const MainTitle = styled.h2.attrs({
   'data-id': 'MainTitle'
 })`
   width: 1024px;
@@ -210,7 +210,6 @@ const PopUpInfo = styled.div.attrs({
 
   margin-top: 16px;
   position: absolute;
-  ${'' /* border: solid 1px black; */}
   //visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   visibility: hidden;
   z-index: 10;
@@ -337,7 +336,9 @@ const InfoEraseButtonText = styled.p.attrs({
   margin-bottom: 6px;
 `;
 
-const Details = styled.div`
+const Details = styled.div.attrs({
+  'data-id': 'Details'
+})`
   background-image: url(${props => props.img});
   background-size: cover;
 
