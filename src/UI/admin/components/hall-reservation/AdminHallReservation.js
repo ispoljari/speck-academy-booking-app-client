@@ -20,10 +20,13 @@ import {
   Info,
   InfoTitle,
   InfoTime,
-  InfoButton,
+  //InfoButton,
   InfoEraseButton,
-  InfoEraseButtonText
+  InfoEraseButtonText,
+  Details
 } from './style.js';
+
+import DetailsIcon from '../../../../images/Details@3x.png';
 
 import dataArray from './newData.js';
 
@@ -101,7 +104,7 @@ class ScheduleComponenet extends React.Component {
     return (
       <MainWrapper>
         <MainTitleWrapper>
-          <MainTitle>Moj Veeeliki naslov</MainTitle>
+          <MainTitle>Velika Sportska dvorana</MainTitle>
         </MainTitleWrapper>
         <TableAndInfoWrapper>
           <TableWrapper>
@@ -216,7 +219,7 @@ class ScheduleComponenet extends React.Component {
                 -3
               )}
             </InfoTime>
-            <InfoButton />
+            <Details img={DetailsIcon} />
             <InfoEraseButton>
               <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
             </InfoEraseButton>

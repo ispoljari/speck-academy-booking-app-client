@@ -22,28 +22,24 @@ const MainTitleWrapper = styled.div.attrs({
   height: 40px;
   border-radius: 3px;
   background-color: #229c7f;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const MainTitle = styled.h1.attrs({
   'data-id': 'MainTitle'
 })`
   width: 1024px;
-  height: 32px;
   font-family: Lora;
   font-size: 24px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  font-weight: 700;
   color: #ffffff;
-
   text-align: center;
   position: relative;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+
+  align-self: center;
 `;
 
 const TableAndInfoWrapper = styled.div.attrs({
@@ -81,10 +77,6 @@ const HoursDivRow = styled.div.attrs({
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: rgba(0, 0, 0, 0.5);
 
   margin-left: 68px;
@@ -103,10 +95,6 @@ const HourDiv = styled.div.attrs({
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: rgba(0, 0, 0, 0.5);
 
   display: inline-block;
@@ -125,10 +113,6 @@ const LastHourDiv = styled.div.attrs({
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: rgba(0, 0, 0, 0.5);
 
   display: inline-block;
@@ -161,26 +145,24 @@ const OneDayDivRow = styled.div.attrs({
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 8px;
+
+  display: flex;
+  flex-direction: row;
 `;
 
 const OneDayDivRowText = styled.p.attrs({
   'data-id': 'OneDayDivRowText'
 })`
-  width: 40px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
 
   margin: auto;
   margin-left: 5px;
   position: absolute;
+
+  align-self: center;
 `;
 
 //TODO position this div(s) dynamicaly
@@ -205,7 +187,6 @@ const ReservationDynamicDiv = styled.div.attrs({
   border-radius: 2px;
   border: solid 1px #ffffff;
   background-color: #93e9bb;
-
   display: inline-block;
   //margin-left: 64px;
 
@@ -229,7 +210,7 @@ const PopUpInfo = styled.div.attrs({
 
   margin-top: 16px;
   position: absolute;
-  border: solid 1px black;
+  ${'' /* border: solid 1px black; */}
   //visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   visibility: hidden;
   z-index: 10;
@@ -243,14 +224,12 @@ const PopUpInfoText = styled.h1.attrs({
   opacity: 0.7;
   font-family: Poppins;
   font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #434343;
 
   position: relative;
+
+  font-weight: 400;
+  padding: 5px;
 `;
 
 /*
@@ -284,7 +263,6 @@ const Info = styled.div.attrs({
   height: 208px;
   border-radius: 2px;
   background-color: #edf5f1;
-
   position: absolute;
   margin-left: 0px;
   margin-right: 7px;
@@ -300,11 +278,7 @@ const InfoTitle = styled.h1.attrs({
   height: 64px;
   font-family: Lora;
   font-size: 18px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  font-weight: 700;
   color: #229c7f;
 
   position: relative;
@@ -319,33 +293,15 @@ const InfoTime = styled.h1.attrs({
   width: 184px;
   height: 16px;
   font-family: Poppins;
+  font-weight: 400;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
 
   position: relative;
   margin-left: 8px;
   margin-right: 8px;
   margin-top: 16px;
-  margin-bottom: 0px;
-`;
-
-const InfoButton = styled.button.attrs({
-  'data-id': 'InfoButton'
-})`
-  width: 32px;
-  height: 32px;
-  border-radius: 2px;
-  border: solid 1px #93e9bb;
-  background-color: #ffffff;
-
-  position: relative;
-  margin-left: 8px;
-  margin-top: 8px;
   margin-bottom: 0px;
 `;
 
@@ -372,10 +328,6 @@ const InfoEraseButtonText = styled.p.attrs({
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #0f4951;
 
   position: relative;
@@ -383,6 +335,22 @@ const InfoEraseButtonText = styled.p.attrs({
   margin-right: 12px;
   margin-top: 10px;
   margin-bottom: 6px;
+`;
+
+const Details = styled.div`
+  background-image: url(${props => props.img});
+  background-size: cover;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  border: solid 1px #93e9bb;
+  background-color: #ffffff;
+
+  position: relative;
+  margin-left: 8px;
+  margin-top: 8px;
+  margin-bottom: 0px;
 `;
 
 export {
@@ -405,7 +373,8 @@ export {
   Info,
   InfoTitle,
   InfoTime,
-  InfoButton,
+  //InfoButton,
   InfoEraseButton,
-  InfoEraseButtonText
+  InfoEraseButtonText,
+  Details
 };
