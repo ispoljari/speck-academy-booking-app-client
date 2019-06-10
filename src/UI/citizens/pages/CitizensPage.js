@@ -17,6 +17,11 @@ const CitizensPage = () => (
   <React.Fragment>
     <CitizensHeader />
     <CitizensSelectHall />
+
+    <CitizensSubmitRequest />
+    {/* <CitizensSelectDateTime />
+    <CitizensEditEventInfo />
+       <Footer /> */}
     <CitizensAdminLogin />
     <Error404 />
     {/* <CitizensSelectDateTime />
@@ -24,6 +29,8 @@ const CitizensPage = () => (
     <CitizensSubmitRequest />
      */}
     <Footer />
+      
+
   </React.Fragment>
 );
 
