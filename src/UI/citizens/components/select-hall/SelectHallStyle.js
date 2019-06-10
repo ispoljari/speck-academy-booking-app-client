@@ -19,23 +19,25 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-// viewport
-export const ScreenCanvas = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: 1080px;
-  background-color: #f4f5f7;
-`;
-//viewport end
+// export const HallImage = styled.div`
+//   background-image: url(${props => props.img});
+//   position: relative;
+//   width: 244px;
+//   height: 138px;
+//   background-size: cover;
+//   border-radius: 2px;
+//   border: solid 1px rgba(0, 0, 0, 0.5);
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap; /* enable flex items to wrap */
+//   justify-content: center;
+//   margin: 5px;
+// `;
 
-export const HallImage = styled.div`
-  background-image: url(${props => props.img});
+export const HallImageContainer = styled.div`
   position: relative;
   width: 244px;
   height: 138px;
-  background-size: cover;
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -79,7 +81,7 @@ export const HeadlineText = styled.div`
   font-family: Lora, Georgia, serif;
   font-size: 32px;
   font-weight: 800;
-  color: #000000;
+  color: #000;
 `;
 
 export const SubheadlineText = styled.div`
@@ -90,7 +92,7 @@ export const SubheadlineText = styled.div`
   min-height: 24px;
   font-family: Poppins, sans serif;
   font-size: 14px;
-  color: #000000;
+  color: #000;
 `;
 
 export const HallNameText = styled.div`
@@ -120,7 +122,6 @@ export const HallNameTextCenter = styled.div`
 //Dovrane layout
 
 export const LayoutWrapper = styled.div`
-  ${'' /* height: 10%; */}
   display: flex;
   flex-direction: column;
 
@@ -144,19 +145,17 @@ export const SecondRow = styled.div`
 
 export const MainContainer = styled.div`
   width: 1024px;
-  height: 472px;
+  min-height: 472px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-
-  ${'' /* padding-top: 15px; */}
 `;
 
 export const Elipse = styled.div`
   display: flex;
-  ${'' /* align-items: center; */}
+
   width: 152px;
   height: 152px;
   opacity: 0.4;
@@ -172,7 +171,7 @@ export const Number = styled.div`
   font-size: 96px;
   font-weight: 800;
   text-align: center;
-  ${'' /* upitno */}
+
   top: 10px;
   margin-left: 40px;
   color: #82d4a7;

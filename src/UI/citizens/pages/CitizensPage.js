@@ -17,7 +17,7 @@ const CitizensPage = () => (
     {/* <CitizensSelectDateTime />
     <CitizensEditEventInfo />
     <CitizensSubmitRequest />
-    <Footer /> */}
+     <Footer /> */}
   </React.Fragment>
 );
 

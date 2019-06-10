@@ -2,19 +2,19 @@ import React from 'react';
 
 import { API_BASE_URL } from '../../../../config';
 
-import HallImage from './HallImage';
+import styled from 'styled-components';
 
-// import styled from 'styled-components';
+// import HallImage from './HallImage';
 
-import hallImage01 from '../../../../images/01.png';
+// import hallImage01 from '../../../../images/01.png';
 
-import hallImage02 from '../../../../images/velika_01.png';
+// import hallImage02 from '../../../../images/velika_01.png';
 
-import hallImage03 from '../../../../images/gradska-knjiznica.png';
+// import hallImage03 from '../../../../images/gradska-knjiznica.png';
 
-import hallImage04 from '../../../../images/turisticki-dom@3x.png';
+// import hallImage04 from '../../../../images/turisticki-dom@3x.png';
 
-import hallImage05 from '../../../../images/konf-dvorana-1@3x.png';
+// import hallImage05 from '../../../../images/konf-dvorana-1@3x.png';
 
 import Icon from '../../../../images/info-icon@3x.png';
 
@@ -22,7 +22,8 @@ import Icon from '../../../../images/info-icon@3x.png';
 
 import {
   StyledLink,
-  ScreenCanvas,
+  HallImageContainer,
+  // HallImage,
   HallNameText,
   HallNameTextCenter,
   HeadlineText,
@@ -36,6 +37,7 @@ import {
   Number,
   LayoutWrapper
 } from './SelectHallStyle.js';
+import { directive } from '@babel/types';
 
 // example of component logic that shows how to fetch data from the API
 // remove the code from this component and refactor it into a functional CitizensSelectHall component according to the design mockup
@@ -88,94 +90,102 @@ import {
 //   }
 // }
 
-class CitizensSelectHall extends React.Component {
-  render() {
-    return (
-      <ScreenCanvas>
-        <MainContainer>
-          <Elipse>
-            <Number>1</Number>
-          </Elipse>
-          <LayoutWrapper>
-            <HeadlineText>Odaberite dvoranu</HeadlineText>
-            <SubheadlineText>
-              Pronađite dvoranu koja vam odgovara. Za dodatne informacije
-              kliknite na <TextInfoIcon src={Icon} /> ikonu.
-            </SubheadlineText>
+function CitizensSelectHall() {
+  return (
+    <div>
+      <MainContainer>
+        <Elipse>
+          <Number>1</Number>
+        </Elipse>
+        <LayoutWrapper>
+          <HeadlineText>Odaberite dvoranu</HeadlineText>
+          <SubheadlineText>
+            Pronađite dvoranu koja vam odgovara. Za dodatne informacije kliknite
+            na <TextInfoIcon src={Icon} /> ikonu.
+          </SubheadlineText>
 
-            <FirstRow>
-              <HallImage img={hallImage01}>
-                <a href="">
-                  <InfoIcon img={Icon} />
-                </a>
-                <HallNameText>
-                  <StyledLink to="">
-                    <HallNameTextCenter>
-                      Velika sportska dvorana
-                    </HallNameTextCenter>{' '}
-                  </StyledLink>
-                </HallNameText>
-              </HallImage>
+          <FirstRow>
+            <HallImageContainer>
+              {/* <HallImage img={hallImage01}> */}
+              <a href="#" rel="noopener noreferrer">
+                <InfoIcon img={Icon} />
+              </a>
+              <HallNameText>
+                <StyledLink to="">
+                  <HallNameTextCenter>
+                    Velika sportska dvorana
+                  </HallNameTextCenter>
+                </StyledLink>
+              </HallNameText>
+              {/* </HallImage> */}
+            </HallImageContainer>
 
-              <HallImage img={hallImage02}>
-                <a href="">
-                  <InfoIcon img={Icon} />
-                </a>
-                <HallNameText>
-                  <StyledLink to="">
-                    <HallNameTextCenter>
-                      Dvorana Hrvatskog doma
-                    </HallNameTextCenter>
-                  </StyledLink>
-                </HallNameText>
-              </HallImage>
+            <HallImageContainer>
+              {/* <HallImage img={hallImage02}> */}
+              <a href="#" rel="noopener noreferrer">
+                <InfoIcon img={Icon} />
+              </a>
+              <HallNameText>
+                <StyledLink to="#" rel="noopener noreferrer">
+                  <HallNameTextCenter>
+                    Dvorana Hrvatskog doma
+                  </HallNameTextCenter>
+                </StyledLink>
+              </HallNameText>
+              {/* </HallImage> */}
+            </HallImageContainer>
 
-              <HallImage img={hallImage03}>
-                <a href="">
-                  <InfoIcon img={Icon} />
-                </a>
-                <HallNameText>
-                  <StyledLink to="">
-                    <HallNameTextCenter>
-                      Dvorana Gradske knjižnice
-                    </HallNameTextCenter>
-                  </StyledLink>
-                </HallNameText>
-              </HallImage>
-            </FirstRow>
+            <HallImageContainer>
+              {/* <HallImage img={hallImage03}> */}
+              <a href="#" rel="noopener noreferrer">
+                <InfoIcon img={Icon} />
+              </a>
+              <HallNameText>
+                <StyledLink to="#" rel="noopener noreferrer">
+                  <HallNameTextCenter>
+                    Dvorana Gradske knjižnice
+                  </HallNameTextCenter>
+                </StyledLink>
+              </HallNameText>
+              {/* </HallImage> */}
+            </HallImageContainer>
+          </FirstRow>
 
-            <SecondRow>
-              <HallImage img={hallImage04}>
-                <a href="">
-                  <InfoIcon img={Icon} />
-                </a>
-                <HallNameText>
-                  <StyledLink to="">
-                    <HallNameTextCenter>
-                      Dvorana TIC (Turistički Dom)
-                    </HallNameTextCenter>
-                  </StyledLink>
-                </HallNameText>
-              </HallImage>
+          <SecondRow>
+            <HallImageContainer>
+              {/* <HallImage img={hallImage04}> */}
+              <a href="#" rel="noopener noreferrer">
+                <InfoIcon img={Icon} />
+              </a>
+              <HallNameText>
+                <StyledLink to="#" rel="noopener noreferrer">
+                  <HallNameTextCenter>
+                    Dvorana TIC (Turistički Dom)
+                  </HallNameTextCenter>
+                </StyledLink>
+              </HallNameText>
+              {/* </HallImage> */}
+            </HallImageContainer>
 
-              <HallImage img={hallImage05}>
-                <a href="">
-                  <InfoIcon img={Icon} />
-                </a>
-                <HallNameText>
-                  <StyledLink to="">
-                    <HallNameTextCenter>
-                      Konferencijska dvorana RCTP
-                    </HallNameTextCenter>
-                  </StyledLink>
-                </HallNameText>
-              </HallImage>
-            </SecondRow>
-          </LayoutWrapper>
-        </MainContainer>
-      </ScreenCanvas>
-    );
-  }
+            <HallImageContainer>
+              {/* <HallImage img={hallImage05}> */}
+              <a href="#" rel="noopener noreferrer">
+                <InfoIcon img={Icon} />
+              </a>
+              <HallNameText>
+                <StyledLink to="#" rel="noopener noreferrer">
+                  <HallNameTextCenter>
+                    Konferencijska dvorana RCTP
+                  </HallNameTextCenter>
+                </StyledLink>
+              </HallNameText>
+              {/* </HallImage> */}
+            </HallImageContainer>
+          </SecondRow>
+        </LayoutWrapper>
+      </MainContainer>
+    </div>
+  );
 }
 
 export default CitizensSelectHall;
