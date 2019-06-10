@@ -47,6 +47,13 @@ export const HallImageContainer = styled.div`
   margin: 5px;
 `;
 
+export const HallImage = styled.img`
+  src: url(${props => props.img});
+  align-self: center;
+  width: 244px;
+  height: 138px;
+`;
+
 // slika dvorane end
 
 //info-icon
@@ -96,6 +103,7 @@ export const SubheadlineText = styled.div`
 `;
 
 export const HallNameText = styled.div`
+  position: absolute;
   align-self: flex-end;
   width: 155px;
   height: 48px;
@@ -110,6 +118,7 @@ export const HallNameText = styled.div`
   &:hover {
     background-color: #229c7f;
   }
+  margin-top: 1px;
 `;
 
 export const HallNameTextCenter = styled.div`

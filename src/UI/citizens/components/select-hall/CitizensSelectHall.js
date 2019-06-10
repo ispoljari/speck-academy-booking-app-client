@@ -4,17 +4,17 @@ import { API_BASE_URL } from '../../../../config';
 
 import styled from 'styled-components';
 
-// import HallImage from './HallImage';
+import HallImage from './HallImage';
 
-// import hallImage01 from '../../../../images/01.png';
+import hallImage01 from '../../../../images/01.png';
 
-// import hallImage02 from '../../../../images/velika_01.png';
+import hallImage02 from '../../../../images/velika_01.png';
 
-// import hallImage03 from '../../../../images/gradska-knjiznica.png';
+import hallImage03 from '../../../../images/gradska-knjiznica.png';
 
-// import hallImage04 from '../../../../images/turisticki-dom@3x.png';
+import hallImage04 from '../../../../images/turisticki-dom.png';
 
-// import hallImage05 from '../../../../images/konf-dvorana-1@3x.png';
+import hallImage05 from '../../../../images/konf-dvorana-1.png';
 
 import Icon from '../../../../images/info-icon@3x.png';
 
@@ -106,7 +106,7 @@ function CitizensSelectHall() {
 
           <FirstRow>
             <HallImageContainer>
-              {/* <HallImage img={hallImage01}> */}
+              <img src={hallImage01} />
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon img={Icon} />
               </a>
@@ -117,11 +117,10 @@ function CitizensSelectHall() {
                   </HallNameTextCenter>
                 </StyledLink>
               </HallNameText>
-              {/* </HallImage> */}
             </HallImageContainer>
 
             <HallImageContainer>
-              {/* <HallImage img={hallImage02}> */}
+              <img src={hallImage02} />
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon img={Icon} />
               </a>
@@ -136,7 +135,7 @@ function CitizensSelectHall() {
             </HallImageContainer>
 
             <HallImageContainer>
-              {/* <HallImage img={hallImage03}> */}
+              <img src={hallImage03} />
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon img={Icon} />
               </a>
@@ -153,7 +152,7 @@ function CitizensSelectHall() {
 
           <SecondRow>
             <HallImageContainer>
-              {/* <HallImage img={hallImage04}> */}
+              <img src={hallImage04} />
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon img={Icon} />
               </a>
@@ -168,7 +167,7 @@ function CitizensSelectHall() {
             </HallImageContainer>
 
             <HallImageContainer>
-              {/* <HallImage img={hallImage05}> */}
+              <img src={hallImage05} />
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon img={Icon} />
               </a>
