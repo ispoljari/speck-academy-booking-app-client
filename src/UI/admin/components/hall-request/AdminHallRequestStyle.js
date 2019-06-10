@@ -63,7 +63,7 @@ const HeaderHall = styled.h1`
   font-family: Lora;
   font-size: 20px;
   color: #000000;
-  margin-top: 18px;
+  margin-top: 16px;
 `;
 
 const AdressHall = styled.p`
@@ -76,8 +76,9 @@ const AdressHall = styled.p`
   margin-left: 24px;
 `;
 
-const EventItem = styled.p`
+const EventItem = styled.div`
   width: 504px;
+  height: 20px;
   border-radius: 2px;
   background-color: #229c7f;
   margin-top: 16px;
@@ -111,6 +112,7 @@ const EventDescription = styled.p`
 
 const LeftContainer = styled.div`
   width: 252px;
+  height: 136px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -120,6 +122,7 @@ const LeftContainer = styled.div`
 
 const RightContainer = styled.div`
   width: 252px;
+  height: 136px;
   box-sizing: border-box;
   display: flex;
   align-content: flex-start;
@@ -138,6 +141,7 @@ const DateBanner = styled.div`
   font-size: 12px;
   font-weight: 600;
   color: #ffffff;
+  margin-left:16px:
 `;
 
 const DateLabel = styled.p`
@@ -157,13 +161,12 @@ const DateSet = styled.p`
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
-  margin-top: 15px;
+  margin-top: 12px;
   margin-left: 16px;
 `;
 
 const TimeLabel = styled.p`
   width: 45px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
@@ -174,13 +177,12 @@ const TimeLabel = styled.p`
 
 const TimeSet = styled.p`
   width: 145px;
-  height: 16px;
   font-family: Poppins;
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
-  margin-top: 11px;
-  margin-left: 12px;
+  margin-top: 8px;
+  margin-left: 16px;
 `;
 
 const ContactLabel = styled.div`
@@ -198,7 +200,6 @@ const ContactLabel = styled.div`
 
 const NameSurnameLabel = styled.p`
   width: 82px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
@@ -206,99 +207,87 @@ const NameSurnameLabel = styled.p`
   color: #000000;
   margin-top: 12px;
   white-space: nowrap;
-  margin-left: 10px;
   text-align: right;
 `;
 
 const NameSurnameSet = styled.p`
-  width: 135px;
-  height: 16px;
+  width: 145px;
   font-family: Poppins;
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
-  margin-top: 15px;
-  margin-left: 19px;
+  margin-top: 12px;
+  margin-left: 16px;
   white-space: nowrap;
 `;
 
 const OrganisationLabel = styled.p`
   width: 83px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
   color: #000000;
   margin-top: 8px;
-  margin-left: 6px;
   white-space: nowrap;
-  text-align: left;
+  text-align: right;
 `;
 
 const OrganisationSet = styled.p`
-  width: 135px;
-  height: 16px;
+  width: 145px;
   font-family: Poppins;
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
-  margin-top: 10px;
-  margin-left: 21px;
+  margin-top: 8px;
+  margin-left: 16px;
   white-space: nowrap;
   text-align: left;
 `;
 
 const EmailLabel = styled.p`
   width: 83px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
   color: #000000;
   margin-top: 8px;
-  margin-left: 10px;
   white-space: nowrap;
   text-align: right;
 `;
 
 const EmailSet = styled.p`
-  width: 135px;
-  height: 16px;
+  width: 145px;
   font-family: Poppins;
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
-  margin-top: 11px;
-  margin-left: 18px;
+  margin-top: 8px;
   white-space: nowrap;
   text-align: left;
+  margin-left: 16px;
 `;
 
 const PhoneLabel = styled.p`
   width: 83px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
   color: #000000;
-  margin-top: 8px;
-  margin-left: 10px;
   white-space: nowrap;
   text-align: right;
 `;
 
 const PhoneSet = styled.p`
-  width: 135px;
-  height: 16px;
+  width: 145px;
   font-family: Poppins;
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
-  margin-top: 11px;
-  margin-left: 18px;
+  margin-top: 8px;
+  margin-left: 16px;
   white-space: nowrap;
   text-align: left;
 `;
@@ -315,7 +304,6 @@ const ButtonDown = styled.div`
 
 const Submit = styled.p`
   width: 74px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
@@ -327,7 +315,6 @@ const Submit = styled.p`
 
 const SubmitDate = styled.p`
   width: 114px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
