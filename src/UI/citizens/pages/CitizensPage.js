@@ -2,11 +2,14 @@ import React from 'react';
 
 import {
   CitizensHeader,
+  CitizensAdminLogin,
   CitizensSelectHall,
   CitizensSelectDateTime,
   CitizensEditEventInfo,
   CitizensSubmitRequest
 } from '../';
+
+import Error404 from '../../common/error404/Error404';
 
 import { Footer } from '../../common';
 
@@ -14,6 +17,8 @@ const CitizensPage = () => (
   <React.Fragment>
     <CitizensHeader />
     <CitizensSelectHall />
+    <CitizensAdminLogin />
+    <Error404 />
     {/* <CitizensSelectDateTime />
     <CitizensEditEventInfo />
     <CitizensSubmitRequest />
