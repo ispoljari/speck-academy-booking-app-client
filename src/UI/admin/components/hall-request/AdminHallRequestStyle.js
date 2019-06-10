@@ -22,13 +22,14 @@ const HallDiv = styled.div`
   box-sizing: border-box;
 `;
 
-const ImageDiv = styled.div`
+const ImageContainer = styled.div`
   height: 352px;
   width: 268px;
   display: flex;
+  box-sizing: border-box;
 `;
 
-const TextDiv = styled.div`
+const TextContainer = styled.div`
   height: 352px;
   width: 504px;
   display: flex;
@@ -38,7 +39,7 @@ const TextDiv = styled.div`
   box-sizing: border-box;
 `;
 
-const ButtonDiv = styled.div`
+const ButtonContainer = styled.div`
   height: 352px;
   width: 260px;
   display: flex;
@@ -48,7 +49,7 @@ const ButtonDiv = styled.div`
   box-sizing: border-box;
 `;
 
-const ImageHall = styled.div`
+const ImageHall = styled.img`
   width: 228px;
   height: 136px;
   border-radius: 2px;
@@ -57,39 +58,26 @@ const ImageHall = styled.div`
   margin-left: 16px;
   object-fit: cover;
 `;
-const HeaderHall = styled.div`
+const HeaderHall = styled.h1`
   width: 278px;
-  height: 32px;
   font-family: Lora;
   font-size: 20px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 18px;
 `;
 
-const AdressHall = styled.div`
+const AdressHall = styled.p`
   width: 117px;
-  height: 20px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 25px;
   margin-left: 24px;
 `;
 
-const EventItem = styled.div`
+const EventItem = styled.p`
   width: 504px;
-  height: 20px;
   border-radius: 2px;
   background-color: #229c7f;
   margin-top: 16px;
@@ -99,42 +87,30 @@ const EventItem = styled.div`
   color: #ffffff;
   margin-top: 16px;
   padding: 2px 8px;
-  box-sizing: border-box;
 `;
 
-const EventName = styled.div`
+const EventName = styled.h3`
   width: 508px;
-  height: 24px;
   font-family: Poppins;
   font-size: 18px;
   font-weight: 500;
   font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 12px;
 `;
 
-const EventDesc = styled.div`
+const EventDescription = styled.p`
   width: 504px;
-  height: 64px;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 8px;
   text-align: justify;
-  box-sizing: border-box;
 `;
 
-const LeftText = styled.div`
+const LeftContainer = styled.div`
   width: 252px;
-  height: 160px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -142,9 +118,8 @@ const LeftText = styled.div`
   margin-top: 24px;
 `;
 
-const RightText = styled.div`
+const RightContainer = styled.div`
   width: 252px;
-  height: 160px;
   box-sizing: border-box;
   display: flex;
   align-content: flex-start;
@@ -152,7 +127,7 @@ const RightText = styled.div`
   margin-top: 24px;
 `;
 
-const DateInfo = styled.div`
+const DateBanner = styled.div`
   width: 244px;
   height: 20px;
   border-radius: 2px;
@@ -162,77 +137,53 @@ const DateInfo = styled.div`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #ffffff;
 `;
 
-const Datum = styled.div`
+const DateLabel = styled.p`
   width: 40px;
-  height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
-  box-sizing: border-box;
   margin-top: 12px;
   padding-left: 5px;
 `;
 
-const DatumInput = styled.div`
+const DateSet = styled.p`
   width: 152px;
-  height: 16px;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 15px;
   margin-left: 16px;
 `;
 
-const Time = styled.div`
+const TimeLabel = styled.p`
   width: 45px;
   height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
-  box-sizing: border-box;
   margin-top: 8px;
 `;
 
-const TimeInput = styled.div`
+const TimeSet = styled.p`
   width: 145px;
   height: 16px;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 11px;
   margin-left: 12px;
 `;
 
-const ContactInfo = styled.div`
+const ContactLabel = styled.div`
   width: 244px;
   height: 20px;
   border-radius: 2px;
@@ -242,61 +193,42 @@ const ContactInfo = styled.div`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #ffffff;
-  box-sizing: border-box;
-  margin-left: 8px;
 `;
 
-const Namesurname = styled.div`
+const NameSurnameLabel = styled.p`
   width: 82px;
   height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
-  box-sizing: border-box;
   margin-top: 12px;
   white-space: nowrap;
   margin-left: 10px;
   text-align: right;
 `;
 
-const NamesurnameInput = styled.div`
+const NameSurnameSet = styled.p`
   width: 135px;
   height: 16px;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 15px;
   margin-left: 19px;
   white-space: nowrap;
 `;
 
-const Organizacija = styled.div`
+const OrganisationLabel = styled.p`
   width: 83px;
   height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 8px;
   margin-left: 6px;
@@ -304,16 +236,12 @@ const Organizacija = styled.div`
   text-align: left;
 `;
 
-const OrganizacijaInput = styled.div`
+const OrganisationSet = styled.p`
   width: 135px;
   height: 16px;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 10px;
   margin-left: 21px;
@@ -321,17 +249,13 @@ const OrganizacijaInput = styled.div`
   text-align: left;
 `;
 
-const Email = styled.div`
+const EmailLabel = styled.p`
   width: 83px;
   height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 8px;
   margin-left: 10px;
@@ -339,16 +263,12 @@ const Email = styled.div`
   text-align: right;
 `;
 
-const EmailInput = styled.div`
+const EmailSet = styled.p`
   width: 135px;
   height: 16px;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 11px;
   margin-left: 18px;
@@ -356,17 +276,13 @@ const EmailInput = styled.div`
   text-align: left;
 `;
 
-const Phone = styled.div`
+const PhoneLabel = styled.p`
   width: 83px;
   height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 8px;
   margin-left: 10px;
@@ -374,16 +290,12 @@ const Phone = styled.div`
   text-align: right;
 `;
 
-const PhoneInput = styled.div`
+const PhoneSet = styled.p`
   width: 135px;
   height: 16px;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.05;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 11px;
   margin-left: 18px;
@@ -394,68 +306,52 @@ const PhoneInput = styled.div`
 const ButtonUp = styled.div`
   height: 176px;
   width: 260px;
-  box-sizing: border-box;
 `;
 
 const ButtonDown = styled.div`
   height: 176px;
   width: 260px;
-  box-sizing: border-box;
 `;
 
-const Podneseno = styled.div`
+const Submit = styled.p`
   width: 74px;
   height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000000;
   margin-top: 16px;
   margin-left: 170px;
   margin-right: 16px;
 `;
 
-const PodnesenoDatum = styled.div`
+const SubmitDate = styled.p`
   width: 114px;
   height: 16px;
   opacity: 0.5;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #229c7f;
   margin-top: 8px;
   margin-left: 149px;
   margin-right: 16px;
 `;
 
-const ButtonAcc = styled.div`
+const ButtonAccept = styled.button`
   width: 228px;
   height: 40px;
   border-radius: 4px;
   background-color: #0f4951;
   font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #ffffff;
-  box-sizing: border-box;
   margin-top: 75px;
   margin-left: 16px;
   padding: 9px 12px 12px 7px;
   text-align: center;
 `;
 
-const ButtonDen = styled.div`
+const ButtonDenied = styled.button`
   width: 228px;
   height: 40px;
   border-radius: 4px;
@@ -464,12 +360,7 @@ const ButtonDen = styled.div`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #0f4951;
-  box-sizing: border-box;
   margin-left: 16px;
   margin-top: 12px;
   padding: 9px 12px 12px 7px;
@@ -480,35 +371,35 @@ export {
   HallReqContainer,
   HallReqTitle,
   HallDiv,
-  ImageDiv,
-  TextDiv,
-  ButtonDiv,
+  ImageContainer,
+  TextContainer,
+  ButtonContainer,
   ImageHall,
   HeaderHall,
   AdressHall,
   EventItem,
   EventName,
-  EventDesc,
-  LeftText,
-  RightText,
-  DateInfo,
-  Datum,
-  DatumInput,
-  Time,
-  TimeInput,
-  ContactInfo,
-  Namesurname,
-  NamesurnameInput,
-  Organizacija,
-  OrganizacijaInput,
-  Email,
-  EmailInput,
-  Phone,
-  PhoneInput,
+  EventDescription,
+  LeftContainer,
+  RightContainer,
+  DateBanner,
+  DateLabel,
+  DateSet,
+  TimeLabel,
+  TimeSet,
+  ContactLabel,
+  NameSurnameLabel,
+  NameSurnameSet,
+  OrganisationLabel,
+  OrganisationSet,
+  EmailLabel,
+  EmailSet,
+  PhoneLabel,
+  PhoneSet,
   ButtonUp,
   ButtonDown,
-  Podneseno,
-  PodnesenoDatum,
-  ButtonAcc,
-  ButtonDen
+  Submit,
+  SubmitDate,
+  ButtonAccept,
+  ButtonDenied
 };

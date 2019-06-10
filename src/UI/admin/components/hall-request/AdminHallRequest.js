@@ -4,87 +4,87 @@ import {
   HallReqContainer,
   HallReqTitle,
   HallDiv,
-  ImageDiv,
-  TextDiv,
-  ButtonDiv,
+  ImageContainer,
+  TextContainer,
+  ButtonContainer,
   ImageHall,
   HeaderHall,
   AdressHall,
   EventItem,
   EventName,
-  EventDesc,
-  LeftText,
-  RightText,
-  DateInfo,
-  Datum,
-  DatumInput,
-  Time,
-  TimeInput,
-  ContactInfo,
-  Namesurname,
-  NamesurnameInput,
-  Organizacija,
-  OrganizacijaInput,
-  Email,
-  EmailInput,
-  Phone,
-  PhoneInput,
+  EventDescription,
+  LeftContainer,
+  RightContainer,
+  DateBanner,
+  DateLabel,
+  DateSet,
+  TimeLabel,
+  TimeSet,
+  ContactLabel,
+  NameSurnameLabel,
+  NameSurnameSet,
+  OrganisationLabel,
+  OrganisationSet,
+  EmailLabel,
+  EmailSet,
+  PhoneLabel,
+  PhoneSet,
   ButtonUp,
   ButtonDown,
-  Podneseno,
-  PodnesenoDatum,
-  ButtonAcc,
-  ButtonDen
+  Submit,
+  SubmitDate,
+  ButtonAccept,
+  ButtonDenied
 } from './AdminHallRequestStyle';
 
 const AdminHallRequest = props => (
   <HallDiv>
-    <ImageDiv>
+    <ImageContainer>
       <ImageHall />
-    </ImageDiv>
+    </ImageContainer>
 
-    <TextDiv>
+    <TextContainer>
       <HeaderHall>Konferencijska Dvorana RCP</HeaderHall>
       <AdressHall>Franje Tuđmana 20 </AdressHall>
       <EventItem> DOGAĐAJ</EventItem>
       <EventName>Speck party 3.0</EventName>
-      <EventDesc>
+      <EventDescription>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum,
         leo pulvinar aliquet sagittis, neque ligula sagittis augue, eget finibus
         lectus leo nec ipsum. Cras nec diam in erat dignissim vehicula non eu
         leo. Suspendisse potenti. Pellentesque a cursus libero. Praesent ligula
         lectus, elementum nec tristique non, vehicula at leo.
-      </EventDesc>
-      <LeftText>
-        <DateInfo> TRAŽENI TERMIN</DateInfo>
-        <Datum>DATUM</Datum>
-        <DatumInput>25.04.2019</DatumInput>
-        <Time>VRIJEME</Time>
-        <TimeInput>09:00 - 22:00</TimeInput>
-      </LeftText>
-      <RightText>
-        <ContactInfo>KONTAKT PODACI</ContactInfo>
-        <Namesurname>IME I PREZIME</Namesurname>
-        <NamesurnameInput>Ivana Horvatić</NamesurnameInput>
-        <Organizacija>ORGANIZACIJA</Organizacija>
-        <OrganizacijaInput>Speck agency d.o.o</OrganizacijaInput>
-        <Email>E-MAIL</Email>
-        <EmailInput>hello@speck.agency</EmailInput>
-        <Phone>TEL / MOB</Phone>
-        <PhoneInput>099 / 12 34 567</PhoneInput>
-      </RightText>
-    </TextDiv>
+      </EventDescription>
+      <LeftContainer>
+        <DateBanner> TRAŽENI TERMIN</DateBanner>
+        <DateLabel>DATUM</DateLabel>
+        <DateSet>25.04.2019</DateSet>
+        <TimeLabel>VRIJEME</TimeLabel>
+        <TimeSet>09:00 - 22:00</TimeSet>
+      </LeftContainer>
+      <RightContainer>
+        <ContactLabel>KONTAKT PODACI</ContactLabel>
+        <NameSurnameLabel>IME I PREZIME</NameSurnameLabel>
+        <NameSurnameSet>Ivana Horvatić</NameSurnameSet>
+        <OrganisationLabel>ORGANIZACIJA</OrganisationLabel>
+        <OrganisationSet>Speck agency d.o.o</OrganisationSet>
+        <EmailLabel>E-MAIL</EmailLabel>
+        <EmailSet>hello@speck.agency</EmailSet>
+        <PhoneLabel>TEL / MOB</PhoneLabel>
+        <PhoneSet>099 / 12 34 567</PhoneSet>
+      </RightContainer>
+    </TextContainer>
 
-    <ButtonDiv>
+    <ButtonContainer>
       <ButtonUp>
-        <Podneseno>PODNESENO</Podneseno>
-        <PodnesenoDatum>28.02.2019., 16:58</PodnesenoDatum>
+        <Submit>PODNESENO</Submit>
+        <SubmitDate>28.02.2019., 16:58</SubmitDate>
       </ButtonUp>
       <ButtonDown>
-        <ButtonAcc>PRIHVATI</ButtonAcc>
-        <ButtonDen>ODBIJ</ButtonDen>
+        <ButtonAccept>PRIHVATI</ButtonAccept>
+        <ButtonDenied>ODBIJ</ButtonDenied>
       </ButtonDown>
-    </ButtonDiv>
+    </ButtonContainer>
   </HallDiv>
 );
 
