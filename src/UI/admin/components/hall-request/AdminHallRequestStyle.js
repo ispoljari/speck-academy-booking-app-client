@@ -14,7 +14,6 @@ const HallReqTitle = styled.h2`
 const HallDiv = styled.div`
   margin: auto;
   width: 1024px;
-  height: 352px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
@@ -23,14 +22,12 @@ const HallDiv = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  height: 352px;
   width: 268px;
   display: flex;
   box-sizing: border-box;
 `;
 
 const TextContainer = styled.div`
-  height: 352px;
   width: 504px;
   display: flex;
   flex-direction: row;
@@ -40,7 +37,6 @@ const TextContainer = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  height: 352px;
   width: 260px;
   display: flex;
   flex-direction: row;
@@ -112,7 +108,6 @@ const EventDescription = styled.p`
 
 const LeftContainer = styled.div`
   width: 252px;
-  height: 136px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -122,7 +117,6 @@ const LeftContainer = styled.div`
 
 const RightContainer = styled.div`
   width: 252px;
-  height: 136px;
   box-sizing: border-box;
   display: flex;
   align-content: flex-start;
@@ -293,12 +287,10 @@ const PhoneSet = styled.p`
 `;
 
 const ButtonUp = styled.div`
-  height: 176px;
   width: 260px;
 `;
 
 const ButtonDown = styled.div`
-  height: 176px;
   width: 260px;
 `;
 
@@ -332,7 +324,7 @@ const ButtonAccept = styled.button`
   background-color: #0f4951;
   font-weight: 500;
   color: #ffffff;
-  margin-top: 75px;
+  margin-top: 245px;
   margin-left: 16px;
   padding: 9px 12px 12px 7px;
   text-align: center;
