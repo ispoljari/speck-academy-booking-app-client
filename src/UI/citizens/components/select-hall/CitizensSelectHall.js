@@ -23,7 +23,6 @@ import Icon from '../../../../images/info-icon@3x.png';
 import {
   StyledLink,
   HallImageContainer,
-  // HallImage,
   HallNameText,
   HallNameTextCenter,
   HeadlineText,
@@ -108,7 +107,7 @@ function CitizensSelectHall() {
             <HallImageContainer>
               <img src={hallImage01} />
               <a href="#" rel="noopener noreferrer">
-                <InfoIcon img={Icon} />
+                <InfoIcon src={Icon} />
               </a>
               <HallNameText>
                 <StyledLink to="">
@@ -122,7 +121,7 @@ function CitizensSelectHall() {
             <HallImageContainer>
               <img src={hallImage02} />
               <a href="#" rel="noopener noreferrer">
-                <InfoIcon img={Icon} />
+                <InfoIcon src={Icon} />
               </a>
               <HallNameText>
                 <StyledLink to="#" rel="noopener noreferrer">
@@ -131,13 +130,12 @@ function CitizensSelectHall() {
                   </HallNameTextCenter>
                 </StyledLink>
               </HallNameText>
-              {/* </HallImage> */}
             </HallImageContainer>
 
             <HallImageContainer>
               <img src={hallImage03} />
               <a href="#" rel="noopener noreferrer">
-                <InfoIcon img={Icon} />
+                <InfoIcon src={Icon} />
               </a>
               <HallNameText>
                 <StyledLink to="#" rel="noopener noreferrer">
@@ -146,7 +144,6 @@ function CitizensSelectHall() {
                   </HallNameTextCenter>
                 </StyledLink>
               </HallNameText>
-              {/* </HallImage> */}
             </HallImageContainer>
           </FirstRow>
 
@@ -154,7 +151,7 @@ function CitizensSelectHall() {
             <HallImageContainer>
               <img src={hallImage04} />
               <a href="#" rel="noopener noreferrer">
-                <InfoIcon img={Icon} />
+                <InfoIcon src={Icon} />
               </a>
               <HallNameText>
                 <StyledLink to="#" rel="noopener noreferrer">
@@ -163,13 +160,12 @@ function CitizensSelectHall() {
                   </HallNameTextCenter>
                 </StyledLink>
               </HallNameText>
-              {/* </HallImage> */}
             </HallImageContainer>
 
             <HallImageContainer>
               <img src={hallImage05} />
               <a href="#" rel="noopener noreferrer">
-                <InfoIcon img={Icon} />
+                <InfoIcon src={Icon} />
               </a>
               <HallNameText>
                 <StyledLink to="#" rel="noopener noreferrer">
@@ -178,7 +174,6 @@ function CitizensSelectHall() {
                   </HallNameTextCenter>
                 </StyledLink>
               </HallNameText>
-              {/* </HallImage> */}
             </HallImageContainer>
           </SecondRow>
         </LayoutWrapper>

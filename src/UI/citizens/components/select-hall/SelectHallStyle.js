@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-
-export const StyledLink = styled(Link)`
+export const StyledLink = styled.a`
   text-decoration: none;
   font-family: Poppins;
   font-size: 14px;
@@ -19,21 +17,6 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-// export const HallImage = styled.div`
-//   background-image: url(${props => props.img});
-//   position: relative;
-//   width: 244px;
-//   height: 138px;
-//   background-size: cover;
-//   border-radius: 2px;
-//   border: solid 1px rgba(0, 0, 0, 0.5);
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap; /* enable flex items to wrap */
-//   justify-content: center;
-//   margin: 5px;
-// `;
-
 export const HallImageContainer = styled.div`
   position: relative;
   width: 244px;
@@ -48,19 +31,16 @@ export const HallImageContainer = styled.div`
 `;
 
 export const HallImage = styled.img`
-  src: url(${props => props.img});
   align-self: center;
   width: 244px;
   height: 138px;
 `;
 
-// slika dvorane end
+// Hall image end
 
 //info-icon
 
-export const InfoIcon = styled.div`
-  background-image: url(${props => props.img});
-  background-size: cover;
+export const InfoIcon = styled.img`
   border-radius: 50%;
   filter: drop-shadow(1px 1px 1px #000);
   width: 16px;
@@ -71,7 +51,6 @@ export const InfoIcon = styled.div`
 `;
 
 export const TextInfoIcon = styled.img`
-  src: url(${props => props.img});
   vertical-align: -10%;
   border-radius: 50%;
   filter: drop-shadow(1px 1px 1px #000);
@@ -80,7 +59,7 @@ export const TextInfoIcon = styled.img`
   position: relative;
 `;
 
-//tipografija
+//Typography
 
 export const HeadlineText = styled.div`
   margin-left: 5px;
@@ -128,7 +107,7 @@ export const HallNameTextCenter = styled.div`
   justify-content: center;
 `;
 
-//Dovrane layout
+//Halls layout
 
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -150,7 +129,7 @@ export const SecondRow = styled.div`
   flex-direction: row;
   justify-content: center;
 `;
-// kraj Dvorane layout
+//Halls layout end
 
 export const MainContainer = styled.div`
   width: 1024px;
@@ -180,7 +159,6 @@ export const Number = styled.div`
   font-size: 96px;
   font-weight: 800;
   text-align: center;
-
   top: 10px;
   margin-left: 40px;
   color: #82d4a7;
