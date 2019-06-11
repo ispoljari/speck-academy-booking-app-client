@@ -18,7 +18,7 @@ import {
   DateSet,
   TimeLabel,
   TimeSet,
-  ContactLabel,
+  ContactBanner,
   NameSurnameLabel,
   NameSurnameSet,
   OrganisationLabel,
@@ -61,7 +61,7 @@ const AdminHallRequest = props => (
         <TimeSet>09:00 - 22:00</TimeSet>
       </LeftContainer>
       <RightContainer>
-        <ContactLabel>KONTAKT PODACI</ContactLabel>
+        <ContactBanner>KONTAKT PODACI</ContactBanner>
         <NameSurnameLabel>IME I PREZIME</NameSurnameLabel>
         <NameSurnameSet>Ivana Horvatić</NameSurnameSet>
         <OrganisationLabel>ORGANIZACIJA</OrganisationLabel>

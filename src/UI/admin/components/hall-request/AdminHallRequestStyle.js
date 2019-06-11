@@ -172,7 +172,7 @@ const TimeSet = styled.p`
   text-align: left;
 `;
 
-const ContactLabel = styled.div`
+const ContactBanner = styled.div`
   width: 252px;
   border-radius: 2px;
   background-color: #229c7f;
@@ -365,7 +365,7 @@ export {
   DateSet,
   TimeLabel,
   TimeSet,
-  ContactLabel,
+  ContactBanner,
   NameSurnameLabel,
   NameSurnameSet,
   OrganisationLabel,
