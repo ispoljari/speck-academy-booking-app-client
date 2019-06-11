@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-  margin: auto;
+  margin-top: 32px;
+  ${'' /* margin: auto; */}
   width: 1024px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;

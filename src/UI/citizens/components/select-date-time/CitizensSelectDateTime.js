@@ -171,12 +171,12 @@ const CitizensSelectDateTime = () => (
       </LabelContainer>
       <InputsContainer>
         <DateInput>
-          <input type="date" required="required" placeholder="DATUM..." />
+          <input type="date" required="required" />
           <span />
           <Vector />
         </DateInput>
         <TimeInput>
-          <input type="time" required="required" placeholder="DATUM..." />
+          <input type="time" required="required" />
           <span />
           <Vector />
         </TimeInput>

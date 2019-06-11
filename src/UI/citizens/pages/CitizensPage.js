@@ -1,4 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import { CitizensPageWrapper } from './CitizensPageStyle.js';
 
 import {
   CitizensHeader,
@@ -15,19 +18,20 @@ import { Footer } from '../../common';
 
 const CitizensPage = () => (
   <React.Fragment>
-    <CitizensHeader />
-    <CitizensSelectHall />
-    <CitizensSubmitRequest />
-     
-    <CitizensSelectDateTime />
-    
-    <CitizensAdminLogin />
-    <Error404 />
-     <Footer />
-      
+    <CitizensPageWrapper>
+      <CitizensHeader />
 
+      <CitizensSelectHall />
 
+      <CitizensSelectDateTime />
 
+      <CitizensEditEventInfo />
+
+      <CitizensSubmitRequest />
+      {/* <CitizensAdminLogin /> */}
+      {/* <Error404 /> */}
+      <Footer />
+    </CitizensPageWrapper>
   </React.Fragment>
 );
 

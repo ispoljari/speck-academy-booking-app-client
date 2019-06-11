@@ -20,12 +20,13 @@ export const StyledLink = styled(Link)`
 `;
 
 export const Container = styled.div`
+  margin-top: 32px;
   width: 1024px;
   min-height: 263px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
-  margin: 0 auto;
+  ${'' /* margin: 0 auto; */}
   position: relative;
 `;
 

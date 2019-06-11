@@ -17,6 +17,17 @@ export const StyledLink = styled.a`
   }
 `;
 
+export const MainContainer = styled.div`
+  margin-top: 32px;
+  width: 1024px;
+  min-height: 472px;
+  border-radius: 4px;
+  border: solid 1px #d9d9d9;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const HallImageContainer = styled.div`
   position: relative;
   width: 244px;
@@ -130,16 +141,6 @@ export const SecondRow = styled.div`
   justify-content: center;
 `;
 //Halls layout end
-
-export const MainContainer = styled.div`
-  width: 1024px;
-  min-height: 472px;
-  border-radius: 4px;
-  border: solid 1px #d9d9d9;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-`;
 
 export const Elipse = styled.div`
   display: flex;

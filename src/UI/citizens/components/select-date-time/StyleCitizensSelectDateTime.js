@@ -6,8 +6,11 @@ const HeadContainer = styled.div`
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   display: flex;
-  margin-left: 208px;
+  ${'' /* margin-left: 208px; */}
   margin-top: 32px;
+
+  ${'' /* additional */}
+  background-color: #fff;
 `;
 
 const Circle = styled.div`

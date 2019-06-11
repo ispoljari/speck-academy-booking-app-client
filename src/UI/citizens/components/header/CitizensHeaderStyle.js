@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const HeaderContainer = styled.header`
   width: 1440px;
   padding: 32px;
+  margin-bottom: 200px;
 `;
 
 const Header = styled.div`
