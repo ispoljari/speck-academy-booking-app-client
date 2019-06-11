@@ -107,7 +107,7 @@ const EventDescription = styled.p`
 `;
 
 const LeftContainer = styled.div`
-  width: 252px;
+  width: 244px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -116,7 +116,7 @@ const LeftContainer = styled.div`
 `;
 
 const RightContainer = styled.div`
-  width: 252px;
+  width: 260px;
   box-sizing: border-box;
   display: flex;
   align-content: flex-start;
@@ -126,7 +126,6 @@ const RightContainer = styled.div`
 
 const DateBanner = styled.div`
   width: 244px;
-  height: 20px;
   border-radius: 2px;
   background-color: #229c7f;
   padding: 2px 8px;
@@ -146,17 +145,20 @@ const DateLabel = styled.p`
   font-weight: 200;
   color: #000000;
   margin-top: 12px;
-  padding-left: 5px;
+  text-align: right;
+  line-height: 1.05;
+  margin-left: 4px;
 `;
 
 const DateSet = styled.p`
-  width: 152px;
+  width: 145px;
   font-family: Poppins;
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
   margin-top: 12px;
   margin-left: 16px;
+  text-align: left;
 `;
 
 const TimeLabel = styled.p`
@@ -167,6 +169,8 @@ const TimeLabel = styled.p`
   font-weight: 200;
   color: #000000;
   margin-top: 8px;
+  text-align: right;
+  line-height: 1.05;
 `;
 
 const TimeSet = styled.p`
@@ -177,11 +181,11 @@ const TimeSet = styled.p`
   color: #000000;
   margin-top: 8px;
   margin-left: 16px;
+  text-align: left;
 `;
 
 const ContactLabel = styled.div`
-  width: 244px;
-  height: 20px;
+  width: 252px;
   border-radius: 2px;
   background-color: #229c7f;
   padding: 2px 8px;
@@ -190,6 +194,7 @@ const ContactLabel = styled.div`
   font-size: 12px;
   font-weight: 600;
   color: #ffffff;
+  margin-left: 16px;
 `;
 
 const NameSurnameLabel = styled.p`
@@ -202,6 +207,7 @@ const NameSurnameLabel = styled.p`
   margin-top: 12px;
   white-space: nowrap;
   text-align: right;
+  line-height: 1.05;
 `;
 
 const NameSurnameSet = styled.p`
@@ -213,6 +219,7 @@ const NameSurnameSet = styled.p`
   margin-top: 12px;
   margin-left: 16px;
   white-space: nowrap;
+  text-align: left;
 `;
 
 const OrganisationLabel = styled.p`
@@ -225,6 +232,7 @@ const OrganisationLabel = styled.p`
   margin-top: 8px;
   white-space: nowrap;
   text-align: right;
+  line-height: 1.05;
 `;
 
 const OrganisationSet = styled.p`
@@ -249,6 +257,7 @@ const EmailLabel = styled.p`
   margin-top: 8px;
   white-space: nowrap;
   text-align: right;
+  line-height: 1.05;
 `;
 
 const EmailSet = styled.p`
@@ -272,6 +281,7 @@ const PhoneLabel = styled.p`
   color: #000000;
   white-space: nowrap;
   text-align: right;
+  line-height: 1.05;
 `;
 
 const PhoneSet = styled.p`
@@ -280,7 +290,7 @@ const PhoneSet = styled.p`
   font-size: 12px;
   line-height: 1.05;
   color: #000000;
-  margin-top: 8px;
+  margin-top: 12px;
   margin-left: 16px;
   white-space: nowrap;
   text-align: left;
@@ -303,6 +313,7 @@ const Submit = styled.p`
   margin-top: 16px;
   margin-left: 170px;
   margin-right: 16px;
+  text-align: right;
 `;
 
 const SubmitDate = styled.p`
@@ -313,8 +324,9 @@ const SubmitDate = styled.p`
   font-weight: 600;
   color: #229c7f;
   margin-top: 8px;
-  margin-left: 149px;
+  margin-left: 129px;
   margin-right: 16px;
+  text-align: right;
 `;
 
 const ButtonAccept = styled.button`
@@ -324,7 +336,7 @@ const ButtonAccept = styled.button`
   background-color: #0f4951;
   font-weight: 500;
   color: #ffffff;
-  margin-top: 245px;
+  margin-top: 229px;
   margin-left: 16px;
   padding: 9px 12px 12px 7px;
   text-align: center;
@@ -341,9 +353,10 @@ const ButtonDenied = styled.button`
   font-weight: 500;
   color: #0f4951;
   margin-left: 16px;
-  margin-top: 12px;
+  margin-top: 8px;
   padding: 9px 12px 12px 7px;
   text-align: center;
+  margin-down: 16px;
 `;
 
 export {
