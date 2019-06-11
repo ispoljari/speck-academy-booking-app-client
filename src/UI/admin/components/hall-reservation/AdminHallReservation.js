@@ -24,38 +24,33 @@ import {
   InfoEraseButton,
   InfoEraseButtonText,
   Details
-} from './style.js';
+} from './AdminHallReservationStyle.js';
 
 import DetailsIcon from '../../../../images/Details@3x.png';
 
 import dataArray from './newData.js';
 
-let daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
+//TODO delete all console logs
+//TODO CHANGE NAME OF existStartLength
+
+const daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
 //javascript maps days like this
-let daysOfWeekNumerals = [1, 2, 3, 4, 5, 6, 0];
+const daysOfWeekNumerals = [1, 2, 3, 4, 5, 6, 0];
 
-let hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
+//const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
 
-function myFunction() {
-  /*  alert('isVisible:' + isVisible);
-  isVisible = false;
-  alert('isVisible:' + isVisible);
-  return myFunction;*/
-}
-let isVisible = true;
-
-//const PopUpInfo = visible
-
+//todo rewrite this function with smaller functions inside
 function calcPositionAndLEngth(date, startTime, endTime) {
   const offset = 69;
   let existStartLength = {
-    exist: true,
     start: 0,
     length: 0
   };
+  //TODO delete console.log
   console.log(startTime + ' ' + endTime);
   existStartLength.start =
     new Date(date + ' ' + startTime) - new Date(date + ' 00:00:00');
+  //TODO delete console.log
   console.log(
     'provjera' +
       new Date(date + ' ' + startTime) +
@@ -78,29 +73,33 @@ function calcPositionAndLEngth(date, startTime, endTime) {
   return existStartLength;
 }
 
-function refresfInfo() {}
-
-function testFunkc() {
-  console.log('dfsjhksjh');
-}
-
 class ScheduleComponenet extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { dummyDataArray: dataArray };
-    this.state.test = 55;
-    this.state.currentReservationActive = {
+  state = {
+    dummyDataArray: dataArray,
+    activeComponent: false,
+    test: 55,
+    currentReservationActive: {
       reservationTitle: '',
       reservationDate: '',
       reservationStartTime: '',
       reservationEndTime: '',
       reservationDescription: 'testić',
       infoVisibility: 'hidden'
-    };
+    }
+  };
 
-    //this.state.dummyDataArray
+  renderHoursOfDayCollection() {
+    const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
+    const lastHour = 22;
+    return (
+      <HoursDivRow>
+        {hoursOfDay.map(hour => {
+          return <HourDiv>{hour}</HourDiv>;
+        })}
+        <LastHourDiv>{lastHour}</LastHourDiv>
+      </HoursDivRow>
+    );
   }
-  //calcPositionAndLEngth();
 
   render() {
     return (
@@ -110,19 +109,14 @@ class ScheduleComponenet extends React.Component {
         </MainTitleWrapper>
         <TableAndInfoWrapper>
           <TableWrapper>
-            <HoursDivRow>
-              {hoursOfDay.map(hour => {
-                return <HourDiv>{hour}</HourDiv>;
-              })}
-              <LastHourDiv>22</LastHourDiv>
-            </HoursDivRow>
+            {this.renderHoursOfDayCollection()}
             <Line />
 
             {daysOfWeekNumerals.map(day => {
               console.log('DAAAAAY:' + day);
               return (
                 <OneDayDivRow>
-                  <OneDayDivRowText onClick={refresfInfo}>
+                  <OneDayDivRowText>
                     {daysOfWeek[(day + 6) % 7]}
                   </OneDayDivRowText>
 
@@ -153,15 +147,34 @@ class ScheduleComponenet extends React.Component {
                         );
                         console.log('obj: ' + obj);
                         console.log('TEEEEEEEEEEEST ' + this.state.test);
+                        this.setState({
+                          ...this.state,
+                          dummyDataArray: {
+                            ...this.state.hallReservaltions,
+                            active: false
+                          }
+
+                          //dummyDataArray[0].hallReservaltions : {active : false}
+                        });
+
                         return (
                           <ReservationDynamicDiv
                             length={obj.length}
                             start={obj.start}
-                            exist={obj.exist}
+                            active={this.state.activeComponent}
                             onClick={() => {
                               console.log(hallReservaltions);
+
                               this.setState({
                                 currentReservationActive: hallReservaltions
+                              });
+
+                              this.setState({
+                                ...this.state,
+                                dummyDataArray: {
+                                  ...this.state.hallReservaltions,
+                                  active: true
+                                }
                               });
                             }}
                           >
