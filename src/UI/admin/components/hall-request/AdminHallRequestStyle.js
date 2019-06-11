@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-const HallReqContainer = styled.header`
-  margin: 0 auto;
-  width: 500px;
-  border: 1px solid black;
-  padding: 10px;
-`;
-
-const HallReqTitle = styled.h2`
-  color: blue;
-`;
-
 const HallDiv = styled.div`
   margin: auto;
   width: 1024px;
@@ -134,7 +123,6 @@ const DateBanner = styled.div`
   font-size: 12px;
   font-weight: 600;
   color: #ffffff;
-  margin-left:16px:
 `;
 
 const DateLabel = styled.p`
@@ -360,8 +348,6 @@ const ButtonDenied = styled.button`
 `;
 
 export {
-  HallReqContainer,
-  HallReqTitle,
   HallDiv,
   ImageContainer,
   TextContainer,

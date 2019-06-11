@@ -1,8 +1,6 @@
 import React from 'react';
 
 import {
-  HallReqContainer,
-  HallReqTitle,
   HallDiv,
   ImageContainer,
   TextContainer,
