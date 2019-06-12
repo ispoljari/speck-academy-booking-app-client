@@ -8,12 +8,12 @@ import {
   Button
 } from './ModalStyle';
 
-const Modal = ({ visible, handleClose, children }) => (
+const Modal = ({ visible, onClick, children }) => (
   <ModalContainer visible={visible}>
     <ModalOuterBox>
       <ModalInnerBox>
         <ModalContentWrapper>
-          <Button onClick={handleClose}>&#10005;</Button>
+          <Button onClick={onClick}>&#10005;</Button>
           {children}
         </ModalContentWrapper>
       </ModalInnerBox>

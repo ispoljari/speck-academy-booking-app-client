@@ -15,25 +15,31 @@ import { Footer, Modal } from '../../common';
 
 class CitizensPage extends Component {
   state = {
-    showAdminLogin: false
+    adminLoginVisible: false
   };
 
-  handleAdminLogin = () => {
+  adminLoginOpen = () => {
     this.setState({
-      showAdminLogin: true
+      adminLoginVisible: true
+    });
+  };
+
+  adminLoginClose = () => {
+    this.setState({
+      adminLoginVisible: false
     });
   };
 
   render() {
-    const { showAdminLogin } = this.state;
+    const { adminLoginVisible } = this.state;
 
     return (
       <React.Fragment>
-        <CitizensHeader onClick={() => this.handleAdminLogin()} />
+        <CitizensHeader onClick={this.adminLoginOpen} />
         {/* <CitizensSelectHall />
         <CitizensSubmitRequest />
         <CitizensSelectDateTime /> */}
-        <Modal visible={showAdminLogin}>
+        <Modal visible={adminLoginVisible} onClick={this.adminLoginClose}>
           <CitizensAdminLogin />
         </Modal>
         {/* <Error404 />
