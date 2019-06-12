@@ -39,6 +39,7 @@ const AdminLoginBtn = styled.button`
   border-radius: 4px;
   border: solid 1px #0f4850;
   background-color: #ffffff;
+  cursor: pointer;
 `;
 
 const Title = styled.div`
