@@ -1,15 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
-  box-sizing: Border-box;
-  padding: 32px;
-  margin: auto;
-  width: 632px;
-  height: 264px;
-  border-radius: 4px;
-  border: solid 1px #d9d9d9;
-  background-color: #ffffff;
-`;
+const Container = styled.div``;
 
 const TitleAdminLogin = styled.div`
   width: 568px;
