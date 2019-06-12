@@ -19,7 +19,9 @@ const CitizensPage = () => (
     {/* <CitizensSelectHall />
     <CitizensSubmitRequest />
     <CitizensSelectDateTime /> */}
-    <CitizensAdminLogin />
+    <Modal>
+      <CitizensAdminLogin />
+    </Modal>
     {/* <Error404 />
     <Footer /> */}
   </React.Fragment>
