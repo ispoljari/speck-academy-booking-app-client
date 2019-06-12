@@ -97,7 +97,7 @@ export const Circle = styled.div`
   margin: 16px;
   width: 152px;
   height: 152px;
-  opacity: 0.2;
+  opacity: 0.4;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
   position: absolute;

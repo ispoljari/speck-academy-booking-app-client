@@ -103,6 +103,7 @@ export const AdminButton = styled.div`
   justify-content: center;
   &:hover {
     border-color: ##93e9bb;
+    color: #229c7f;
   }
 `;
 

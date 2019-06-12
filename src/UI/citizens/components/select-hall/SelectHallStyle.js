@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const StyledLink = styled.a`
-  text-decoration: none;
-  font-family: Poppins;
+  font-family: Poppins, sans serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
-  color: #ffffff;
-  text-align: center;
+  color: #000;
+  ${'' /* text-align: center; */}
   &:focus,
   &:hover,
   &:visited,
@@ -31,12 +30,12 @@ export const MainContainer = styled.div`
 export const HallImageContainer = styled.div`
   position: relative;
   width: 244px;
-  height: 138px;
+  height: 139px;
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; /* enable flex items to wrap */
+  ${'' /* flex-wrap: wrap; */}
   justify-content: center;
   margin: 5px;
 `;
@@ -87,7 +86,7 @@ export const SubheadlineText = styled.div`
   margin-bottom: 22px;
   width: 764px;
   min-height: 24px;
-  font-family: Poppins, sans serif;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   color: #000;
 `;
@@ -108,7 +107,7 @@ export const HallNameText = styled.div`
   &:hover {
     background-color: #229c7f;
   }
-  margin-top: 1px;
+  ${'' /* margin-top: 1px; */}
 `;
 
 export const HallNameTextCenter = styled.div`
@@ -116,6 +115,7 @@ export const HallNameTextCenter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 `;
 
 //Halls layout

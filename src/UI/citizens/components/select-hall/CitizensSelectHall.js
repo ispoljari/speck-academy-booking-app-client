@@ -109,8 +109,9 @@ function CitizensSelectHall() {
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon src={Icon} />
               </a>
+
               <HallNameText>
-                <StyledLink to="">
+                <StyledLink href="" target="_blank" rel="noopener noreferrer">
                   <HallNameTextCenter>
                     Velika sportska dvorana
                   </HallNameTextCenter>
@@ -124,7 +125,7 @@ function CitizensSelectHall() {
                 <InfoIcon src={Icon} />
               </a>
               <HallNameText>
-                <StyledLink to="#" rel="noopener noreferrer">
+                <StyledLink href="#" target="_blank" rel="noopener noreferrer">
                   <HallNameTextCenter>
                     Dvorana Hrvatskog doma
                   </HallNameTextCenter>
@@ -138,7 +139,7 @@ function CitizensSelectHall() {
                 <InfoIcon src={Icon} />
               </a>
               <HallNameText>
-                <StyledLink to="#" rel="noopener noreferrer">
+                <StyledLink href="" target="_blank" rel="noopener noreferrer">
                   <HallNameTextCenter>
                     Dvorana Gradske knjižnice
                   </HallNameTextCenter>
@@ -154,7 +155,7 @@ function CitizensSelectHall() {
                 <InfoIcon src={Icon} />
               </a>
               <HallNameText>
-                <StyledLink to="#" rel="noopener noreferrer">
+                <StyledLink href="" target="_blank" rel="noopener noreferrer">
                   <HallNameTextCenter>
                     Dvorana TIC (Turistički Dom)
                   </HallNameTextCenter>
@@ -168,7 +169,7 @@ function CitizensSelectHall() {
                 <InfoIcon src={Icon} />
               </a>
               <HallNameText>
-                <StyledLink to="#" rel="noopener noreferrer">
+                <StyledLink href="" target="_blank" rel="noopener noreferrer">
                   <HallNameTextCenter>
                     Konferencijska dvorana RCTP
                   </HallNameTextCenter>

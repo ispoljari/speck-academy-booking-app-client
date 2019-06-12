@@ -17,7 +17,7 @@ const Circle = styled.div`
   display: flex;
   min-width: 152px;
   height: 152px;
-  opacity: 0.2;
+  opacity: 0.4;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
   margin: 16px;
@@ -26,7 +26,6 @@ const Circle = styled.div`
 const Number = styled.div`
   width: 76px;
   height: 145px;
-  opacity: 0.4;
   font-family: Poppins;
   font-size: 96px;
   font-weight: 800;

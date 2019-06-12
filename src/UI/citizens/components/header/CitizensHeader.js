@@ -27,7 +27,7 @@ const CitizensHeader = () => (
     <Header imgSrc={headerImage}> </Header>
     <Container>
       <StyledLink href="" target="_blank" rel="noopener noreferrer">
-        <AdminButton>ADMIN LOGIN </AdminButton>
+        <AdminButton>ADMIN LOGIN</AdminButton>
       </StyledLink>
 
       <HeaderTitle>
