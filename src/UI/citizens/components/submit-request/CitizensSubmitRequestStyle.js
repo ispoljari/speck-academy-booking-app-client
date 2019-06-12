@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-  font-family: Poppins;
+export const StyledLink = styled.a`
+  font-family: Poppins, sans serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
-  color: #ffffff;
-  text-align: center;
+  color: #000;
+  ${'' /* text-align: center; */}
   &:focus,
   &:hover,
   &:visited,
@@ -51,9 +48,6 @@ export const MainText = styled.p`
 
 export const Description = styled.div`
   width: 764px;
-  // font-family: Poppins;
-  //   font-size: 14px;
-  //   color: #000000;
   margin-bottom: 20px;
 `;
 
@@ -63,20 +57,17 @@ export const Contact = styled.div`
 `;
 
 export const ContactLeft = styled.div`
-  //background-color: yellow;
   margin-right: 13px;
-
   text-align: end;
   color: #229c7f;
   font-family: Poppins;
   font-size: 14px;
 `;
 export const ContactRight = styled.div`
-  //background-color: blue;
   font-family: Poppins;
   font-size: 14px;
   color: #000000;
-  width: 168px;
+  text-align: left;
 `;
 
 export const Button = styled.div`
@@ -122,7 +113,10 @@ export const Number = styled.div`
 `;
 
 export const SectorDown = styled.div`
-  //background-color: lightblue;
   display: flex;
   justify-content: space-between;
+`;
+
+export const SpacingDiv = styled.div`
+  margin-bottom: 6px;
 `;

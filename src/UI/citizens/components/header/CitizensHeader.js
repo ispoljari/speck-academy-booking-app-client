@@ -5,26 +5,30 @@ import {
   Header,
   HeaderTitle,
   HeaderTitleSmall,
-  Admin,
+  AdminButton,
   ContactInformation1,
   Title,
   Text,
   Text1,
-  Mail,
-  Adresa,
   ContactInformation,
   Container,
-  ContactBox,
-  Container1
+  Container1,
+  StyledLink,
+  ContactLeft,
+  ContactRight,
+  Contact,
+  SpacingDiv
 } from './CitizensHeaderStyle';
 
 import headerImage from '../../../../images/header-image@2x.png';
 
 const CitizensHeader = () => (
   <HeaderContainer>
-    <Header imgSrc={headerImage}> /</Header>
+    <Header imgSrc={headerImage}> </Header>
     <Container>
-      <Admin>ADMIN LOGIN</Admin>
+      <StyledLink href="" target="_blank" rel="noopener noreferrer">
+        <AdminButton>ADMIN LOGIN </AdminButton>
+      </StyledLink>
 
       <HeaderTitle>
         REZERVACIJA DVORANA
@@ -38,32 +42,34 @@ const CitizensHeader = () => (
           <br />
           <Text>
             Na ovim stranicama grada Križevaca možete odabrati dvorane i njihove
-            termine koji odgovaraju Vašim događanima i eventovima.
+            termine koji odgovaraju Vašim događanima i eventima.
           </Text>
         </ContactInformation1>
         <ContactInformation>
           <Title>Kontaktirajte nas!</Title>
           <br />
           <Text1>
-            Ako imate pitanja ili ste naišli na nejasnoće,
-            <br />
-            kontaktirajte nas putem e-maila ili poziva.
+            Ako imate pitanja ili ste naišli na nejasnoće, kontaktirajte nas
+            putem e-maila ili poziva.
           </Text1>
-          <ContactBox>
-            <Mail>E-MAIL</Mail>
-            <Adresa>
-              <a
-                href="mailto:info@grad-krizevci.hr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                info@grad-krizevci.hr
-              </a>
-            </Adresa>
-            <br />
-            <Mail>MOBITEL</Mail>
-            <Adresa>099 / 12 34 5678</Adresa>
-          </ContactBox>
+          <Contact>
+            <ContactLeft>
+              <SpacingDiv>
+                <p>E-MAIL</p>
+              </SpacingDiv>
+              <p>MOBITEL</p>
+            </ContactLeft>
+            <ContactRight>
+              <SpacingDiv>
+                <StyledLink href="mailto:info@grad-krizevci.hr">
+                  <p>info@grad-krizevci.hr</p>
+                </StyledLink>
+              </SpacingDiv>
+              <StyledLink href="tel:09912345678">
+                <p>099 / 12 34 5678</p>
+              </StyledLink>
+            </ContactRight>
+          </Contact>
         </ContactInformation>
       </Container1>
     </Container>
