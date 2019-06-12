@@ -23,8 +23,6 @@ import headerImage from '../../../../images/headerimage.jpg';
 const CitizensHeader = () => (
   <HeaderContainer>
     <Header imgSrc={headerImage}>
-      {/* <HeaderImage src={headerImage} />*/}
-
       <Container>
         <Admin>ADMIN LOGIN</Admin>
 
@@ -53,7 +51,15 @@ const CitizensHeader = () => (
             </Text1>
             <ContactBox>
               <Mail>E-MAIL</Mail>
-              <Adresa>info@grad-krizevci.hr</Adresa>
+              <Adresa>
+                <a
+                  href="mailto:info@grad-krizevci.hr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  info@grad-krizevci.hr
+                </a>
+              </Adresa>
               <br />
               <Mail>MOBITEL</Mail>
               <Adresa>099 / 12 34 5678</Adresa>
