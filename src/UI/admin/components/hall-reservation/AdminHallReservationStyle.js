@@ -174,24 +174,20 @@ const ReservationDynamicDiv = styled.div.attrs({
 })`
   position: absolute;
   width: ${props => {
-    console.log('props.length: ' + Math.random() + ' ' + props.length);
+    //console.log('props.length: ' + Math.random() + ' ' + props.length);
     return props.length + 'px';
   }};
   margin-left: ${props => {
-    console.log('props.start: ' + Math.random() + ' ' + props.start);
+    //console.log('props.start: ' + Math.random() + ' ' + props.start);
     return props.start + 'px';
   }};
 
-  
   //width: 12.5px;
   height: 14px;
   border-radius: 2px;
 
-  // border: solid 1px #ffffff;
+  border: solid 1px #ffffff;
   //border: solid 1px #0f4951;
-  border: ${props =>
-    props.active ? 'solid 1px #0f4951' : 'solid 1px #ffffff'};
-  }};
 
   background-color: #93e9bb;
   display: inline-block;

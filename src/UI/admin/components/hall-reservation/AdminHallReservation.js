@@ -47,28 +47,28 @@ function calcPositionAndLEngth(date, startTime, endTime) {
     length: 0
   };
   //TODO delete console.log
-  console.log(startTime + ' ' + endTime);
+  //console.log(startTime + ' ' + endTime);
   existStartLength.start =
     new Date(date + ' ' + startTime) - new Date(date + ' 00:00:00');
   //TODO delete console.log
-  console.log(
+  /*console.log(
     'provjera' +
       new Date(date + ' ' + startTime) +
       ' ' +
       new Date(date + ' 00:00:00')
-  );
+  );*/
   existStartLength.start = existStartLength.start / 1000 / 60 / 60;
-  console.log(existStartLength.start);
+  //console.log(existStartLength.start);
   existStartLength.start = existStartLength.start - 8; //because we start at 8 o'clock
   existStartLength.start = existStartLength.start * 50; // hours to pixels
   existStartLength.start = existStartLength.start + offset; // adding offset
-  console.log(existStartLength.start);
+  //console.log(existStartLength.start);
 
   existStartLength.length =
     new Date(date + ' ' + endTime) - new Date(date + ' ' + startTime);
   existStartLength.length = existStartLength.length / 1000 / 60 / 60;
   existStartLength.length = existStartLength.length * 50;
-  console.log(existStartLength.length);
+  //console.log(existStartLength.length);
 
   return existStartLength;
 }
@@ -113,7 +113,7 @@ class ScheduleComponenet extends React.Component {
             <Line />
 
             {daysOfWeekNumerals.map(day => {
-              console.log('DAAAAAY:' + day);
+              //console.log('DAAAAAY:' + day);
               return (
                 <OneDayDivRow>
                   <OneDayDivRowText>
@@ -121,41 +121,24 @@ class ScheduleComponenet extends React.Component {
                   </OneDayDivRowText>
 
                   {this.state.dummyDataArray[0].hallReservaltions.map(
-                    hallReservaltions => {
+                    hallReservaltion => {
                       if (
                         new Date(
-                          hallReservaltions.reservationDate + ' 00:00:00'
+                          hallReservaltion.reservationDate + ' 00:00:00'
                         ).getDay() === day
                       ) {
-                        //
-                        // if (true) {
-                        console.log('day: ' + day);
-                        console.log(
-                          'hallReservaltions.reservationDate' +
-                            hallReservaltions.reservationDate
-                        );
-                        console.log(
-                          'AAAAAAAAAAA' +
-                            new Date(
-                              hallReservaltions.reservationDate + ' 00:00:00'
-                            ).getDay()
-                        );
                         let obj = calcPositionAndLEngth(
-                          hallReservaltions.reservationDate,
-                          hallReservaltions.reservationStartTime,
-                          hallReservaltions.reservationEndTime
+                          hallReservaltion.reservationDate,
+                          hallReservaltion.reservationStartTime,
+                          hallReservaltion.reservationEndTime
                         );
-                        console.log('obj: ' + obj);
-                        console.log('TEEEEEEEEEEEST ' + this.state.test);
-                        this.setState({
+                        /*this.setState({
                           ...this.state,
                           dummyDataArray: {
-                            ...this.state.hallReservaltions,
+                            ...this.state.dummyDataArray,
                             active: false
                           }
-
-                          //dummyDataArray[0].hallReservaltions : {active : false}
-                        });
+                        });*/
 
                         return (
                           <ReservationDynamicDiv
@@ -163,36 +146,37 @@ class ScheduleComponenet extends React.Component {
                             start={obj.start}
                             active={this.state.activeComponent}
                             onClick={() => {
-                              console.log(hallReservaltions);
+                              //console.log(hallReservaltion);
 
                               this.setState({
-                                currentReservationActive: hallReservaltions
+                                currentReservationActive: hallReservaltion
                               });
 
-                              this.setState({
+                              /*this.setState({
                                 ...this.state,
                                 dummyDataArray: {
-                                  ...this.state.hallReservaltions,
-                                  active: true
+                                  ...this.state.dummyDataArray,
+                                  active: 'solid 1px #0f4951'
                                 }
-                              });
+                              });*/
+                              //console.log("this.state.hallReservaltions: " + this.state.hallReservaltions);
                             }}
                           >
                             <PopUpInfo>
                               <PopUpInfoText>
                                 {//this.state.dummyDataArray[0].event
-                                //this.state.dummyDataArray[0].hallReservaltions[0]
+                                //this.state.dummyDataArray[0].hallReservaltion[0]
                                 //.
-                                hallReservaltions.reservationTitle +
+                                hallReservaltion.reservationTitle +
                                   ' ' +
-                                  hallReservaltions.reservationDate +
+                                  hallReservaltion.reservationDate +
                                   ' ' +
-                                  hallReservaltions.reservationStartTime.slice(
+                                  hallReservaltion.reservationStartTime.slice(
                                     0,
                                     -3
                                   ) +
                                   ' ' +
-                                  hallReservaltions.reservationEndTime.slice(
+                                  hallReservaltion.reservationEndTime.slice(
                                     0,
                                     -3
                                   )}
@@ -212,7 +196,7 @@ class ScheduleComponenet extends React.Component {
             <InfoTitle>
               {
                 //this.state.dummyDataArray[0].event
-                //this.state.dummyDataArray[0].hallReservaltions[0]
+                //this.state.dummyDataArray[0].hallReservaltion[0]
                 //.reservationTitle
                 //this.state.currentReservationActive.reservationTitle === undefined ? "WWWWWWWW" : this.state.currentReservationActive.reservationTitle
                 this.state.currentReservationActive.reservationTitle
@@ -255,10 +239,10 @@ class ScheduleComponenet extends React.Component {
                   }
                 });
 
-                console.log(
-                  'currentReservationActive' +
-                    this.state.currentReservationActive
-                );
+                //console.log(
+                //  'currentReservationActive' +
+                //    this.state.currentReservationActive
+                //);
               }}
             >
               <PopUpInfo
