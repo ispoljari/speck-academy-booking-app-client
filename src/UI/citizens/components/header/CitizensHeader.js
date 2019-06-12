@@ -21,6 +21,10 @@ import {
 import headerImage from '../../../../images/headerimage.jpg';
 
 class CitizensHeader extends Component {
+  state = {
+    showAdminLogin: false
+  };
+
   render() {
     return (
       <HeaderContainer>
