@@ -11,7 +11,7 @@ import {
 
 import Error404 from '../../common/error404/Error404';
 
-import { Footer } from '../../common';
+import { Footer, Modal } from '../../common';
 
 const CitizensPage = () => (
   <React.Fragment>
