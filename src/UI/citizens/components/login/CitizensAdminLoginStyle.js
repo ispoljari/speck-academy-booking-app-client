@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-const Body = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
 const Container = styled.div`
   box-sizing: Border-box;
   padding: 32px;
@@ -72,7 +65,6 @@ const SubmitButtonText = styled.p`
 `;
 
 export {
-  Body,
   Container,
   TitleAdminLogin,
   ComponentBox,
