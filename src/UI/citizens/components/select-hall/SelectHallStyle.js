@@ -142,7 +142,8 @@ export const SecondRow = styled.div`
 
 export const Elipse = styled.div`
   display: flex;
-
+  align-items: center;
+  justify-content: center;
   width: 152px;
   height: 152px;
   opacity: 0.4;
@@ -153,12 +154,8 @@ export const Elipse = styled.div`
 `;
 
 export const Number = styled.div`
-  position: absolute;
   font-family: Poppins, sans-serif;
   font-size: 96px;
   font-weight: 800;
-  text-align: center;
-  top: 10px;
-  margin-left: 40px;
   color: #82d4a7;
 `;
