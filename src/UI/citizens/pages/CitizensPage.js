@@ -3,6 +3,7 @@ import React from 'react';
 import {
   CitizensHeader,
   CitizensAdminLogin,
+  CitizensAdminLoginUnsuccessfull,
   CitizensSelectHall,
   CitizensSelectDateTime,
   CitizensEditEventInfo,
@@ -18,16 +19,13 @@ const CitizensPage = () => (
     <CitizensHeader />
     <CitizensSelectHall />
     <CitizensSubmitRequest />
-     
+
     <CitizensSelectDateTime />
-    
+
     <CitizensAdminLogin />
+    <CitizensAdminLoginUnsuccessfull />
     <Error404 />
-     <Footer />
-      
-
-
-
+    <Footer />
   </React.Fragment>
 );
 
