@@ -26,7 +26,7 @@ const CitizensHeader = ({ onClick }) => (
       {/* <HeaderImage src={headerImage} />*/}
 
       <Container>
-        <AdminLoginBtn onClick={onClick}>AdminLoginBtn LOGIN</AdminLoginBtn>
+        <AdminLoginBtn onClick={onClick}>LOGIN</AdminLoginBtn>
 
         <HeaderTitle>
           REZERVACIJA DVORANA
