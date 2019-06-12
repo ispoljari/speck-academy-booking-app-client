@@ -16,18 +16,12 @@ import { Footer } from '../../common';
 const CitizensPage = () => (
   <React.Fragment>
     <CitizensHeader />
-    <CitizensSelectHall />
+    {/* <CitizensSelectHall />
     <CitizensSubmitRequest />
-     
-    <CitizensSelectDateTime />
-    
+    <CitizensSelectDateTime /> */}
     <CitizensAdminLogin />
-    <Error404 />
-     <Footer />
-      
-
-
-
+    {/* <Error404 />
+    <Footer /> */}
   </React.Fragment>
 );
 
