@@ -18,13 +18,27 @@ class CitizensPage extends Component {
     adminLoginVisible: false
   };
 
-  adminLoginOpen = () => {
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleKeyPress = e => {
+    if (e.key === 'Escape' && this.state.adminLoginVisible) {
+      this.closeAdminLogin();
+    }
+  };
+
+  openAdminLogin = () => {
     this.setState({
       adminLoginVisible: true
     });
   };
 
-  adminLoginClose = () => {
+  closeAdminLogin = () => {
     this.setState({
       adminLoginVisible: false
     });
@@ -35,15 +49,11 @@ class CitizensPage extends Component {
 
     return (
       <React.Fragment>
-        <CitizensHeader onClick={this.adminLoginOpen} />
+        <CitizensHeader onClick={this.openAdminLogin} />
         {/* <CitizensSelectHall />
         <CitizensSubmitRequest />
         <CitizensSelectDateTime /> */}
-        <Modal
-          visible={adminLoginVisible}
-          onClick={this.adminLoginClose}
-          onEscapeKeyPress={this.adminLoginClose}
-        >
+        <Modal visible={adminLoginVisible} onClick={this.closeAdminLogin}>
           <CitizensAdminLogin />
         </Modal>
         {/* <Error404 />
