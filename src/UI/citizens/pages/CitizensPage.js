@@ -25,13 +25,15 @@ class CitizensPage extends Component {
   };
 
   render() {
+    const { showAdminLogin } = this.state;
+
     return (
       <React.Fragment>
-        <CitizensHeader />
+        <CitizensHeader onClick={() => this.handleAdminLogin} />
         {/* <CitizensSelectHall />
         <CitizensSubmitRequest />
         <CitizensSelectDateTime /> */}
-        <Modal>
+        <Modal visible={showAdminLogin}>
           <CitizensAdminLogin />
         </Modal>
         {/* <Error404 />
