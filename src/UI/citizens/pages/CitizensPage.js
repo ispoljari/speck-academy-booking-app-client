@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import {
   CitizensHeader,
@@ -13,18 +13,32 @@ import Error404 from '../../common/error404/Error404';
 
 import { Footer, Modal } from '../../common';
 
-const CitizensPage = () => (
-  <React.Fragment>
-    <CitizensHeader />
-    {/* <CitizensSelectHall />
-    <CitizensSubmitRequest />
-    <CitizensSelectDateTime /> */}
-    <Modal>
-      <CitizensAdminLogin />
-    </Modal>
-    {/* <Error404 />
-    <Footer /> */}
-  </React.Fragment>
-);
+class CitizensPage extends Component {
+  state = {
+    showAdminLogin: false
+  };
+
+  handleAdminLogin = () => {
+    this.setState({
+      showAdminLogin: true
+    });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <CitizensHeader />
+        {/* <CitizensSelectHall />
+        <CitizensSubmitRequest />
+        <CitizensSelectDateTime /> */}
+        <Modal>
+          <CitizensAdminLogin />
+        </Modal>
+        {/* <Error404 />
+        <Footer /> */}
+      </React.Fragment>
+    );
+  }
+}
 
 export default CitizensPage;
