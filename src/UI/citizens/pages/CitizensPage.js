@@ -39,7 +39,11 @@ class CitizensPage extends Component {
         {/* <CitizensSelectHall />
         <CitizensSubmitRequest />
         <CitizensSelectDateTime /> */}
-        <Modal visible={adminLoginVisible} onClick={this.adminLoginClose}>
+        <Modal
+          visible={adminLoginVisible}
+          onClick={this.adminLoginClose}
+          onEscapeKeyPress={this.adminLoginClose}
+        >
           <CitizensAdminLogin />
         </Modal>
         {/* <Error404 />
