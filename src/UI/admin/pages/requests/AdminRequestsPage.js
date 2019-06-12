@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AdminHeader, AdminHallRequest } from '../../';
-import { Footer } from '../../../common';
+import { Footer, Modal } from '../../../common';
 
 const AdminRequestsPage = () => (
   <React.Fragment>
