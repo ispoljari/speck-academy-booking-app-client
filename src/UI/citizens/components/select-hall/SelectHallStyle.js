@@ -72,7 +72,6 @@ export const TextInfoIcon = styled.img`
 //Typography
 
 export const HeadlineText = styled.div`
-  margin-left: 5px;
   margin-top: 32px;
   font-family: Lora, Georgia, serif;
   font-size: 32px;
@@ -81,7 +80,6 @@ export const HeadlineText = styled.div`
 `;
 
 export const SubheadlineText = styled.div`
-  margin-left: 5px;
   margin-top: 16px;
   margin-bottom: 22px;
   width: 764px;

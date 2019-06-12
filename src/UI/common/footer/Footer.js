@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { FooterContainer, Footer1, Footer2, Speck, VLine } from './FooterStyle';
+import {
+  FooterContainer,
+  Footer1,
+  Footer2,
+  Speck,
+  VLine,
+  StyledLink
+} from './FooterStyle';
 
 const Footer = () => (
   <FooterContainer>
@@ -11,7 +18,9 @@ const Footer = () => (
     <VLine />
     <Footer1>
       Copyright 2019 by
-      <Speck>Speck d.o.o.</Speck>
+      <StyledLink href="https://www.speck.agency" target="_blank">
+        <Speck>Speck d.o.o.</Speck>
+      </StyledLink>
     </Footer1>
   </FooterContainer>
 );
