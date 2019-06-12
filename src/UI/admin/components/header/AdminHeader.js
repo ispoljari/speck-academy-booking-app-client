@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import KrizevciImg from '../../../../images/krizevci1b1.jpg';
 import {
   HeaderContainer,
