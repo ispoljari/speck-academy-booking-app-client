@@ -29,7 +29,7 @@ const HeaderTitleSmall = styled(HeaderTitle)`
   font-size: 20px;
 `;
 
-const Admin = styled.button`
+const AdminLoginBtn = styled.button`
   margin-left: 884px;
   font-family: Poppins;
   font-weight: 500;
@@ -132,7 +132,7 @@ export {
   Text1,
   ContactInformation1,
   Title,
-  Admin,
+  AdminLoginBtn,
   Mail,
   Adresa,
   HeaderTitleSmall,

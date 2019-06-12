@@ -29,7 +29,7 @@ class CitizensPage extends Component {
 
     return (
       <React.Fragment>
-        <CitizensHeader onClick={() => this.handleAdminLogin} />
+        <CitizensHeader onClick={() => this.handleAdminLogin()} />
         {/* <CitizensSelectHall />
         <CitizensSubmitRequest />
         <CitizensSelectDateTime /> */}

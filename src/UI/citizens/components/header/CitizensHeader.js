@@ -5,7 +5,7 @@ import {
   Header,
   HeaderTitle,
   HeaderTitleSmall,
-  Admin,
+  AdminLoginBtn,
   ContactInformation1,
   Title,
   Text,
@@ -20,13 +20,13 @@ import {
 
 import headerImage from '../../../../images/headerimage.jpg';
 
-const CitizensHeader = () => (
+const CitizensHeader = ({ onClick }) => (
   <HeaderContainer>
     <Header imgSrc={headerImage}>
       {/* <HeaderImage src={headerImage} />*/}
 
       <Container>
-        <Admin>ADMIN LOGIN</Admin>
+        <AdminLoginBtn>AdminLoginBtn LOGIN</AdminLoginBtn>
 
         <HeaderTitle>
           REZERVACIJA DVORANA
