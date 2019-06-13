@@ -25,12 +25,12 @@ const Header = styled.div`
 const Title = styled.h1`
   margin: 0px;
   align-items: center;
-  height: 24px;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
   color: #ffffff;
   align-self: center;
+  text-align: center;
 `;
 
 const Image = styled.img`
