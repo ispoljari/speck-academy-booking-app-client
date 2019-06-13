@@ -79,9 +79,11 @@ class ScheduleComponenet extends React.Component {
     activeComponent: false,
     test: 55,
     currentReservationActive: {
+      activated: false,
       reservationTitle: '',
       reservationDate: '',
       reservationStartTime: '',
+      dash: '',
       reservationEndTime: '',
       reservationDescription: 'testić',
       infoVisibility: 'hidden'
@@ -122,6 +124,7 @@ class ScheduleComponenet extends React.Component {
 
                   {this.state.dummyDataArray[0].hallReservaltions.map(
                     hallReservaltion => {
+                      hallReservaltion.active = false;
                       if (
                         new Date(
                           hallReservaltion.reservationDate + ' 00:00:00'
@@ -142,27 +145,47 @@ class ScheduleComponenet extends React.Component {
 
                         return (
                           <ReservationDynamicDiv
+                            style={{
+                              //visibility: this.state.currentReservationActive.infoVisibility
+                              border: hallReservaltion.active
+                                ? 'solid 1px #0f4951'
+                                : 'solid 1px #ffffff'
+                            }}
                             length={obj.length}
                             start={obj.start}
-                            active={this.state.activeComponent}
+                            active={hallReservaltion.active}
                             onClick={() => {
                               //console.log(hallReservaltion);
 
                               this.setState({
                                 currentReservationActive: hallReservaltion
                               });
+                              this.state.currentReservationActive.activated = true;
 
                               /*this.setState({
                                 ...this.state,
-                                dummyDataArray: {
-                                  ...this.state.dummyDataArray,
-                                  active: 'solid 1px #0f4951'
+                                currentReservationActive: {
+                                  ...this.state.currentReservationActive,
+                                  activated: true
                                 }
                               });*/
+
+                              //hallReservaltion.active = true;
+                              //console.log(hallReservaltion.active);
+                              console.log(this.state);
+                              /*console.log(this.state);
+                              this.setState({
+                                //...this.state,
+                                dummyDataArray: {
+                                  ...this.state.dummyDataArray,
+                                  active: true
+                                }
+                              });
+                              console.log(this.state);*/
                               //console.log("this.state.hallReservaltions: " + this.state.hallReservaltions);
                             }}
                           >
-                            <PopUpInfo>
+                            <PopUpInfo length={obj.length}>
                               <PopUpInfoText>
                                 {//this.state.dummyDataArray[0].event
                                 //this.state.dummyDataArray[0].hallReservaltion[0]
@@ -211,7 +234,7 @@ class ScheduleComponenet extends React.Component {
                   0,
                   -3
                 )}{' '}
-              -
+              {this.state.currentReservationActive.dash}
               {//this.state.dummyDataArray[0].endTime.toString().substring(4, 25)
               this.state.currentReservationActive.reservationEndTime.slice(
                 0,
@@ -221,36 +244,34 @@ class ScheduleComponenet extends React.Component {
             <Details
               img={DetailsIcon}
               onClick={() => {
-                //console.log(this.state.currentReservationActive.reservationDescription);
-                //this.state.currentReservationActive.infoVisibility = 'visible';
-                this.setState({
-                  currentReservationActive: {
-                    reservationTitle: this.state.currentReservationActive
-                      .reservationTitle,
-                    reservationDate: this.state.currentReservationActive
-                      .reservationDate,
-                    reservationStartTime: this.state.currentReservationActive
-                      .reservationStartTime,
-                    reservationEndTime: this.state.currentReservationActive
-                      .reservationEndTime,
-                    reservationDescription: this.state.currentReservationActive
-                      .reservationDescription,
-                    infoVisibility: 'visible'
-                  }
-                });
-
-                //console.log(
-                //  'currentReservationActive' +
-                //    this.state.currentReservationActive
-                //);
+                console.log(this.state.currentReservationActive.activated);
+                if (this.state.currentReservationActive.activated == true) {
+                  this.setState({
+                    ...this.state,
+                    currentReservationActive: {
+                      ...this.state.currentReservationActive,
+                      infoVisibility: 'visible',
+                      dash: '-'
+                    }
+                  });
+                }
               }}
             >
               <PopUpInfo
+                length={32}
                 style={{
-                  visibility: this.state.currentReservationActive.infoVisibility
+                  visibility: this.state.currentReservationActive
+                    .infoVisibility,
+                  width: 400,
+                  marginTop: 36,
+                  marginLeft: 32 / 2 - 400 / 2
                 }}
               >
-                <PopUpInfoText>
+                <PopUpInfoText
+                  style={{
+                    width: 384
+                  }}
+                >
                   {this.state.currentReservationActive.reservationDescription}
                 </PopUpInfoText>
               </PopUpInfo>
