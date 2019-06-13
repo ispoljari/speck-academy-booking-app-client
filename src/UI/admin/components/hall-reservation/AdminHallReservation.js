@@ -105,7 +105,9 @@ class ScheduleComponenet extends React.Component {
                   <OneDayDivRowText>
                     {daysOfWeek[(day + 6) % 7]}
                   </OneDayDivRowText>
-
+                  {console.log(
+                    'before: ' + this.state.currentReservationActive.activated
+                  )}
                   {this.state.dummyDataArray[0].hallReservaltions.map(
                     hallReservaltion => {
                       hallReservaltion.active = false;
@@ -130,7 +132,6 @@ class ScheduleComponenet extends React.Component {
                         return (
                           <ReservationDynamicDiv
                             style={{
-                              //visibility: this.state.currentReservationActive.infoVisibility
                               border: hallReservaltion.active
                                 ? 'solid 1px #0f4951'
                                 : 'solid 1px #ffffff'
@@ -139,21 +140,27 @@ class ScheduleComponenet extends React.Component {
                             start={obj.start}
                             active={hallReservaltion.active}
                             onClick={() => {
+                              hallReservaltion.activated = true;
                               this.setState({
                                 currentReservationActive: hallReservaltion
                               });
-                              this.state.currentReservationActive.activated = true;
+                              //this.state.currentReservationActive.activated = true;
 
-                              /*this.setState({
+                              /*this.setState(() => ({
                                 ...this.state,
                                 currentReservationActive: {
                                   ...this.state.currentReservationActive,
                                   activated: true
                                 }
+                              }), () => {
+                                console.log("after: " + this.state.currentReservationActive.activated);
                               });*/
 
                               //hallReservaltion.active = true;
-                              //console.log(hallReservaltion.active);
+                              console.log(
+                                'after33: ' +
+                                  this.state.currentReservationActive
+                              );
                               console.log(this.state);
                               /*console.log(this.state);
                               this.setState({
