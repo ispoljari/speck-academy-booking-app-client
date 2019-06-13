@@ -15,12 +15,9 @@ import {
   ReservationDynamicDiv,
   PopUpInfo,
   PopUpInfoText,
-  //Table,
-  //TableData,
   Info,
   InfoTitle,
   InfoTime,
-  //InfoButton,
   InfoEraseButton,
   InfoEraseButtonText,
   Details
@@ -37,8 +34,6 @@ const daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
 //javascript maps days like this
 const daysOfWeekNumerals = [1, 2, 3, 4, 5, 6, 0];
 
-//const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
-
 //todo rewrite this function with smaller functions inside
 function calcPositionAndLEngth(date, startTime, endTime) {
   const offset = 69;
@@ -47,28 +42,18 @@ function calcPositionAndLEngth(date, startTime, endTime) {
     length: 0
   };
   //TODO delete console.log
-  //console.log(startTime + ' ' + endTime);
   existStartLength.start =
     new Date(date + ' ' + startTime) - new Date(date + ' 00:00:00');
   //TODO delete console.log
-  /*console.log(
-    'provjera' +
-      new Date(date + ' ' + startTime) +
-      ' ' +
-      new Date(date + ' 00:00:00')
-  );*/
   existStartLength.start = existStartLength.start / 1000 / 60 / 60;
-  //console.log(existStartLength.start);
   existStartLength.start = existStartLength.start - 8; //because we start at 8 o'clock
   existStartLength.start = existStartLength.start * 50; // hours to pixels
   existStartLength.start = existStartLength.start + offset; // adding offset
-  //console.log(existStartLength.start);
 
   existStartLength.length =
     new Date(date + ' ' + endTime) - new Date(date + ' ' + startTime);
   existStartLength.length = existStartLength.length / 1000 / 60 / 60;
   existStartLength.length = existStartLength.length * 50;
-  //console.log(existStartLength.length);
 
   return existStartLength;
 }
@@ -115,7 +100,6 @@ class ScheduleComponenet extends React.Component {
             <Line />
 
             {daysOfWeekNumerals.map(day => {
-              //console.log('DAAAAAY:' + day);
               return (
                 <OneDayDivRow>
                   <OneDayDivRowText>
@@ -155,8 +139,6 @@ class ScheduleComponenet extends React.Component {
                             start={obj.start}
                             active={hallReservaltion.active}
                             onClick={() => {
-                              //console.log(hallReservaltion);
-
                               this.setState({
                                 currentReservationActive: hallReservaltion
                               });
@@ -187,10 +169,7 @@ class ScheduleComponenet extends React.Component {
                           >
                             <PopUpInfo length={obj.length}>
                               <PopUpInfoText>
-                                {//this.state.dummyDataArray[0].event
-                                //this.state.dummyDataArray[0].hallReservaltion[0]
-                                //.
-                                hallReservaltion.reservationTitle +
+                                {hallReservaltion.reservationTitle +
                                   ' ' +
                                   hallReservaltion.reservationDate +
                                   ' ' +
@@ -217,26 +196,17 @@ class ScheduleComponenet extends React.Component {
 
           <Info>
             <InfoTitle>
-              {
-                //this.state.dummyDataArray[0].event
-                //this.state.dummyDataArray[0].hallReservaltion[0]
-                //.reservationTitle
-                //this.state.currentReservationActive.reservationTitle === undefined ? "WWWWWWWW" : this.state.currentReservationActive.reservationTitle
-                this.state.currentReservationActive.reservationTitle
-                //this.state.currentReservationActive
-              }
+              {this.state.currentReservationActive.reservationTitle}
             </InfoTitle>
             <InfoTime>
-              {//this.state.dummyDataArray[0].startTime.toString().substring(4, 25)
-              this.state.currentReservationActive.reservationDate +
+              {this.state.currentReservationActive.reservationDate +
                 ' ' +
                 this.state.currentReservationActive.reservationStartTime.slice(
                   0,
                   -3
                 )}{' '}
               {this.state.currentReservationActive.dash}
-              {//this.state.dummyDataArray[0].endTime.toString().substring(4, 25)
-              this.state.currentReservationActive.reservationEndTime.slice(
+              {this.state.currentReservationActive.reservationEndTime.slice(
                 0,
                 -3
               )}
