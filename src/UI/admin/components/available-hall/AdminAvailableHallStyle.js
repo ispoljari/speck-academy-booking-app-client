@@ -24,16 +24,13 @@ const Header = styled.div`
 
 const Title = styled.h1`
   margin: 0px;
-  display: flex;
   align-items: center;
-  padding: 8px;
   height: 24px;
   font-family: Poppins;
-  text-align: center;
   font-size: 16px;
   font-weight: 500;
-  line-height: 1;
   color: #ffffff;
+  align-self: center;
 `;
 
 const Image = styled.img`
@@ -52,7 +49,6 @@ const MainPart = styled.div`
   justify-content: space-between;
   min-height: 360px;
   padding: 16px 32px 16px 32px;
-  background-color: #ffffff;
 `;
 
 const TextPart = styled.div`
@@ -76,7 +72,7 @@ const DescriptionMain = styled.div`
   background-color: #ffffff;
 `;
 
-const Headline = styled.h2`
+const Headline = styled.p`
   margin: 0px;
   display: flex;
   flex-direction: row;
@@ -96,7 +92,7 @@ const Description = styled(Headline)`
 
 const Location = styled(Headline)``;
 
-const Text = styled.h3`
+const Text = styled.p`
   margin: 0px;
   display: flex;
   margin-left: 22px;
