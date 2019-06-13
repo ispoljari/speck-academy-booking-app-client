@@ -154,6 +154,12 @@ const ButtonEdit = styled(Button)`
   color: #ffffff;
 `;
 
+const AdminHallPageContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 calc((100vw - 764px) / 2);
+`;
+
 export {
   Wrapper,
   Header,
@@ -170,5 +176,6 @@ export {
   Footer,
   Button,
   ButtonDelete,
-  ButtonEdit
+  ButtonEdit,
+  AdminHallPageContainer
 };
