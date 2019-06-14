@@ -4,7 +4,7 @@ export const StyledLink = styled.a`
   font-family: Poppins, sans serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.14;
+  ${'' /* line-height: 1.14; */}
   color: #000;
   ${'' /* text-align: center; */}
   &:focus,

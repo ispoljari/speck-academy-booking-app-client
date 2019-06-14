@@ -60,9 +60,33 @@ import {
 //OLD CODE END
 
 class CitizensEditEventInfo extends React.Component {
-  state = {
-    charCounter: 0
-  };
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      eventName: '',
+      eventDescription: '',
+      nameAndSurname: '',
+      email: '',
+      organisation: '',
+      telNumber: '',
+      charCounter: 0
+    };
+  }
+
+  handleChange(e) {
+    this.setState({
+      eventName: e.target.value,
+      eventDescription: e.target.value
+    });
+  }
+  //   this.setState({eventName: e.target.value}),
+  //   this.setState({eventDescription: e.target.value})
+  // }
+
+  // state = {
+  //   charCounter: 0
+  // };
 
   handleCharCount = event => {
     const charCount = event.target.value.length;
@@ -85,13 +109,20 @@ class CitizensEditEventInfo extends React.Component {
         </MainDescription>
         <FormContainer>
           <FormHeader>Naziv događaja:</FormHeader>
-          <FormInput required />
+          <FormInput
+            type="text"
+            value={this.state.eventName}
+            onChange={this.handleChange}
+            required
+          />
           <FormHeader>Opis događaja:</FormHeader>
           <FormInputText
             placeholder="OPIŠITE SVOJ DOGAĐAJ..."
             type="text"
             maxLength="500"
             onChange={this.handleCharCount}
+            value={this.state.eventDescription}
+            onChange={this.handleChange}
             required
           />
           <FormInputTextCharacterCounter>
