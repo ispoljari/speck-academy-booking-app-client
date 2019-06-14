@@ -4,6 +4,7 @@ import ScheduleComponenet from './UI/admin/components/hall-reservation/AdminHall
 //import { dummyDataArray } from './UI/admin/components/hall-reservation/dummyreservations.js';
 import dataArray from './UI/admin/components/hall-reservation/newData.js';
 //import dataArray from './UI/admin/components/hall-reservation/newData.js';
+import AdminReservationsPage from './UI/admin/pages/reservations/AdminReservationsPage.js';
 
 console.log(dataArray);
 //console.log(dataArray);
@@ -11,6 +12,7 @@ console.log(dataArray);
 ReactDOM.render(
   //<ScheduleComponenet dummyDataArray={dummyDataArray} />,
   //<ScheduleComponenet dummyDataArray={dataArray} />,
-  <ScheduleComponenet />,
+  //<ScheduleComponenet />,
+  <AdminReservationsPage />,
   document.getElementById('root')
 );

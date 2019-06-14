@@ -58,9 +58,13 @@ function calcPositionAndLEngth(date, startTime, endTime) {
   return existStartLength;
 }
 
+let data = dataArray[0];
+
 class ScheduleComponenet extends React.Component {
   state = {
-    dummyDataArray: dataArray,
+    //dummyDataArray: dataArray,
+    //dummyDataArray: data,
+    dummyDataArray: this.props.data,
     activeComponent: false,
     test: 55,
     currentReservationActive: {
@@ -92,7 +96,8 @@ class ScheduleComponenet extends React.Component {
     return (
       <MainWrapper>
         <MainTitleWrapper>
-          <MainTitle>{this.state.dummyDataArray[0].name}</MainTitle>
+          {/* <MainTitle>{this.state.dummyDataArray[0].name}</MainTitle> */}
+          <MainTitle>{this.state.dummyDataArray.name}</MainTitle>
         </MainTitleWrapper>
         <TableAndInfoWrapper>
           <TableWrapper>
@@ -108,7 +113,8 @@ class ScheduleComponenet extends React.Component {
                   {console.log(
                     'before: ' + this.state.currentReservationActive.activated
                   )}
-                  {this.state.dummyDataArray[0].hallReservaltions.map(
+                  {/* {this.state.dummyDataArray[0].hallReservaltions.map( */}
+                  {this.state.dummyDataArray.hallReservaltions.map(
                     hallReservaltion => {
                       hallReservaltion.active = false;
                       if (
