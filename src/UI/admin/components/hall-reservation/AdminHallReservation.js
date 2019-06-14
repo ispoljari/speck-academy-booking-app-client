@@ -92,7 +92,7 @@ class ScheduleComponenet extends React.Component {
     return (
       <MainWrapper>
         <MainTitleWrapper>
-          <MainTitle>Velika Sportska dvorana</MainTitle>
+          <MainTitle>{this.state.dummyDataArray[0].name}</MainTitle>
         </MainTitleWrapper>
         <TableAndInfoWrapper>
           <TableWrapper>
