@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import {
   Container,
@@ -11,23 +11,27 @@ import {
   SubmitButtonText
 } from './CitizensAdminLoginStyle';
 
-const CitizensAdminLogin = () => (
-  <Container>
-    <TitleAdminLogin>Admin Login</TitleAdminLogin>
-    <ComponentBox>
-      <Component>
-        <ComponentName>KORISNIČKO IME</ComponentName>
-        <ComponentInput />
-      </Component>
-      <Component>
-        <ComponentName>LOZINKA</ComponentName>
-        <ComponentInput />
-      </Component>
-    </ComponentBox>
-    <SubmitButton>
-      <SubmitButtonText>PRIJAVI ME</SubmitButtonText>
-    </SubmitButton>
-  </Container>
-);
+class CitizensAdminLogin extends Component {
+  render() {
+    return (
+      <Container>
+        <TitleAdminLogin>Admin Login</TitleAdminLogin>
+        <ComponentBox>
+          <Component>
+            <ComponentName>KORISNIČKO IME</ComponentName>
+            <ComponentInput />
+          </Component>
+          <Component>
+            <ComponentName>LOZINKA</ComponentName>
+            <ComponentInput />
+          </Component>
+        </ComponentBox>
+        <SubmitButton>
+          <SubmitButtonText>PRIJAVI ME</SubmitButtonText>
+        </SubmitButton>
+      </Container>
+    );
+  }
+}
 
 export default CitizensAdminLogin;
