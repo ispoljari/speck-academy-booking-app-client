@@ -12,6 +12,25 @@ import {
 } from './CitizensAdminLoginStyle';
 
 class CitizensAdminLogin extends Component {
+  state = {
+    userName: '',
+    password: ''
+  };
+
+  handleUserNameInput = e => {
+    const userName = e.target.value;
+    this.setState({
+      userName
+    });
+  };
+
+  handlePasswordInput = e => {
+    const password = e.target.value;
+    this.setState({
+      password
+    });
+  };
+
   render() {
     return (
       <Container>
@@ -19,11 +38,17 @@ class CitizensAdminLogin extends Component {
         <ComponentBox>
           <InputWrapper>
             <Label>KORISNIČKO IME</Label>
-            <Input />
+            <Input
+              onChange={this.handleUserNameInput}
+              value={this.state.userName}
+            />
           </InputWrapper>
           <InputWrapper>
             <Label>LOZINKA</Label>
-            <Input />
+            <Input
+              onChange={this.handlePasswordInput}
+              value={this.state.password}
+            />
           </InputWrapper>
         </ComponentBox>
         <Submit>
