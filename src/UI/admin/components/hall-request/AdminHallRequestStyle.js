@@ -8,6 +8,8 @@ const HallDiv = styled.div`
   background-color: #ffffff;
   display: flex;
   box-sizing: border-box;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
 `;
 
 const ImageContainer = styled.div`
@@ -28,10 +30,11 @@ const TextContainer = styled.div`
 const ButtonContainer = styled.div`
   width: 260px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-content: flex-start;
   box-sizing: border-box;
+  justify-content: space-between;
 `;
 
 const ImageHall = styled.img`
@@ -43,9 +46,14 @@ const ImageHall = styled.img`
   margin-left: 16px;
   object-fit: cover;
 `;
-const HeaderHall = styled.h1`
+const HeaderHall = styled.h2`
   width: 278px;
   font-family: Lora;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
   font-size: 20px;
   color: #000000;
   margin-top: 16px;
@@ -270,6 +278,7 @@ const PhoneLabel = styled.p`
   white-space: nowrap;
   text-align: right;
   line-height: 1.05;
+  margin-top: 12px;
 `;
 
 const PhoneSet = styled.p`
@@ -324,10 +333,12 @@ const ButtonAccept = styled.button`
   background-color: #0f4951;
   font-weight: 500;
   color: #ffffff;
-  margin-top: 229px;
   margin-left: 16px;
   padding: 9px 12px 12px 7px;
   text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  color: #ffffff;
 `;
 
 const ButtonDenied = styled.button`
