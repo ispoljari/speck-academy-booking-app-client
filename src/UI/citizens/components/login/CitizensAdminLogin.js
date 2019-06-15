@@ -12,7 +12,7 @@ import {
 
 const InputComponent = ({ label, inputID, onChange, value }) => (
   <div>
-    <Label for={inputID}>{label}</Label>
+    <Label htmlFor={inputID}>{label}</Label>
     <Input
       id={inputID}
       type="text"
