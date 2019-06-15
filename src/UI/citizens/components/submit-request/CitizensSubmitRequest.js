@@ -18,7 +18,7 @@ import {
   SpacingDiv
 } from './CitizensSubmitRequestStyle';
 
-const CitizensSubmitRequest = () => (
+const CitizensSubmitRequest = props => (
   <Container>
     <Circle>
       <Number>4</Number>
@@ -55,11 +55,9 @@ const CitizensSubmitRequest = () => (
             </StyledLink>
           </ContactRight>
         </Contact>
-        <StyledLink href="">
-          <Button>
-            <ButtonText>Pošaljite zahtjev</ButtonText>
-          </Button>
-        </StyledLink>
+        <Button onClick={props.onSubmitRequest}>
+          <ButtonText>Pošaljite zahtjev</ButtonText>
+        </Button>
       </SectorDown>
     </LayoutContainer>
   </Container>

@@ -32,17 +32,51 @@ class CitizensPage extends Component {
       },
       reservationInfo: []
     };
+
+    this.onSubmitRequest = this.onSubmitRequest.bind(this);
   }
 
   handleChange = e => {
     const { name, value } = e.target;
+    let charCounter = this.state.post.charCounter;
+
+    /*
+    if (name === 'pero') {
+      const isValid = event.target.validity.valid;
+
+      if (value && !isValid) return;
+    }
+    */
+
+    if (name === 'eventDescription') {
+      console.log('length', value.length);
+      charCounter = value.length;
+    }
 
     this.setState(prevState => ({
-      post: { ...prevState.post, [name]: value }
+      post: {
+        ...prevState.post,
+        [name]: value,
+        charCounter: charCounter
+      }
     }));
   };
 
+  onSubmitRequest() {
+    const { charCounter, ...rest } = this.state.post;
+
+    console.log('post data', rest);
+
+    /*
+      console.log('event name', rest.eventName);
+      rest.eventName:
+      rest.eventDescription
+      rest.nameAndSurname
+    */
+  }
+
   render() {
+    console.log('post', this.state.post);
     return (
       <React.Fragment>
         <CitizensPageWrapper>
@@ -57,7 +91,7 @@ class CitizensPage extends Component {
             post={this.state.post}
           />
 
-          <CitizensSubmitRequest />
+          <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
           {/* <CitizensAdminLogin /> */}
           {/* <Error404 /> */}
           <Footer />

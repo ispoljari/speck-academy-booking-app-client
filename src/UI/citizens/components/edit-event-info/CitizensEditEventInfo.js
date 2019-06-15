@@ -41,29 +41,52 @@ export default ({ handleChange, post }) => {
         <FormInputText
           placeholder="OPIŠITE SVOJ DOGAĐAJ..."
           type="text"
+          name="eventDescription"
+          onChange={handleChange}
           maxLength="500"
           required
         />
         <FormInputTextCharacterCounter>
-          {/* {this.state.charCounter} / 500 znakova */}
+          <span>{post.charCounter} / 500 znakova</span>
         </FormInputTextCharacterCounter>
         <FormHeader>Vaši kontakt podaci:</FormHeader>
         <FormContainerInfoGroup>
           <FormInlineInput>
             <FormInlineLabel>Ime i prezime</FormInlineLabel>
-            <FormInput required />
+            <FormInput
+              type="text"
+              name="nameAndSurname"
+              onChange={handleChange}
+              required
+            />
           </FormInlineInput>
           <FormInlineInput>
             <FormInlineLabel>Organizacija (nije obavezno)</FormInlineLabel>
-            <FormInput />
+            <FormInput
+              type="text"
+              name="organisation"
+              onChange={handleChange}
+              required
+            />
           </FormInlineInput>
           <FormInlineInput>
             <FormInlineLabel>E-mail adresa</FormInlineLabel>
-            <FormInput type="email" required />
+            <FormInput
+              type="email"
+              name="email"
+              onChange={handleChange}
+              required
+            />
           </FormInlineInput>
           <FormInlineInput>
             <FormInlineLabel>Broj telefona/Mobitela</FormInlineLabel>
-            <FormInput type="text" pattern="[0-9]*" required />
+            <FormInput
+              type="text"
+              name="phoneNumber"
+              onChange={handleChange}
+              pattern="(\+[0-9]{0,16})|[0-9]{0,15}"
+              required
+            />
           </FormInlineInput>
         </FormContainerInfoGroup>
       </FormContainer>
