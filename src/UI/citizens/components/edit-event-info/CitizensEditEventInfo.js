@@ -62,27 +62,40 @@ import {
 class CitizensEditEventInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
     this.state = {
       eventName: '',
       eventDescription: '',
       nameAndSurname: '',
       email: '',
       organisation: '',
-      telNumber: '',
+      phoneNumber: '',
       charCounter: 0
     };
   }
 
-  handleChange(e) {
-    this.setState({
-      eventName: e.target.value,
-      eventDescription: e.target.value
-    });
-  }
-  //   this.setState({eventName: e.target.value}),
-  //   this.setState({eventDescription: e.target.value})
-  // }
+  handleEventNameChange = event => {
+    this.setState({ eventName: event.target.value });
+  };
+
+  handleEventDescriptionChange = event => {
+    this.setState({ eventDescription: event.target.value });
+  };
+
+  handleNameAndSurnameChange = event => {
+    this.setState({ nameAndSurname: event.target.value });
+  };
+
+  handleEmailChange = event => {
+    this.setState({ email: event.target.value });
+  };
+
+  handleOrganisationChange = event => {
+    this.setState({ organisation: event.target.value });
+  };
+
+  handlePhoneNumberChange = event => {
+    this.setState({ phoneNumber: event.target.value });
+  };
 
   // state = {
   //   charCounter: 0
@@ -112,7 +125,7 @@ class CitizensEditEventInfo extends React.Component {
           <FormInput
             type="text"
             value={this.state.eventName}
-            onChange={this.handleChange}
+            onChange={this.handleEventNameChange}
             required
           />
           <FormHeader>Opis događaja:</FormHeader>
@@ -122,7 +135,7 @@ class CitizensEditEventInfo extends React.Component {
             maxLength="500"
             onChange={this.handleCharCount}
             value={this.state.eventDescription}
-            onChange={this.handleChange}
+            onChange={this.handleEventDescriptionChange}
             required
           />
           <FormInputTextCharacterCounter>
@@ -132,19 +145,37 @@ class CitizensEditEventInfo extends React.Component {
           <FormContainerInfoGroup>
             <FormInlineInput>
               <FormInlineLabel>Ime i prezime</FormInlineLabel>
-              <FormInput required />
+              <FormInput
+                value={this.state.nameAndSurname}
+                onChange={this.handleNameAndSurnameChange}
+                required
+              />
             </FormInlineInput>
             <FormInlineInput>
               <FormInlineLabel>Organizacija (nije obavezno)</FormInlineLabel>
-              <FormInput />
+              <FormInput
+                value={this.state.organisation}
+                onChange={this.handleOrganisationChange}
+              />
             </FormInlineInput>
             <FormInlineInput>
               <FormInlineLabel>E-mail adresa</FormInlineLabel>
-              <FormInput type="email" required />
+              <FormInput
+                type="email"
+                value={this.state.email}
+                onChange={this.handleEmailChange}
+                required
+              />
             </FormInlineInput>
             <FormInlineInput>
               <FormInlineLabel>Broj telefona/Mobitela</FormInlineLabel>
-              <FormInput type="text" pattern="[0-9]*" required />
+              <FormInput
+                type="text"
+                pattern="[0-9]*"
+                value={this.state.phoneNumber}
+                onChange={this.handlePhoneNumberChange}
+                required
+              />
             </FormInlineInput>
           </FormContainerInfoGroup>
         </FormContainer>

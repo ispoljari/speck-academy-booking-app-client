@@ -165,7 +165,7 @@ const MainDescription = styled.p`
   color: #000000;
   padding-bottom: 16px;
 `;
-const FormContainer = styled.form``;
+const FormContainer = styled.div``;
 
 const FormHeader = styled.h5`
   line-height: normal;
