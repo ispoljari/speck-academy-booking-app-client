@@ -45,7 +45,6 @@ function AdminHallRequest(props) {
     })
       .then(res => {
         props.updatePage();
-        console.log(res);
       })
       .catch(err => {
         console.error(err);
@@ -59,7 +58,6 @@ function AdminHallRequest(props) {
     })
       .then(res => {
         props.updatePage();
-        console.log(res);
       })
       .catch(err => {
         console.error(err);
