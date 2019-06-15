@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 
 import {
-  Container,
+  MainContainer,
   TitleAdminLogin,
-  ComponentBox,
+  FlexContainer,
   InputWrapper,
   Label,
   Input,
   Submit,
   TextField
 } from './CitizensAdminLoginStyle';
+
+const InputComponent = ({ label, onChange, value }) => (
+  <InputWrapper>
+    <Label>{label}</Label>
+    <Input onChange={onChange} value={value} />
+  </InputWrapper>
+);
 
 class CitizensAdminLogin extends Component {
   state = {
@@ -33,28 +40,24 @@ class CitizensAdminLogin extends Component {
 
   render() {
     return (
-      <Container>
+      <MainContainer>
         <TitleAdminLogin>Admin Login</TitleAdminLogin>
-        <ComponentBox>
-          <InputWrapper>
-            <Label>Korisničko ime</Label>
-            <Input
-              onChange={this.handleUserNameInput}
-              value={this.state.userName}
-            />
-          </InputWrapper>
-          <InputWrapper>
-            <Label>Lozinka</Label>
-            <Input
-              onChange={this.handlePasswordInput}
-              value={this.state.password}
-            />
-          </InputWrapper>
-        </ComponentBox>
+        <FlexContainer>
+          <InputComponent
+            label="Korisničko ime"
+            onChange={this.handleUserNameInput}
+            value={this.state.userName}
+          />
+          <InputComponent
+            label="Lozinka"
+            onChange={this.handlePasswordInput}
+            value={this.state.password}
+          />
+        </FlexContainer>
         <Submit>
           <TextField>Prijavi me</TextField>
         </Submit>
-      </Container>
+      </MainContainer>
     );
   }
 }

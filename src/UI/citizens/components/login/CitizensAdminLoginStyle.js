@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div``;
+const MainContainer = styled.div``;
 
 const TitleAdminLogin = styled.div`
   width: 568px;
@@ -12,7 +12,7 @@ const TitleAdminLogin = styled.div`
   margin-bottom: 24px;
 `;
 
-const ComponentBox = styled.div`
+const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
@@ -59,9 +59,9 @@ const TextField = styled.p`
 `;
 
 export {
-  Container,
+  MainContainer,
   TitleAdminLogin,
-  ComponentBox,
+  FlexContainer,
   InputWrapper,
   Label,
   Input,
