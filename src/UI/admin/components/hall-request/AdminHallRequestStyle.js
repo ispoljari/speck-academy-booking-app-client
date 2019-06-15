@@ -339,6 +339,10 @@ const ButtonAccept = styled.button`
   font-family: Poppins;
   font-size: 14px;
   color: #ffffff;
+  outline: none;
+  :hover {
+    opacity: 0.9;
+  }
 `;
 
 const ButtonDenied = styled.button`
@@ -356,6 +360,10 @@ const ButtonDenied = styled.button`
   padding: 9px 12px 12px 7px;
   text-align: center;
   margin-down: 16px;
+  outline: none;
+  :hover {
+    opacity: 0.9;
+  }
 `;
 
 export {
