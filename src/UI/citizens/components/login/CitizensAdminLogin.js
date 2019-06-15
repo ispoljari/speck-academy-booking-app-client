@@ -14,7 +14,13 @@ import {
 const InputComponent = ({ label, onChange, value }) => (
   <InputWrapper>
     <Label>{label}</Label>
-    <Input onChange={onChange} value={value} required />
+    <Input
+      type="text"
+      required
+      pattern="[a-zA-Z0-9\s]+"
+      onChange={onChange}
+      value={value}
+    />
   </InputWrapper>
 );
 
