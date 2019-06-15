@@ -12,7 +12,7 @@ const AdminHallsPage = () => (
       <AdminAvailableHall />
       <AdminAddHall />
     </AdminHallPageContainer>
-    {/* <Footer /> */}
+    <Footer />
   </React.Fragment>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import KrizevciImg from '../../../../images/krizevci1b1.jpg';
 import {
   HeaderContainer,
@@ -8,7 +9,7 @@ import {
   RezDvoIAdminPregled,
   LogOutButton,
   NavButton,
-  NavLink,
+  NavigationLinkText,
   Navbar,
   Image,
   HeaderTopRight
@@ -16,7 +17,23 @@ import {
 
 const NavTab = props => (
   <NavButton>
-    <NavLink href={props.link}>{props.text}</NavLink>
+    <NavigationLinkText>
+      <NavLink
+        to={props.link}
+        style={{
+          textDecoration: 'none',
+          color: '#ffffff',
+          height: '100%',
+          width: '168px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+        activeStyle={{ color: '#0f4951', backgroundColor: '#ffffff' }}
+      >
+        {props.text}
+      </NavLink>
+    </NavigationLinkText>
   </NavButton>
 );
 

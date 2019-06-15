@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { API_BASE_URL } from '../../../../config';
 import {
   HallDiv,
   ImageContainer,
@@ -35,55 +35,78 @@ import {
   ButtonDenied
 } from './AdminHallRequestStyle';
 
-const AdminHallRequest = props => (
-  <HallDiv>
-    <ImageContainer>
-      <ImageHall />
-    </ImageContainer>
+function AdminHallRequest(props) {
+  let id = props.id;
+  const handleAccept = () => {
+    fetch(API_BASE_URL + '/reservations/update/' + id, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'PATCH',
+      body: JSON.stringify({ reservationStatus: 'approved' })
+    })
+      .then(res => {
+        props.updatePage();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  const handleDenied = () => {
+    fetch(API_BASE_URL + '/reservations/update/' + id, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'PATCH',
+      body: JSON.stringify({ reservationStatus: 'denied' })
+    })
+      .then(res => {
+        props.updatePage();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  return (
+    <HallDiv>
+      <ImageContainer>
+        <ImageHall src={props.imageUrl} />
+      </ImageContainer>
 
-    <TextContainer>
-      <HeaderHall>Konferencijska Dvorana RCP</HeaderHall>
-      <AdressHall>Franje Tuđmana 20 </AdressHall>
-      <EventItem> DOGAĐAJ</EventItem>
-      <EventName>Speck party 3.0</EventName>
-      <EventDescription>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum,
-        leo pulvinar aliquet sagittis, neque ligula sagittis augue, eget finibus
-        lectus leo nec ipsum. Cras nec diam in erat dignissim vehicula non eu
-        leo. Suspendisse potenti. Pellentesque a cursus libero. Praesent ligula
-        lectus, elementum nec tristique non, vehicula at leo.
-      </EventDescription>
-      <LeftContainer>
-        <DateBanner> TRAŽENI TERMIN</DateBanner>
-        <DateLabel>DATUM</DateLabel>
-        <DateSet>25.04.2019</DateSet>
-        <TimeLabel>VRIJEME</TimeLabel>
-        <TimeSet>09:00 - 22:00</TimeSet>
-      </LeftContainer>
-      <RightContainer>
-        <ContactBanner>KONTAKT PODACI</ContactBanner>
-        <NameSurnameLabel>IME I PREZIME</NameSurnameLabel>
-        <NameSurnameSet>Ivana Horvatić</NameSurnameSet>
-        <OrganisationLabel>ORGANIZACIJA</OrganisationLabel>
-        <OrganisationSet>Speck agency d.o.o</OrganisationSet>
-        <EmailLabel>E-MAIL</EmailLabel>
-        <EmailSet>hello@speck.agency</EmailSet>
-        <PhoneLabel>TEL / MOB</PhoneLabel>
-        <PhoneSet>099 / 12 34 567</PhoneSet>
-      </RightContainer>
-    </TextContainer>
+      <TextContainer>
+        <HeaderHall>{props.name}</HeaderHall>
+        <AdressHall>{props.adress}</AdressHall>
+        <EventItem> DOGAĐAJ</EventItem>
+        <EventName>{props.eventName}</EventName>
+        <EventDescription>{props.eventDescription}</EventDescription>
+        <LeftContainer>
+          <DateBanner> TRAŽENI TERMIN</DateBanner>
+          <DateLabel>DATUM</DateLabel>
+          <DateSet>{props.reservationDate}</DateSet>
+          <TimeLabel>VRIJEME</TimeLabel>
+          <TimeSet>{props.reservationTime}</TimeSet>
+        </LeftContainer>
+        <RightContainer>
+          <ContactBanner>KONTAKT PODACI</ContactBanner>
+          <NameSurnameLabel>IME I PREZIME</NameSurnameLabel>
+          <NameSurnameSet>{props.nameSurname}</NameSurnameSet>
+          <OrganisationLabel>ORGANIZACIJA</OrganisationLabel>
+          <OrganisationSet>{props.organizationName}</OrganisationSet>
+          <EmailLabel>E-MAIL</EmailLabel>
+          <EmailSet>{props.email}</EmailSet>
+          <PhoneLabel>TEL / MOB</PhoneLabel>
+          <PhoneSet>{props.phone}</PhoneSet>
+        </RightContainer>
+      </TextContainer>
 
-    <ButtonContainer>
-      <ButtonUp>
-        <Submit>PODNESENO</Submit>
-        <SubmitDate>28.02.2019., 16:58</SubmitDate>
-      </ButtonUp>
-      <ButtonDown>
-        <ButtonAccept>PRIHVATI</ButtonAccept>
-        <ButtonDenied>ODBIJ</ButtonDenied>
-      </ButtonDown>
-    </ButtonContainer>
-  </HallDiv>
-);
+      <ButtonContainer>
+        <ButtonUp>
+          <Submit>PODNESENO</Submit>
+          <SubmitDate>{props.submitDate}</SubmitDate>
+        </ButtonUp>
+        <ButtonDown>
+          <ButtonAccept onClick={handleAccept}>PRIHVATI</ButtonAccept>
+          <ButtonDenied onClick={handleDenied}>ODBIJ</ButtonDenied>
+        </ButtonDown>
+      </ButtonContainer>
+    </HallDiv>
+  );
+}
 
 export default AdminHallRequest;

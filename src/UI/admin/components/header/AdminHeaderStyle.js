@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const HeaderContainer = styled.header`
   width: 100%;
   margin-bottom: 32px;
+  background-color: #ffffff;
 `;
 
 const HeaderTopRight = styled.header`
@@ -12,7 +13,6 @@ const HeaderTopRight = styled.header`
   flex-direction: row;
   height: 72px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
-  background-color: #ffffff;
 `;
 const RezDvoIAdminPregled = styled.div``;
 const HeaderTitle = styled.h1`
@@ -33,6 +33,7 @@ const HeaderTitleGray = styled.h2`
   letter-spacing: normal;
   color: #434343;
   padding-left: 16px;
+  opacity: 0.5;
 `;
 const LogOutButton = styled.button`
   width: 114px;
@@ -61,7 +62,7 @@ const NavButton = styled.div`
   height: 100%;
   display: flex;
 `;
-const NavLink = styled.a`
+const NavigationLinkText = styled.p`
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -73,10 +74,6 @@ const NavLink = styled.a`
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  :hover {
-    color: #0f4951;
-    background-color: #ffffff;
-  }
 `;
 
 const Image = styled.img`
@@ -107,7 +104,7 @@ export {
   RezDvoIAdminPregled,
   LogOutButton,
   NavButton,
-  NavLink,
+  NavigationLinkText,
   Navbar,
   Image,
   HeaderTopRight
