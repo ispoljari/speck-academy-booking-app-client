@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { API_BASE_URL } from '../../../../config';
 
 import {
@@ -28,7 +29,8 @@ const InputComponent = ({ label, inputID, onChange, value }) => (
 class CitizensAdminLogin extends Component {
   state = {
     userName: '',
-    password: ''
+    password: '',
+    loggedIn: false
   };
 
   handleUserNameInput = e => {
@@ -45,11 +47,29 @@ class CitizensAdminLogin extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
+
+    const apiResponse = await fetch(`${API_BASE_URL}/admins/login`, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({
+        userName: this.state.userName,
+        password: this.state.password
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    console.log(apiResponse);
   };
 
   render() {
+    const { userName, password, loggedIn } = this.state;
+
+    if (loggedIn) {
+      return <Redirect to="/admin-requests" />;
+    }
+
     return (
       <Form onSubmit={this.handleSubmit}>
         <Title>Admin Login</Title>
@@ -58,13 +78,13 @@ class CitizensAdminLogin extends Component {
             label="Korisničko ime"
             inputID="login_userName"
             onChange={this.handleUserNameInput}
-            value={this.state.userName}
+            value={userName}
           />
           <InputComponent
             label="Lozinka"
             inputID="login_password"
             onChange={this.handlePasswordInput}
-            value={this.state.password}
+            value={password}
           />
         </FlexContainer>
         <SubmitBtn type="submit">
