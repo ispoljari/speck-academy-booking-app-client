@@ -28,12 +28,14 @@ const Label = styled.div`
   font-family: Poppins;
   font-size: 16px;
   color: #000000;
+  text-transform: uppercase;
 `;
 
 const Input = styled.input`
   margin-top: 8px;
   width: 272px;
   height: 32px;
+  padding: 5px;
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
 `;
@@ -52,6 +54,7 @@ const TextField = styled.p`
   font-size: 14px;
   font-weight: 500;
   color: #ffffff;
+  text-transform: uppercase;
   margin: auto;
 `;
 

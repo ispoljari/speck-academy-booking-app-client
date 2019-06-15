@@ -37,14 +37,14 @@ class CitizensAdminLogin extends Component {
         <TitleAdminLogin>Admin Login</TitleAdminLogin>
         <ComponentBox>
           <InputWrapper>
-            <Label>KORISNIČKO IME</Label>
+            <Label>Korisničko ime</Label>
             <Input
               onChange={this.handleUserNameInput}
               value={this.state.userName}
             />
           </InputWrapper>
           <InputWrapper>
-            <Label>LOZINKA</Label>
+            <Label>Lozinka</Label>
             <Input
               onChange={this.handlePasswordInput}
               value={this.state.password}
@@ -52,7 +52,7 @@ class CitizensAdminLogin extends Component {
           </InputWrapper>
         </ComponentBox>
         <Submit>
-          <TextField>PRIJAVI ME</TextField>
+          <TextField>Prijavi me</TextField>
         </Submit>
       </Container>
     );
