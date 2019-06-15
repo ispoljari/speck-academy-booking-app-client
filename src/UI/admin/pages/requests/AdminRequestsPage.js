@@ -1,20 +1,23 @@
 import React from 'react';
 import { API_BASE_URL } from '../../../../config';
 import { AdminHeader, AdminHallRequest } from '../../';
-
+import { DateTime } from 'luxon';
 class AdminRequestsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: []
     };
+    this.FetchRequests = this.FetchRequests.bind(this);
   }
-
-  componentDidMount() {
+  FetchRequests() {
     fetch(API_BASE_URL + '/reservations/pending')
       .then(response => response.json())
       .then(data => this.setState({ data }))
       .catch(error => console.log(error));
+  }
+  componentDidMount() {
+    this.FetchRequests();
   }
   render() {
     let items = this.state.data;
@@ -29,7 +32,9 @@ class AdminRequestsPage extends React.Component {
             adress={item.hall.address}
             eventName={item.reservationTitle}
             eventDescription={item.reservationDescription}
-            reservationDate={item.reservationDate}
+            reservationDate={DateTime.fromISO(item.reservationDate).toFormat(
+              'd.MM.y.'
+            )}
             reservationTime={
               item.reservationStartTime.substring(0, 5) +
               ' - ' +
@@ -39,7 +44,11 @@ class AdminRequestsPage extends React.Component {
             organizationName={item.citizenOrganization}
             email={item.citizenEmail}
             phone={item.citizenPhoneNumber}
-            submitDate={item.createdAt}
+            submitDate={DateTime.fromISO(item.createdAt).toFormat(
+              'd.MM.y., HH:mm'
+            )}
+            id={item.id}
+            updatePage={this.FetchRequests}
           />
         ))}
         {/* <Footer /> */}

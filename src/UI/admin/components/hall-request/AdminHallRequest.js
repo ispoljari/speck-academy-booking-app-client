@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { API_BASE_URL } from '../../../../config';
 import {
   HallDiv,
   ImageContainer,
@@ -36,12 +36,35 @@ import {
 } from './AdminHallRequestStyle';
 
 function AdminHallRequest(props) {
-  function handleAccept(props) {
-    console.log('acc');
-  }
-  function handleDenied(props) {
-    console.log('den');
-  }
+  let id = props.id;
+  const handleAccept = () => {
+    fetch(API_BASE_URL + '/reservations/update/' + id, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'PATCH',
+      body: JSON.stringify({ reservationStatus: 'approved' })
+    })
+      .then(res => {
+        props.updatePage();
+        console.log(res);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  const handleDenied = () => {
+    fetch(API_BASE_URL + '/reservations/update/' + id, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'PATCH',
+      body: JSON.stringify({ reservationStatus: 'denied' })
+    })
+      .then(res => {
+        props.updatePage();
+        console.log(res);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
   return (
     <HallDiv>
       <ImageContainer>
