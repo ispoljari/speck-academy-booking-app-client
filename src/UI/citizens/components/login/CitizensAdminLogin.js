@@ -4,11 +4,11 @@ import {
   Container,
   TitleAdminLogin,
   ComponentBox,
-  Component,
-  ComponentName,
-  ComponentInput,
-  SubmitButton,
-  SubmitButtonText
+  InputWrapper,
+  Label,
+  Input,
+  Submit,
+  TextField
 } from './CitizensAdminLoginStyle';
 
 class CitizensAdminLogin extends Component {
@@ -17,18 +17,18 @@ class CitizensAdminLogin extends Component {
       <Container>
         <TitleAdminLogin>Admin Login</TitleAdminLogin>
         <ComponentBox>
-          <Component>
-            <ComponentName>KORISNIČKO IME</ComponentName>
-            <ComponentInput />
-          </Component>
-          <Component>
-            <ComponentName>LOZINKA</ComponentName>
-            <ComponentInput />
-          </Component>
+          <InputWrapper>
+            <Label>KORISNIČKO IME</Label>
+            <Input />
+          </InputWrapper>
+          <InputWrapper>
+            <Label>LOZINKA</Label>
+            <Input />
+          </InputWrapper>
         </ComponentBox>
-        <SubmitButton>
-          <SubmitButtonText>PRIJAVI ME</SubmitButtonText>
-        </SubmitButton>
+        <Submit>
+          <TextField>PRIJAVI ME</TextField>
+        </Submit>
       </Container>
     );
   }

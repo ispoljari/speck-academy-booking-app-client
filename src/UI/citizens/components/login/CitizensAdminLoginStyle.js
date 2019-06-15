@@ -17,12 +17,12 @@ const ComponentBox = styled.div`
   justify-content: space-between;
 `;
 
-const Component = styled.div`
+const InputWrapper = styled.div`
   width: 272px;
   height: 64px;
 `;
 
-const ComponentName = styled.div`
+const Label = styled.div`
   width: 100%;
   height: 24px;
   font-family: Poppins;
@@ -30,7 +30,7 @@ const ComponentName = styled.div`
   color: #000000;
 `;
 
-const ComponentInput = styled.input`
+const Input = styled.input`
   margin-top: 8px;
   width: 272px;
   height: 32px;
@@ -38,7 +38,7 @@ const ComponentInput = styled.input`
   border: solid 1px rgba(0, 0, 0, 0.15);
 `;
 
-const SubmitButton = styled.button`
+const Submit = styled.button`
   margin-top: 30px;
   margin-left: 106px;
   width: 356px;
@@ -47,7 +47,7 @@ const SubmitButton = styled.button`
   background-color: #0f4951;
 `;
 
-const SubmitButtonText = styled.p`
+const TextField = styled.p`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
@@ -59,9 +59,9 @@ export {
   Container,
   TitleAdminLogin,
   ComponentBox,
-  Component,
-  ComponentName,
-  ComponentInput,
-  SubmitButton,
-  SubmitButtonText
+  InputWrapper,
+  Label,
+  Input,
+  Submit,
+  TextField
 };
