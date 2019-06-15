@@ -1,4 +1,5 @@
 import React from 'react';
+import { Footer } from '../../../common';
 import { API_BASE_URL } from '../../../../config';
 import { AdminHeader, AdminHallRequest } from '../../';
 import { DateTime } from 'luxon';
@@ -23,35 +24,37 @@ class AdminRequestsPage extends React.Component {
     let items = this.state.data;
     return (
       <React.Fragment>
-        <AdminHeader />
-        {items.map(item => (
-          <AdminHallRequest
-            key={item.id}
-            name={item.hall.name}
-            imageUrl={item.hall.pictureUrl}
-            adress={item.hall.address}
-            eventName={item.reservationTitle}
-            eventDescription={item.reservationDescription}
-            reservationDate={DateTime.fromISO(item.reservationDate).toFormat(
-              'd.MM.y.'
-            )}
-            reservationTime={
-              item.reservationStartTime.substring(0, 5) +
-              ' - ' +
-              item.reservationEndTime.substring(0, 5)
-            }
-            nameSurname={item.citizenFullName}
-            organizationName={item.citizenOrganization}
-            email={item.citizenEmail}
-            phone={item.citizenPhoneNumber}
-            submitDate={DateTime.fromISO(item.createdAt).toFormat(
-              'd.MM.y., HH:mm'
-            )}
-            id={item.id}
-            updatePage={this.FetchRequests}
-          />
-        ))}
-        {/* <Footer /> */}
+        <div style={{ minHeight: 'calc(100vh - 160px)' }}>
+          <AdminHeader />
+          {items.map(item => (
+            <AdminHallRequest
+              key={item.id}
+              name={item.hall.name}
+              imageUrl={item.hall.pictureUrl}
+              adress={item.hall.address}
+              eventName={item.reservationTitle}
+              eventDescription={item.reservationDescription}
+              reservationDate={DateTime.fromISO(item.reservationDate).toFormat(
+                'd.MM.y.'
+              )}
+              reservationTime={
+                item.reservationStartTime.substring(0, 5) +
+                ' - ' +
+                item.reservationEndTime.substring(0, 5)
+              }
+              nameSurname={item.citizenFullName}
+              organizationName={item.citizenOrganization}
+              email={item.citizenEmail}
+              phone={item.citizenPhoneNumber}
+              submitDate={DateTime.fromISO(item.createdAt).toFormat(
+                'd.MM.y., HH:mm'
+              )}
+              id={item.id}
+              updatePage={this.FetchRequests}
+            />
+          ))}
+        </div>
+        <Footer />
       </React.Fragment>
     );
   }

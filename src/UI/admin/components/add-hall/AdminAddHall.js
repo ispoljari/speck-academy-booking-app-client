@@ -19,6 +19,7 @@ const ButtonAdd = styled(Button)`
   border: solid 1px #93e9bb;
   background-color: #ffffff;
   color: #93e9bb;
+  margin-bottom: 58px;
 `;
 
 const AdminAddHall = () => (

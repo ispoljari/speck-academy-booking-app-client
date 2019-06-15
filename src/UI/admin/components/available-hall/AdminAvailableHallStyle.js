@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 374px;
+  height: fit-content;
   min-height: 400px;
   border-radius: 4px;
   border: solid 1px #229c7f;
@@ -18,6 +19,7 @@ const Header = styled.div`
   width: 100%;
   text-align: center;
   height: 100%;
+  padding: 8px;
   border-radius: 3px 3px 0px 0px;
   background-color: #229c7f;
 `;
@@ -154,6 +156,7 @@ const AdminHallPageContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 calc((100vw - 764px) / 2);
+  min-height: calc(100vh - 272px);
 `;
 
 export {
