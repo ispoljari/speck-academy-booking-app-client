@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const MainContainer = styled.div``;
+const MainContainer = styled.form`
+  display: block;
+`;
 
 const TitleAdminLogin = styled.div`
   width: 568px;
@@ -47,6 +49,7 @@ const Submit = styled.button`
   height: 40px;
   border-radius: 4px;
   background-color: #0f4951;
+  cursor: pointer;
 `;
 
 const TextField = styled.p`

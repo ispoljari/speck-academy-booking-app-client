@@ -14,7 +14,7 @@ import {
 const InputComponent = ({ label, onChange, value }) => (
   <InputWrapper>
     <Label>{label}</Label>
-    <Input onChange={onChange} value={value} />
+    <Input onChange={onChange} value={value} required />
   </InputWrapper>
 );
 
