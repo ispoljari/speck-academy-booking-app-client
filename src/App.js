@@ -1,7 +1,6 @@
 import React from 'react';
 import { Normalize } from 'styled-normalize';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { CookiesProvider } from 'react-cookie';
 
 import GlobalStyle from './globalStyle';
 import {
@@ -12,18 +11,16 @@ import {
 import { CitizensPage } from './UI/citizens';
 
 const App = () => (
-  <CookiesProvider>
-    <Router>
-      <Normalize />
-      <GlobalStyle />
-      <Switch>
-        <Route path="/" exact component={CitizensPage} />
-        <Route path="/admin-requests" component={AdminRequestsPage} />
-        {/* <Route path="/admin-reservations" component={AdminReservationsPage} />
-      <Route path="/admin-halls" component={AdminHallsPage} /> */}
-      </Switch>
-    </Router>
-  </CookiesProvider>
+  <Router>
+    <Normalize />
+    <GlobalStyle />
+    <Switch>
+      <Route path="/" exact component={CitizensPage} />
+      <Route path="/admin-requests" component={AdminRequestsPage} />
+      {/* <Route path="/admin-reservations" component={AdminReservationsPage} />
+    <Route path="/admin-halls" component={AdminHallsPage} /> */}
+    </Switch>
+  </Router>
 );
 
 export default App;
