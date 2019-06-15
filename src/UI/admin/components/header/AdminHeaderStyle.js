@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const HeaderContainer = styled.header`
   width: 100%;
   margin-bottom: 32px;
+  background-color: #ffffff;
 `;
 
 const HeaderTopRight = styled.header`
