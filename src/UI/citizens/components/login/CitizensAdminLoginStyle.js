@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-const MainContainer = styled.form`
+const Form = styled.form`
   display: block;
+  width: 568px;
 `;
 
-const TitleAdminLogin = styled.div`
-  width: 568px;
-  height: 40px;
+const Title = styled.h2`
   font-family: 'Lora', serif;
   font-size: 32px;
   font-weight: bold;
@@ -19,14 +18,8 @@ const FlexContainer = styled.div`
   justify-content: space-between;
 `;
 
-const InputWrapper = styled.div`
-  width: 272px;
-  height: 64px;
-`;
-
-const Label = styled.div`
-  width: 100%;
-  height: 24px;
+const Label = styled.label`
+  display: block;
   font-family: Poppins;
   font-size: 16px;
   color: #000000;
@@ -43,8 +36,8 @@ const Input = styled.input`
 `;
 
 const Submit = styled.button`
-  margin-top: 30px;
-  margin-left: 106px;
+  display: block;
+  margin: 30px auto 0px;
   width: 356px;
   height: 40px;
   border-radius: 4px;
@@ -58,16 +51,6 @@ const TextField = styled.p`
   font-weight: 500;
   color: #ffffff;
   text-transform: uppercase;
-  margin: auto;
 `;
 
-export {
-  MainContainer,
-  TitleAdminLogin,
-  FlexContainer,
-  InputWrapper,
-  Label,
-  Input,
-  Submit,
-  TextField
-};
+export { Form, Title, FlexContainer, Label, Input, Submit, TextField };
