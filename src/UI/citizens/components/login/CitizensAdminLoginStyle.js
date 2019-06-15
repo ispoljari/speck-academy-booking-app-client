@@ -29,13 +29,13 @@ const Label = styled.label`
 const Input = styled.input`
   margin-top: 8px;
   width: 272px;
-  height: 32px;
+  font-size: 18px;
   padding: 5px;
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
 `;
 
-const Submit = styled.button`
+const SubmitBtn = styled.button`
   display: block;
   margin: 30px auto 0px;
   width: 356px;
@@ -53,4 +53,4 @@ const TextField = styled.p`
   text-transform: uppercase;
 `;
 
-export { Form, Title, FlexContainer, Label, Input, Submit, TextField };
+export { Form, Title, FlexContainer, Label, Input, SubmitBtn, TextField };

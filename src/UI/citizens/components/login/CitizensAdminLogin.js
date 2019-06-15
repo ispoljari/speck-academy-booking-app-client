@@ -6,7 +6,7 @@ import {
   FlexContainer,
   Label,
   Input,
-  Submit,
+  SubmitBtn,
   TextField
 } from './CitizensAdminLoginStyle';
 
@@ -44,9 +44,13 @@ class CitizensAdminLogin extends Component {
     });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Title>Admin Login</Title>
         <FlexContainer>
           <InputComponent
@@ -62,9 +66,9 @@ class CitizensAdminLogin extends Component {
             value={this.state.password}
           />
         </FlexContainer>
-        <Submit>
+        <SubmitBtn type="submit">
           <TextField>Prijavi me</TextField>
-        </Submit>
+        </SubmitBtn>
       </Form>
     );
   }
