@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-  margin: auto;
+  margin-top: 32px;
+  ${'' /* margin: auto; */}
   width: 1024px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
@@ -100,7 +101,7 @@ const FormInlineInput = styled.span`
 const CricleMark = styled.div`
   width: 152px;
   height: 152px;
-  opacity: 0.2;
+  opacity: 0.4;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
   position: absolute;
@@ -114,7 +115,7 @@ const NumberMark = styled.div`
   font-size: 96px;
   font-weight: 800;
   text-align: center;
-  margin-left: 38px;
+  margin-left: 35px;
   color: #82d4a7;
 `;
 

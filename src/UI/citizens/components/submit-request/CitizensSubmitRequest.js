@@ -14,7 +14,8 @@ import {
   Circle,
   Number,
   SectorDown,
-  StyledLink
+  StyledLink,
+  SpacingDiv
 } from './CitizensSubmitRequestStyle';
 
 const CitizensSubmitRequest = () => (
@@ -38,17 +39,23 @@ const CitizensSubmitRequest = () => (
       <SectorDown>
         <Contact>
           <ContactLeft>
-            <p>E-mail</p>
-            <p>Mobitel</p>
+            <SpacingDiv>
+              <p>E-MAIL</p>
+            </SpacingDiv>
+            <p>MOBITEL</p>
           </ContactLeft>
           <ContactRight>
-            <a href="/">
-              <p>info@grad-krizevci.hr</p>
-            </a>
-            <p>099/ 12 34 5678</p>
+            <SpacingDiv>
+              <StyledLink href="mailto:info@grad-krizevci.hr">
+                <p>info@grad-krizevci.hr</p>
+              </StyledLink>
+            </SpacingDiv>
+            <StyledLink href="tel:09912345678">
+              <p>099 / 12 34 5678</p>
+            </StyledLink>
           </ContactRight>
         </Contact>
-        <StyledLink to="">
+        <StyledLink href="">
           <Button>
             <ButtonText>Pošaljite zahtjev</ButtonText>
           </Button>

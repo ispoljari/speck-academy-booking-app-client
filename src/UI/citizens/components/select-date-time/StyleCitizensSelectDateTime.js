@@ -1,29 +1,31 @@
 import styled from 'styled-components';
 
-const HeadContainer = styled.div`
+export const HeadContainer = styled.div`
   width: 1024px;
   height: 488px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   display: flex;
-  margin-left: 208px;
+  ${'' /* margin-left: 208px; */}
   margin-top: 32px;
+
+  ${'' /* additional */}
+  background-color: #fff;
 `;
 
-const Circle = styled.div`
+export const Circle = styled.div`
   display: flex;
   min-width: 152px;
   height: 152px;
-  opacity: 0.2;
+  opacity: 0.4;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
   margin: 16px;
 `;
 
-const Number = styled.div`
+export const Number = styled.div`
   width: 76px;
   height: 145px;
-  opacity: 0.4;
   font-family: Poppins;
   font-size: 96px;
   font-weight: 800;
@@ -31,13 +33,13 @@ const Number = styled.div`
   margin-left: 36px;
 `;
 
-const Field = styled.div`
+export const Field = styled.div`
   font-family: Lora;
   font-size: 32px;
   margin-left: -50px;
 `;
 
-const Title = styled.div`
+export const Title = styled.div`
   margin-top: 32px;
   width: 576px;
   height: 40px;
@@ -46,28 +48,28 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const SubTitle = styled.div`
+export const SubTitle = styled.div`
   margin-top: 22px;
-  font-family: PoppinsRegular;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   span {
-    font-weight: bold;
+    font-weight: 700;
   }
 `;
 
-const Hlabel = styled.div`
+export const Hlabel = styled.div`
   width: 260px;
   height: 24px;
-  font-family: PoppinsRegular;
+  font-family: Poppins, sans-serif;
   font-size: 16px;
   color: #434343;
   margin-top: 40px;
   display: inline-block;
 `;
 
-const Label = styled.div`
+export const Label = styled.div`
   height: 16px;
-  font-family: Poppins-ExtraLight;
+  font-family: Poppins, sans-serif;
   font-size: 12px;
   font-weight: 200;
   display: inline-block;
@@ -76,16 +78,17 @@ const Label = styled.div`
   opacity: 0.5;
 `;
 
-const LabelContainer = styled.div`
+export const LabelContainer = styled.div`
   display: flex;
   margin-left: 260px;
   margin-top: 8px;
 `;
 
-const DateInput = styled.div`
+export const DateInput = styled.div`
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
+  opacity: 0.3;
   font-size: 14px;
   font-weight: 500;
   display: inline-block;
@@ -112,7 +115,7 @@ const DateInput = styled.div`
   }
 `;
 
-const TimeInput = styled(DateInput)`
+export const TimeInput = styled(DateInput)`
   input {
     :invalid + span:after {
       margin-left: 8px;
@@ -121,11 +124,11 @@ const TimeInput = styled(DateInput)`
   }
 `;
 
-const InputsContainer = styled(LabelContainer)`
+export const InputsContainer = styled(LabelContainer)`
   margin-left: 0px;
 `;
 
-const Vector = styled.div`
+export const Vector = styled.div`
   position: absolute;
   top: 13px;
   left: 220px;
@@ -136,13 +139,13 @@ const Vector = styled.div`
   border-top: 4px solid #555;
 `;
 
-const Timeline = styled.div`
+export const Timeline = styled.div`
   margin-top: 12px;
   width: 750px;
   position: relative;
 `;
 
-const Time = styled.div`
+export const Time = styled.div`
   width: 50px;
   height: 16px;
   font-family: Poppins;
@@ -154,14 +157,14 @@ const Time = styled.div`
   text-align: center;
 `;
 
-const TimeDivide = styled.div(props => ({
+export const TimeDivide = styled.div(props => ({
   borderLeft: props.left,
   width: '12.5px',
   height: '48px',
   display: 'inline-block'
 }));
 
-const DrawFromDB = styled.div`
+export const DrawFromDB = styled.div`
   left: ${props => props.left};
   width: ${props => props.wdh};
   background: ${props => props.background};
@@ -172,52 +175,28 @@ const DrawFromDB = styled.div`
   border: solid 1px #d9d9d9;
 `;
 
-const Legend = styled.div`
+export const Legend = styled.div`
   margin-top: 25px;
 `;
 
-const LegendDesc = styled.div`
+export const LegendDesc = styled.div`
   margin-top: 8px;
   width: 200px;
   height: 40px;
 `;
 
-const LegendColor = styled.div`
+export const LegendColor = styled.div`
   width: 40px;
   height: 40px;
   display: inline-block;
   background: ${props => props.col};
 `;
 
-const LegendText = styled.div`
+export const LegendText = styled.div`
   margin-left: 8px;
-  font-family: Poppins-Regular;
+  font-family: Poppins, sans-serif;
   font-size: 14px;
   display: inline-block;
   vertical-align: middle;
   margin-top: -20px;
 `;
-
-export {
-  HeadContainer,
-  Circle,
-  Number,
-  Title,
-  SubTitle,
-  Hlabel,
-  Label,
-  LabelContainer,
-  DateInput,
-  InputsContainer,
-  TimeInput,
-  Vector,
-  Timeline,
-  Time,
-  TimeDivide,
-  DrawFromDB,
-  Legend,
-  LegendDesc,
-  LegendColor,
-  LegendText,
-  Field
-};
