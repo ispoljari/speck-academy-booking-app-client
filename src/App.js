@@ -56,8 +56,16 @@ class App extends Component {
             path="/admin-requests"
             component={AdminRequestsPage}
           />
-          {/* <PrivateRoute loggedIn={loggedIn} path="/admin-reservations" component={AdminReservationsPage} />
-          <PrivateRoute loggedIn={loggedIn} path="/admin-halls" component={AdminHallsPage} /> */}
+          <PrivateRoute
+            loggedIn={loggedIn}
+            path="/admin-reservations"
+            component={AdminReservationsPage}
+          />
+          <PrivateRoute
+            loggedIn={loggedIn}
+            path="/admin-halls"
+            component={AdminHallsPage}
+          />
         </Switch>
       </Router>
     );
