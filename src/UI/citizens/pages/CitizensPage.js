@@ -17,10 +17,16 @@ import Error404 from '../../common/error404/Error404';
 import { Footer } from '../../common';
 // import { Component } from '../components/login/CitizensAdminLoginStyle.js';
 
+import sampleData from '../components/select-date-time/SampleData';
+
 class CitizensPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hallId: '',
+      reservationDate: '',
+      reservationStartTime: '',
+      reservationEndTime: '',
       post: {
         eventName: '',
         eventDescription: '',
@@ -30,11 +36,21 @@ class CitizensPage extends Component {
         phoneNumber: '',
         charCounter: 0
       },
-      reservationInfo: []
+      reservations: []
     };
-
-    this.onSubmitRequest = this.onSubmitRequest.bind(this);
   }
+
+  componentDidMount() {
+    this.setState({ reservations: sampleData });
+  }
+
+  handleFilterChange = e => {
+    const { name, value } = e.target;
+    
+    this.setState({
+      [name]: value,
+    });
+  };
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -62,7 +78,7 @@ class CitizensPage extends Component {
     }));
   };
 
-  onSubmitRequest() {
+  onSubmitRequest = () => {
     const { charCounter, ...rest } = this.state.post;
 
     console.log('post data', rest);
@@ -76,7 +92,9 @@ class CitizensPage extends Component {
   }
 
   render() {
-    console.log('post', this.state.post);
+
+    console.log('date', this.state.reservationDate);
+
     return (
       <React.Fragment>
         <CitizensPageWrapper>
@@ -84,7 +102,14 @@ class CitizensPage extends Component {
 
           <CitizensSelectHall />
 
-          <CitizensSelectDateTime />
+          <CitizensSelectDateTime 
+            handleFilterChange={this.handleFilterChange}
+            hallId={this.state.hallId}
+            reservationDate={this.state.reservationDate}
+            reservationStartTime={this.state.reservationStartTime}
+            reservationEndTime={this.state.reservationEndTime}
+            reservations={this.state.reservations}
+          />
 
           <CitizensEditEventInfo
             handleChange={this.handleChange}
