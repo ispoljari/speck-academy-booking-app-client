@@ -49,8 +49,9 @@ const TextField = styled.p`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
+  color: ${props => (props.error ? 'red' : '#ffffff')};
   text-transform: uppercase;
+  margin-top: ${props => props.marginTop};
 `;
 
 export { Form, Title, FlexContainer, Label, Input, SubmitBtn, TextField };

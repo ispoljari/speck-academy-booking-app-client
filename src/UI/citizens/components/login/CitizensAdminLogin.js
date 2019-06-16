@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
+import Cookies from 'universal-cookie';
 import { API_BASE_URL } from '../../../../config';
 
 import {
@@ -31,7 +32,8 @@ class CitizensAdminLogin extends Component {
   state = {
     userName: '',
     password: '',
-    loggedIn: false
+    loggedIn: false,
+    error: null
   };
 
   handleUserNameInput = e => {
@@ -51,21 +53,54 @@ class CitizensAdminLogin extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const apiResponse = await fetch(`${API_BASE_URL}/admins/login`, {
-      method: 'POST',
-      credentials: 'include',
-      body: JSON.stringify({
-        userName: this.state.userName,
-        password: this.state.password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
+    try {
+      const apiResponse = await fetch(`${API_BASE_URL}/admins/login`, {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify({
+          userName: this.state.userName,
+          password: this.state.password
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      });
 
-    console.log(apiResponse);
+      if (!apiResponse.ok) {
+        throw new Error('There has been an error');
+      }
+
+      if (apiResponse.status === 200) {
+        this.processResponse();
+      } else {
+        throw new Error('There has been an error');
+      }
+    } catch (error) {
+      this.processError(error);
+    }
+  };
+
+  processResponse = () => {
+    const cookies = new Cookies();
+    const isSessionCookie = !!cookies.get('sessionId');
+
+    this.setState({
+      userName: '',
+      password: '',
+      loggedIn: isSessionCookie,
+      error: null
+    });
+  };
+
+  processError = error => {
+    this.setState({
+      userName: '',
+      password: '',
+      error,
+      loggedIn: false
+    });
   };
 
   render() {
-    const { userName, password, loggedIn } = this.state;
+    const { userName, password, loggedIn, error } = this.state;
 
     if (loggedIn) {
       return <Redirect to="/admin-requests" />;
@@ -88,8 +123,15 @@ class CitizensAdminLogin extends Component {
             value={password}
           />
         </FlexContainer>
+        {error ? (
+          <TextField marginTop="10px" error>
+            Netočno korisničko ime ili lozinka
+          </TextField>
+        ) : (
+          ''
+        )}
         <SubmitBtn type="submit">
-          <TextField>Prijavi me</TextField>
+          <TextField marginTop="0">Prijavi me</TextField>
         </SubmitBtn>
       </Form>
     );
