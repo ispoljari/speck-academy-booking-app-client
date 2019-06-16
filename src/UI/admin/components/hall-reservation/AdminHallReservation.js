@@ -36,7 +36,7 @@ const daysOfWeekNumerals = [1, 2, 3, 4, 5, 6, 0];
 
 //todo rewrite this function with smaller functions inside
 function calcPositionAndLEngth(date, startTime, endTime) {
-  const offset = 69;
+  const offset = 69 - 50 / 2;
   let existStartLength = {
     start: 0,
     length: 0
