@@ -37,7 +37,7 @@ const NavTab = props => (
   </NavButton>
 );
 
-const AdminHeader = () => (
+const AdminHeader = ({ onClick }) => (
   <HeaderContainer>
     <HeaderTopContainer>
       <Image src={KrizevciImg} />
@@ -46,7 +46,7 @@ const AdminHeader = () => (
           <HeaderTitle>REZERVACIJA DVORANA</HeaderTitle>
           <HeaderTitleGray>Administratorski pregled</HeaderTitleGray>
         </RezDvoIAdminPregled>
-        <LogOutButton>LOG OUT</LogOutButton>
+        <LogOutButton onClick={onClick}>LOG OUT</LogOutButton>
       </HeaderTopRight>
     </HeaderTopContainer>
     <Navbar>

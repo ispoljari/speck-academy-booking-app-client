@@ -1,3 +1,4 @@
+export { default as AdminPages } from './pages/AdminPages';
 export { default as AdminHallsPage } from './pages/halls/AdminHallsPage';
 export {
   default as AdminRequestsPage
