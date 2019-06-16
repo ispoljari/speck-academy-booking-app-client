@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { API_BASE_URL } from '../../../../config';
 import { AdminHeader } from '../../';
 import { Footer, Modal } from '../../../common';
 import AdminAvailableHall from '../../components/available-hall/AdminAvailableHall';
 import AdminAddHall from '../../components/add-hall/AdminAddHall';
 import { AdminHallPageContainer } from '../../components/available-hall/AdminAvailableHallStyle';
-class <AdminAvailableHall extends React.Component {
+class AdminHallsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,9 +14,12 @@ class <AdminAvailableHall extends React.Component {
     this.FetchRequests = this.FetchRequests.bind(this);
   }
   FetchRequests() {
-    fetch(API_BASE_URL + '/api/halls')
+    fetch(API_BASE_URL + '/halls')
       .then(response => response.json())
-      .then(data => this.setState({ data }))
+      .then(data => {
+        this.setState({ data });
+        console.log(data);
+      })
       .catch(error => console.log(error));
   }
   componentDidMount() {
@@ -28,17 +31,20 @@ class <AdminAvailableHall extends React.Component {
       <React.Fragment>
         <div style={{ minHeight: 'calc(100vh - 160px)' }}>
           <AdminHeader />
-          {items.map(item => (
-            <AdminAvailableHall
-              key={item.id}
-              titleHall={item.hall.name}
-              hallImagel={item.hall.pictureUrl}
-              locationText={item.hall.address}
-              descriptionText={item.hall.description}
-              id={item.id}
-              updatePage={this.FetchRequests}
-            />
-          ))}
+          <AdminHallPageContainer>
+            {items.map(item => (
+              <AdminAvailableHall
+                key={item.id}
+                titleHall={item.name}
+                hallImage={item.pictureUrl}
+                locationText={item.address}
+                descriptionText={item.description}
+                id={item.id}
+                updatePage={this.FetchRequests}
+              />
+            ))}
+            <AdminAddHall />
+          </AdminHallPageContainer>
         </div>
         <Footer />
       </React.Fragment>

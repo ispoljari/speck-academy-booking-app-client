@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   border-radius: 4px;
   border: solid 1px #229c7f;
   background-color: #ffffff;
+  margin-bottom: 24px;
 `;
 
 const Header = styled.div`
@@ -37,7 +38,7 @@ const Title = styled.h1`
 
 const Image = styled.img`
   width: 244px;
-  min-height: 136px;
+  height: 136px;
   margin-bottom: 14px;
   border-radius: 2px;
   border: solid 1px #229c7f;
@@ -154,6 +155,7 @@ const ButtonEdit = styled(Button)`
 
 const AdminHallPageContainer = styled.div`
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   padding: 0 calc((100vw - 764px) / 2);
   min-height: calc(100vh - 272px);

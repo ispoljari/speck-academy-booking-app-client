@@ -46,6 +46,7 @@ const LogOutButton = styled.button`
   font-weight: 500;
   color: #0f4951;
   margin-top: 16px;
+  cursor: pointer;
 `;
 const Navbar = styled.div`
   width: 100%;

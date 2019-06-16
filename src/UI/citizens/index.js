@@ -1,4 +1,4 @@
-export { default as CitizensPage } from './pages/CitizensPage';
+export { default as CitizensPage } from './pages/CitizensPage.js';
 export { default as CitizensHeader } from './components/header/CitizensHeader';
 export {
   default as CitizensSelectHall
@@ -15,3 +15,6 @@ export {
 export {
   default as CitizensSubmitRequest
 } from './components/submit-request/CitizensSubmitRequest';
+export {
+  default as CitizensAdminLogin
+} from './components/login/CitizensAdminLogin';

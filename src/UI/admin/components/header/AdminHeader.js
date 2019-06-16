@@ -37,7 +37,7 @@ const NavTab = props => (
   </NavButton>
 );
 
-const AdminHeader = () => (
+const AdminHeader = ({ onClick }) => (
   <HeaderContainer>
     <HeaderTopContainer>
       <Image src={KrizevciImg} />
@@ -46,13 +46,13 @@ const AdminHeader = () => (
           <HeaderTitle>REZERVACIJA DVORANA</HeaderTitle>
           <HeaderTitleGray>Administratorski pregled</HeaderTitleGray>
         </RezDvoIAdminPregled>
-        <LogOutButton>LOG OUT</LogOutButton>
+        <LogOutButton onClick={onClick}>LOG OUT</LogOutButton>
       </HeaderTopRight>
     </HeaderTopContainer>
     <Navbar>
-      <NavTab link="/admin-requests" text="Zahtjevi na čekanju" />
-      <NavTab link="/admin-reservations" text="Rezervacije" />
-      <NavTab link="/admin-halls" text="Dvorane" />
+      <NavTab link="/admin/requests" text="Zahtjevi na čekanju" />
+      <NavTab link="/admin/reservations" text="Rezervacije" />
+      <NavTab link="/admin/halls" text="Dvorane" />
     </Navbar>
   </HeaderContainer>
 );
