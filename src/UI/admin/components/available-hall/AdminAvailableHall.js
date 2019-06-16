@@ -47,8 +47,13 @@ function AdminAvailableHall(props) {
   };
   return (
     <Wrapper>
-      <Modal visible>
-        <AdminEditHall />
+      <Modal>
+        <AdminEditHall
+          pictureUrl={props.hallImage}
+          naziv={props.titleHall}
+          location={props.locationText}
+          description={props.descriptionText}
+        />
       </Modal>
       <Header>
         <Title>{props.titleHall}</Title>

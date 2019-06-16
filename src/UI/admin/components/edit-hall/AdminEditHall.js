@@ -1,5 +1,4 @@
 import React from 'react';
-import arena from '../../../../util/images/arena.webp';
 import {
   BigRectangle,
   Button,
@@ -20,17 +19,17 @@ const EditHallComponent = props => (
       <Title>Uredi podatke o dvorani</Title>
     </TopPart>
     <MidPart>
-      <ArenaPicture src={arena} />
+      <ArenaPicture src={props.pictureUrl} />
       <MidRightPart>
         <SlimText>NAZIV</SlimText>
-        <Rectangle>{}</Rectangle>
+        <Rectangle placeholder={props.naziv} />
         <SlimText>LOKACIJA</SlimText>
-        <Rectangle>{}</Rectangle>
+        <Rectangle placeholder={props.location} />
       </MidRightPart>
     </MidPart>
     <Opis>
       <SlimText>OPIS</SlimText>
-      <BigRectangle>{}</BigRectangle>
+      <BigRectangle placeholder={props.description} />
     </Opis>
     <Button>SPREMI</Button>
   </Wrapper>
