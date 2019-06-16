@@ -53,9 +53,13 @@ class CitizensPage extends Component {
         {/* <CitizensSelectHall />
         <CitizensSubmitRequest />
         <CitizensSelectDateTime /> */}
-        <Modal visible={adminLoginVisible} onClick={this.closeAdminLogin}>
-          <CitizensAdminLogin />
-        </Modal>
+        {adminLoginVisible ? (
+          <Modal onClick={this.closeAdminLogin}>
+            <CitizensAdminLogin />
+          </Modal>
+        ) : (
+          ''
+        )}
         {/* <Error404 />
         <Footer /> */}
       </React.Fragment>
