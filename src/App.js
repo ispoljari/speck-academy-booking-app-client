@@ -4,13 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './globalStyle';
 import { findSessionCookie } from './util';
-import {
-  AdminRequestsPage,
-  AdminReservationsPage,
-  AdminHallsPage
-} from './UI/admin';
+import { AdminPages } from './UI/admin';
 import { CitizensPage } from './UI/citizens';
-import { PrivateRoute, Error404 } from './UI/common';
+import { Error404, PrivateRoute } from './UI/common';
 
 class App extends Component {
   state = {
@@ -53,18 +49,8 @@ class App extends Component {
           />
           <PrivateRoute
             loggedIn={loggedIn}
-            path="/admin-requests"
-            component={AdminRequestsPage}
-          />
-          <PrivateRoute
-            loggedIn={loggedIn}
-            path="/admin-reservations"
-            component={AdminReservationsPage}
-          />
-          <PrivateRoute
-            loggedIn={loggedIn}
-            path="/admin-halls"
-            component={AdminHallsPage}
+            path="/admin"
+            component={AdminPages}
           />
           <Route component={Error404} />
         </Switch>

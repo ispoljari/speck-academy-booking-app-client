@@ -9,7 +9,6 @@ import {
   CitizensEditEventInfo,
   CitizensSubmitRequest
 } from '../';
-import Error404 from '../../common/error404/Error404';
 import { Footer, Modal } from '../../common';
 import { CitizensPageWrapper } from './CitizensPageStyle';
 
@@ -61,7 +60,7 @@ class CitizensPage extends Component {
     const { loggedIn } = this.props;
 
     if (loggedIn) {
-      return <Redirect to="/admin-requests" />;
+      return <Redirect to="/admin/requests" />;
     }
 
     return (

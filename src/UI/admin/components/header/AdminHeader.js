@@ -50,9 +50,9 @@ const AdminHeader = ({ onClick }) => (
       </HeaderTopRight>
     </HeaderTopContainer>
     <Navbar>
-      <NavTab link="/admin-requests" text="Zahtjevi na čekanju" />
-      <NavTab link="/admin-reservations" text="Rezervacije" />
-      <NavTab link="/admin-halls" text="Dvorane" />
+      <NavTab link="/admin/requests" text="Zahtjevi na čekanju" />
+      <NavTab link="/admin/reservations" text="Rezervacije" />
+      <NavTab link="/admin/halls" text="Dvorane" />
     </Navbar>
   </HeaderContainer>
 );
