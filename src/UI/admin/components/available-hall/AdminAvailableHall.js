@@ -1,5 +1,7 @@
 import React from 'react';
-
+import { API_BASE_URL } from '../../../../config';
+import { Modal } from '../../../common';
+import AdminEditHall from '../edit-hall/AdminEditHall';
 import {
   Wrapper,
   Header,
@@ -18,37 +20,67 @@ import {
   ButtonEdit
 } from './AdminAvailableHallStyle.js';
 
-const AdminAvailableHall = () => (
-  <Wrapper>
-    <Header>
-      <Title>Velika-Sportska-Dvorana</Title>
-    </Header>
+function AdminAvailableHall(props) {
+  let id = props.id;
+  const deleteHall = () => {
+    fetch(API_BASE_URL + '/halls/delete/' + id, {
+      method: 'DELETE'
+    })
+      .then(res => {
+        props.updatePage();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  const editHall = () => {
+    fetch(API_BASE_URL + '/halls/delete/' + id, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'DELETE'
+    })
+      .then(res => {
+        props.updatePage();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  return (
+    <Wrapper>
+      <Modal>
+        <AdminEditHall
+          pictureUrl={props.hallImage}
+          naziv={props.titleHall}
+          location={props.locationText}
+          description={props.descriptionText}
+        />
+      </Modal>
+      <Header>
+        <Title>{props.titleHall}</Title>
+      </Header>
 
-    <MainPart>
-      <Image />
+      <MainPart>
+        <Image src={props.hallImage} />
 
-      <TextPart>
-        <LocationMain>
-          <Location>LOKACIJA</Location>
-          <LocationText>Franje Tuđmana 20</LocationText>
-        </LocationMain>
+        <TextPart>
+          <LocationMain>
+            <Location>LOKACIJA</Location>
+            <LocationText>{props.locationText}</LocationText>
+          </LocationMain>
 
-        <DescriptionMain>
-          <Description>OPIS</Description>
-          <DescriptionText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            dictum, leo pulvinar aliquet sagittis, neque ligula sagittis augue,
-            eget finibus lectus leo nec ipsum.{' '}
-          </DescriptionText>
-        </DescriptionMain>
-      </TextPart>
+          <DescriptionMain>
+            <Description>OPIS</Description>
+            <DescriptionText>{props.descriptionText}</DescriptionText>
+          </DescriptionMain>
+        </TextPart>
 
-      <Footer>
-        <ButtonDelete>IZBRIŠI</ButtonDelete>
-        <ButtonEdit>UREDI</ButtonEdit>
-      </Footer>
-    </MainPart>
-  </Wrapper>
-);
+        <Footer>
+          <ButtonDelete onClick={deleteHall}>IZBRIŠI</ButtonDelete>
+          <ButtonEdit onClick={editHall}>UREDI</ButtonEdit>
+        </Footer>
+      </MainPart>
+    </Wrapper>
+  );
+}
 
 export default AdminAvailableHall;

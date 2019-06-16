@@ -1,16 +1,55 @@
 import React from 'react';
-
-import { Modal } from '../../../common';
+import { API_BASE_URL } from '../../../../config';
+import { AdminHeader } from '../../';
+import { Footer, Modal } from '../../../common';
 import AdminAvailableHall from '../../components/available-hall/AdminAvailableHall';
 import AdminAddHall from '../../components/add-hall/AdminAddHall';
 import { AdminHallPageContainer } from '../../components/available-hall/AdminAvailableHallStyle';
-const AdminHallsPage = () => (
-  <React.Fragment>
-    <AdminHallPageContainer>
-      <AdminAvailableHall />
-      <AdminAddHall />
-    </AdminHallPageContainer>
-  </React.Fragment>
-);
+class AdminHallsPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+    this.FetchRequests = this.FetchRequests.bind(this);
+  }
+  FetchRequests() {
+    fetch(API_BASE_URL + '/halls')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ data });
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  }
+  componentDidMount() {
+    this.FetchRequests();
+  }
+  render() {
+    let items = this.state.data;
+    return (
+      <React.Fragment>
+        <div style={{ minHeight: 'calc(100vh - 160px)' }}>
+          <AdminHeader />
+          <AdminHallPageContainer>
+            {items.map(item => (
+              <AdminAvailableHall
+                key={item.id}
+                titleHall={item.name}
+                hallImage={item.pictureUrl}
+                locationText={item.address}
+                descriptionText={item.description}
+                id={item.id}
+                updatePage={this.FetchRequests}
+              />
+            ))}
+            <AdminAddHall />
+          </AdminHallPageContainer>
+        </div>
+        <Footer />
+      </React.Fragment>
+    );
+  }
+}
 
 export default AdminHallsPage;

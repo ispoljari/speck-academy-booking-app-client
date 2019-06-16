@@ -4,9 +4,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   width: 632px;
   border-radius: 4px;
-  border: solid 1px #d9d9d9;
   background-color: #ffffff;
-  padding: 32px;
 `;
 
 const Title = styled.div`

@@ -19,8 +19,6 @@ const ModalInnerBox = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 80%;
-  max-width: 632px;
   transform: translate(-50%, -50%);
 
   background-color: #fff;
