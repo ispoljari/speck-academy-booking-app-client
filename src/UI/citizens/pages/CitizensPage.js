@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
+import { findSessionCookie } from '../../../util';
 import {
   CitizensHeader,
   CitizensAdminLogin,
@@ -31,13 +32,11 @@ class CitizensPage extends Component {
   }
 
   detectActiveSession = () => {
-    const cookies = new Cookies();
-    const isSessionCookie = !!cookies.get('sessionId');
-
+    const isSessionCookie = findSessionCookie();
     this.authenticateAdmin(isSessionCookie);
   };
 
-  handleAdminLogin = async () => {
+  confirmAdminLogin = async () => {
     await this.closeLoginModal();
     this.authenticateAdmin(true);
   };
@@ -88,7 +87,7 @@ class CitizensPage extends Component {
         <CitizensSelectDateTime /> */}
         {adminLoginVisible ? (
           <Modal onClick={this.closeLoginModal}>
-            <CitizensAdminLogin handleAdminLogin={this.handleAdminLogin} />
+            <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
           </Modal>
         ) : (
           ''

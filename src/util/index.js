@@ -1,1 +1,6 @@
-// write the functions used multiple times throughout your code in this file
+import Cookies from 'universal-cookie';
+
+export const findSessionCookie = () => {
+  const cookies = new Cookies();
+  return !!cookies.get('sessionId');
+};

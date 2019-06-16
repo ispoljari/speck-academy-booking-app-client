@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import Cookies from 'universal-cookie';
 import { API_BASE_URL } from '../../../../config';
+import { findSessionCookie } from '../../../../util';
 
 import {
   Form,
@@ -53,6 +53,7 @@ class CitizensAdminLogin extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
+    this.resetError();
 
     try {
       const apiResponse = await fetch(`${API_BASE_URL}/admins/login`, {
@@ -80,11 +81,10 @@ class CitizensAdminLogin extends Component {
   };
 
   processResponse = () => {
-    const cookies = new Cookies();
-    const isSessionCookie = !!cookies.get('sessionId');
+    const isSessionCookie = findSessionCookie();
 
     if (isSessionCookie) {
-      this.props.handleAdminLogin();
+      this.props.confirmAdminLogin();
     } else {
       this.processError(errorMsg);
     }
@@ -93,6 +93,12 @@ class CitizensAdminLogin extends Component {
   processError = error => {
     this.setState({
       error
+    });
+  };
+
+  resetError = () => {
+    this.setState({
+      error: null
     });
   };
 
