@@ -11,6 +11,7 @@ import {
 } from '../';
 import Error404 from '../../common/error404/Error404';
 import { Footer, Modal } from '../../common';
+import { CitizensPageWrapper } from './CitizensPageStyle';
 
 class CitizensPage extends Component {
   state = {
@@ -64,11 +65,14 @@ class CitizensPage extends Component {
     }
 
     return (
-      <React.Fragment>
+      <CitizensPageWrapper>
         <CitizensHeader onClick={this.openLoginModal} />
-        {/* <CitizensSelectHall />
+        <CitizensSelectHall />
+        <CitizensSelectDateTime />
+        <CitizensEditEventInfo />
         <CitizensSubmitRequest />
-        <CitizensSelectDateTime /> */}
+        <Footer />
+        {/* <Error404 /> */}
         {adminLoginVisible ? (
           <Modal onClick={this.closeLoginModal}>
             <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
@@ -76,9 +80,7 @@ class CitizensPage extends Component {
         ) : (
           ''
         )}
-        {/* <Error404 />
-        <Footer /> */}
-      </React.Fragment>
+      </CitizensPageWrapper>
     );
   }
 }

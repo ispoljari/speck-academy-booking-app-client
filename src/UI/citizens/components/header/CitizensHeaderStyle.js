@@ -7,14 +7,6 @@ const StyledLink = styled.a`
   line-height: 1.14;
   color: #000;
   z-index: 2;
-  ${'' /* text-align: center; */}
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
 `;
 
 const SpacingDiv = styled.div`
@@ -47,8 +39,6 @@ const Contact = styled.div`
 const HeaderContainer = styled.header`
   position: relative;
   width: 1440px;
-  //padding: 32px;
-  margin-bottom: 0px;
   color: #fff;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -77,12 +67,11 @@ const HeaderTitle = styled.div`
 `;
 
 const HeaderTitleSmall = styled.div`
-  margin-top: 0px;
+  margin-top: 5px;
   font-size: 20px;
   z-index: 2;
-  ${'' /* additional */}
   font-family: Poppins, sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   text-decoration: none;
 `;
