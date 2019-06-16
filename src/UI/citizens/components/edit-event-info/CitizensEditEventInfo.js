@@ -75,6 +75,7 @@ export default ({ handleChange, post }) => {
               type="email"
               name="email"
               onChange={handleChange}
+              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
               required
             />
           </FormInlineInput>
