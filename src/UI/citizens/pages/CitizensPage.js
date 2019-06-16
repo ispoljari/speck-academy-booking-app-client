@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { findSessionCookie } from '../../../util';
 import {
   CitizensHeader,
   CitizensAdminLogin,
@@ -15,33 +14,20 @@ import { Footer, Modal } from '../../common';
 
 class CitizensPage extends Component {
   state = {
-    adminLoginVisible: false,
-    loggedIn: false
+    adminLoginVisible: false
   };
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
-    this.detectActiveSession();
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
-  detectActiveSession = () => {
-    const isSessionCookie = findSessionCookie();
-    this.authenticateAdmin(isSessionCookie);
-  };
-
   confirmAdminLogin = async () => {
     await this.closeLoginModal();
-    this.authenticateAdmin(true);
-  };
-
-  authenticateAdmin = loggedIn => {
-    this.setState({
-      loggedIn
-    });
+    this.props.authenticateAdmin(true);
   };
 
   handleKeyPress = e => {
@@ -70,7 +56,8 @@ class CitizensPage extends Component {
   };
 
   render() {
-    const { adminLoginVisible, loggedIn } = this.state;
+    const { adminLoginVisible } = this.state;
+    const { loggedIn } = this.props;
 
     if (loggedIn) {
       return <Redirect to="/admin-requests" />;
