@@ -10,6 +10,7 @@ import {
   AdminHallsPage
 } from './UI/admin';
 import { CitizensPage } from './UI/citizens';
+import { PrivateRoute } from './UI/common';
 
 class App extends Component {
   state = {
@@ -50,9 +51,13 @@ class App extends Component {
               />
             )}
           />
-          <Route path="/admin-requests" component={AdminRequestsPage} />
-          {/* <Route path="/admin-reservations" component={AdminReservationsPage} />
-        <Route path="/admin-halls" component={AdminHallsPage} /> */}
+          <PrivateRoute
+            loggedIn={loggedIn}
+            path="/admin-requests"
+            component={AdminRequestsPage}
+          />
+          {/* <PrivateRoute loggedIn={loggedIn} path="/admin-reservations" component={AdminReservationsPage} />
+          <PrivateRoute loggedIn={loggedIn} path="/admin-halls" component={AdminHallsPage} /> */}
         </Switch>
       </Router>
     );
