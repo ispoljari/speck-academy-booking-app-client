@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 import { API_BASE_URL } from '../../../../config';
-import { findSessionCookie, fetchDataFromAPI } from '../../../../util';
+import {
+  findSessionCookie,
+  fetchDataFromAPI,
+  errorMsg
+} from '../../../../util';
 import {
   Form,
   Title,
@@ -11,8 +15,6 @@ import {
   SubmitBtn,
   TextField
 } from './CitizensAdminLoginStyle';
-
-const errorMsg = 'There has been an error';
 
 const InputComponent = ({ label, inputID, onChange, value }) => (
   <div>
@@ -85,7 +87,7 @@ class CitizensAdminLogin extends Component {
   };
 
   processResponse = () => {
-    const isSessionCookie = findSessionCookie();
+    const isSessionCookie = findSessionCookie('sessionId');
 
     if (isSessionCookie) {
       this.props.confirmAdminLogin();

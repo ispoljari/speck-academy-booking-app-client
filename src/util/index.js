@@ -1,12 +1,16 @@
 import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
-const findSessionCookie = () => {
-  const cookies = new Cookies();
-  return !!cookies.get('sessionId');
+const findSessionCookie = id => !!cookies.get(id);
+
+const deleteSessionCookie = id => {
+  findSessionCookie(id) && cookies.delete(id);
 };
 
 const fetchDataFromAPI = (url, config) => {
   return fetch(url, config);
 };
 
-export { findSessionCookie, fetchDataFromAPI };
+const errorMsg = 'There has been an error';
+
+export { findSessionCookie, deleteSessionCookie, fetchDataFromAPI, errorMsg };

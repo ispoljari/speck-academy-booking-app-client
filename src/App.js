@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './globalStyle';
-import { findSessionCookie } from './util';
+import { findSessionCookie, deleteSessionCookie } from './util';
 import { AdminPages } from './UI/admin';
 import { CitizensPage } from './UI/citizens';
 import { Error404, PrivateRoute } from './UI/common';
@@ -18,8 +18,13 @@ class App extends Component {
   }
 
   detectActiveSession = () => {
-    const isSessionCookie = findSessionCookie();
+    const isSessionCookie = findSessionCookie('sessionId');
     this.authenticateAdmin(isSessionCookie);
+  };
+
+  closeActiveSession = () => {
+    deleteSessionCookie('sessionId');
+    this.authenticateAdmin(false);
   };
 
   authenticateAdmin = loggedIn => {
@@ -49,6 +54,7 @@ class App extends Component {
           />
           <PrivateRoute
             loggedIn={loggedIn}
+            closeActiveSession={this.closeActiveSession}
             path="/admin"
             component={AdminPages}
           />
