@@ -64,17 +64,42 @@ let data = dataArray[0];
 
 function getData() {
   fetch(API_BASE_URL + '/halls/reservations', {
-    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    headers: {
+      Accept: 'appliation/json',
+      'Content-Type': 'application/json; charset=utf-8'
+    },
     method: 'GET',
     body: JSON.stringify({ startDate: '2019-05-25', endDate: '2019-06-25' })
   })
     .then(res => {
-      props.updatePage();
-      console.log(res);
+      //props.updatePage();
+      this.setState({
+        dummyDataArray: res
+      });
+      alert('sdkhfkjdhkjf');
+      console.log('RES: ' + res);
     })
     .catch(err => {
       console.error(err);
     });
+}
+
+function deleteData() {
+  const deleteHall = () => {
+    fetch(API_BASE_URL + '/reservations/delete/' + '9', {
+      method: 'DELETE'
+    })
+      .then(res => {
+        //props.updatePage();
+        //      alert('GOOOOOOOOOOOOOOOOOOOOOD');
+        console.log('QQQQQQQQQQQQQQQQQQQQ: ' + res.status);
+      })
+      .catch(err => {
+        //        alert('BAAAAAAAAAAAAAAAAAAAAAAAAAD');
+        console.error(err);
+      });
+  };
+  deleteHall();
 }
 
 class ScheduleComponenet extends React.Component {
@@ -99,6 +124,8 @@ class ScheduleComponenet extends React.Component {
   renderHoursOfDayCollection() {
     const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
     const lastHour = 22;
+    //getData();
+    //deleteData();
     return (
       <HoursDivRow>
         {hoursOfDay.map(hour => {
@@ -277,7 +304,7 @@ class ScheduleComponenet extends React.Component {
               </PopUpInfo>
             </Details>
 
-            <InfoEraseButton>
+            <InfoEraseButton onClick={deleteData}>
               <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
             </InfoEraseButton>
           </Info>
