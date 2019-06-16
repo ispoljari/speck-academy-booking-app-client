@@ -1,26 +1,11 @@
 import styled from 'styled-components';
 
-const Body = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
-const Container = styled.div`
-  box-sizing: Border-box;
-  padding: 32px;
-  margin: auto;
-  width: 632px;
-  height: 264px;
-  border-radius: 4px;
-  border: solid 1px #d9d9d9;
-  background-color: #ffffff;
-`;
-
-const TitleAdminLogin = styled.div`
+const Form = styled.form`
+  display: block;
   width: 568px;
-  height: 40px;
+`;
+
+const Title = styled.h2`
   font-family: 'Lora', serif;
   font-size: 32px;
   font-weight: bold;
@@ -28,57 +13,45 @@ const TitleAdminLogin = styled.div`
   margin-bottom: 24px;
 `;
 
-const ComponentBox = styled.div`
+const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const Component = styled.div`
-  width: 272px;
-  height: 64px;
-`;
-
-const ComponentName = styled.div`
-  width: 100%;
-  height: 24px;
+const Label = styled.label`
+  display: block;
   font-family: Poppins;
   font-size: 16px;
   color: #000000;
+  text-transform: uppercase;
 `;
 
-const ComponentInput = styled.input`
+const Input = styled.input`
   margin-top: 8px;
   width: 272px;
-  height: 32px;
+  font-size: 18px;
+  padding: 5px;
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
 `;
 
-const SubmitButton = styled.button`
-  margin-top: 30px;
-  margin-left: 106px;
+const SubmitBtn = styled.button`
+  display: block;
+  margin: 30px auto 0px;
   width: 356px;
   height: 40px;
   border-radius: 4px;
   background-color: #0f4951;
+  cursor: pointer;
 `;
 
-const SubmitButtonText = styled.p`
+const TextField = styled.p`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
-  margin: auto;
+  color: ${props => (props.error ? 'red' : '#ffffff')};
+  text-transform: uppercase;
+  margin-top: ${props => props.marginTop};
 `;
 
-export {
-  Body,
-  Container,
-  TitleAdminLogin,
-  ComponentBox,
-  Component,
-  ComponentName,
-  ComponentInput,
-  SubmitButton,
-  SubmitButtonText
-};
+export { Form, Title, FlexContainer, Label, Input, SubmitBtn, TextField };

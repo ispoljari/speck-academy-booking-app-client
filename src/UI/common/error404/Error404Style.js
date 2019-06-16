@@ -13,6 +13,10 @@ const Container = styled.div`
   width: 1024px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Picture = styled.div`
@@ -34,17 +38,19 @@ const Error = styled.p`
   color: #808080;
 `;
 
-const Button = styled.button`
-  margin-top: 16px;
-  margin-left: 462px;
-  margin-bottom: 43.2px;
-  width: 99.1px;
-  height: 32.8px;
+const LinkContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 65px auto;
+  padding: 10px;
+  max-width: 100px;
   border-radius: 4px;
-  background-color: #0f4951;
+  background-color: #93e9bb;
   font-family: Poppins;
   font-size: 14px;
+  text-transform: uppercase;
   color: #ffffff;
 `;
 
-export { Body, Container, Picture, Error, Button };
+export { Body, Container, Picture, Error, LinkContent };
