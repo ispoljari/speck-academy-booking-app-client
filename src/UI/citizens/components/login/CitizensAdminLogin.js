@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 
 import { API_BASE_URL } from '../../../../config';
-import { findSessionCookie } from '../../../../util';
-
+import { findSessionCookie, fetchDataFromAPI } from '../../../../util';
 import {
   Form,
   Title,
@@ -55,16 +53,22 @@ class CitizensAdminLogin extends Component {
     e.preventDefault();
     this.resetError();
 
+    const loginEndpoint = `${API_BASE_URL}/admins/login`;
+    const loginHttpConfig = {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({
+        userName: this.state.userName,
+        password: this.state.password
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    };
+
     try {
-      const apiResponse = await fetch(`${API_BASE_URL}/admins/login`, {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify({
-          userName: this.state.userName,
-          password: this.state.password
-        }),
-        headers: { 'Content-Type': 'application/json' }
-      });
+      const apiResponse = await fetchDataFromAPI(
+        loginEndpoint,
+        loginHttpConfig
+      );
 
       if (!apiResponse.ok) {
         throw new Error(errorMsg);

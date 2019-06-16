@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 
 import { findSessionCookie } from '../../../util';
 import {
@@ -11,9 +10,7 @@ import {
   CitizensEditEventInfo,
   CitizensSubmitRequest
 } from '../';
-
 import Error404 from '../../common/error404/Error404';
-
 import { Footer, Modal } from '../../common';
 
 class CitizensPage extends Component {
