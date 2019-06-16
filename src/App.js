@@ -10,7 +10,7 @@ import {
   AdminHallsPage
 } from './UI/admin';
 import { CitizensPage } from './UI/citizens';
-import { PrivateRoute } from './UI/common';
+import { PrivateRoute, Error404 } from './UI/common';
 
 class App extends Component {
   state = {
@@ -66,6 +66,7 @@ class App extends Component {
             path="/admin-halls"
             component={AdminHallsPage}
           />
+          <Route component={Error404} />
         </Switch>
       </Router>
     );
