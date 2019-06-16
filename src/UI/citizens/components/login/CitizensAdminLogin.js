@@ -14,6 +14,8 @@ import {
   TextField
 } from './CitizensAdminLoginStyle';
 
+const errorMsg = 'There has been an error';
+
 const InputComponent = ({ label, inputID, onChange, value }) => (
   <div>
     <Label htmlFor={inputID}>{label}</Label>
@@ -32,7 +34,6 @@ class CitizensAdminLogin extends Component {
   state = {
     userName: '',
     password: '',
-    loggedIn: false,
     error: null
   };
 
@@ -65,13 +66,13 @@ class CitizensAdminLogin extends Component {
       });
 
       if (!apiResponse.ok) {
-        throw new Error('There has been an error');
+        throw new Error(errorMsg);
       }
 
       if (apiResponse.status === 200) {
         this.processResponse();
       } else {
-        throw new Error('There has been an error');
+        throw new Error(errorMsg);
       }
     } catch (error) {
       this.processError(error);
@@ -82,29 +83,21 @@ class CitizensAdminLogin extends Component {
     const cookies = new Cookies();
     const isSessionCookie = !!cookies.get('sessionId');
 
-    this.setState({
-      userName: '',
-      password: '',
-      loggedIn: isSessionCookie,
-      error: null
-    });
+    if (isSessionCookie) {
+      this.props.handleAdminLogin();
+    } else {
+      this.processError(errorMsg);
+    }
   };
 
   processError = error => {
     this.setState({
-      userName: '',
-      password: '',
-      error,
-      loggedIn: false
+      error
     });
   };
 
   render() {
-    const { userName, password, loggedIn, error } = this.state;
-
-    if (loggedIn) {
-      return <Redirect to="/admin-requests" />;
-    }
+    const { userName, password, error } = this.state;
 
     return (
       <Form onSubmit={this.handleSubmit}>

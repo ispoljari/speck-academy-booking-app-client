@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 import {
   CitizensHeader,
@@ -15,47 +17,78 @@ import { Footer, Modal } from '../../common';
 
 class CitizensPage extends Component {
   state = {
-    adminLoginVisible: false
+    adminLoginVisible: false,
+    loggedIn: false
   };
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
+    this.detectActiveSession();
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
+  detectActiveSession = () => {
+    const cookies = new Cookies();
+    const isSessionCookie = !!cookies.get('sessionId');
+
+    this.authenticateAdmin(isSessionCookie);
+  };
+
+  handleAdminLogin = async () => {
+    await this.closeLoginModal();
+    this.authenticateAdmin(true);
+  };
+
+  authenticateAdmin = loggedIn => {
+    this.setState({
+      loggedIn
+    });
+  };
+
   handleKeyPress = e => {
     if (e.key === 'Escape' && this.state.adminLoginVisible) {
-      this.closeAdminLogin();
+      this.closeLoginModal();
     }
   };
 
-  openAdminLogin = () => {
+  openLoginModal = () => {
     this.setState({
       adminLoginVisible: true
     });
   };
 
-  closeAdminLogin = () => {
-    this.setState({
-      adminLoginVisible: false
+  closeLoginModal = () => {
+    return new Promise(resolve => {
+      this.setState(
+        {
+          adminLoginVisible: false
+        },
+        () => {
+          resolve();
+        }
+      );
     });
   };
 
   render() {
-    const { adminLoginVisible } = this.state;
+    const { adminLoginVisible, loggedIn } = this.state;
+
+    if (loggedIn) {
+      return <Redirect to="/admin-requests" />;
+    }
 
     return (
       <React.Fragment>
-        <CitizensHeader onClick={this.openAdminLogin} />
+        <CitizensHeader onClick={this.openLoginModal} />
         {/* <CitizensSelectHall />
         <CitizensSubmitRequest />
         <CitizensSelectDateTime /> */}
         {adminLoginVisible ? (
-          <Modal onClick={this.closeAdminLogin}>
-            <CitizensAdminLogin />
+          <Modal onClick={this.closeLoginModal}>
+            <CitizensAdminLogin handleAdminLogin={this.handleAdminLogin} />
           </Modal>
         ) : (
           ''
