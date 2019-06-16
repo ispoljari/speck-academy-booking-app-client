@@ -14,7 +14,6 @@ class AdminRequestsPage extends React.Component {
   FetchRequests() {
     fetch(API_BASE_URL + '/reservations/pending')
       .then(response => {
-        console.log(response);
         if (!response.ok) {
           throw new Error('There has been an error');
         }
