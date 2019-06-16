@@ -18,34 +18,60 @@ import {
   ButtonEdit
 } from './AdminAvailableHallStyle.js';
 
-const AdminAvailableHall = () => (
+function AdminAvailableHall (props) {
+  let id = props.id;
+  const deleteHall = () => {
+    fetch(API_BASE_URL + '/api/halls' + id, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'PATCH',
+      body: JSON.stringify({ changeHall: 'delete' })
+    })
+      .then(res => {
+        props.updatePage();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  const hallRepositore.update = () => {
+    fetch(API_BASE_URL + '/api/halls' + id, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      method: 'PATCH',
+      body: JSON.stringify({ changeHall: 'Update' })
+    })
+      .then(res => {
+        props.updatePage();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  return (
   <Wrapper>
     <Header>
-      <Title>Velika-Sportska-Dvorana</Title>
+      <Title>{props.titleHall}</Title>
     </Header>
 
     <MainPart>
-      <Image />
+      <Image>{props.hallImage}</Image>
 
       <TextPart>
         <LocationMain>
           <Location>LOKACIJA</Location>
-          <LocationText>Franje Tuđmana 20</LocationText>
+          <LocationText>{props.locationText}</LocationText>
         </LocationMain>
 
         <DescriptionMain>
           <Description>OPIS</Description>
           <DescriptionText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            dictum, leo pulvinar aliquet sagittis, neque ligula sagittis augue,
-            eget finibus lectus leo nec ipsum.{' '}
+            {props.descriptionText}
           </DescriptionText>
         </DescriptionMain>
       </TextPart>
 
       <Footer>
-        <ButtonDelete>IZBRIŠI</ButtonDelete>
-        <ButtonEdit>UREDI</ButtonEdit>
+        <ButtonDelete onClick={deleteHall}>IZBRIŠI</ButtonDelete>
+        <ButtonEdit onClick={hallRepositore.update}>UREDI</ButtonEdit>
       </Footer>
     </MainPart>
   </Wrapper>
