@@ -27,6 +27,8 @@ import DetailsIcon from '../../../../images/Details@3x.png';
 
 import dataArray from './newData.js';
 
+import { API_BASE_URL } from '../../../../config';
+
 //TODO delete all console logs
 //TODO CHANGE NAME OF existStartLength
 
@@ -59,6 +61,21 @@ function calcPositionAndLEngth(date, startTime, endTime) {
 }
 
 let data = dataArray[0];
+
+function getData() {
+  fetch(API_BASE_URL + '/halls/reservations', {
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    method: 'GET',
+    body: JSON.stringify({ startDate: '2019-05-25', endDate: '2019-06-25' })
+  })
+    .then(res => {
+      props.updatePage();
+      console.log(res);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+}
 
 class ScheduleComponenet extends React.Component {
   state = {
