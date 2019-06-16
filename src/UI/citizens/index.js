@@ -18,6 +18,3 @@ export {
 export {
   default as CitizensAdminLogin
 } from './components/login/CitizensAdminLogin';
-export {
-  default as CitizensAdminLoginUnsuccessfull
-} from './components/login/CitizensAdminLoginUnsuccessfull';
