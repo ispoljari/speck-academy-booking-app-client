@@ -114,6 +114,7 @@ function displayTime() {
   return divs;
 }
 
+/*
 function drawSelected(selected) {
   let divs = [];
   var begin =
@@ -135,12 +136,17 @@ function drawFromDataBase(reservation) {
   let divs = [];
   var a = reservation.hallReservaltions.length;
   for (var i = 0; i < a; i++) {
-    var end = reservation.hallReservaltions[i].reservationEndTime.split(':');
+    var end = reservation.hallReservaltions[i].reservationEndTime.1split(':');
     var begin = reservation.hallReservaltions[i].reservationStartTime.split(
       ':'
     );
     var beginLeft = 25 + (begin[0] - 8) * 50 + (begin[1] / 15) * 12.5;
     var width = 25 + (end[0] - 8) * 50 + (end[1] / 15) * 12.5;
+
+    console.log('start', beginLeft);
+    console.log('width', width);
+    console.log('end', (width - beginLeft));
+
     divs.push(
       <DrawFromDB
         left={beginLeft + 'px'}
@@ -151,67 +157,157 @@ function drawFromDataBase(reservation) {
   }
   return divs;
 }
+*/
 
-const CitizensSelectDateTime = () => (
-  <HeadContainer>
-    <Circle>
-      <Number>2</Number>
-    </Circle>
-    <Field>
-      <Title>Odaberite datum i vrijeme:</Title>
-      <SubTitle>
-        Označite slobodan termin na kalendaru za Vaš odabir:{' '}
-        <span>Konferencijska dvorana RCTP.</span>
-      </SubTitle>
-      <Hlabel>ODABERITE DATUM:</Hlabel>
-      <Hlabel>ODABERITE VRIJEME:</Hlabel>
-      <LabelContainer>
-        <Label>POČETAK</Label>
-        <Label>KRAJ</Label>
-      </LabelContainer>
-      <InputsContainer>
-        <DateInput>
-          <input type="date" required="required" />
-          <span />
-          <Vector />
-        </DateInput>
-        <TimeInput>
-          <input type="time" required="required" />
-          <span />
-          <Vector />
-        </TimeInput>
-        <TimeInput>
-          <input
-            type="time"
-            required="required"
-            placeholder="DATUM..."
-            min="08:00"
-            max="22:00"
-            required
-            step="900"
-          />
-          <span />
-          <Vector />
-        </TimeInput>
-      </InputsContainer>
-      <Timeline>
-        {displayTime()}
-        {displayTimeline()}
-        {drawFromDataBase(reservation)}
-        {drawSelected(selected)}
-      </Timeline>
-      <Legend>
-        <LegendDesc>
-          <LegendColor col="#0f4850" />
-          <LegendText>Zauzeti termini</LegendText>
-        </LegendDesc>
-        <LegendDesc>
-          <LegendColor col="#93e9bb" />
-          <LegendText>Odabrani termin</LegendText>
-        </LegendDesc>
-      </Legend>
-    </Field>
-  </HeadContainer>
-);
+const CitizensSelectDateTime = props => {
+  const { 
+    hallId,
+    reservationDate, 
+    reservationStartTime, 
+    reservationEndTime,
+    reservations, 
+    handleFilterChange 
+  } = props;
+  const filteredReservations = [];
+  
+  // Filter reservations by selected date
+  for (const reservation of reservations) {
+    const selectedDate = new Date(reservationDate).toDateString();
+    const reservedDate = new Date(reservation.reservationDate).toDateString();
+    
+    console.log('date1', selectedDate);
+    console.log('date1', reservedDate);
+
+    if (selectedDate === reservedDate) {
+      filteredReservations.push(reservation);
+    }
+  }
+
+  const drawSelected = () => {
+    if (!reservationStartTime || !reservationEndTime) return null;
+
+    const startTime = reservationStartTime.split(':');
+    const endTime = reservationEndTime.split(':');
+
+    const startHour = parseInt(startTime[0], 10);
+    const startMinute = parseInt(startTime[1], 10);
+    const endHour = parseInt(endTime[0], 10);
+    const endMinute = parseInt(endTime[1], 10);
+    
+    const begin =
+      25 +
+      (startHour - 8) * 50 +
+      (startMinute / 15) * 12.5;
+    const end =
+      25 +
+      (endHour - 8) * 50 +
+      (endMinute / 15) * 12.5;
+    
+    const width = end - begin;
+    
+    return <DrawFromDB left={begin + 'px'} wdh={width + 'px'} background="#93e9bb" />;
+  }
+
+  const drawFromDB = () => {
+    const divs = [];
+    
+    for (const reservation of filteredReservations) {
+      const startTime = reservation.reservationStartTime.split(':');
+      const endTime = reservation.reservationEndTime.split(':');
+
+      const startHour = parseInt(startTime[0], 10);
+      const startMinute = parseInt(startTime[1], 10);
+      const endHour = parseInt(endTime[0], 10);
+      const endMinute = parseInt(endTime[1], 10);
+
+      const startOffset = 25 + (startHour - 8) * 50 + (startMinute / 15) * 12.5;
+      const totalWidth = 25 + (endHour - 8) * 50 + (endMinute / 15) * 12.5;
+
+      divs.push(
+        <DrawFromDB
+          left={startOffset + 'px'}
+          wdh={totalWidth - startOffset + 'px'}
+          background="#0f4850"
+        />
+      );
+    }
+    
+    return divs;
+  }
+  
+  return (
+    <HeadContainer>
+      <Circle>
+        <Number>2</Number>
+      </Circle>
+      <Field>
+        <Title>Odaberite datum i vrijeme:</Title>
+        <SubTitle>
+          Označite slobodan termin na kalendaru za Vaš odabir:{' '}
+          <span>Konferencijska dvorana RCTP.</span>
+        </SubTitle>
+        <Hlabel>ODABERITE DATUM:</Hlabel>
+        <Hlabel>ODABERITE VRIJEME:</Hlabel>
+        <LabelContainer>
+          <Label>POČETAK</Label>
+          <Label>KRAJ</Label>
+        </LabelContainer>
+        <InputsContainer>
+          <DateInput>
+            <input 
+              type="date"
+              name="reservationDate"
+              onChange={handleFilterChange} 
+            />
+            <span />
+            <Vector />
+          </DateInput>
+          <TimeInput>
+            <input 
+              type="time"
+              name="reservationStartTime"
+              onChange={handleFilterChange} 
+              min="08:00"
+              max="22:00"
+              step="900"
+              required
+            />
+            <span />
+            <Vector />
+          </TimeInput>
+          <TimeInput>
+            <input
+              type="time"
+              name="reservationEndTime"
+              onChange={handleFilterChange} 
+              min="08:00"
+              max="22:00"
+              step="900"
+              required
+            />
+            <span />
+            <Vector />
+          </TimeInput>
+        </InputsContainer>
+        <Timeline>
+          {displayTime()}
+          {displayTimeline()}
+          {drawFromDB()}
+          {drawSelected()}
+        </Timeline>
+        <Legend>
+          <LegendDesc>
+            <LegendColor col="#0f4850" />
+            <LegendText>Zauzeti termini</LegendText>
+          </LegendDesc>
+          <LegendDesc>
+            <LegendColor col="#93e9bb" />
+            <LegendText>Odabrani termin</LegendText>
+          </LegendDesc>
+        </Legend>
+      </Field>
+    </HeadContainer>
+  );
+};
 
 export default CitizensSelectDateTime;
