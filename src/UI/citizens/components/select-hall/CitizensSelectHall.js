@@ -112,7 +112,7 @@ function CitizensSelectHall() {
                 <InfoIcon src={Icon} />
               </a>
 
-              <HallNameButton>
+              <HallNameButton id="Velika sportska dvorana">
                 {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
                 <HallNameTextCenter>Velika sportska dvorana</HallNameTextCenter>
                 {/* </StyledLink> */}

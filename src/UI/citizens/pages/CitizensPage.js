@@ -107,7 +107,9 @@ class CitizensPage extends Component {
         <CitizensPageWrapper>
           <CitizensHeader />
 
-          <CitizensSelectHall />
+          <CitizensSelectHall
+          // hallSelectId={this.hallSelectId}   INCOMPLETE
+          />
 
           <CitizensSelectDateTime
             handleFilterChange={this.handleFilterChange}
