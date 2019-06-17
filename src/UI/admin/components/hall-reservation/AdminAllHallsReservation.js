@@ -22,8 +22,8 @@ const AllHallsReservations = () => (
     <DayPicker1>
       {
         <form action="/action_page.php">
-          <input type="date" name="year_week" />
-          <input type="date" name="year_week2" />
+          <input type="date" name="stardDay" />
+          <input type="date" name="endDay" />
           <input type="submit" />
         </form>
       }

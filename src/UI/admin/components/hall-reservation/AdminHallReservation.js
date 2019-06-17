@@ -63,31 +63,34 @@ function calcPositionAndLEngth(date, startTime, endTime) {
 let data = dataArray[0];
 
 function getData() {
-  fetch(API_BASE_URL + '/halls/reservations', {
+  var url = new URL(API_BASE_URL + '/halls/reservations');
+  var params = { startDate: '2017-05-25', endDate: '2020-10-25' }; // or:
+  url.search = new URLSearchParams(params);
+  fetch(url, {
     headers: {
-      Accept: 'appliation/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json; charset=utf-8'
     },
-    method: 'GET',
-    body: JSON.stringify({ startDate: '2019-05-25', endDate: '2019-06-25' })
+    method: 'GET'
   })
-    .then(res => {
-      //props.updatePage();
-      this.setState({
-        dummyDataArray: res
-      });
-      alert('sdkhfkjdhkjf');
-      console.log('RES: ' + res);
-    })
+    .then(res =>
+      res.json()
+    ) /*.then(res =>
+      //console.log(JSON.stringify(res))
+      //console.log(JSON.stringify(res[0]))
+      //console.log(res[0])
+     )*/
     .catch(err => {
       console.error(err);
     });
 }
 
-function deleteData() {
+/*function deleteData() {
+  console.log(this.state.currentReservationActive);
   const deleteHall = () => {
-    fetch(API_BASE_URL + '/reservations/delete/' + '9', {
-      method: 'DELETE'
+    //fetch(API_BASE_URL + '/reservations/delete/' + this.state.currentReservationActive.id, {
+    fetch(API_BASE_URL + '/reservations/delete/' + '1', {
+        method: 'DELETE'
     })
       .then(res => {
         //props.updatePage();
@@ -100,7 +103,7 @@ function deleteData() {
       });
   };
   deleteHall();
-}
+}*/
 
 class ScheduleComponenet extends React.Component {
   state = {
@@ -110,6 +113,7 @@ class ScheduleComponenet extends React.Component {
     activeComponent: false,
     test: 55,
     currentReservationActive: {
+      id: 0,
       activated: false,
       reservationTitle: '',
       reservationDate: '',
@@ -121,11 +125,76 @@ class ScheduleComponenet extends React.Component {
     }
   };
 
+  deleteData() {
+    console.log(this.state.currentReservationActive.id);
+    /*const deleteHall = () => {
+      fetch(API_BASE_URL + '/reservations/delete/' + this.state.currentReservationActive.id, {
+        method: 'DELETE'
+      })
+        .then(res => {
+          //props.updatePage();
+          //      alert('GOOOOOOOOOOOOOOOOOOOOOD');
+          console.log('QQQQQQQQQQQQQQQQQQQQ: ' + res.status);
+        })
+        .catch(err => {
+          //        alert('BAAAAAAAAAAAAAAAAAAAAAAAAAD');
+          console.error(err);
+        });
+    };*/
+    //deleteHall();
+  }
+
+  async getData() {
+    var url = new URL(API_BASE_URL + '/halls/reservations');
+    var params = { startDate: '2017-05-25', endDate: '2020-10-25' }; // or:
+    url.search = new URLSearchParams(params);
+    try {
+      const res = await fetch(url, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        method: 'GET'
+      });
+      return await res.json();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   renderHoursOfDayCollection() {
     const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
     const lastHour = 22;
-    //getData();
-    //deleteData();
+    let x = this.getData();
+    console.log('XXXXXXXXXXX' + x);
+    /*    this.setState({
+      dummyDataArray: 
+        this.getData()
+      
+    });*/
+    var url = new URL(API_BASE_URL + '/halls/reservations');
+
+    var params = { startDate: '2017-05-25', endDate: '2020-10-25' };
+    url.search = new URLSearchParams(params);
+    fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      method: 'GET'
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(JSON.stringify(res));
+        console.log('NEW RES: ' + res);
+        this.setState({
+          dummyDataArray: JSON.stringify(res)
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+
     return (
       <HoursDivRow>
         {hoursOfDay.map(hour => {
@@ -171,13 +240,6 @@ class ScheduleComponenet extends React.Component {
                           hallReservaltion.reservationStartTime,
                           hallReservaltion.reservationEndTime
                         );
-                        /*this.setState({
-                          ...this.state,
-                          dummyDataArray: {
-                            ...this.state.dummyDataArray,
-                            active: false
-                          }
-                        });*/
 
                         return (
                           <ReservationDynamicDiv
@@ -194,34 +256,11 @@ class ScheduleComponenet extends React.Component {
                               this.setState({
                                 currentReservationActive: hallReservaltion
                               });
-                              //this.state.currentReservationActive.activated = true;
-
-                              /*this.setState(() => ({
-                                ...this.state,
-                                currentReservationActive: {
-                                  ...this.state.currentReservationActive,
-                                  activated: true
-                                }
-                              }), () => {
-                                console.log("after: " + this.state.currentReservationActive.activated);
-                              });*/
-
-                              //hallReservaltion.active = true;
                               console.log(
                                 'after33: ' +
                                   this.state.currentReservationActive
                               );
                               console.log(this.state);
-                              /*console.log(this.state);
-                              this.setState({
-                                //...this.state,
-                                dummyDataArray: {
-                                  ...this.state.dummyDataArray,
-                                  active: true
-                                }
-                              });
-                              console.log(this.state);*/
-                              //console.log("this.state.hallReservaltions: " + this.state.hallReservaltions);
                             }}
                           >
                             <PopUpInfo length={obj.length}>
@@ -304,7 +343,32 @@ class ScheduleComponenet extends React.Component {
               </PopUpInfo>
             </Details>
 
-            <InfoEraseButton onClick={deleteData}>
+            <InfoEraseButton
+              onClick={() => {
+                fetch(
+                  API_BASE_URL +
+                    '/reservations/delete/' +
+                    this.state.currentReservationActive.id,
+                  {
+                    method: 'DELETE'
+                  }
+                )
+                  .then(res => {
+                    //props.updatePage();
+                    //      alert('GOOOOOOOOOOOOOOOOOOOOOD');
+                    console.log(
+                      'QQQQQQQQQQQQQQQQQQQQ: ' +
+                        res.status +
+                        'RESID: ' +
+                        this.state.currentReservationActive.id
+                    );
+                  })
+                  .catch(err => {
+                    //        alert('BAAAAAAAAAAAAAAAAAAAAAAAAAD');
+                    console.error(err);
+                  });
+              }}
+            >
               <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
             </InfoEraseButton>
           </Info>
