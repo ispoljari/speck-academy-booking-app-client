@@ -70,19 +70,25 @@ export const ContactRight = styled.div`
   text-align: left;
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   width: 374px;
   height: 40px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
+  border: solid 1px #0f4850
   background-color: #0f4850;
-  color: #ffffff;
+  //color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 32px;
   &:hover {
     background-color: #229c7f;
-  }
+    border: solid 1px #229c7f;
+    transition-duration: 0.5s;
+    cursor: pointer;
+  };
 `;
 
 export const ButtonText = styled.p`
