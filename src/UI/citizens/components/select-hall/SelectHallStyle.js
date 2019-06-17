@@ -89,12 +89,13 @@ export const SubheadlineText = styled.div`
   color: #000;
 `;
 
-export const HallNameText = styled.div`
+export const HallNameButton = styled.button`
   position: absolute;
   align-self: flex-end;
-  width: 155px;
+  width: 158px;
   height: 48px;
   border-radius: 3px;
+  border-color: #808080;
   background-color: #808080;
   font-family: Poppins;
   font-size: 14px;
@@ -102,10 +103,14 @@ export const HallNameText = styled.div`
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
-  &:hover {
+  &:visited,
+  :hover,
+  :focus,
+  :active {
     background-color: #229c7f;
+    transition-duration: 0.5s;
+    cursor: pointer;
   }
-  ${'' /* margin-top: 1px; */}
 `;
 
 export const HallNameTextCenter = styled.div`

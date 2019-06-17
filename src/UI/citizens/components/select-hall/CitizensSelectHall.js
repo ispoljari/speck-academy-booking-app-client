@@ -23,7 +23,7 @@ import Icon from '../../../../images/info-icon@3x.png';
 import {
   StyledLink,
   HallImageContainer,
-  HallNameText,
+  HallNameButton,
   HallNameTextCenter,
   HeadlineText,
   SubheadlineText,
@@ -89,6 +89,8 @@ import { directive } from '@babel/types';
 //   }
 // }
 
+// function CitizensSelectHall(props)
+
 function CitizensSelectHall() {
   return (
     <div>
@@ -110,13 +112,11 @@ function CitizensSelectHall() {
                 <InfoIcon src={Icon} />
               </a>
 
-              <HallNameText>
-                <StyledLink href="" target="_blank" rel="noopener noreferrer">
-                  <HallNameTextCenter>
-                    Velika sportska dvorana
-                  </HallNameTextCenter>
-                </StyledLink>
-              </HallNameText>
+              <HallNameButton>
+                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+                <HallNameTextCenter>Velika sportska dvorana</HallNameTextCenter>
+                {/* </StyledLink> */}
+              </HallNameButton>
             </HallImageContainer>
 
             <HallImageContainer>
@@ -124,13 +124,11 @@ function CitizensSelectHall() {
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon src={Icon} />
               </a>
-              <HallNameText>
-                <StyledLink href="#" target="_blank" rel="noopener noreferrer">
-                  <HallNameTextCenter>
-                    Dvorana Hrvatskog doma
-                  </HallNameTextCenter>
-                </StyledLink>
-              </HallNameText>
+              <HallNameButton>
+                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+                <HallNameTextCenter>Dvorana Hrvatskog doma</HallNameTextCenter>
+                {/* </StyledLink> */}
+              </HallNameButton>
             </HallImageContainer>
 
             <HallImageContainer>
@@ -138,13 +136,13 @@ function CitizensSelectHall() {
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon src={Icon} />
               </a>
-              <HallNameText>
-                <StyledLink href="" target="_blank" rel="noopener noreferrer">
-                  <HallNameTextCenter>
-                    Dvorana Gradske knjižnice
-                  </HallNameTextCenter>
-                </StyledLink>
-              </HallNameText>
+              <HallNameButton>
+                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+                <HallNameTextCenter>
+                  Dvorana gradske knjižnice
+                </HallNameTextCenter>
+                {/* </StyledLink> */}
+              </HallNameButton>
             </HallImageContainer>
           </FirstRow>
 
@@ -154,13 +152,13 @@ function CitizensSelectHall() {
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon src={Icon} />
               </a>
-              <HallNameText>
-                <StyledLink href="" target="_blank" rel="noopener noreferrer">
-                  <HallNameTextCenter>
-                    Dvorana TIC (Turistički Dom)
-                  </HallNameTextCenter>
-                </StyledLink>
-              </HallNameText>
+              <HallNameButton>
+                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+                <HallNameTextCenter>
+                  Dvorana TIC (Turistički dom)
+                </HallNameTextCenter>
+                {/* </StyledLink> */}
+              </HallNameButton>
             </HallImageContainer>
 
             <HallImageContainer>
@@ -168,13 +166,13 @@ function CitizensSelectHall() {
               <a href="#" rel="noopener noreferrer">
                 <InfoIcon src={Icon} />
               </a>
-              <HallNameText>
+              <HallNameButton>
                 <StyledLink href="" target="_blank" rel="noopener noreferrer">
                   <HallNameTextCenter>
                     Konferencijska dvorana RCTP
                   </HallNameTextCenter>
                 </StyledLink>
-              </HallNameText>
+              </HallNameButton>
             </HallImageContainer>
           </SecondRow>
         </LayoutWrapper>

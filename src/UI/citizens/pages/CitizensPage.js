@@ -19,15 +19,23 @@ import { Footer } from '../../common';
 
 import sampleData from '../components/select-date-time/SampleData';
 
+//import SampleHallData from '../components/select-hall/SampleHallData'
+
 class CitizensPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //CitizenSelectHall FILE
+      //hallSelectId: '',
+      //hallName: '',
+      //hallPictureUrl:'',
+      //GodHelpUsAll
       hallId: '',
       reservationDate: '',
       reservationStartTime: '',
       reservationEndTime: '',
       post: {
+        hallSelectId: '',
         eventName: '',
         eventDescription: '',
         nameAndSurname: '',
@@ -46,9 +54,9 @@ class CitizensPage extends Component {
 
   handleFilterChange = e => {
     const { name, value } = e.target;
-    
+
     this.setState({
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -57,7 +65,7 @@ class CitizensPage extends Component {
     let charCounter = this.state.post.charCounter;
 
     /*
-    if (name === 'pero') {
+    if (name === 'something') {
       const isValid = event.target.validity.valid;
 
       if (value && !isValid) return;
@@ -89,10 +97,9 @@ class CitizensPage extends Component {
       rest.eventDescription
       rest.nameAndSurname
     */
-  }
+  };
 
   render() {
-
     console.log('date', this.state.reservationDate);
 
     return (
@@ -102,7 +109,7 @@ class CitizensPage extends Component {
 
           <CitizensSelectHall />
 
-          <CitizensSelectDateTime 
+          <CitizensSelectDateTime
             handleFilterChange={this.handleFilterChange}
             hallId={this.state.hallId}
             reservationDate={this.state.reservationDate}
@@ -128,24 +135,4 @@ class CitizensPage extends Component {
 
 export default CitizensPage;
 
-//Old code
-// const CitizensPage = () => (
-//   <React.Fragment>
-//     <CitizensPageWrapper>
-//       <CitizensHeader />
-
-//       <CitizensSelectHall />
-
-//       <CitizensSelectDateTime />
-
-//       <CitizensEditEventInfo />
-
-//       <CitizensSubmitRequest />
-//       {/* <CitizensAdminLogin /> */}
-//       {/* <Error404 /> */}
-//       <Footer />
-//     </CitizensPageWrapper>
-//   </React.Fragment>
-// );
-
-// export default CitizensPage;
+// Fail quietly
