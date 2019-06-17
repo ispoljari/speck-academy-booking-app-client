@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE_URL } from '../../../../config';
 import {
   BigRectangle,
   Button,
@@ -13,26 +14,95 @@ import {
   MidRightPart
 } from './AdminEditHallStyle';
 
-const EditHallComponent = props => (
-  <Wrapper>
-    <TopPart>
-      <Title>Uredi podatke o dvorani</Title>
-    </TopPart>
-    <MidPart>
-      <ArenaPicture src={props.pictureUrl} />
-      <MidRightPart>
-        <SlimText>NAZIV</SlimText>
-        <Rectangle placeholder={props.naziv} />
-        <SlimText>LOKACIJA</SlimText>
-        <Rectangle placeholder={props.location} />
-      </MidRightPart>
-    </MidPart>
-    <Opis>
-      <SlimText>OPIS</SlimText>
-      <BigRectangle placeholder={props.description} />
-    </Opis>
-    <Button>SPREMI</Button>
-  </Wrapper>
-);
+class EditHallComponent extends React.Component {
+  constructor() {
+    super();
+
+    this.state = { name: '', address: '', description: '' };
+  }
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const data = {
+      name: this.state.name,
+      address: this.state.address,
+      description: this.state.description,
+      pictureUrl: ''
+    };
+    let id = this.props.id;
+    if (id) {
+      fetch(API_BASE_URL + '/halls/update/' + id, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      })
+        .then(res => res.json())
+
+        .catch(error => console.error('Error:', error))
+
+        .then(response => console.log('Success:', response))
+
+        .finally(() => {
+          this.props.handleClose();
+        });
+    } else {
+      fetch(API_BASE_URL + '/halls/create', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      })
+        .then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response))
+        .finally(() => {
+          this.props.handleClose();
+        });
+    }
+  };
+  render() {
+    return (
+      <Wrapper>
+        <form onSubmit={this.handleSubmit}>
+          <TopPart>
+            <Title>Uredi podatke o dvorani</Title>
+          </TopPart>
+          <MidPart>
+            <ArenaPicture src={this.props.pictureUrl} />
+            <MidRightPart>
+              <SlimText>NAZIV</SlimText>
+              <Rectangle
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                placeholder={this.props.naziv}
+              />
+              <SlimText>LOKACIJA</SlimText>
+              <Rectangle
+                type="text"
+                name="address"
+                onChange={this.handleChange}
+                placeholder={this.props.location}
+              />
+            </MidRightPart>
+          </MidPart>
+          <Opis>
+            <SlimText>OPIS</SlimText>
+            <BigRectangle
+              type="text"
+              name="description"
+              onChange={this.handleChange}
+              placeholder={this.props.description}
+            />
+          </Opis>
+          <Button type="submit">SPREMI</Button>
+        </form>
+      </Wrapper>
+    );
+  }
+}
 
 export default EditHallComponent;
