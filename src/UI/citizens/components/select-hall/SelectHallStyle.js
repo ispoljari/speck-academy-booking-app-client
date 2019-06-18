@@ -92,7 +92,7 @@ export const SubheadlineText = styled.div`
 export const HallNameButton = styled.button`
   position: absolute;
   align-self: flex-end;
-  width: 158px;
+  width: 160px;
   height: 48px;
   border-radius: 3px;
   border-color: #808080;
@@ -114,7 +114,7 @@ export const HallNameButton = styled.button`
 `;
 
 export const HallNameTextCenter = styled.div`
-  padding: 10px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;

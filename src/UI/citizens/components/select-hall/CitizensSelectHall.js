@@ -167,11 +167,11 @@ function CitizensSelectHall() {
                 <InfoIcon src={Icon} />
               </a>
               <HallNameButton>
-                <StyledLink href="" target="_blank" rel="noopener noreferrer">
-                  <HallNameTextCenter>
-                    Konferencijska dvorana RCTP
-                  </HallNameTextCenter>
-                </StyledLink>
+                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+                <HallNameTextCenter>
+                  Konferencijska dvorana RCTP
+                </HallNameTextCenter>
+                {/* </StyledLink> */}
               </HallNameButton>
             </HallImageContainer>
           </SecondRow>
