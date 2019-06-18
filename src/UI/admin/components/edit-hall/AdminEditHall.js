@@ -18,6 +18,7 @@ const InputUrl = props => {
   if (props.pictureUrl) {
     return <ArenaPicture src={props.pictureUrl} />;
   }
+  return <input type="file" />;
 };
 class EditHallComponent extends React.Component {
   constructor() {
@@ -73,7 +74,7 @@ class EditHallComponent extends React.Component {
             <Title>Uredi podatke o dvorani</Title>
           </TopPart>
           <MidPart>
-            <InputUrl pictureUrl />
+            <InputUrl />
             <MidRightPart>
               <SlimText>NAZIV</SlimText>
               <Rectangle
