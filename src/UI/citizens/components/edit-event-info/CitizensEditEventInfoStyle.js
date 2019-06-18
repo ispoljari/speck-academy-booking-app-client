@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-const MainContainer = styled.div`
+export const MainContainer = styled.div`
   margin-top: 32px;
-  ${'' /* margin: auto; */}
   width: 1024px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
@@ -12,7 +11,8 @@ const MainContainer = styled.div`
   padding-bottom: 24px;
 `;
 
-const MainHeader = styled.h1`
+export const MainHeader = styled.h1`
+  line-height: normal;
   margin-top: 32px;
   margin-bottom: 16px;
   font-family: Lora;
@@ -20,16 +20,17 @@ const MainHeader = styled.h1`
   color: #000000;
 `;
 
-const MainDescription = styled.p`
+export const MainDescription = styled.p`
+  line-height: normal;
   font-family: Poppins, Arial, sans-serif;
   font-size: 14px;
   color: #000000;
   padding-bottom: 16px;
 `;
+export const FormContainer = styled.div``;
 
-const FormContainer = styled.form``;
-
-const FormHeader = styled.h5`
+export const FormHeader = styled.h5`
+  line-height: normal;
   text-transform: uppercase;
   font-family: Poppins, Arial, sans-serif;
   font-size: 16px;
@@ -37,14 +38,12 @@ const FormHeader = styled.h5`
   color: #434343;
   padding-top: 16px;
 `;
-
-const FormContainerInfoGroup = styled.form`
+export const FormContainerInfoGroup = styled.form`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 `;
-
-const FormInput = styled.input`
+export const FormInput = styled.input`
   width: 100%;
   height: 32px;
   border-radius: 2px;
@@ -54,9 +53,18 @@ const FormInput = styled.input`
   margin-bottom: 8px;
   padding-left: 8px;
   padding-right: 8px;
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 14px;
+  opacity: 0.5;
+  :required:focus {
+    box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+  }
+  :invalid:focus {
+    box-shadow: 0 0 2px 1px red;
+  }
 `;
 
-const FormInputText = styled.textarea`
+export const FormInputText = styled.textarea`
   width: 100%;
   height: 136px;
   font-family: Poppins, Arial, sans-serif;
@@ -72,9 +80,16 @@ const FormInputText = styled.textarea`
   border: solid 1px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   resize: none;
+  opacity: 0.5;
+  :required:focus {
+    box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+  }
+  :invalid:focus {
+    box-shadow: 0 0 2px 1px red;
+  }
 `;
 
-const FormInputTextCharacterCounter = styled.p`
+export const FormInputTextCharacterCounter = styled.p`
   opacity: 0.5;
   font-family: Poppins, Arial, sans-serif;
   font-size: 12px;
@@ -82,8 +97,7 @@ const FormInputTextCharacterCounter = styled.p`
   color: #000000;
   text-align: end;
 `;
-
-const FormInlineLabel = styled.h6`
+export const FormInlineLabel = styled.h6`
   text-transform: uppercase;
   opacity: 0.5;
   font-family: Poppins, Arial, sans-serif;
@@ -92,45 +106,26 @@ const FormInlineLabel = styled.h6`
   color: #000000;
   margin-top: 8px;
 `;
-
-const FormInlineInput = styled.span`
+export const FormInlineInput = styled.span`
   display: inline-block;
   width: 374px;
 `;
-
-const CricleMark = styled.div`
+export const CricleMark = styled.div`
   width: 152px;
   height: 152px;
-  opacity: 0.4;
+  opacity: 0.2;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
   position: absolute;
   margin-top: 16px;
   margin-left: -114px;
 `;
-
-const NumberMark = styled.div`
+export const NumberMark = styled.div`
   position: absolute;
   font-family: Poppins, Arial, sans-serif;
   font-size: 96px;
   font-weight: 800;
   text-align: center;
-  margin-left: 35px;
+  margin-left: 34px;
   color: #82d4a7;
 `;
-
-export {
-  MainContainer,
-  MainHeader,
-  MainDescription,
-  FormContainer,
-  FormHeader,
-  FormContainerInfoGroup,
-  FormInput,
-  FormInputText,
-  FormInputTextCharacterCounter,
-  FormInlineLabel,
-  FormInlineInput,
-  CricleMark,
-  NumberMark
-};

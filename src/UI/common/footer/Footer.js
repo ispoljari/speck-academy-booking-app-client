@@ -12,7 +12,7 @@ import {
 const Footer = () => (
   <FooterContainer>
     <Footer1>
-      Stranica izrađena u sklopu
+      Aplikacija izrađena u sklopu
       <Footer2>Speck Akademije 2019</Footer2>
     </Footer1>
     <VLine />
