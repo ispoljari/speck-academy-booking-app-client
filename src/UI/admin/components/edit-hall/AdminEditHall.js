@@ -14,6 +14,11 @@ import {
   MidRightPart
 } from './AdminEditHallStyle';
 
+const InputUrl = props => {
+  if (props.pictureUrl) {
+    return <ArenaPicture src={props.pictureUrl} />;
+  }
+};
 class EditHallComponent extends React.Component {
   constructor() {
     super();
@@ -43,9 +48,6 @@ class EditHallComponent extends React.Component {
         .then(res => res.json())
 
         .catch(error => console.error('Error:', error))
-
-        .then(response => console.log('Success:', response))
-
         .finally(() => {
           this.props.handleClose();
         });
@@ -71,7 +73,7 @@ class EditHallComponent extends React.Component {
             <Title>Uredi podatke o dvorani</Title>
           </TopPart>
           <MidPart>
-            <ArenaPicture src={this.props.pictureUrl} />
+            <InputUrl pictureUrl />
             <MidRightPart>
               <SlimText>NAZIV</SlimText>
               <Rectangle
