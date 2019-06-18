@@ -8,13 +8,34 @@ import {
   DayPicker2
 } from '../../components/hall-reservation/AdminHallReservationStyle.js';
 
-/*const WeekPicker = () => (
-  <React.Fragment>
-    {
-  
-    }
-  </React.Fragment>
-);*/
+import { API_BASE_URL } from '../../../../config';
+
+let startDay, endDay;
+let realData;
+
+function handledChange1(event) {
+  if (event.target.id === 'startDay') {
+    startDay = event.target.value;
+  } else if (event.target.id === 'endDay') {
+    endDay = event.target.value;
+  }
+  fetchIt(startDay, endDay);
+}
+
+function fetchIt(startDay, endDay) {
+  var url = new URL(API_BASE_URL + '/halls/reservations');
+  var params = { startDate: '2017-05-25', endDate: '2020-10-25' };
+  url.search = new URLSearchParams(params);
+  fetch(url, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json; charset=utf-8'
+    },
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => (dataArray = data));
+}
 
 const AllHallsReservations = () => (
   <React.Fragment>
@@ -22,8 +43,8 @@ const AllHallsReservations = () => (
     <DayPicker1>
       {
         <form action="/action_page.php">
-          <input type="date" name="stardDay" />
-          <input type="date" name="endDay" />
+          <input type="date" id="startDay" onChange={handledChange1} />
+          <input type="date" id="endDay" onChange={handledChange1} />
           <input type="submit" />
         </form>
       }
@@ -38,6 +59,7 @@ const AllHallsReservations = () => (
     </DayPicker2> */}
 
     {dataArray.map(data => {
+      // {realData.map(data => {
       return <ScheduleComponenet data={data} />;
     })}
   </React.Fragment>

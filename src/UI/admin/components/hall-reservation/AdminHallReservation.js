@@ -189,36 +189,6 @@ class ScheduleComponenet extends React.Component {
   renderHoursOfDayCollection() {
     const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
     const lastHour = 22;
-    //    let x = this.getData();
-    //    console.log('XXXXXXXXXXX' + x);
-    /*    this.setState({
-      dummyDataArray: 
-        this.getData()
-      
-    });*/
-    /*
-    var url = new URL(API_BASE_URL + '/halls/reservations');
-    var params = { startDate: '2017-05-25', endDate: '2020-10-25' };
-    url.search = new URLSearchParams(params);
-    fetch(url, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      method: 'GET'
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(JSON.stringify(res));
-        console.log('NEW RES: ' + res);
-        this.setState({
-          dummyDataArray: res[0]
-        });
-      })
-      .catch(err => {
-        console.error(err);
-      });
-      */
     console.log('STATE:    ' + this.state);
 
     return (
