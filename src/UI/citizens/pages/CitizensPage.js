@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
 
-import { CitizensPageWrapper } from './CitizensPageStyle.js';
+import React, { Component } from 'react';
+
+
+import { Redirect } from 'react-router-dom';
+
+import { CitizensPageWrapper } from './CitizensPageStyle';
 
 import {
   CitizensHeader,
@@ -12,9 +15,8 @@ import {
   CitizensSubmitRequest
 } from '../';
 
-import Error404 from '../../common/error404/Error404';
 
-import { Footer } from '../../common';
+import { Footer, Modal } from '../../common';
 // import { Component } from '../components/login/CitizensAdminLoginStyle.js';
 
 import sampleData from '../components/select-date-time/SampleData';
@@ -22,10 +24,8 @@ import sampleData from '../components/select-date-time/SampleData';
 //import SampleHallData from '../components/select-hall/SampleHallData'
 
 class CitizensPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      //CitizenSelectHall FILE
+  state = {
+    //CitizenSelectHall FILE
       //hallSelectId: '',
       //hallName: '',
       //hallPictureUrl:'',
@@ -44,13 +44,49 @@ class CitizensPage extends Component {
         phoneNumber: '',
         charCounter: 0
       },
-      reservations: []
-    };
-  }
+      reservations: [],
+      adminLoginVisible: false    
+  };
 
   componentDidMount() {
     this.setState({ reservations: sampleData });
+    document.addEventListener('keydown', this.handleKeyPress);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  confirmAdminLogin = async () => {
+    await this.closeLoginModal();
+    this.props.authenticateAdmin(true);
+  };
+
+  handleKeyPress = e => {
+    if (e.key === 'Escape' && this.state.adminLoginVisible) {
+      this.closeLoginModal();
+    }
+  };
+
+  openLoginModal = () => {
+    this.setState({
+      adminLoginVisible: true
+    });
+  };
+
+  closeLoginModal = () => {
+    return new Promise(resolve => {
+      this.setState(
+        {
+          adminLoginVisible: false
+        },
+        () => {
+          resolve();
+        }
+      );
+    });
+  };
+
 
   handleFilterChange = e => {
     const { name, value } = e.target;
@@ -100,17 +136,14 @@ class CitizensPage extends Component {
   };
 
   render() {
-    console.log('date', this.state.reservationDate);
+    if (this.state.loggedIn) {
+      return <Redirect to="/admin/requests" />;
+    }
 
     return (
-      <React.Fragment>
-        <CitizensPageWrapper>
-          <CitizensHeader />
-
-          <CitizensSelectHall
-          // hallSelectId={this.hallSelectId}   INCOMPLETE
-          />
-
+           <CitizensPageWrapper>
+          <CitizensHeader onClick={this.openLoginModal} />
+          <CitizensSelectHall />
           <CitizensSelectDateTime
             handleFilterChange={this.handleFilterChange}
             hallId={this.state.hallId}
@@ -124,17 +157,21 @@ class CitizensPage extends Component {
             handleChange={this.handleChange}
             post={this.state.post}
           />
-
-          <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
-          {/* <CitizensAdminLogin /> */}
-          {/* <Error404 /> */}
-          <Footer />
-        </CitizensPageWrapper>
-      </React.Fragment>
+        <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
+        <Footer />
+        {/* <Error404 /> */}
+        {this.state.adminLoginVisible ? (
+          <Modal onClick={this.closeLoginModal}>
+            <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
+          </Modal>
+        ) : (
+          ''
+        )}
+      </CitizensPageWrapper>
     );
   }
 }
 
 export default CitizensPage;
 
-// Fail quietly
+
