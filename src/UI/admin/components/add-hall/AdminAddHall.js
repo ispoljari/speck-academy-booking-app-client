@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import Plus from '../../../../images/PlusSign.svg';
 import { Wrapper, Button } from '../available-hall/AdminAvailableHallStyle.js';
+import { Modal } from '../available-hall/AdminAvailableHall';
+import AdminEditHall from '../edit-hall/AdminEditHall';
 
 const WrapperAdd = styled(Wrapper)`
   border: solid 1px #93e9bb;
@@ -22,11 +24,33 @@ const ButtonAdd = styled(Button)`
   margin-bottom: 58px;
 `;
 
-const AdminAddHall = () => (
-  <WrapperAdd>
-    <PlusSign src={Plus} />
-    <ButtonAdd>DODAJ NOVU DVORANU</ButtonAdd>
-  </WrapperAdd>
-);
-
+class AdminAddHall extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
+  }
+  closeModal() {
+    this.setState({ visible: false });
+    this.props.updatePage();
+  }
+  render() {
+    const editHall = () => {
+      this.setState({ visible: true });
+    };
+    return (
+      <WrapperAdd>
+        <Modal
+          visible={this.state.visible}
+          handleClose={this.closeModal.bind(this)}
+        >
+          <AdminEditHall handleClose={this.closeModal.bind(this)} />
+        </Modal>
+        <PlusSign src={Plus} />
+        <ButtonAdd onClick={editHall}>DODAJ NOVU DVORANU</ButtonAdd>
+      </WrapperAdd>
+    );
+  }
+}
 export default AdminAddHall;

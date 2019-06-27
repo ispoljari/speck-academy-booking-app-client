@@ -1,5 +1,32 @@
 import styled from 'styled-components';
 
+const DayPickerTitle = styled.h2.attrs({
+  'data-id': 'DayPickerTitle'
+})`
+  width: 384px;
+  //height: 24px;
+  font-family: Poppins;
+  font-size: 16px;
+  color: #434343;
+
+  margin-bottom: 8px;
+  margin-left: 208px;
+`;
+
+const DayPicker1 = styled.div.attrs({
+  'data-id': 'DayPicker1'
+})`
+  margin-bottom: 16px;
+  margin-left: 208px;
+`;
+
+const DayPicker2 = styled.div.attrs({
+  'data-id': 'DayPicker2'
+})`
+  margin-bottom: 16px;
+  margin-left: 208px;
+`;
+
 const MainWrapper = styled.div.attrs({
   'data-id': 'MainWrapper'
 })`
@@ -10,8 +37,8 @@ const MainWrapper = styled.div.attrs({
   border: solid 1px #229c7f;
   background-color: #ffffff;
 
-  margin-left: 0px;
-  margin-top: 0px;
+  margin-left: 208px;
+  margin-bottom: 32px;
 `;
 
 const MainTitleWrapper = styled.div.attrs({
@@ -84,6 +111,8 @@ const HoursDivRow = styled.div.attrs({
   margin-top: 24px;
   margin-bottom: 0px;
   //background-color: blue;
+
+  position: absolute;
 `;
 
 //TODO position this div(s) with repeat
@@ -91,7 +120,7 @@ const HourDiv = styled.div.attrs({
   'data-id': 'HourDiv'
 })`
   width: 50px;
-  height: 16px;
+  //height: 16px;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
@@ -103,13 +132,17 @@ const HourDiv = styled.div.attrs({
   text-align: center;
   //border: 0.2px solid black;
   //background-color: yellow;
+
+  height: 182px;
+  border-left: dashed 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 `;
 
 const LastHourDiv = styled.div.attrs({
   'data-id': 'LastHourDiv'
 })`
   width: 16px;
-  height: 16px;
+  //height: 16px;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 200;
@@ -120,7 +153,12 @@ const LastHourDiv = styled.div.attrs({
 
   //border: 0px solid black;
   //background-color: yellow;
-  margin-left: 17px;
+  //margin-left: 17px;
+
+  height: 182px;
+  border-left: dashed 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding-left: 17px;
 `;
 
 const Line = styled.div.attrs({
@@ -131,6 +169,8 @@ const Line = styled.div.attrs({
   border: solid 1px rgba(0, 0, 0, 0.15);
   margin-left: 24px;
   margin-bottom: 4px;
+
+  margin-top: 40px;
 `;
 
 const OneDayDivRow = styled.div.attrs({
@@ -186,8 +226,10 @@ const ReservationDynamicDiv = styled.div.attrs({
   height: 14px;
   border-radius: 2px;
 
-  border: solid 1px #ffffff;
+  //border: solid 1px #ffffff;
   //border: solid 1px #0f4951;
+  //border: ${props =>
+    props.active ? 'solid 5px #0f4951' : 'solid 1px #ffffff'};
 
   background-color: #93e9bb;
   display: inline-block;
@@ -213,6 +255,10 @@ const PopUpInfo = styled.div.attrs({
 
   margin-top: 16px;
   position: absolute;
+  margin-left: ${props => {
+    //console.log('props.length: ' + Math.random() + ' ' + props.length);
+    return props.length / 2 - 184 / 2 + 'px';
+  }};
   //visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   visibility: hidden;
   z-index: 10;
@@ -358,6 +404,9 @@ const Details = styled.div.attrs({
 `;
 
 export {
+  DayPickerTitle,
+  DayPicker1,
+  DayPicker2,
   MainWrapper,
   MainTitleWrapper,
   MainTitle,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { API_BASE_URL } from '../../../../config';
 import { AdminHeader } from '../../';
-import { Footer, Modal } from '../../../common';
-import AdminAvailableHall from '../../components/available-hall/AdminAvailableHall';
+import { Footer } from '../../../common';
+import { AdminAvailableHall } from '../../components/available-hall/AdminAvailableHall';
 import AdminAddHall from '../../components/add-hall/AdminAddHall';
 import { AdminHallPageContainer } from '../../components/available-hall/AdminAvailableHallStyle';
 class AdminHallsPage extends React.Component {
@@ -15,11 +15,13 @@ class AdminHallsPage extends React.Component {
   }
   FetchRequests() {
     fetch(API_BASE_URL + '/halls')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ data });
-        console.log(data);
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('There has been an error');
+        }
+        return response.status === 200 && response.json();
       })
+      .then(data => this.setState({ data }))
       .catch(error => console.log(error));
   }
   componentDidMount() {
@@ -43,7 +45,7 @@ class AdminHallsPage extends React.Component {
                 updatePage={this.FetchRequests}
               />
             ))}
-            <AdminAddHall />
+            <AdminAddHall updatePage={this.FetchRequests} />
           </AdminHallPageContainer>
         </div>
         <Footer />
