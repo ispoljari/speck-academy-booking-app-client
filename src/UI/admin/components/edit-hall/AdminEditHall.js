@@ -20,12 +20,11 @@ const InputUrl = props => {
   }
   return (
     <div>
-      <label for="image_uploads">
+      <label htmlFor="image_uploads">
         <SlimText style={{ marginBottom: '8px' }}>IZABERITE SLIKU</SlimText>
       </label>
       <input
         type="file"
-        ype="file"
         id="avatar"
         name="image_uploads"
         accept="image/png, image/jpeg"
@@ -50,7 +49,7 @@ class EditHallComponent extends React.Component {
       name: this.state.name,
       address: this.state.address,
       description: this.state.description,
-      pictureUrl: ''
+      pictureUrl: this.props.pictureUrl
     };
     let id = this.props.id;
     if (id) {
@@ -95,6 +94,7 @@ class EditHallComponent extends React.Component {
                 name="name"
                 onChange={this.handleChange}
                 placeholder={this.props.naziv}
+                required
               />
               <SlimText>LOKACIJA</SlimText>
               <Rectangle
@@ -102,6 +102,7 @@ class EditHallComponent extends React.Component {
                 name="address"
                 onChange={this.handleChange}
                 placeholder={this.props.location}
+                required
               />
             </MidRightPart>
           </MidPart>
@@ -112,6 +113,7 @@ class EditHallComponent extends React.Component {
               name="description"
               onChange={this.handleChange}
               placeholder={this.props.description}
+              required
             />
           </Opis>
           <Button type="submit">SPREMI</Button>
