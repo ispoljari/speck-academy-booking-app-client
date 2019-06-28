@@ -14,33 +14,41 @@ import {
   MidRightPart
 } from './AdminEditHallStyle';
 
-const InputUrl = props => {
-  if (props.pictureUrl) {
-    return <ArenaPicture src={props.pictureUrl} />;
-  }
-  return (
-    <div>
-      <label htmlFor="image_uploads">
-        <SlimText style={{ marginBottom: '8px' }}>IZABERITE SLIKU</SlimText>
-      </label>
-      <input
-        type="file"
-        id="avatar"
-        name="image_uploads"
-        accept="image/png, image/jpeg"
-      />
-    </div>
-  );
-};
 class EditHallComponent extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
-    this.state = { name: '', address: '', description: '' };
+    this.state = {
+      name: props.naziv || '',
+      address: props.location || '',
+      description: props.description || '',
+      pictureUrl: props.pictureUrl || ''
+    };
   }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addFile = event => {
+    const imgFile = event.target.files[0];
+    const formData = new FormData();
+    formData.append('image', imgFile);
+    fetch('https://api.imgur.com/3/image', {
+      method: 'POST',
+      headers: new Headers({
+        Authorization: 'Client-ID 546c25a59c58ad7'
+      }),
+      body: formData
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('There has been an error');
+        }
+        return response.status === 200 && response.json();
+      })
+      .then(res => this.setState({ pictureUrl: res.data.link }))
+      .catch(e => console.log(e));
   };
 
   handleSubmit = event => {
@@ -49,7 +57,7 @@ class EditHallComponent extends React.Component {
       name: this.state.name,
       address: this.state.address,
       description: this.state.description,
-      pictureUrl: this.props.pictureUrl
+      pictureUrl: this.state.pictureUrl || this.props.pictureUrl
     };
     let id = this.props.id;
     if (id) {
@@ -72,8 +80,14 @@ class EditHallComponent extends React.Component {
       })
         .then(res => res.json())
         .catch(error => console.error('Error:', error))
-        .then(response => console.log('Success:', response))
         .finally(() => {
+          this.setState({
+            name: '',
+            address: '',
+            description: '',
+            pictureUrl: ''
+          });
+          this.formRef.reset();
           this.props.handleClose();
         });
     }
@@ -81,19 +95,41 @@ class EditHallComponent extends React.Component {
   render() {
     return (
       <Wrapper>
-        <form onSubmit={this.handleSubmit}>
+        <form
+          ref={ref => (this.formRef = ref)}
+          onSubmit={this.handleSubmit}
+          encType="multipart/form-data"
+        >
           <TopPart>
             <Title>Uredi podatke o dvorani</Title>
           </TopPart>
           <MidPart>
-            <InputUrl pictureUrl={this.props.pictureUrl} />
+            {this.props.pictureUrl ? (
+              <ArenaPicture src={this.props.pictureUrl} />
+            ) : (
+              <div>
+                <label htmlFor="image_uploads">
+                  <SlimText style={{ marginBottom: '8px' }}>
+                    IZABERITE SLIKU
+                  </SlimText>
+                </label>
+                <input
+                  type="file"
+                  id="avatar"
+                  name="image_uploads"
+                  accept="image/*"
+                  onChange={this.addFile}
+                  required
+                />
+              </div>
+            )}
             <MidRightPart>
               <SlimText>NAZIV</SlimText>
               <Rectangle
                 type="text"
                 name="name"
                 onChange={this.handleChange}
-                placeholder={this.props.naziv}
+                value={this.state.name}
                 required
               />
               <SlimText>LOKACIJA</SlimText>
@@ -101,7 +137,7 @@ class EditHallComponent extends React.Component {
                 type="text"
                 name="address"
                 onChange={this.handleChange}
-                placeholder={this.props.location}
+                value={this.state.address}
                 required
               />
             </MidRightPart>
@@ -112,7 +148,7 @@ class EditHallComponent extends React.Component {
               type="text"
               name="description"
               onChange={this.handleChange}
-              placeholder={this.props.description}
+              value={this.state.description}
               required
             />
           </Opis>

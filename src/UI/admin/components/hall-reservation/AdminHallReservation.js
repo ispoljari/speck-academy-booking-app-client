@@ -25,8 +25,6 @@ import {
 
 import DetailsIcon from '../../../../images/Details@3x.png';
 
-import dataArray from './newData.js';
-
 import { API_BASE_URL } from '../../../../config';
 
 //TODO delete all console logs
@@ -60,51 +58,6 @@ function calcPositionAndLEngth(date, startTime, endTime) {
   return existStartLength;
 }
 
-let data = dataArray[0];
-
-function getData() {
-  var url = new URL(API_BASE_URL + '/halls/reservations');
-  var params = { startDate: '2017-05-25', endDate: '2020-10-25' }; // or:
-  url.search = new URLSearchParams(params);
-  fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json; charset=utf-8'
-    },
-    method: 'GET'
-  })
-    .then(res =>
-      res.json()
-    ) /*.then(res =>
-      //console.log(JSON.stringify(res))
-      //console.log(JSON.stringify(res[0]))
-      //console.log(res[0])
-     )*/
-    .catch(err => {
-      console.error(err);
-    });
-}
-
-/*function deleteData() {
-  console.log(this.state.currentReservationActive);
-  const deleteHall = () => {
-    //fetch(API_BASE_URL + '/reservations/delete/' + this.state.currentReservationActive.id, {
-    fetch(API_BASE_URL + '/reservations/delete/' + '1', {
-        method: 'DELETE'
-    })
-      .then(res => {
-        //props.updatePage();
-        //      alert('GOOOOOOOOOOOOOOOOOOOOOD');
-        console.log('QQQQQQQQQQQQQQQQQQQQ: ' + res.status);
-      })
-      .catch(err => {
-        //        alert('BAAAAAAAAAAAAAAAAAAAAAAAAAD');
-        console.error(err);
-      });
-  };
-  deleteHall();
-}*/
-
 class ScheduleComponenet extends React.Component {
   state = {
     //dummyDataArray: dataArray,
@@ -124,67 +77,10 @@ class ScheduleComponenet extends React.Component {
       infoVisibility: 'hidden'
     }
   };
-  /*
-  componentDidMount() {
-    var url = new URL(API_BASE_URL + '/halls/reservations');
-    var params = { startDate: '2017-05-25', endDate: '2020-10-25' };
-    url.search = new URLSearchParams(params);
-    fetch(url, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      method: 'GET'
-    })
-      .then(response => response.json())
-      .then(data => this.setState({ dummyDataArray: data }));
-  }
-*/
 
   deleteData() {
     console.log(this.state.currentReservationActive.id);
-    /*const deleteHall = () => {
-      fetch(API_BASE_URL + '/reservations/delete/' + this.state.currentReservationActive.id, {
-        method: 'DELETE'
-      })
-        .then(res => {
-          //props.updatePage();
-          //      alert('GOOOOOOOOOOOOOOOOOOOOOD');
-          console.log('QQQQQQQQQQQQQQQQQQQQ: ' + res.status);
-        })
-        .catch(err => {
-          //        alert('BAAAAAAAAAAAAAAAAAAAAAAAAAD');
-          console.error(err);
-        });
-    };*/
-    //deleteHall();
   }
-
-  /*
-  getData() {
-    var url = new URL(API_BASE_URL + '/halls/reservations');
-    var params = { startDate: '2017-05-25', endDate: '2020-10-25' };
-    url.search = new URLSearchParams(params);
-    fetch(url, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      method: 'GET'
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(JSON.stringify(res));
-        console.log('NEW RES: ' + res);
-        this.setState({
-          dummyDataArray: res[0]
-        });
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
-*/
 
   renderHoursOfDayCollection() {
     const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
@@ -350,8 +246,6 @@ class ScheduleComponenet extends React.Component {
                   }
                 )
                   .then(res => {
-                    //props.updatePage();
-                    //      alert('GOOOOOOOOOOOOOOOOOOOOOD');
                     console.log(
                       'QQQQQQQQQQQQQQQQQQQQ: ' +
                         res.status +
@@ -360,7 +254,6 @@ class ScheduleComponenet extends React.Component {
                     );
                   })
                   .catch(err => {
-                    //        alert('BAAAAAAAAAAAAAAAAAAAAAAAAAD');
                     console.error(err);
                   });
               }}

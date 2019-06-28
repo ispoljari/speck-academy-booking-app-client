@@ -3,21 +3,18 @@ import styled from 'styled-components';
 const DayPickerTitle = styled.h2.attrs({
   'data-id': 'DayPickerTitle'
 })`
-  width: 384px;
-  //height: 24px;
+  width: 1024px;
+  margin: 0 auto 8px;
   font-family: Poppins;
   font-size: 16px;
   color: #434343;
-
-  margin-bottom: 8px;
-  margin-left: 208px;
 `;
 
 const DayPicker1 = styled.div.attrs({
   'data-id': 'DayPicker1'
 })`
-  margin-bottom: 16px;
-  margin-left: 208px;
+  width: 1024px;
+  margin: 0 auto 16px;
 `;
 
 const DayPicker2 = styled.div.attrs({
@@ -37,8 +34,7 @@ const MainWrapper = styled.div.attrs({
   border: solid 1px #229c7f;
   background-color: #ffffff;
 
-  margin-left: 208px;
-  margin-bottom: 32px;
+  margin: 0 auto 32px;
 `;
 
 const MainTitleWrapper = styled.div.attrs({
