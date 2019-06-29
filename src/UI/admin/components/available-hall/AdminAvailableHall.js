@@ -93,7 +93,6 @@ class AdminAvailableHall extends React.Component {
           return res.json();
         })
         .then(res => {
-          console.log(res.message);
           if (
             res.message ===
             'update or delete on table "halls" violates foreign key constraint "reservations_hall_fk_fkey" on table "reservations"'
