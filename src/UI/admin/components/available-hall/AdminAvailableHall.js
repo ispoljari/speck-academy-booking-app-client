@@ -90,6 +90,16 @@ class AdminAvailableHall extends React.Component {
       })
         .then(res => {
           this.props.updatePage();
+          return res.json();
+        })
+        .then(res => {
+          console.log(res.message);
+          if (
+            res.message ===
+            'update or delete on table "halls" violates foreign key constraint "reservations_hall_fk_fkey" on table "reservations"'
+          ) {
+            alert('Dvorane sa aktivnim rezervacijama se nemogu izbrisati');
+          }
         })
         .catch(err => {
           console.error(err);

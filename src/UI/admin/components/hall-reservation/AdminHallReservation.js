@@ -27,9 +27,6 @@ import DetailsIcon from '../../../../images/Details@3x.png';
 
 import { API_BASE_URL } from '../../../../config';
 
-//TODO delete all console logs
-//TODO CHANGE NAME OF existStartLength
-
 const daysOfWeek = ['PON', 'UTO', 'SRI', 'ČET', 'PET', 'SUB', 'NED'];
 //javascript maps days like this
 const daysOfWeekNumerals = [1, 2, 3, 4, 5, 6, 0];

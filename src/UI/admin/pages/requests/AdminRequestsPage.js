@@ -27,7 +27,6 @@ class AdminRequestsPage extends React.Component {
   }
   render() {
     let items = this.state.data;
-    console.log(items);
     return (
       <div style={{ minHeight: 'calc(100vh - 160px)' }}>
         <AdminHeader />

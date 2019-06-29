@@ -1,16 +1,14 @@
 import React from 'react';
 
 import { AdminHeader } from '../../';
-import { Footer, Modal } from '../../../common';
-//import dataArray from '../../components/hall-reservation/newData.js';
-//import ScheduleComponenet from '../../components/hall-reservation/AdminHallReservation';
+import { Footer } from '../../../common';
 import AllHallsReservations from '../../components/hall-reservation/AdminAllHallsReservation';
 
 const AdminReservationsPage = () => (
   <React.Fragment>
     <AdminHeader />
     <AllHallsReservations />
-    {/* <Footer /> */}
+    <Footer />
   </React.Fragment>
 );
 

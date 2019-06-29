@@ -4,15 +4,12 @@ import dataArray from '../../components/hall-reservation/newData.js';
 import ScheduleComponenet from '../../components/hall-reservation/AdminHallReservation';
 import {
   DayPickerTitle,
-  DayPicker1,
-  DayPicker2
+  DayPicker1
 } from '../../components/hall-reservation/AdminHallReservationStyle.js';
 
 import { API_BASE_URL } from '../../../../config';
 
 let startDay, endDay;
-let realData;
-
 function handledChange1(event) {
   if (event.target.id === 'startDay') {
     startDay = event.target.value;
