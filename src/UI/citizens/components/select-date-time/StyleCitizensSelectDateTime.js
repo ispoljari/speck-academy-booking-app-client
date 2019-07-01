@@ -88,7 +88,6 @@ export const DateInput = styled.div`
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.15);
   font-family: Poppins, sans-serif;
-  opacity: 0.3;
   font-size: 14px;
   font-weight: 500;
   display: inline-block;
