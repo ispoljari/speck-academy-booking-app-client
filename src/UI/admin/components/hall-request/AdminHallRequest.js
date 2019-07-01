@@ -43,6 +43,12 @@ function AdminHallRequest(props) {
       method: 'PATCH',
       body: JSON.stringify({ reservationStatus: 'approved' })
     })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('There has been an error');
+        }
+        return response.status === 200 && response.json();
+      })
       .then(res => {
         props.updatePage();
       })
@@ -56,6 +62,12 @@ function AdminHallRequest(props) {
       method: 'PATCH',
       body: JSON.stringify({ reservationStatus: 'denied' })
     })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('There has been an error');
+        }
+        return response.status === 200 && response.json();
+      })
       .then(res => {
         props.updatePage();
       })

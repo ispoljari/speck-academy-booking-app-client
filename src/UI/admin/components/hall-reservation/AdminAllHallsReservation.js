@@ -1,65 +1,102 @@
 import React from 'react';
-
-import dataArray from '../../components/hall-reservation/newData.js';
 import ScheduleComponenet from '../../components/hall-reservation/AdminHallReservation';
-import {
-  DayPickerTitle,
-  DayPicker1
-} from '../../components/hall-reservation/AdminHallReservationStyle.js';
-
+import { DayPickerTitle } from '../../components/hall-reservation/AdminHallReservationStyle.js';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 import { API_BASE_URL } from '../../../../config';
-
-let startDay, endDay;
-function handledChange1(event) {
-  if (event.target.id === 'startDay') {
-    startDay = event.target.value;
-  } else if (event.target.id === 'endDay') {
-    endDay = event.target.value;
+import { DateTime } from 'luxon';
+class AllHallsReservations extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      selectedDay: ''
+    };
+    this.handleDayChange = this.handleDayChange.bind(this);
+    this.FetchRequests = this.FetchRequests.bind(this);
   }
-  fetchIt(startDay, endDay);
-}
 
-function fetchIt(startDay, endDay) {
-  var url = new URL(API_BASE_URL + '/halls/reservations');
-  var params = { startDate: '2017-05-25', endDate: '2020-10-25' };
-  url.search = new URLSearchParams(params);
-  fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json; charset=utf-8'
-    },
-    method: 'GET'
-  })
-    .then(response => response.json())
-    .then(data => (dataArray = data));
-}
+  FetchRequests() {
+    const url = new URL(API_BASE_URL + '/halls/reservations');
+    const params = {
+      startDate: DateTime.fromFormat(
+        this.state.selectedDay.toDateString(),
+        'EEE MMM dd yyyy'
+      ).toFormat('LL-dd-yyyy'),
+      endDate: DateTime.fromFormat(
+        this.state.selectedDay.toDateString(),
+        'EEE MMM dd yyyy'
+      )
+        .plus({ days: 7 })
+        .toFormat('LL-dd-yyyy')
+    };
+    url.search = new URLSearchParams(params);
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('There has been an error');
+        }
 
-const AllHallsReservations = () => (
-  <React.Fragment>
-    <DayPickerTitle>PREGLEDAJ REZERVACIJE ZA DANE:</DayPickerTitle>
-    <DayPicker1>
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ data: data });
+      })
+      .catch(error => console.log(error));
+  }
+
+  handleDayChange(selectedDay) {
+    this.setState(
       {
-        <form action="/action_page.php">
-          <input type="date" id="startDay" onChange={handledChange1} />
-          <input type="date" id="endDay" onChange={handledChange1} />
-          <input type="submit" />
-        </form>
-      }
-    </DayPicker1>
-    {/* <DayPicker2>
-      {
-        <form action="/action_page.php">
-        <input type="date" name="year_week" />
-        <input type="submit" />
-      </form>
-      }
-    </DayPicker2> */}
+        selectedDay: selectedDay
+      },
+      this.FetchRequests
+    );
+  }
 
-    {dataArray.map(data => {
-      // {realData.map(data => {
-      return <ScheduleComponenet data={data} />;
-    })}
-  </React.Fragment>
-);
-
+  render() {
+    const selectedDay = this.state.selectedDay;
+    return (
+      <React.Fragment>
+        <DayPickerTitle>PREGLEDAJ REZERVACIJE ZA TJEDAN:</DayPickerTitle>
+        <DayPickerInput
+          value={selectedDay}
+          dayPickerProps={{
+            selectedDays: selectedDay,
+            disabledDays: {
+              daysOfWeek: [0, 2, 3, 4, 5, 6]
+            },
+            firstDayOfWeek: 1,
+            weekdaysShort: ['Ned', 'Pon', 'Uto', 'Sri', 'Cet', 'Pet', 'Sub'],
+            months: [
+              'Siječanj',
+              'Veljača',
+              'Ožujak',
+              'Travanj',
+              'Svibanj',
+              'Lipanj',
+              'Srpanj',
+              'Kolovoz',
+              'Rujan',
+              'Listopad',
+              'Studeni',
+              'Prosinac'
+            ]
+          }}
+          onDayChange={this.handleDayChange}
+          style={{ margin: '4px calc((100vw - 1024px) / 2) 24px' }}
+        />
+        {this.state.data.map((sdata, index) => {
+          return (
+            <ScheduleComponenet
+              data={sdata}
+              key={index}
+              updatePage={this.FetchRequests}
+            />
+          );
+        })}
+      </React.Fragment>
+    );
+  }
+}
 export default AllHallsReservations;

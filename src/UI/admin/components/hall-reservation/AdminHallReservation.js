@@ -56,33 +56,30 @@ function calcPositionAndLEngth(date, startTime, endTime) {
 }
 
 class ScheduleComponenet extends React.Component {
-  state = {
-    //dummyDataArray: dataArray,
-    //dummyDataArray: data,
-    dummyDataArray: this.props.data,
-    activeComponent: false,
-    test: 55,
-    currentReservationActive: {
-      id: 0,
-      activated: false,
-      reservationTitle: '',
-      reservationDate: '',
-      reservationStartTime: '',
-      dash: '',
-      reservationEndTime: '',
-      reservationDescription: 'testić',
-      infoVisibility: 'hidden'
-    }
-  };
-
-  deleteData() {
-    console.log(this.state.currentReservationActive.id);
+  constructor(props) {
+    super(props);
+    this.state = {
+      dummyDataArray: this.props.data,
+      activeComponent: false,
+      test: 55,
+      currentReservationActive: {
+        id: '',
+        activated: false,
+        reservationTitle: '',
+        reservationDate: '',
+        reservationStartTime: '',
+        dash: '',
+        reservationEndTime: '',
+        reservationDescription: 'testić',
+        infoVisibility: false
+      }
+    };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   renderHoursOfDayCollection() {
     const hoursOfDay = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; //hour 22 is different
     const lastHour = 22;
-    console.log('STATE:    ' + this.state);
 
     return (
       <HoursDivRow>
@@ -92,6 +89,29 @@ class ScheduleComponenet extends React.Component {
         <LastHourDiv>{lastHour}</LastHourDiv>
       </HoursDivRow>
     );
+  }
+  handleDelete() {
+    fetch(
+      API_BASE_URL +
+        '/reservations/delete/' +
+        this.state.currentReservationActive.id,
+      {
+        method: 'DELETE'
+      }
+    )
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('There has been an error');
+        } else {
+          this.props.updatePage();
+          console.log('page updated');
+          return response.status === 200 && response.json();
+        }
+      })
+      .then(() => this.props.updatePage())
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   render() {
@@ -112,12 +132,8 @@ class ScheduleComponenet extends React.Component {
                   <OneDayDivRowText>
                     {daysOfWeek[(day + 6) % 7]}
                   </OneDayDivRowText>
-                  {console.log(
-                    'before: ' + this.state.currentReservationActive.activated
-                  )}
-                  {/* {this.state.dummyDataArray[0].hallReservaltions.map( */}
-                  {this.state.dummyDataArray.hallReservaltions.map(
-                    hallReservaltion => {
+                  {this.state.dummyDataArray.hallReservations.map(
+                    (hallReservaltion, index) => {
                       hallReservaltion.active = false;
                       if (
                         new Date(
@@ -132,6 +148,7 @@ class ScheduleComponenet extends React.Component {
 
                         return (
                           <ReservationDynamicDiv
+                            key={index}
                             style={{
                               border: hallReservaltion.active
                                 ? 'solid 1px #0f4951'
@@ -142,14 +159,13 @@ class ScheduleComponenet extends React.Component {
                             active={hallReservaltion.active}
                             onClick={() => {
                               hallReservaltion.activated = true;
-                              this.setState({
-                                currentReservationActive: hallReservaltion
-                              });
-                              console.log(
-                                'after33: ' +
-                                  this.state.currentReservationActive
+
+                              this.setState(
+                                {
+                                  currentReservationActive: hallReservaltion
+                                },
+                                console.log(hallReservaltion)
                               );
-                              console.log(this.state);
                             }}
                           >
                             <PopUpInfo length={obj.length}>
@@ -199,13 +215,13 @@ class ScheduleComponenet extends React.Component {
             <Details
               img={DetailsIcon}
               onClick={() => {
-                console.log(this.state.currentReservationActive.activated);
                 if (this.state.currentReservationActive.activated == true) {
                   this.setState({
                     ...this.state,
                     currentReservationActive: {
                       ...this.state.currentReservationActive,
-                      infoVisibility: 'visible',
+                      infoVisibility: !this.state.currentReservationActive
+                        .infoVisibility,
                       dash: '-'
                     }
                   });
@@ -215,8 +231,9 @@ class ScheduleComponenet extends React.Component {
               <PopUpInfo
                 length={32}
                 style={{
-                  visibility: this.state.currentReservationActive
-                    .infoVisibility,
+                  visibility: this.state.currentReservationActive.infoVisibility
+                    ? 'visible'
+                    : 'hidden',
                   width: 400,
                   marginTop: 36,
                   marginLeft: 32 / 2 - 400 / 2
@@ -232,29 +249,7 @@ class ScheduleComponenet extends React.Component {
               </PopUpInfo>
             </Details>
 
-            <InfoEraseButton
-              onClick={() => {
-                fetch(
-                  API_BASE_URL +
-                    '/reservations/delete/' +
-                    this.state.currentReservationActive.id,
-                  {
-                    method: 'DELETE'
-                  }
-                )
-                  .then(res => {
-                    console.log(
-                      'QQQQQQQQQQQQQQQQQQQQ: ' +
-                        res.status +
-                        'RESID: ' +
-                        this.state.currentReservationActive.id
-                    );
-                  })
-                  .catch(err => {
-                    console.error(err);
-                  });
-              }}
-            >
+            <InfoEraseButton onClick={this.handleDelete}>
               <InfoEraseButtonText>IZBRIŠI</InfoEraseButtonText>
             </InfoEraseButton>
           </Info>
