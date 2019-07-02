@@ -28,7 +28,6 @@ import {
   HeadlineText,
   SubheadlineText,
   FirstRow,
-  SecondRow,
   MainContainer,
   InfoIcon,
   TextInfoIcon,
@@ -36,7 +35,6 @@ import {
   Number,
   LayoutWrapper
 } from './SelectHallStyle.js';
-import { directive } from '@babel/types';
 
 function CitizensSelectHall() {
   return (
@@ -51,78 +49,73 @@ function CitizensSelectHall() {
             Pronađite dvoranu koja vam odgovara. Za dodatne informacije kliknite
             na <TextInfoIcon src={Icon} /> ikonu.
           </SubheadlineText>
-
-          <FirstRow>
-            <HallImageContainer>
-              <img src={hallImage01} />
-              <a href="#" rel="noopener noreferrer">
-                <InfoIcon src={Icon} />
-              </a>
-
-              <HallNameButton id="Velika sportska dvorana">
-                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-                <HallNameTextCenter>Velika sportska dvorana</HallNameTextCenter>
-                {/* </StyledLink> */}
-              </HallNameButton>
-            </HallImageContainer>
-
-            <HallImageContainer>
-              <img src={hallImage02} />
-              <a href="#" rel="noopener noreferrer">
-                <InfoIcon src={Icon} />
-              </a>
-              <HallNameButton>
-                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-                <HallNameTextCenter>Dvorana Hrvatskog doma</HallNameTextCenter>
-                {/* </StyledLink> */}
-              </HallNameButton>
-            </HallImageContainer>
-
-            <HallImageContainer>
-              <img src={hallImage03} />
-              <a href="#" rel="noopener noreferrer">
-                <InfoIcon src={Icon} />
-              </a>
-              <HallNameButton>
-                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-                <HallNameTextCenter>
-                  Dvorana gradske knjižnice
-                </HallNameTextCenter>
-                {/* </StyledLink> */}
-              </HallNameButton>
-            </HallImageContainer>
-          </FirstRow>
-
-          <SecondRow>
-            <HallImageContainer>
-              <img src={hallImage04} />
-              <a href="#" rel="noopener noreferrer">
-                <InfoIcon src={Icon} />
-              </a>
-              <HallNameButton>
-                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-                <HallNameTextCenter>
-                  Dvorana TIC (Turistički dom)
-                </HallNameTextCenter>
-                {/* </StyledLink> */}
-              </HallNameButton>
-            </HallImageContainer>
-
-            <HallImageContainer>
-              <img src={hallImage05} />
-              <a href="#" rel="noopener noreferrer">
-                <InfoIcon src={Icon} />
-              </a>
-              <HallNameButton>
-                {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-                <HallNameTextCenter>
-                  Konferencijska dvorana RCTP
-                </HallNameTextCenter>
-                {/* </StyledLink> */}
-              </HallNameButton>
-            </HallImageContainer>
-          </SecondRow>
         </LayoutWrapper>
+        <FirstRow>
+          <HallImageContainer>
+            <img src={hallImage01} />
+            <a href="#" rel="noopener noreferrer">
+              <InfoIcon src={Icon} />
+            </a>
+
+            <HallNameButton id="Velika sportska dvorana">
+              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+              <HallNameTextCenter>Velika sportska dvorana</HallNameTextCenter>
+              {/* </StyledLink> */}
+            </HallNameButton>
+          </HallImageContainer>
+
+          <HallImageContainer>
+            <img src={hallImage02} />
+            <a href="#" rel="noopener noreferrer">
+              <InfoIcon src={Icon} />
+            </a>
+            <HallNameButton>
+              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+              <HallNameTextCenter>Dvorana Hrvatskog doma</HallNameTextCenter>
+              {/* </StyledLink> */}
+            </HallNameButton>
+          </HallImageContainer>
+
+          <HallImageContainer>
+            <img src={hallImage03} />
+            <a href="#" rel="noopener noreferrer">
+              <InfoIcon src={Icon} />
+            </a>
+            <HallNameButton>
+              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+              <HallNameTextCenter>Dvorana gradske knjižnice</HallNameTextCenter>
+              {/* </StyledLink> */}
+            </HallNameButton>
+          </HallImageContainer>
+
+          <HallImageContainer>
+            <img src={hallImage04} />
+            <a href="#" rel="noopener noreferrer">
+              <InfoIcon src={Icon} />
+            </a>
+            <HallNameButton>
+              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+              <HallNameTextCenter>
+                Dvorana TIC (Turistički dom)
+              </HallNameTextCenter>
+              {/* </StyledLink> */}
+            </HallNameButton>
+          </HallImageContainer>
+
+          <HallImageContainer>
+            <img src={hallImage05} />
+            <a href="#" rel="noopener noreferrer">
+              <InfoIcon src={Icon} />
+            </a>
+            <HallNameButton>
+              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
+              <HallNameTextCenter>
+                Konferencijska dvorana RCTP
+              </HallNameTextCenter>
+              {/* </StyledLink> */}
+            </HallNameButton>
+          </HallImageContainer>
+        </FirstRow>
       </MainContainer>
     </div>
   );

@@ -6,14 +6,6 @@ export const StyledLink = styled.a`
   font-weight: 400;
   line-height: 1.14;
   color: #000;
-  ${'' /* text-align: center; */}
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
 `;
 
 export const MainContainer = styled.div`
@@ -103,14 +95,7 @@ export const HallNameButton = styled.button`
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
-  &:visited,
-  :hover,
-  :focus,
-  :active {
-    background-color: #229c7f;
-    transition-duration: 0.5s;
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 export const HallNameTextCenter = styled.div`
@@ -133,9 +118,10 @@ export const LayoutWrapper = styled.div`
 
 export const FirstRow = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: wrap;
   justify-content: center;
   margin-bottom: 10px;
+  width: 1000px;
 `;
 
 export const SecondRow = styled.div`
