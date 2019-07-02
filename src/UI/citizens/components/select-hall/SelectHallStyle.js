@@ -23,8 +23,7 @@ export const HallImageContainer = styled.div`
   ${'' /* flex-wrap: wrap; */}
   justify-content: center;
   margin: 8px;
-
-  button {
+  outline: ${props => (props.isSelected ? '5px solid #1D896D' : '')} button {
     cursor: pointer;
   }
 `;

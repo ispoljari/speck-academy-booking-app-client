@@ -177,6 +177,7 @@ class CitizensPage extends Component {
           handleHallSelect={this.handleHallSelect}
           onInfoClick={hallInfo => this.displayHallInfo(hallInfo)}
           allHalls={this.state.allHalls}
+          selectedHallId={this.state.selectedHall && this.state.selectedHall.id}
         />
         <CitizensSelectDateTime
           handleReservationDateChange={this.handleReservationDateChange}
@@ -194,7 +195,6 @@ class CitizensPage extends Component {
         />
         <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
         <Footer />
-        {/* <Error404 /> */}
         {this.state.modalVisibility.login ? (
           <Modal onClick={() => this.closeModal('login')}>
             <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />

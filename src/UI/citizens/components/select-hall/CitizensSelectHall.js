@@ -17,7 +17,12 @@ import {
   LayoutWrapper
 } from './SelectHallStyle.js';
 
-const IndividualHall = ({ hall, handleHallSelect, onInfoClick }) => {
+const IndividualHall = ({
+  hall,
+  handleHallSelect,
+  onInfoClick,
+  isSelected
+}) => {
   const handleHallSelectClick = () => {
     handleHallSelect(hall);
   };
@@ -27,7 +32,7 @@ const IndividualHall = ({ hall, handleHallSelect, onInfoClick }) => {
   };
 
   return (
-    <HallImageContainer>
+    <HallImageContainer isSelected={isSelected}>
       <HallImage src={hall.pictureUrl} />
       <InfoBtn onClick={handleHallInfoClick} iconSrc={Icon} />
       <HallNameButton id={hall.name} onClick={handleHallSelectClick}>
@@ -37,7 +42,12 @@ const IndividualHall = ({ hall, handleHallSelect, onInfoClick }) => {
   );
 };
 
-const CitizensSelectHall = ({ allHalls, handleHallSelect, onInfoClick }) => {
+const CitizensSelectHall = ({
+  allHalls,
+  selectedHallId,
+  handleHallSelect,
+  onInfoClick
+}) => {
   return (
     <div>
       <MainContainer>
@@ -58,6 +68,7 @@ const CitizensSelectHall = ({ allHalls, handleHallSelect, onInfoClick }) => {
               key={`${index}-${hall.name}`}
               handleHallSelect={handleHallSelect}
               onInfoClick={onInfoClick}
+              isSelected={hall.id === selectedHallId}
             />
           ))}
         </FirstRow>

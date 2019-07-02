@@ -76,7 +76,7 @@ export const Button = styled.button`
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  border: solid 1px #0f4850
+  border: solid 1px #0f4850;
   background-color: #0f4850;
   //color: #ffffff;
   display: flex;
@@ -88,7 +88,7 @@ export const Button = styled.button`
     border: solid 1px #229c7f;
     transition-duration: 0.5s;
     cursor: pointer;
-  };
+  }
 `;
 
 export const ButtonText = styled.p`
