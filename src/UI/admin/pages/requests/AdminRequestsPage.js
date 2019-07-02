@@ -2,7 +2,6 @@ import React from 'react';
 import { API_BASE_URL } from '../../../../config';
 import { AdminHallRequest } from '../../';
 import { DateTime } from 'luxon';
-import AdminHeader from '../../components/header/AdminHeader';
 import Footer from '../../../common/footer/Footer';
 class AdminRequestsPage extends React.Component {
   constructor(props) {
@@ -31,7 +30,6 @@ class AdminRequestsPage extends React.Component {
     return (
       <>
         <div style={{ minHeight: 'calc(100vh - 160px)' }}>
-          <AdminHeader />
           {items.map(item => (
             <AdminHallRequest
               key={item.id}
