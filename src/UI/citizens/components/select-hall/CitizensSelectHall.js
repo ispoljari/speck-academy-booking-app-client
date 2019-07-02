@@ -39,7 +39,7 @@ const IndividualHall = ({ imgSrc, hallTitle }) => (
   </HallImageContainer>
 );
 
-function CitizensSelectHall() {
+const CitizensSelectHall = ({ allHalls }) => {
   return (
     <div>
       <MainContainer>
@@ -54,74 +54,13 @@ function CitizensSelectHall() {
           </SubheadlineText>
         </LayoutWrapper>
         <FirstRow>
-          <HallImageContainer>
-            <img src={hallImage01} />
-            <a href="#" rel="noopener noreferrer">
-              <InfoIcon src={Icon} />
-            </a>
-
-            <HallNameButton id="Velika sportska dvorana">
-              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-              <HallNameTextCenter>Velika sportska dvorana</HallNameTextCenter>
-              {/* </StyledLink> */}
-            </HallNameButton>
-          </HallImageContainer>
-
-          <HallImageContainer>
-            <img src={hallImage02} />
-            <a href="#" rel="noopener noreferrer">
-              <InfoIcon src={Icon} />
-            </a>
-            <HallNameButton>
-              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-              <HallNameTextCenter>Dvorana Hrvatskog doma</HallNameTextCenter>
-              {/* </StyledLink> */}
-            </HallNameButton>
-          </HallImageContainer>
-
-          <HallImageContainer>
-            <img src={hallImage03} />
-            <a href="#" rel="noopener noreferrer">
-              <InfoIcon src={Icon} />
-            </a>
-            <HallNameButton>
-              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-              <HallNameTextCenter>Dvorana gradske knjižnice</HallNameTextCenter>
-              {/* </StyledLink> */}
-            </HallNameButton>
-          </HallImageContainer>
-
-          <HallImageContainer>
-            <img src={hallImage04} />
-            <a href="#" rel="noopener noreferrer">
-              <InfoIcon src={Icon} />
-            </a>
-            <HallNameButton>
-              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-              <HallNameTextCenter>
-                Dvorana TIC (Turistički dom)
-              </HallNameTextCenter>
-              {/* </StyledLink> */}
-            </HallNameButton>
-          </HallImageContainer>
-
-          <HallImageContainer>
-            <img src={hallImage05} />
-            <a href="#" rel="noopener noreferrer">
-              <InfoIcon src={Icon} />
-            </a>
-            <HallNameButton>
-              {/* <StyledLink href="" target="_blank" rel="noopener noreferrer"> */}
-              <HallNameTextCenter>
-                Konferencijska dvorana RCTP
-              </HallNameTextCenter>
-              {/* </StyledLink> */}
-            </HallNameButton>
-          </HallImageContainer>
+          {allHalls.map((hall, index) => (
+            <IndividualHall hallData={hall} key={`index-${hall.name}`} />
+          ))}
         </FirstRow>
       </MainContainer>
     </div>
   );
-}
+};
 
 export default CitizensSelectHall;
