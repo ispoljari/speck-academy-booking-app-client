@@ -9,9 +9,9 @@ export const StyledLink = styled.a`
 `;
 
 export const MainContainer = styled.div`
-  margin-top: 32px;
+  margin-top: 22px;
   width: 1024px;
-  min-height: 472px;
+  padding-bottom: 32px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
@@ -29,7 +29,7 @@ export const HallImageContainer = styled.div`
   flex-direction: row;
   ${'' /* flex-wrap: wrap; */}
   justify-content: center;
-  margin: 5px;
+  margin: 8px;
 `;
 
 export const HallImage = styled.img`
@@ -112,7 +112,7 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  max-width: 742px;
+  max-width: 764px;
   align-self: center;
 `;
 
@@ -120,8 +120,8 @@ export const FirstRow = styled.div`
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  margin-bottom: 10px;
   width: 1000px;
+  margin: 0 auto;
 `;
 
 export const SecondRow = styled.div`
