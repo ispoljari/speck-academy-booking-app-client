@@ -23,7 +23,8 @@ export const HallImageContainer = styled.div`
   ${'' /* flex-wrap: wrap; */}
   justify-content: center;
   margin: 8px;
-  outline: ${props => (props.isSelected ? '5px solid #1D896D' : '')} button {
+  outline: ${props => (props.isSelected ? '5px solid #1D896D' : '')};
+  button {
     cursor: pointer;
   }
 `;
@@ -86,14 +87,15 @@ export const HallNameButton = styled.button`
   align-self: flex-end;
   width: 160px;
   border-radius: 3px;
-  border-color: #808080;
-  background-color: #808080;
+  border-color: ${props => (props.isSelected ? '#1D896D' : '#808080')};
+  background-color: ${props => (props.isSelected ? '#1D896D' : '#808080')};
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
+  outline: none;
 `;
 
 export const HallNameTextCenter = styled.div`

@@ -35,7 +35,11 @@ const IndividualHall = ({
     <HallImageContainer isSelected={isSelected}>
       <HallImage src={hall.pictureUrl} />
       <InfoBtn onClick={handleHallInfoClick} iconSrc={Icon} />
-      <HallNameButton id={hall.name} onClick={handleHallSelectClick}>
+      <HallNameButton
+        id={hall.name}
+        onClick={handleHallSelectClick}
+        isSelected={isSelected}
+      >
         <HallNameTextCenter>{hall.name}</HallNameTextCenter>
       </HallNameButton>
     </HallImageContainer>
