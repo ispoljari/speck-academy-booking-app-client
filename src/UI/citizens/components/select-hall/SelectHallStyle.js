@@ -11,6 +11,7 @@ export const StyledLink = styled.a`
 export const MainContainer = styled.div`
   margin-top: 22px;
   width: 1024px;
+  min-height: 200px;
   padding-bottom: 32px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;

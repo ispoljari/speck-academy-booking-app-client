@@ -1,15 +1,6 @@
 import React from 'react';
 
-import { API_BASE_URL } from '../../../../config';
-import hallImage01 from '../../../../images/01.png';
-import hallImage02 from '../../../../images/velika_01.png';
-import hallImage03 from '../../../../images/gradska-knjiznica.png';
-import hallImage04 from '../../../../images/turisticki-dom.png';
-import hallImage05 from '../../../../images/konf-dvorana-1.png';
 import Icon from '../../../../images/info-icon@3x.png';
-
-//styles
-
 import {
   StyledLink,
   HallImageContainer,

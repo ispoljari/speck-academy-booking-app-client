@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import { Redirect } from 'react-router-dom';
-
 import { CitizensPageWrapper } from './CitizensPageStyle';
-
 import {
   CitizensHeader,
   CitizensAdminLogin,
@@ -12,22 +10,13 @@ import {
   CitizensEditEventInfo,
   CitizensSubmitRequest
 } from '../';
-
+import { API_BASE_URL } from '../../../config';
 import { Footer, Modal } from '../../common';
-// import { Component } from '../components/login/CitizensAdminLoginStyle.js';
-
 import sampleData from '../components/select-date-time/SampleData';
-/* const drawFromDB = require('../components/select-date-time/CitizensSelectDateTime'); */
-
-//import SampleHallData from '../components/select-hall/SampleHallData'
 
 class CitizensPage extends Component {
   state = {
-    //CitizenSelectHall FILE
-    //hallSelectId: '',
-    //hallName: '',
-    //hallPictureUrl:'',
-    //GodHelpUsAll
+    allHalls: [],
     hallId: '',
     reservationDate: '',
     reservationStartTime: '',
@@ -47,7 +36,7 @@ class CitizensPage extends Component {
   };
 
   componentDidMount() {
-    this.setState({ reservations: sampleData });
+    this.setState({ reservations: sampleData }); //TODO: remove this
     document.addEventListener('keydown', this.handleKeyPress);
   }
 
@@ -149,7 +138,11 @@ class CitizensPage extends Component {
     return (
       <CitizensPageWrapper>
         <CitizensHeader onClick={this.openLoginModal} />
-        <CitizensSelectHall /* handleHallSelect={handleHallSelect} */ />
+        <CitizensSelectHall
+          /* handleHallSelect={handleHallSelect} */ allHalls={
+            this.state.allHalls
+          }
+        />
         <CitizensSelectDateTime
           handleReservationDateChange={this.handleReservationDateChange}
           handleReservationTimeChange={this.handleReservationTimeChange}
