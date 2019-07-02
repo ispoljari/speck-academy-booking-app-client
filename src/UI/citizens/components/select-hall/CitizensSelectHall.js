@@ -26,6 +26,19 @@ import {
   LayoutWrapper
 } from './SelectHallStyle.js';
 
+const IndividualHall = ({ imgSrc, hallTitle }) => (
+  <HallImageContainer>
+    <img src={imgSrc} />
+    <a href="#" rel="noopener noreferrer">
+      <InfoIcon src={Icon} />
+    </a>
+
+    <HallNameButton id={hallTitle}>
+      <HallNameTextCenter>{hallTitle}</HallNameTextCenter>
+    </HallNameButton>
+  </HallImageContainer>
+);
+
 function CitizensSelectHall() {
   return (
     <div>
