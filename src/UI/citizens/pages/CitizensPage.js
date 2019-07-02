@@ -6,6 +6,7 @@ import {
   CitizensHeader,
   CitizensAdminLogin,
   CitizensSelectHall,
+  CitizensHallInfo,
   CitizensSelectDateTime,
   CitizensEditEventInfo,
   CitizensSubmitRequest
@@ -68,8 +69,9 @@ class CitizensPage extends Component {
   };
 
   handleKeyPress = e => {
-    if (e.key === 'Escape' && this.state.modalVisibility.login) {
-      this.closeModal('login');
+    if (e.key === 'Escape') {
+      this.state.modalVisibility.login && this.closeModal('login');
+      this.state.modalVisibility.hallInfo && this.closeModal('hallInfo');
     }
   };
 
@@ -200,7 +202,7 @@ class CitizensPage extends Component {
         )}
         {this.state.modalVisibility.hallInfo ? (
           <Modal onClick={() => this.closeModal('hallInfo')}>
-            <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
+            <CitizensHallInfo selectedHall={this.state.selectedHall} />
           </Modal>
         ) : (
           ''
