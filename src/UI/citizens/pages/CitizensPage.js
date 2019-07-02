@@ -17,6 +17,7 @@ import sampleData from '../components/select-date-time/SampleData';
 class CitizensPage extends Component {
   state = {
     allHalls: [],
+    reservations: [],
     hallId: '',
     reservationDate: '',
     reservationStartTime: '',
@@ -31,18 +32,32 @@ class CitizensPage extends Component {
       phoneNumber: '',
       charCounter: 0
     },
-    reservations: [],
     adminLoginVisible: false
   };
 
   componentDidMount() {
-    this.setState({ reservations: sampleData }); //TODO: remove this
+    // this.setState({ reservations: sampleData }); //TODO: remove this
+    this.getAllHalls();
     document.addEventListener('keydown', this.handleKeyPress);
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
+
+  getAllHalls = async () => {
+    try {
+      const rawResponse = await fetch(`${API_BASE_URL}/halls`);
+      if (!rawResponse.ok) throw new Error('Someting went wrong');
+      const allHalls = await rawResponse.json();
+      console.log(allHalls);
+      this.setState({
+        allHalls
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   confirmAdminLogin = async () => {
     await this.closeLoginModal();
