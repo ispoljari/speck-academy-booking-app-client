@@ -3,6 +3,7 @@ import { API_BASE_URL } from '../../../../config';
 import { AdminHallRequest } from '../../';
 import { DateTime } from 'luxon';
 import AdminHeader from '../../components/header/AdminHeader';
+import Footer from '../../../common/footer/Footer';
 class AdminRequestsPage extends React.Component {
   constructor(props) {
     super(props);
@@ -28,36 +29,39 @@ class AdminRequestsPage extends React.Component {
   render() {
     let items = this.state.data;
     return (
-      <div style={{ minHeight: 'calc(100vh - 160px)' }}>
-        <AdminHeader />
-        {items.map(item => (
-          <AdminHallRequest
-            key={item.id}
-            name={item.hall.name}
-            imageUrl={item.hall.pictureUrl}
-            adress={item.hall.address}
-            eventName={item.reservationTitle}
-            eventDescription={item.reservationDescription}
-            reservationDate={DateTime.fromISO(item.reservationDate).toFormat(
-              'd.MM.y.'
-            )}
-            reservationTime={
-              item.reservationStartTime.substring(0, 5) +
-              ' - ' +
-              item.reservationEndTime.substring(0, 5)
-            }
-            nameSurname={item.citizenFullName}
-            organizationName={item.citizenOrganization}
-            email={item.citizenEmail}
-            phone={item.citizenPhoneNumber}
-            submitDate={DateTime.fromISO(item.createdAt).toFormat(
-              'd.MM.y., HH:mm'
-            )}
-            id={item.id}
-            updatePage={this.fetchRequests}
-          />
-        ))}
-      </div>
+      <>
+        <div style={{ minHeight: 'calc(100vh - 160px)' }}>
+          <AdminHeader />
+          {items.map(item => (
+            <AdminHallRequest
+              key={item.id}
+              name={item.hall.name}
+              imageUrl={item.hall.pictureUrl}
+              adress={item.hall.address}
+              eventName={item.reservationTitle}
+              eventDescription={item.reservationDescription}
+              reservationDate={DateTime.fromISO(item.reservationDate).toFormat(
+                'd.MM.y.'
+              )}
+              reservationTime={
+                item.reservationStartTime.substring(0, 5) +
+                ' - ' +
+                item.reservationEndTime.substring(0, 5)
+              }
+              nameSurname={item.citizenFullName}
+              organizationName={item.citizenOrganization}
+              email={item.citizenEmail}
+              phone={item.citizenPhoneNumber}
+              submitDate={DateTime.fromISO(item.createdAt).toFormat(
+                'd.MM.y., HH:mm'
+              )}
+              id={item.id}
+              updatePage={this.fetchRequests}
+            />
+          ))}
+        </div>
+        <Footer />
+      </>
     );
   }
 }

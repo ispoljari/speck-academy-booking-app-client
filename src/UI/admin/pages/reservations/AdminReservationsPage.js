@@ -6,8 +6,10 @@ import AllHallsReservations from '../../components/hall-reservation/AdminAllHall
 
 const AdminReservationsPage = () => (
   <React.Fragment>
-    <AdminHeader />
-    <AllHallsReservations />
+    <div style={{ minHeight: 'calc(100vh - 128px)' }}>
+      <AdminHeader />
+      <AllHallsReservations />
+    </div>
     <Footer />
   </React.Fragment>
 );
