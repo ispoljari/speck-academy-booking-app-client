@@ -32,7 +32,10 @@ class CitizensPage extends Component {
       phoneNumber: '',
       charCounter: 0
     },
-    adminLoginVisible: false
+    modalVisibility: {
+      login: false,
+      hallInfo: false
+    }
   };
 
   componentDidMount() {
@@ -55,7 +58,7 @@ class CitizensPage extends Component {
         allHalls
       });
     } catch (error) {
-      console.log(error);
+      console.log(error); //TODO: warn user
     }
   };
 
@@ -65,22 +68,32 @@ class CitizensPage extends Component {
   };
 
   handleKeyPress = e => {
-    if (e.key === 'Escape' && this.state.adminLoginVisible) {
-      this.closeLoginModal();
+    if (e.key === 'Escape' && this.state.modalVisibility.login) {
+      this.closeModal('login');
     }
   };
 
-  openLoginModal = () => {
+  openModal = type => {
+    this.setState({
+      modalVisibility: {
+        [type]: true
+      }
+    });
+  };
+
+  openHallMoreInfoModal = () => {
     this.setState({
       adminLoginVisible: true
     });
   };
 
-  closeLoginModal = () => {
+  closeModal = type => {
     return new Promise(resolve => {
       this.setState(
         {
-          adminLoginVisible: false
+          modalVisibility: {
+            [type]: false
+          }
         },
         () => {
           resolve();
@@ -89,14 +102,17 @@ class CitizensPage extends Component {
     });
   };
 
-  handleHallSelect = hallData => {
-    // const { halls } = this.props;
-    // const hall = halls.find(hall => hall.id === hallId);
-    // this.setState({
-    //   hallId,
-    //   reservations: hall.hallReservations
-    // });
-    console.log(hallData);
+  handleHallSelect = selectedHall => {
+    this.setState(
+      {
+        selectedHall
+      },
+      () => {
+        this.setState({
+          hallMoreInfoVisible: true
+        });
+      }
+    );
   };
 
   handleReservationDateChange = day => {
@@ -153,7 +169,7 @@ class CitizensPage extends Component {
 
     return (
       <CitizensPageWrapper>
-        <CitizensHeader onClick={this.openLoginModal} />
+        <CitizensHeader onClick={() => this.openModal('login')} />
         <CitizensSelectHall
           handleHallSelect={this.handleHallSelect}
           allHalls={this.state.allHalls}
@@ -175,8 +191,15 @@ class CitizensPage extends Component {
         <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
         <Footer />
         {/* <Error404 /> */}
-        {this.state.adminLoginVisible ? (
-          <Modal onClick={this.closeLoginModal}>
+        {this.state.modalVisibility.login ? (
+          <Modal onClick={() => this.closeModal('login')}>
+            <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
+          </Modal>
+        ) : (
+          ''
+        )}
+        {this.state.modalVisibility.hallInfo ? (
+          <Modal onClick={() => this.closeModal('hallInfo')}>
             <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
           </Modal>
         ) : (
