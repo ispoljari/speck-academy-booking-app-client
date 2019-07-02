@@ -31,6 +31,10 @@ export const HallImageContainer = styled.div`
   ${'' /* flex-wrap: wrap; */}
   justify-content: center;
   margin: 8px;
+
+  button {
+    cursor: pointer;
+  }
 `;
 
 export const HallImage = styled.img`
@@ -95,7 +99,6 @@ export const HallNameButton = styled.button`
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
-  cursor: pointer;
 `;
 
 export const HallNameTextCenter = styled.div`

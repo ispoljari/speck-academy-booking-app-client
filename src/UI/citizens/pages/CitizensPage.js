@@ -20,6 +20,7 @@ class CitizensPage extends Component {
     allHalls: [],
     reservations: [],
     selectedHall: null,
+    hallInfo: null,
     reservationDate: '',
     reservationStartTime: '',
     reservationEndTime: '',
@@ -64,7 +65,7 @@ class CitizensPage extends Component {
   };
 
   confirmAdminLogin = async () => {
-    await this.closeLoginModal();
+    await this.closeModal('login');
     this.props.authenticateAdmin(true);
   };
 
@@ -80,12 +81,6 @@ class CitizensPage extends Component {
       modalVisibility: {
         [type]: true
       }
-    });
-  };
-
-  openHallMoreInfoModal = () => {
-    this.setState({
-      adminLoginVisible: true
     });
   };
 
@@ -105,16 +100,22 @@ class CitizensPage extends Component {
   };
 
   handleHallSelect = selectedHall => {
+    this.setState({
+      selectedHall
+    });
+  };
+
+  displayHallInfo = hallInfo => {
     this.setState(
       {
-        selectedHall
+        hallInfo
       },
       () => {
-        this.setState({
-          hallMoreInfoVisible: true
-        });
+        console.log(this.state.hallInfo);
       }
     );
+
+    this.openModal('hallInfo');
   };
 
   handleReservationDateChange = day => {
@@ -132,7 +133,7 @@ class CitizensPage extends Component {
     /*
     if (name === 'something') {
       const isValid = event.target.validity.valid;
-
+  
       if (value && !isValid) return;
     }
     */
@@ -174,6 +175,7 @@ class CitizensPage extends Component {
         <CitizensHeader onClick={() => this.openModal('login')} />
         <CitizensSelectHall
           handleHallSelect={this.handleHallSelect}
+          onInfoClick={hallInfo => this.displayHallInfo(hallInfo)}
           allHalls={this.state.allHalls}
         />
         <CitizensSelectDateTime
@@ -202,7 +204,7 @@ class CitizensPage extends Component {
         )}
         {this.state.modalVisibility.hallInfo ? (
           <Modal onClick={() => this.closeModal('hallInfo')}>
-            <CitizensHallInfo selectedHall={this.state.selectedHall} />
+            <CitizensHallInfo hallInfo={this.state.hallInfo} />
           </Modal>
         ) : (
           ''
