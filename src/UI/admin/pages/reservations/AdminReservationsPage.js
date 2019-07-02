@@ -1,9 +1,16 @@
 import React from 'react';
 
-import ScheduleComponenet from '../../components/hall-reservation/AdminHallReservation';
+import { AdminHeader } from '../../';
+import { Footer } from '../../../common';
+import AllHallsReservations from '../../components/hall-reservation/AdminAllHallsReservation';
+
 const AdminReservationsPage = () => (
   <React.Fragment>
-    <ScheduleComponenet />
+    <div style={{ minHeight: 'calc(100vh - 128px)' }}>
+      <AdminHeader />
+      <AllHallsReservations />
+    </div>
+    <Footer />
   </React.Fragment>
 );
 

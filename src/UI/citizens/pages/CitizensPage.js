@@ -1,6 +1,4 @@
-
 import React, { Component } from 'react';
-
 
 import { Redirect } from 'react-router-dom';
 
@@ -15,37 +13,37 @@ import {
   CitizensSubmitRequest
 } from '../';
 
-
 import { Footer, Modal } from '../../common';
 // import { Component } from '../components/login/CitizensAdminLoginStyle.js';
 
 import sampleData from '../components/select-date-time/SampleData';
+/* const drawFromDB = require('../components/select-date-time/CitizensSelectDateTime'); */
 
 //import SampleHallData from '../components/select-hall/SampleHallData'
 
 class CitizensPage extends Component {
   state = {
     //CitizenSelectHall FILE
-      //hallSelectId: '',
-      //hallName: '',
-      //hallPictureUrl:'',
-      //GodHelpUsAll
-      hallId: '',
-      reservationDate: '',
-      reservationStartTime: '',
-      reservationEndTime: '',
-      post: {
-        hallSelectId: '',
-        eventName: '',
-        eventDescription: '',
-        nameAndSurname: '',
-        email: '',
-        organisation: '',
-        phoneNumber: '',
-        charCounter: 0
-      },
-      reservations: [],
-      adminLoginVisible: false    
+    //hallSelectId: '',
+    //hallName: '',
+    //hallPictureUrl:'',
+    //GodHelpUsAll
+    hallId: '',
+    reservationDate: '',
+    reservationStartTime: '',
+    reservationEndTime: '',
+    post: {
+      hallSelectId: '',
+      eventName: '',
+      eventDescription: '',
+      nameAndSurname: '',
+      email: '',
+      organisation: '',
+      phoneNumber: '',
+      charCounter: 0
+    },
+    reservations: [],
+    adminLoginVisible: false
   };
 
   componentDidMount() {
@@ -87,13 +85,21 @@ class CitizensPage extends Component {
     });
   };
 
-
-  handleFilterChange = e => {
-    const { name, value } = e.target;
-
+  handleHallSelect = hallId => () => {
+    const { halls } = this.props;
+    const hall = halls.find(hall => hall.id === hallId);
     this.setState({
-      [name]: value
+      hallId,
+      reservations: hall.hallReservations
     });
+  };
+
+  handleReservationDateChange = day => {
+    this.setState({ reservationDate: day });
+  };
+
+  handleReservationTimeChange = field => time => {
+    this.setState({ [field]: time });
   };
 
   handleChange = e => {
@@ -141,22 +147,23 @@ class CitizensPage extends Component {
     }
 
     return (
-           <CitizensPageWrapper>
-          <CitizensHeader onClick={this.openLoginModal} />
-          <CitizensSelectHall />
-          <CitizensSelectDateTime
-            handleFilterChange={this.handleFilterChange}
-            hallId={this.state.hallId}
-            reservationDate={this.state.reservationDate}
-            reservationStartTime={this.state.reservationStartTime}
-            reservationEndTime={this.state.reservationEndTime}
-            reservations={this.state.reservations}
-          />
+      <CitizensPageWrapper>
+        <CitizensHeader onClick={this.openLoginModal} />
+        <CitizensSelectHall /* handleHallSelect={handleHallSelect} */ />
+        <CitizensSelectDateTime
+          handleReservationDateChange={this.handleReservationDateChange}
+          handleReservationTimeChange={this.handleReservationTimeChange}
+          hallName={this.state.hallId}
+          reservationDate={this.state.reservationDate}
+          reservationStartTime={this.state.reservationStartTime}
+          reservationEndTime={this.state.reservationEndTime}
+          reservations={this.state.reservations}
+        />
 
-          <CitizensEditEventInfo
-            handleChange={this.handleChange}
-            post={this.state.post}
-          />
+        <CitizensEditEventInfo
+          handleChange={this.handleChange}
+          post={this.state.post}
+        />
         <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
         <Footer />
         {/* <Error404 /> */}
@@ -173,5 +180,3 @@ class CitizensPage extends Component {
 }
 
 export default CitizensPage;
-
-

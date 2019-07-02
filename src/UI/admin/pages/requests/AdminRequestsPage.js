@@ -2,15 +2,17 @@ import React from 'react';
 import { API_BASE_URL } from '../../../../config';
 import { AdminHallRequest } from '../../';
 import { DateTime } from 'luxon';
+import AdminHeader from '../../components/header/AdminHeader';
+import Footer from '../../../common/footer/Footer';
 class AdminRequestsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: []
     };
-    this.FetchRequests = this.FetchRequests.bind(this);
+    this.fetchRequests = this.fetchRequests.bind(this);
   }
-  FetchRequests() {
+  fetchRequests() {
     fetch(API_BASE_URL + '/reservations/pending')
       .then(response => {
         if (!response.ok) {
@@ -22,13 +24,14 @@ class AdminRequestsPage extends React.Component {
       .catch(error => console.log(error));
   }
   componentDidMount() {
-    this.FetchRequests();
+    this.fetchRequests();
   }
   render() {
     let items = this.state.data;
     return (
-      <React.Fragment>
+      <>
         <div style={{ minHeight: 'calc(100vh - 160px)' }}>
+          <AdminHeader />
           {items.map(item => (
             <AdminHallRequest
               key={item.id}
@@ -53,11 +56,12 @@ class AdminRequestsPage extends React.Component {
                 'd.MM.y., HH:mm'
               )}
               id={item.id}
-              updatePage={this.FetchRequests}
+              updatePage={this.fetchRequests}
             />
           ))}
         </div>
-      </React.Fragment>
+        <Footer />
+      </>
     );
   }
 }
