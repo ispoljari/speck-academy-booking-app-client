@@ -113,7 +113,7 @@ export const FormInlineInput = styled.span`
 export const CricleMark = styled.div`
   width: 152px;
   height: 152px;
-  opacity: 0.2;
+  opacity: 0.4;
   border: solid 16px rgba(130, 212, 167, 0.4);
   border-radius: 50%;
   position: absolute;
