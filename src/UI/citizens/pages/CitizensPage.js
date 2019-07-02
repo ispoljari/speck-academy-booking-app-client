@@ -18,7 +18,7 @@ class CitizensPage extends Component {
   state = {
     allHalls: [],
     reservations: [],
-    hallId: '',
+    selectedHall: null,
     reservationDate: '',
     reservationStartTime: '',
     reservationEndTime: '',
@@ -89,13 +89,14 @@ class CitizensPage extends Component {
     });
   };
 
-  handleHallSelect = hallId => () => {
-    const { halls } = this.props;
-    const hall = halls.find(hall => hall.id === hallId);
-    this.setState({
-      hallId,
-      reservations: hall.hallReservations
-    });
+  handleHallSelect = hallData => {
+    // const { halls } = this.props;
+    // const hall = halls.find(hall => hall.id === hallId);
+    // this.setState({
+    //   hallId,
+    //   reservations: hall.hallReservations
+    // });
+    console.log(hallData);
   };
 
   handleReservationDateChange = day => {
@@ -154,9 +155,8 @@ class CitizensPage extends Component {
       <CitizensPageWrapper>
         <CitizensHeader onClick={this.openLoginModal} />
         <CitizensSelectHall
-          /* handleHallSelect={handleHallSelect} */ allHalls={
-            this.state.allHalls
-          }
+          handleHallSelect={this.handleHallSelect}
+          allHalls={this.state.allHalls}
         />
         <CitizensSelectDateTime
           handleReservationDateChange={this.handleReservationDateChange}
