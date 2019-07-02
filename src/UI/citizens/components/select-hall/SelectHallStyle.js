@@ -42,11 +42,12 @@ export const HallImage = styled.img`
 export const InfoBtn = styled.button`
   background: url(${props => props.iconSrc});
   border-radius: 50%;
-  background-size: 16px;
+  background-size: 20px;
   background-repeat: no-repeat;
+  background-position: center;
   filter: drop-shadow(1px 1px 1px #000);
-  width: 17px;
-  height: 17px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 10px;
   left: 215px;
