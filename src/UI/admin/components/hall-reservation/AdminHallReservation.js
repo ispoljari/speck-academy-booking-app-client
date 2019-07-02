@@ -38,10 +38,8 @@ function calcPositionAndLEngth(date, startTime, endTime) {
     start: 0,
     length: 0
   };
-  //TODO delete console.log
   existStartLength.start =
     new Date(date + ' ' + startTime) - new Date(date + ' 00:00:00');
-  //TODO delete console.log
   existStartLength.start = existStartLength.start / 1000 / 60 / 60;
   existStartLength.start = existStartLength.start - 8; //because we start at 8 o'clock
   existStartLength.start = existStartLength.start * 50; // hours to pixels
@@ -83,8 +81,8 @@ class ScheduleComponenet extends React.Component {
 
     return (
       <HoursDivRow>
-        {hoursOfDay.map(hour => {
-          return <HourDiv>{hour}</HourDiv>;
+        {hoursOfDay.map((hour, index) => {
+          return <HourDiv key={index}>{hour}</HourDiv>;
         })}
         <LastHourDiv>{lastHour}</LastHourDiv>
       </HoursDivRow>
@@ -104,7 +102,6 @@ class ScheduleComponenet extends React.Component {
           throw new Error('There has been an error');
         } else {
           this.props.updatePage();
-          console.log('page updated');
           return response.status === 200 && response.json();
         }
       })
@@ -118,22 +115,21 @@ class ScheduleComponenet extends React.Component {
     return (
       <MainWrapper>
         <MainTitleWrapper>
-          {/* <MainTitle>{this.state.dummyDataArray[0].name}</MainTitle> */}
-          <MainTitle>{this.state.dummyDataArray.name}</MainTitle>
+          <MainTitle>{this.props.data.name}</MainTitle>
         </MainTitleWrapper>
         <TableAndInfoWrapper>
           <TableWrapper>
             {this.renderHoursOfDayCollection()}
             <Line />
 
-            {daysOfWeekNumerals.map(day => {
+            {daysOfWeekNumerals.map((day, index) => {
               return (
-                <OneDayDivRow>
+                <OneDayDivRow key={index}>
                   <OneDayDivRowText>
                     {daysOfWeek[(day + 6) % 7]}
                   </OneDayDivRowText>
-                  {this.state.dummyDataArray.hallReservations.map(
-                    (hallReservaltion, index) => {
+                  {this.props.data.hallReservations.map(
+                    (hallReservaltion, indexo) => {
                       hallReservaltion.active = false;
                       if (
                         new Date(
@@ -148,7 +144,7 @@ class ScheduleComponenet extends React.Component {
 
                         return (
                           <ReservationDynamicDiv
-                            key={index}
+                            key={indexo}
                             style={{
                               border: hallReservaltion.active
                                 ? 'solid 1px #0f4951'
@@ -160,12 +156,9 @@ class ScheduleComponenet extends React.Component {
                             onClick={() => {
                               hallReservaltion.activated = true;
 
-                              this.setState(
-                                {
-                                  currentReservationActive: hallReservaltion
-                                },
-                                console.log(hallReservaltion)
-                              );
+                              this.setState({
+                                currentReservationActive: hallReservaltion
+                              });
                             }}
                           >
                             <PopUpInfo length={obj.length}>
@@ -188,6 +181,7 @@ class ScheduleComponenet extends React.Component {
                           </ReservationDynamicDiv>
                         );
                       }
+                      return null;
                     }
                   )}
                 </OneDayDivRow>
@@ -215,7 +209,7 @@ class ScheduleComponenet extends React.Component {
             <Details
               img={DetailsIcon}
               onClick={() => {
-                if (this.state.currentReservationActive.activated == true) {
+                if (this.state.currentReservationActive.activated === true) {
                   this.setState({
                     ...this.state,
                     currentReservationActive: {
