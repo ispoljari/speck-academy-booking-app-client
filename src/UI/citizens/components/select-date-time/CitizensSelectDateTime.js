@@ -57,7 +57,7 @@ function displayTime() {
 
 const CitizensSelectDateTime = props => {
   const {
-    hallName,
+    selectedHallName,
     reservationDate,
     reservationStartTime,
     reservationEndTime,
@@ -141,7 +141,7 @@ const CitizensSelectDateTime = props => {
         <Title>Odaberite datum i vrijeme:</Title>
         <SubTitle>
           Označite slobodan termin na kalendaru za Vaš odabir:{' '}
-          <span>{hallName} Velika sportska dvorana.</span>
+          <span>{selectedHallName || 'NEMA ODABIRA'}</span>
         </SubTitle>
         <Hlabel>ODABERITE DATUM:</Hlabel>
         <Hlabel>ODABERITE VRIJEME:</Hlabel>

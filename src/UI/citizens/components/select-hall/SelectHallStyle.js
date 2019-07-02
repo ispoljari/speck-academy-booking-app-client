@@ -96,6 +96,9 @@ export const HallNameButton = styled.button`
   color: #ffffff;
   text-align: center;
   outline: none;
+  :hover {
+    background-color: #1d896d;
+  }
 `;
 
 export const HallNameTextCenter = styled.div`

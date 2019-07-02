@@ -54,6 +54,7 @@ export const SubTitle = styled.div`
   font-size: 14px;
   span {
     font-weight: 700;
+    margin-left: 3px;
   }
 `;
 

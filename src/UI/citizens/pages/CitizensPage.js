@@ -55,7 +55,6 @@ class CitizensPage extends Component {
       const rawResponse = await fetch(`${API_BASE_URL}/halls`);
       if (!rawResponse.ok) throw new Error('Someting went wrong');
       const allHalls = await rawResponse.json();
-      console.log(allHalls);
       this.setState({
         allHalls
       });
@@ -182,7 +181,9 @@ class CitizensPage extends Component {
         <CitizensSelectDateTime
           handleReservationDateChange={this.handleReservationDateChange}
           handleReservationTimeChange={this.handleReservationTimeChange}
-          hallName={this.state.hallId}
+          selectedHallName={
+            this.state.selectedHall ? this.state.selectedHall.name : ''
+          }
           reservationDate={this.state.reservationDate}
           reservationStartTime={this.state.reservationStartTime}
           reservationEndTime={this.state.reservationEndTime}
