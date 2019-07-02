@@ -26,21 +26,18 @@ const HallDescription = styled.div`
   width: 300px;
 `;
 
-const HallName = styled.p`
-  width: 300px;
+const HallName = styled.div`
+  padding: 5px 8px;
   border-radius: 2px;
   background-color: #229c7f;
 `;
 
 const HallNameTitle = styled.p`
   display: inline;
-  position: center;
-  width: 170px;
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #ffffff;
-  padding: 1px 50px 1px 8px;
 `;
 
 const HallInfo = styled.div`

@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledLink = styled.a`
-  font-family: Poppins, sans serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.14;
-  color: #000;
-`;
-
 export const MainContainer = styled.div`
   margin-top: 22px;
   width: 1024px;
@@ -47,11 +39,14 @@ export const HallImage = styled.img`
 
 //info-icon
 
-export const InfoIcon = styled.img`
+export const InfoBtn = styled.button`
+  background: url(${props => props.iconSrc});
   border-radius: 50%;
+  background-size: 16px;
+  background-repeat: no-repeat;
   filter: drop-shadow(1px 1px 1px #000);
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   position: absolute;
   top: 10px;
   left: 215px;

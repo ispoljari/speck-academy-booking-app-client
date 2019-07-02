@@ -2,7 +2,6 @@ import React from 'react';
 
 import Icon from '../../../../images/info-icon@3x.png';
 import {
-  StyledLink,
   HallImageContainer,
   HallNameButton,
   HallNameTextCenter,
@@ -11,7 +10,7 @@ import {
   SubheadlineText,
   FirstRow,
   MainContainer,
-  InfoIcon,
+  InfoBtn,
   TextInfoIcon,
   Elipse,
   Number,
@@ -30,10 +29,7 @@ const IndividualHall = ({ hall, handleHallSelect, onInfoClick }) => {
   return (
     <HallImageContainer>
       <HallImage src={hall.pictureUrl} />
-      <button onClick={handleHallInfoClick}>
-        <InfoIcon src={Icon} />
-      </button>
-
+      <InfoBtn onClick={handleHallInfoClick} iconSrc={Icon} />
       <HallNameButton id={hall.name} onClick={handleHallSelectClick}>
         <HallNameTextCenter>{hall.name}</HallNameTextCenter>
       </HallNameButton>
