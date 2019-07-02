@@ -6,6 +6,7 @@ import {
   HallImageContainer,
   HallNameButton,
   HallNameTextCenter,
+  HallImage,
   HeadlineText,
   SubheadlineText,
   FirstRow,
@@ -17,15 +18,15 @@ import {
   LayoutWrapper
 } from './SelectHallStyle.js';
 
-const IndividualHall = ({ imgSrc, hallTitle }) => (
+const IndividualHall = ({ hall }) => (
   <HallImageContainer>
-    <img src={imgSrc} />
+    <HallImage src={hall.pictureUrl} />
     <a href="#" rel="noopener noreferrer">
       <InfoIcon src={Icon} />
     </a>
 
-    <HallNameButton id={hallTitle}>
-      <HallNameTextCenter>{hallTitle}</HallNameTextCenter>
+    <HallNameButton id={hall.name}>
+      <HallNameTextCenter>{hall.name}</HallNameTextCenter>
     </HallNameButton>
   </HallImageContainer>
 );
@@ -46,7 +47,7 @@ const CitizensSelectHall = ({ allHalls }) => {
         </LayoutWrapper>
         <FirstRow>
           {allHalls.map((hall, index) => (
-            <IndividualHall hallData={hall} key={`index-${hall.name}`} />
+            <IndividualHall hall={hall} key={`${index}-${hall.name}`} />
           ))}
         </FirstRow>
       </MainContainer>

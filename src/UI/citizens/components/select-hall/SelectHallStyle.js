@@ -22,8 +22,8 @@ export const MainContainer = styled.div`
 
 export const HallImageContainer = styled.div`
   position: relative;
-  width: 244px;
-  height: 139px;
+  max-width: 244px;
+  max-height: 139px;
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -35,8 +35,8 @@ export const HallImageContainer = styled.div`
 
 export const HallImage = styled.img`
   align-self: center;
-  width: 244px;
-  height: 138px;
+  width: 100%;
+  height: 100%;
 `;
 
 // Hall image end
@@ -86,7 +86,6 @@ export const HallNameButton = styled.button`
   position: absolute;
   align-self: flex-end;
   width: 160px;
-  height: 48px;
   border-radius: 3px;
   border-color: #808080;
   background-color: #808080;
