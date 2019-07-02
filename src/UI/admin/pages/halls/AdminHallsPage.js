@@ -1,6 +1,5 @@
 import React from 'react';
 import { API_BASE_URL } from '../../../../config';
-import { AdminHeader } from '../../';
 import { Footer } from '../../../common';
 import { AdminAvailableHall } from '../../components/available-hall/AdminAvailableHall';
 import AdminAddHall from '../../components/add-hall/AdminAddHall';
@@ -32,7 +31,6 @@ class AdminHallsPage extends React.Component {
     return (
       <React.Fragment>
         <div style={{ minHeight: 'calc(100vh - 160px)' }}>
-          <AdminHeader />
           <AdminHallPageContainer>
             {items.map(item => (
               <AdminAvailableHall

@@ -142,7 +142,7 @@ class CitizensPage extends Component {
   };
 
   render() {
-    if (this.state.loggedIn) {
+    if (this.props.loggedIn) {
       return <Redirect to="/admin/requests" />;
     }
 
