@@ -139,7 +139,10 @@ const CitizensSelectDateTime = props => {
   const setupDatePickerPlaceholder = isHallSelected =>
     isHallSelected ? 'ODABERITE DATUM...' : 'DVORANA NIJE ODABRANA';
 
-  const disableTimePickerHours = () => [0, 1, 2, 3, 4, 5, 6, 7, 22, 23];
+  const disableTimePickerHours = () => {
+    const defaultBlockInterval = [0, 1, 2, 3, 4, 5, 6, 7, 22, 23];
+    return defaultBlockInterval;
+  };
 
   const generateTimePickerProps = timePosition => {
     const timeFieldIdentifier =
