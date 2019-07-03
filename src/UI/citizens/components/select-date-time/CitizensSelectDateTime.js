@@ -139,6 +139,8 @@ const CitizensSelectDateTime = props => {
   const setupDatePickerPlaceholder = isHallSelected =>
     isHallSelected ? 'ODABERITE DATUM...' : 'DVORANA NIJE ODABRANA';
 
+  const disableTimePickerHours = () => [0, 1, 2, 3, 4, 5, 6, 7, 23];
+
   return (
     <HeadContainer>
       <Circle>
@@ -179,6 +181,8 @@ const CitizensSelectDateTime = props => {
               className="xxx"
               disabled={!reservationDate}
               placeholder="VRIJEME..."
+              minuteStep={15}
+              disabledHours={disableTimePickerHours}
             />
             <span />
             <Vector />
@@ -191,6 +195,8 @@ const CitizensSelectDateTime = props => {
               className="xxx"
               disabled={!reservationDate || !reservationStartTime}
               placeholder="VRIJEME..."
+              minuteStep={15}
+              disabledHours={disableTimePickerHours}
             />
             <span />
             <Vector />
