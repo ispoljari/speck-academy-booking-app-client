@@ -75,6 +75,10 @@ class CitizensPage extends Component {
     }
   };
 
+  displayLogin = () => {
+    this.openModal('login');
+  };
+
   openModal = type => {
     this.setState({
       modalVisibility: {
@@ -105,14 +109,9 @@ class CitizensPage extends Component {
   };
 
   displayHallInfo = hallInfo => {
-    this.setState(
-      {
-        hallInfo
-      },
-      () => {
-        console.log(this.state.hallInfo);
-      }
-    );
+    this.setState({
+      hallInfo
+    });
 
     this.openModal('hallInfo');
   };
@@ -156,7 +155,7 @@ class CitizensPage extends Component {
 
     console.log('post data', rest);
 
-    /*
+    /* 
       console.log('event name', rest.eventName);
       rest.eventName:
       rest.eventDescription
@@ -171,10 +170,10 @@ class CitizensPage extends Component {
 
     return (
       <CitizensPageWrapper>
-        <CitizensHeader onClick={() => this.openModal('login')} />
+        <CitizensHeader onClick={this.displayLogin} />
         <CitizensSelectHall
           handleHallSelect={this.handleHallSelect}
-          onInfoClick={hallInfo => this.displayHallInfo(hallInfo)}
+          onInfoClick={this.displayHallInfo}
           allHalls={this.state.allHalls}
           selectedHallId={this.state.selectedHall && this.state.selectedHall.id}
         />
@@ -197,14 +196,14 @@ class CitizensPage extends Component {
         <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
         <Footer />
         {this.state.modalVisibility.login ? (
-          <Modal onClick={() => this.closeModal('login')}>
+          <Modal onClick={this.closeModal.bind(this, 'login')}>
             <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
           </Modal>
         ) : (
           ''
         )}
         {this.state.modalVisibility.hallInfo ? (
-          <Modal onClick={() => this.closeModal('hallInfo')}>
+          <Modal onClick={this.closeModal.bind(this, 'hallInfo')}>
             <CitizensHallInfo hallInfo={this.state.hallInfo} />
           </Modal>
         ) : (
