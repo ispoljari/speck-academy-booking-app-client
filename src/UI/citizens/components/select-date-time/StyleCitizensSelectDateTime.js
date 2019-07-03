@@ -100,6 +100,7 @@ export const DateInput = styled.div`
     border-radius: 2px;
     border: solid 0px rgba(0, 0, 0, 0);
     width: 244px;
+    padding: 0 5px;
     :invalid + span:after {
       margin-left: 8px;
       content: 'DATUM...';
