@@ -114,7 +114,14 @@ class CitizensPage extends Component {
   };
 
   handleReservationDateChange = day => {
-    this.setState({ reservationDate: day });
+    this.setState(
+      {
+        reservationDate: day
+      },
+      () => {
+        console.log(this.state.selectedHall);
+      }
+    );
   };
 
   handleReservationTimeChange = field => time => {
