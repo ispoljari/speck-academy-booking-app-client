@@ -65,6 +65,7 @@ const CitizensSelectDateTime = props => {
     handleReservationDateChange,
     handleReservationTimeChange
   } = props;
+
   const filteredReservations = [];
 
   // Filter reservations by selected date
@@ -132,6 +133,11 @@ const CitizensSelectDateTime = props => {
     return divs;
   };
 
+  const setupDisabledDays = isHallSelected =>
+    isHallSelected
+      ? { before: new Date() }
+      : { daysOfWeek: [0, 1, 2, 3, 4, 5, 6] };
+
   return (
     <HeadContainer>
       <Circle>
@@ -159,9 +165,7 @@ const CitizensSelectDateTime = props => {
               dayPickerProps={{
                 locale: 'hr',
                 localeUtils: MomentLocaleUtils,
-                disabledDays: {
-                  before: new Date()
-                }
+                disabledDays: setupDisabledDays(!!selectedHallName)
               }}
               onDayChange={handleReservationDateChange}
             />
