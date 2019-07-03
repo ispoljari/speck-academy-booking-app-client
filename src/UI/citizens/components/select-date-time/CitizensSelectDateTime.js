@@ -141,6 +141,25 @@ const CitizensSelectDateTime = props => {
 
   const disableTimePickerHours = () => [0, 1, 2, 3, 4, 5, 6, 7, 22, 23];
 
+  const generateTimePickerProps = timePosition => {
+    const timeFieldIdentifier =
+      timePosition === 'end' ? 'reservationEndTime' : 'reservationStartTime';
+
+    const timePickerProps = {
+      showSecond: false,
+      onChange: handleReservationTimeChange(timeFieldIdentifier),
+      format: 'HH:mm',
+      className: 'xxx',
+      disabled:
+        !reservationDate || (timePosition === 'end' && !reservationStartTime),
+      placeholder: 'VRIJEME...',
+      minuteStep: 15,
+      disabledHours: disableTimePickerHours
+    };
+
+    return timePickerProps;
+  };
+
   return (
     <HeadContainer>
       <Circle>
@@ -174,30 +193,12 @@ const CitizensSelectDateTime = props => {
             />
           </DateInput>
           <TimeInput>
-            <TimePicker
-              showSecond={false}
-              onChange={handleReservationTimeChange('reservationStartTime')}
-              format={'HH:mm'}
-              className="xxx"
-              disabled={!reservationDate}
-              placeholder="VRIJEME..."
-              minuteStep={15}
-              disabledHours={disableTimePickerHours}
-            />
+            <TimePicker {...generateTimePickerProps('start')} />
             <span />
             <Vector />
           </TimeInput>
           <TimeInput>
-            <TimePicker
-              showSecond={false}
-              onChange={handleReservationTimeChange('reservationEndTime')}
-              format={'HH:mm'}
-              className="xxx"
-              disabled={!reservationDate || !reservationStartTime}
-              placeholder="VRIJEME..."
-              minuteStep={15}
-              disabledHours={disableTimePickerHours}
-            />
+            <TimePicker {...generateTimePickerProps('end')} />
             <span />
             <Vector />
           </TimeInput>
