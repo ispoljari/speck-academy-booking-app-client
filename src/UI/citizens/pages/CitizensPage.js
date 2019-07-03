@@ -13,7 +13,6 @@ import {
 } from '../';
 import { API_BASE_URL } from '../../../config';
 import { Footer, Modal } from '../../common';
-import sampleData from '../components/select-date-time/SampleData';
 
 class CitizensPage extends Component {
   state = {

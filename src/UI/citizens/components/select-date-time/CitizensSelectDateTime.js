@@ -82,8 +82,6 @@ const CitizensSelectDateTime = props => {
 
   const drawSelected = () => {
     if (!reservationStartTime || !reservationEndTime) return null;
-    console.log('Input time 1::  ', reservationStartTime);
-    console.log('Input time 2::  ', reservationEndTime);
     const startTime = moment(reservationStartTime)
       .format('HH:mm')
       .split(':');
@@ -133,10 +131,13 @@ const CitizensSelectDateTime = props => {
     return divs;
   };
 
-  const setupDisabledDays = isHallSelected =>
+  const setupDatePickerDisabledDays = isHallSelected =>
     isHallSelected
       ? { before: new Date() }
       : { daysOfWeek: [0, 1, 2, 3, 4, 5, 6] };
+
+  const setupDatePickerPlaceholder = isHallSelected =>
+    isHallSelected ? 'ODABERITE DATUM...' : 'DVORANA NIJE ODABRANA';
 
   return (
     <HeadContainer>
@@ -147,7 +148,7 @@ const CitizensSelectDateTime = props => {
         <Title>Odaberite datum i vrijeme:</Title>
         <SubTitle hallSelected={!!selectedHallName}>
           Označite slobodan termin na kalendaru za Vaš odabir:{' '}
-          <span>{selectedHallName || 'NEMA ODABIRA'}</span>
+          <span>{selectedHallName || 'DVORANA NIJE ODABRANA'}</span>
         </SubTitle>
         <Hlabel>ODABERITE DATUM:</Hlabel>
         <Hlabel>ODABERITE VRIJEME:</Hlabel>
@@ -161,11 +162,11 @@ const CitizensSelectDateTime = props => {
               formatDate={formatDate}
               parseDate={parseDate}
               format="l"
-              placeholder={`ODABERITE DATUM...`}
+              placeholder={setupDatePickerPlaceholder(!!selectedHallName)}
               dayPickerProps={{
                 locale: 'hr',
                 localeUtils: MomentLocaleUtils,
-                disabledDays: setupDisabledDays(!!selectedHallName)
+                disabledDays: setupDatePickerDisabledDays(!!selectedHallName)
               }}
               onDayChange={handleReservationDateChange}
             />
@@ -176,6 +177,8 @@ const CitizensSelectDateTime = props => {
               onChange={handleReservationTimeChange('reservationStartTime')}
               format={'HH:mm'}
               className="xxx"
+              disabled={!reservationDate}
+              placeholder="VRIJEME..."
             />
             <span />
             <Vector />
@@ -186,6 +189,8 @@ const CitizensSelectDateTime = props => {
               onChange={handleReservationTimeChange('reservationEndTime')}
               format={'HH:mm'}
               className="xxx"
+              disabled={!reservationDate || !reservationStartTime}
+              placeholder="VRIJEME..."
             />
             <span />
             <Vector />
