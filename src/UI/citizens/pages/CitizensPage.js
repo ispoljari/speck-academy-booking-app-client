@@ -18,12 +18,15 @@ import sampleData from '../components/select-date-time/SampleData';
 class CitizensPage extends Component {
   state = {
     allHalls: [],
-    reservations: [],
     selectedHall: null,
     hallInfo: null,
     reservationDate: '',
     reservationStartTime: '',
     reservationEndTime: '',
+    modalVisibility: {
+      login: false,
+      hallInfo: false
+    },
     post: {
       hallSelectId: '',
       eventName: '',
@@ -33,15 +36,10 @@ class CitizensPage extends Component {
       organisation: '',
       phoneNumber: '',
       charCounter: 0
-    },
-    modalVisibility: {
-      login: false,
-      hallInfo: false
     }
   };
 
   componentDidMount() {
-    // this.setState({ reservations: sampleData }); //TODO: remove this
     this.getAllHalls();
     document.addEventListener('keydown', this.handleKeyPress);
   }
@@ -183,10 +181,14 @@ class CitizensPage extends Component {
           selectedHallName={
             this.state.selectedHall ? this.state.selectedHall.name : ''
           }
+          selectedHallReservations={
+            this.state.selectedHall
+              ? this.state.selectedHall.hallReservations
+              : []
+          }
           reservationDate={this.state.reservationDate}
           reservationStartTime={this.state.reservationStartTime}
           reservationEndTime={this.state.reservationEndTime}
-          reservations={this.state.reservations}
         />
 
         <CitizensEditEventInfo

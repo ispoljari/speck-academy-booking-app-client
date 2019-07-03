@@ -55,6 +55,7 @@ export const SubTitle = styled.div`
   span {
     font-weight: 700;
     margin-left: 3px;
+    color: ${props => (!props.hallSelected ? 'red' : '#000')};
   }
 `;
 

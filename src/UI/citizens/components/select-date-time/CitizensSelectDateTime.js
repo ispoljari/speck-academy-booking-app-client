@@ -61,7 +61,7 @@ const CitizensSelectDateTime = props => {
     reservationDate,
     reservationStartTime,
     reservationEndTime,
-    reservations,
+    selectedHallReservations,
     handleReservationDateChange,
     handleReservationTimeChange
   } = props;
@@ -69,7 +69,7 @@ const CitizensSelectDateTime = props => {
 
   // Filter reservations by selected date
   if (reservationDate) {
-    for (const reservation of reservations) {
+    for (const reservation of selectedHallReservations) {
       const selectedDate = reservationDate.toDateString();
       const reservedDate = new Date(reservation.reservationDate).toDateString();
 
@@ -139,7 +139,7 @@ const CitizensSelectDateTime = props => {
       </Circle>
       <Field>
         <Title>Odaberite datum i vrijeme:</Title>
-        <SubTitle>
+        <SubTitle hallSelected={!!selectedHallName}>
           Označite slobodan termin na kalendaru za Vaš odabir:{' '}
           <span>{selectedHallName || 'NEMA ODABIRA'}</span>
         </SubTitle>
