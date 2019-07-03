@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 import { Redirect } from 'react-router-dom';
 import { CitizensPageWrapper } from './CitizensPageStyle';
@@ -119,9 +120,53 @@ class CitizensPage extends Component {
         reservationDate: day
       },
       () => {
-        console.log(this.state.selectedHall);
+        if (this.state.selectedHall.hallReservations.length > 0) {
+          const selectedDateReservedTimeSlots = this.findHallReservationsForSelectedDate();
+        }
       }
     );
+  };
+
+  findHallReservationsForSelectedDate = () => {
+    const hallReservationsLength = this.state.selectedHall.hallReservations
+      .length;
+    const selectedDate = moment(this.state.reservationDate).format(
+      'YYYY-MM-DD'
+    );
+    const reservations = [];
+
+    for (let i = 0; i < hallReservationsLength; i++) {
+      if (
+        this.state.selectedHall.hallReservations[
+          i
+        ].reservationDate.toString() === selectedDate
+      ) {
+        reservations.push({
+          startTime: {
+            hour: moment(
+              this.state.selectedHall.hallReservations[i].reservationStartTime,
+              'HH:mm:ss'
+            ).hours(),
+            minute: moment(
+              this.state.selectedHall.hallReservations[i].reservationStartTime,
+              'HH:mm:ss'
+            ).minutes()
+          },
+          endTime: {
+            hour: moment(
+              this.state.selectedHall.hallReservations[i].reservationEndTime,
+              'HH:mm:ss'
+            ).hours(),
+            minute: moment(
+              this.state.selectedHall.hallReservations[i].reservationStartTime,
+              'HH:mm:ss'
+            ).minutes()
+          }
+        });
+      }
+    }
+
+    return reservations;
   };
 
   handleReservationTimeChange = field => time => {

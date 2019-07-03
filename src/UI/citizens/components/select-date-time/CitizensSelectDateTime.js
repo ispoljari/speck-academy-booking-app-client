@@ -139,8 +139,42 @@ const CitizensSelectDateTime = props => {
   const setupDatePickerPlaceholder = isHallSelected =>
     isHallSelected ? 'ODABERITE DATUM...' : 'DVORANA NIJE ODABRANA';
 
-  const disableTimePickerHours = () => {
+  const disableTimePickerHours = timePosition => {
     const defaultBlockInterval = [0, 1, 2, 3, 4, 5, 6, 7, 22, 23];
+
+    if (timePosition === 'end') {
+      const startHour = reservationStartTime.hours();
+      defaultBlockInterval.push(startHour);
+    }
+
+    return defaultBlockInterval;
+  };
+
+  const disableTimePickerMinutes = timePosition => {
+    const defaultBlockInterval = [];
+
+    if (timePosition === 'end') {
+      const startHour = reservationStartTime.hours();
+      const startMinute = reservationStartTime.minutes();
+      const endHour = !!reservationEndTime && reservationEndTime.hours();
+
+      if (startMinute > 0 && endHour - startHour === 1) {
+        switch (startMinute) {
+          case 15:
+            defaultBlockInterval.push(0);
+            break;
+          case 30:
+            defaultBlockInterval.push.apply(defaultBlockInterval, [0, 15]);
+            break;
+          case 45:
+            defaultBlockInterval.push.apply(defaultBlockInterval, [0, 15, 30]);
+            break;
+          default:
+            break;
+        }
+      }
+    }
+
     return defaultBlockInterval;
   };
 
@@ -157,7 +191,8 @@ const CitizensSelectDateTime = props => {
         !reservationDate || (timePosition === 'end' && !reservationStartTime),
       placeholder: 'VRIJEME...',
       minuteStep: 15,
-      disabledHours: disableTimePickerHours
+      disabledHours: () => disableTimePickerHours(timePosition),
+      disabledMinutes: () => disableTimePickerMinutes(timePosition)
     };
 
     return timePickerProps;
@@ -189,8 +224,8 @@ const CitizensSelectDateTime = props => {
               placeholder={setupDatePickerPlaceholder(!!selectedHallName)}
               dayPickerProps={{
                 locale: 'hr',
-                localeUtils: MomentLocaleUtils,
-                disabledDays: setupDatePickerDisabledDays(!!selectedHallName)
+                localeUtils: MomentLocaleUtils
+                // disabledDays: setupDatePickerDisabledDays(!!selectedHallName)
               }}
               onDayChange={handleReservationDateChange}
             />
