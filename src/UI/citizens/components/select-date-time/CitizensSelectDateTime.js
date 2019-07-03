@@ -158,7 +158,10 @@ const CitizensSelectDateTime = props => {
               placeholder={`ODABERITE DATUM...`}
               dayPickerProps={{
                 locale: 'hr',
-                localeUtils: MomentLocaleUtils
+                localeUtils: MomentLocaleUtils,
+                disabledDays: {
+                  before: new Date()
+                }
               }}
               onDayChange={handleReservationDateChange}
             />
