@@ -202,14 +202,21 @@ class CitizensPage extends Component {
         method: 'POST',
         body: JSON.stringify({
           ...this.state.post,
-          hallFk: this.state.selectedHall.id,
-          reservationDate: this.state.reservationDate,
-          reservationStartTime: this.state.reservationStartTime,
-          reservationEndTime: this.state.reservationEndTime
+          hallFk: this.state.selectedHall.id.toString(),
+          reservationDate: moment(this.state.reservationDate).format(
+            'YYYY-MM-DD'
+          ),
+          reservationStartTime: moment(
+            this.state.reservationStartTime,
+            'HH:mm:ss'
+          ).format('HH:mm'),
+          reservationEndTime: moment(
+            this.state.reservationEndTime,
+            'HH:mm:ss'
+          ).format('HH:mm')
         }),
         headers: { 'Content-Type': 'application/json' }
       };
-      console.log(postHttpConfig.body);
 
       try {
         const apiResponse = await fetch(
@@ -217,15 +224,25 @@ class CitizensPage extends Component {
           postHttpConfig
         );
         if (!apiResponse.ok) {
-          console.log(apiResponse);
           throw new Error('Something went wrong!');
         }
-        const result = apiResponse.json();
-        console.log(result);
+
+        if (apiResponse.status === 201) {
+          this.processSuccessSubmit();
+        }
       } catch (error) {
         console.log(error); //TODO: warn user
+        this.processFailSubmit();
       }
     }
+  };
+
+  processSuccessSubmit = () => {
+    console.log('Success!');
+  };
+
+  processFailSubmit = () => {
+    console.log('Fail!');
   };
 
   render() {
