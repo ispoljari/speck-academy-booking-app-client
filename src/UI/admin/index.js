@@ -9,3 +9,4 @@ export { default as AdminHeader } from './components/header/AdminHeader';
 export {
   default as AdminHallRequest
 } from './components/hall-request/AdminHallRequest';
+export { default as AdminPages } from './pages/AdminPages';
