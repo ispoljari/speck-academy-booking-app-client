@@ -1,8 +1,6 @@
 import React from 'react';
-import hallImage from '../../../../images/radnik.png';
 
 import {
-  HallInfoContainer,
   HallInfoTitle,
   HallInfoPanel,
   HallImage,
@@ -18,14 +16,14 @@ import {
   HallDetail
 } from './CitizensHallInfoStyle';
 
-const CitizensHallInfo = () => (
-  <HallInfoContainer>
+const CitizensHallInfo = ({ hallInfo }) => (
+  <>
     <HallInfoTitle>Informacije</HallInfoTitle>
     <HallInfoPanel>
-      <HallImage img src={hallImage} />
+      <HallImage img src={hallInfo.pictureUrl} />
       <HallDescription>
         <HallName>
-          <HallNameTitle>VELIKA SPORTSKA DVORANA</HallNameTitle>
+          <HallNameTitle>{hallInfo.name}</HallNameTitle>
         </HallName>
         <HallInfo>
           <HallInfoName>
@@ -33,17 +31,13 @@ const CitizensHallInfo = () => (
             <HallDesc>OPIS</HallDesc>
           </HallInfoName>
           <HallInfoDescription>
-            <HallAddress>Potočka ul.27</HallAddress>
-            <HallDetail>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              dictum, leo pulvinar aliquet sagittis, neque ligula sagittis
-              augue, eget finibus lectus leo nec ipsum.
-            </HallDetail>
+            <HallAddress>{hallInfo.address}</HallAddress>
+            <HallDetail>{hallInfo.description}</HallDetail>
           </HallInfoDescription>
         </HallInfo>
       </HallDescription>
     </HallInfoPanel>
-  </HallInfoContainer>
+  </>
 );
 
 export default CitizensHallInfo;

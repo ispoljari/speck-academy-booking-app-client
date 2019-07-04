@@ -1,25 +1,10 @@
 import styled from 'styled-components';
 
-export const StyledLink = styled.a`
-  font-family: Poppins, sans serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.14;
-  color: #000;
-  ${'' /* text-align: center; */}
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
-`;
-
 export const MainContainer = styled.div`
-  margin-top: 32px;
+  margin-top: 22px;
   width: 1024px;
-  min-height: 472px;
+  min-height: 200px;
+  padding-bottom: 32px;
   border-radius: 4px;
   border: solid 1px #d9d9d9;
   background-color: #ffffff;
@@ -29,32 +14,40 @@ export const MainContainer = styled.div`
 
 export const HallImageContainer = styled.div`
   position: relative;
-  width: 244px;
-  height: 139px;
+  max-width: 244px;
+  max-height: 139px;
   border-radius: 2px;
   border: solid 1px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: row;
   ${'' /* flex-wrap: wrap; */}
   justify-content: center;
-  margin: 5px;
+  margin: 8px;
+  outline: ${props => (props.isSelected ? '5px solid #1D896D' : '')};
+  button {
+    cursor: pointer;
+  }
 `;
 
 export const HallImage = styled.img`
   align-self: center;
-  width: 244px;
-  height: 138px;
+  width: 100%;
+  height: 100%;
 `;
 
 // Hall image end
 
 //info-icon
 
-export const InfoIcon = styled.img`
+export const InfoBtn = styled.button`
+  background: url(${props => props.iconSrc});
   border-radius: 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
   filter: drop-shadow(1px 1px 1px #000);
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 10px;
   left: 215px;
@@ -93,23 +86,18 @@ export const HallNameButton = styled.button`
   position: absolute;
   align-self: flex-end;
   width: 160px;
-  height: 48px;
   border-radius: 3px;
-  border-color: #808080;
-  background-color: #808080;
+  border-color: ${props => (props.isSelected ? '#1D896D' : '#808080')};
+  background-color: ${props => (props.isSelected ? '#1D896D' : '#808080')};
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
   color: #ffffff;
   text-align: center;
-  &:visited,
-  :hover,
-  :focus,
-  :active {
-    background-color: #229c7f;
-    transition-duration: 0.5s;
-    cursor: pointer;
+  outline: none;
+  :hover {
+    background-color: #1d896d;
   }
 `;
 
@@ -127,15 +115,16 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  max-width: 742px;
+  max-width: 764px;
   align-self: center;
 `;
 
 export const FirstRow = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: wrap;
   justify-content: center;
-  margin-bottom: 10px;
+  width: 1000px;
+  margin: 0 auto;
 `;
 
 export const SecondRow = styled.div`

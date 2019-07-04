@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import {
   HeaderContainer,
@@ -22,7 +22,7 @@ import {
 
 import headerImage from '../../../../images/header-image@2x.png';
 
-const CitizensHeader = ({ onClick }) => (
+const CitizensHeader = memo(({ onClick }) => (
   <HeaderContainer>
     <Header imgSrc={headerImage}> </Header>
     <Container>
@@ -72,6 +72,6 @@ const CitizensHeader = ({ onClick }) => (
       </Container1>
     </Container>
   </HeaderContainer>
-);
+));
 
 export default CitizensHeader;

@@ -1,53 +1,46 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 import { Redirect } from 'react-router-dom';
-
 import { CitizensPageWrapper } from './CitizensPageStyle';
-
 import {
   CitizensHeader,
   CitizensAdminLogin,
   CitizensSelectHall,
+  CitizensHallInfo,
   CitizensSelectDateTime,
   CitizensEditEventInfo,
   CitizensSubmitRequest
 } from '../';
-
+import { API_BASE_URL } from '../../../config';
 import { Footer, Modal } from '../../common';
-// import { Component } from '../components/login/CitizensAdminLoginStyle.js';
-
-import sampleData from '../components/select-date-time/SampleData';
-/* const drawFromDB = require('../components/select-date-time/CitizensSelectDateTime'); */
-
-//import SampleHallData from '../components/select-hall/SampleHallData'
 
 class CitizensPage extends Component {
   state = {
-    //CitizenSelectHall FILE
-    //hallSelectId: '',
-    //hallName: '',
-    //hallPictureUrl:'',
-    //GodHelpUsAll
-    hallId: '',
+    allHalls: [],
+    selectedHall: null,
+    hallInfo: null,
     reservationDate: '',
     reservationStartTime: '',
     reservationEndTime: '',
-    post: {
-      hallSelectId: '',
-      eventName: '',
-      eventDescription: '',
-      nameAndSurname: '',
-      email: '',
-      organisation: '',
-      phoneNumber: '',
-      charCounter: 0
+    reservedDateTimeSlots: [],
+    modalVisibility: {
+      login: false,
+      hallInfo: false
     },
-    reservations: [],
-    adminLoginVisible: false
+    post: {
+      reservationTitle: '',
+      reservationDescription: '',
+      citizenFullName: '',
+      citizenEmail: '',
+      citizenOrganization: '',
+      citizenPhoneNumber: ''
+    },
+    charCounter: 0
   };
 
   componentDidMount() {
-    this.setState({ reservations: sampleData });
+    this.getAllHalls();
     document.addEventListener('keydown', this.handleKeyPress);
   }
 
@@ -55,28 +48,50 @@ class CitizensPage extends Component {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
+  getAllHalls = async () => {
+    try {
+      const rawResponse = await fetch(`${API_BASE_URL}/halls`);
+      if (!rawResponse.ok) throw new Error('Someting went wrong');
+      const allHalls = await rawResponse.json();
+      this.setState({
+        allHalls
+      });
+    } catch (error) {
+      console.log(error); //TODO: warn user
+    }
+  };
+
   confirmAdminLogin = async () => {
-    await this.closeLoginModal();
+    await this.closeModal('login');
     this.props.authenticateAdmin(true);
   };
 
   handleKeyPress = e => {
-    if (e.key === 'Escape' && this.state.adminLoginVisible) {
-      this.closeLoginModal();
+    if (e.key === 'Escape') {
+      this.state.modalVisibility.login && this.closeModal('login');
+      this.state.modalVisibility.hallInfo && this.closeModal('hallInfo');
     }
   };
 
-  openLoginModal = () => {
+  displayLogin = () => {
+    this.openModal('login');
+  };
+
+  openModal = type => {
     this.setState({
-      adminLoginVisible: true
+      modalVisibility: {
+        [type]: true
+      }
     });
   };
 
-  closeLoginModal = () => {
+  closeModal = type => {
     return new Promise(resolve => {
       this.setState(
         {
-          adminLoginVisible: false
+          modalVisibility: {
+            [type]: false
+          }
         },
         () => {
           resolve();
@@ -85,18 +100,68 @@ class CitizensPage extends Component {
     });
   };
 
-  handleHallSelect = hallId => () => {
-    const { halls } = this.props;
-    const hall = halls.find(hall => hall.id === hallId);
+  handleHallSelect = selectedHall => {
     this.setState({
-      hallId,
-      reservations: hall.hallReservations
+      selectedHall
     });
   };
 
-  handleReservationDateChange = day => {
-    this.setState({ reservationDate: day });
+  displayHallInfo = hallInfo => {
+    this.setState({
+      hallInfo
+    });
+
+    this.openModal('hallInfo');
   };
+
+  handleReservationDateChange = day => {
+    this.setState(
+      {
+        reservationDate: day
+      },
+      () => {
+        if (this.state.selectedHall.hallReservations.length > 0) {
+          const reservedDateTimeSlots = this.findHallReservationsForSelectedDate();
+          this.setState({
+            reservedDateTimeSlots
+          });
+        }
+      }
+    );
+  };
+
+  findHallReservationsForSelectedDate = () => {
+    const hallReservationsLength = this.state.selectedHall.hallReservations
+      .length;
+    const selectedDate = moment(this.state.reservationDate).format(
+      'YYYY-MM-DD'
+    );
+    const reservations = [];
+
+    for (let i = 0; i < hallReservationsLength; i++) {
+      if (
+        this.state.selectedHall.hallReservations[
+          i
+        ].reservationDate.toString() === selectedDate
+      ) {
+        reservations.push({
+          startTime: this.createHourMinuteMomentPair(
+            this.state.selectedHall.hallReservations[i].reservationStartTime
+          ),
+          endTime: this.createHourMinuteMomentPair(
+            this.state.selectedHall.hallReservations[i].reservationEndTime
+          )
+        });
+      }
+    }
+
+    return reservations;
+  };
+
+  createHourMinuteMomentPair = time => ({
+    hour: moment(time, 'HH:mm:ss').hours(),
+    minute: moment(time, 'HH:mm:ss').minutes()
+  });
 
   handleReservationTimeChange = field => time => {
     this.setState({ [field]: time });
@@ -104,41 +169,80 @@ class CitizensPage extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-    let charCounter = this.state.post.charCounter;
-
-    /*
-    if (name === 'something') {
-      const isValid = event.target.validity.valid;
-
-      if (value && !isValid) return;
-    }
-    */
+    let charCounter;
 
     if (name === 'eventDescription') {
-      console.log('length', value.length);
       charCounter = value.length;
     }
 
     this.setState(prevState => ({
       post: {
         ...prevState.post,
-        [name]: value,
-        charCounter: charCounter
-      }
+        [name]: value
+      },
+      charCounter: charCounter
     }));
   };
 
-  onSubmitRequest = () => {
-    const { charCounter, ...rest } = this.state.post;
+  isRequestDataReady = () => {
+    for (const prop in this.state.post)
+      if (!this.state.post[prop]) return false;
 
-    console.log('post data', rest);
+    return true;
+  };
 
-    /*
-      console.log('event name', rest.eventName);
-      rest.eventName:
-      rest.eventDescription
-      rest.nameAndSurname
-    */
+  onSubmitRequest = async e => {
+    const requestReady = this.isRequestDataReady();
+
+    if (requestReady) {
+      e.preventDefault();
+
+      const postReservationEndpoint = `${API_BASE_URL}/reservations/create`;
+      const postHttpConfig = {
+        method: 'POST',
+        body: JSON.stringify({
+          ...this.state.post,
+          hallFk: this.state.selectedHall.id.toString(),
+          reservationDate: moment(this.state.reservationDate).format(
+            'YYYY-MM-DD'
+          ),
+          reservationStartTime: moment(
+            this.state.reservationStartTime,
+            'HH:mm:ss'
+          ).format('HH:mm'),
+          reservationEndTime: moment(
+            this.state.reservationEndTime,
+            'HH:mm:ss'
+          ).format('HH:mm')
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      };
+
+      try {
+        const apiResponse = await fetch(
+          postReservationEndpoint,
+          postHttpConfig
+        );
+        if (!apiResponse.ok) {
+          throw new Error('Something went wrong!');
+        }
+
+        if (apiResponse.status === 201) {
+          this.processSuccessSubmit();
+        }
+      } catch (error) {
+        console.log(error); //TODO: warn user
+        this.processFailSubmit();
+      }
+    }
+  };
+
+  processSuccessSubmit = () => {
+    console.log('Success!');
+  };
+
+  processFailSubmit = () => {
+    console.log('Fail!');
   };
 
   render() {
@@ -148,28 +252,50 @@ class CitizensPage extends Component {
 
     return (
       <CitizensPageWrapper>
-        <CitizensHeader onClick={this.openLoginModal} />
-        <CitizensSelectHall /* handleHallSelect={handleHallSelect} */ />
+        <CitizensHeader onClick={this.displayLogin} />
+        <CitizensSelectHall
+          handleHallSelect={this.handleHallSelect}
+          onInfoClick={this.displayHallInfo}
+          allHalls={this.state.allHalls}
+          selectedHallId={this.state.selectedHall && this.state.selectedHall.id}
+        />
         <CitizensSelectDateTime
           handleReservationDateChange={this.handleReservationDateChange}
           handleReservationTimeChange={this.handleReservationTimeChange}
-          hallName={this.state.hallId}
+          selectedHallName={
+            this.state.selectedHall ? this.state.selectedHall.name : ''
+          }
+          selectedHallReservations={
+            this.state.selectedHall
+              ? this.state.selectedHall.hallReservations
+              : []
+          }
           reservationDate={this.state.reservationDate}
           reservationStartTime={this.state.reservationStartTime}
           reservationEndTime={this.state.reservationEndTime}
-          reservations={this.state.reservations}
+          reservedDateTimeSlots={this.state.reservedDateTimeSlots}
         />
 
         <CitizensEditEventInfo
           handleChange={this.handleChange}
           post={this.state.post}
+          enableForm={!!this.state.reservationEndTime}
         />
-        <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
+        <CitizensSubmitRequest
+          onSubmitRequest={this.onSubmitRequest}
+          enableForm={!!this.state.reservationEndTime}
+        />
         <Footer />
-        {/* <Error404 /> */}
-        {this.state.adminLoginVisible ? (
-          <Modal onClick={this.closeLoginModal}>
+        {this.state.modalVisibility.login ? (
+          <Modal onClick={this.closeModal.bind(this, 'login')}>
             <CitizensAdminLogin confirmAdminLogin={this.confirmAdminLogin} />
+          </Modal>
+        ) : (
+          ''
+        )}
+        {this.state.modalVisibility.hallInfo ? (
+          <Modal onClick={this.closeModal.bind(this, 'hallInfo')}>
+            <CitizensHallInfo hallInfo={this.state.hallInfo} />
           </Modal>
         ) : (
           ''

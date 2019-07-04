@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { Normalize } from 'styled-normalize';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import WebFont from 'webfontloader';
 
 import GlobalStyle from './globalStyle';
 import { findSessionCookie, deleteSessionCookie } from './util';
 import { AdminPages } from './UI/admin';
 import { CitizensPage } from './UI/citizens';
 import { Error404, PrivateRoute } from './UI/common';
+
+WebFont.load({
+  google: {
+    families: ['Lora: 400,700', 'Poppins: 200, 400, 600, 700']
+  }
+});
 
 class App extends Component {
   state = {

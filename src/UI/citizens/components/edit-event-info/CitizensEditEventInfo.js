@@ -8,7 +8,7 @@ import {
   MainDescription,
   FormContainer,
   FormHeader,
-  FormContainerInfoGroup,
+  ContainerInfoGroup,
   FormInput,
   FormInputText,
   FormInputTextCharacterCounter,
@@ -16,7 +16,7 @@ import {
   FormInlineInput
 } from './CitizensEditEventInfoStyle';
 
-export default ({ handleChange, post }) => {
+export default ({ handleChange, post, enableForm }) => {
   return (
     <MainContainer>
       <CricleMark>
@@ -28,68 +28,74 @@ export default ({ handleChange, post }) => {
         ostaviti svoje kontakte podatke kako bismo Vas mogli kontaktirati u vezi
         dodatnih detalja i potvrđivanja rezervacije.
       </MainDescription>
-      <FormContainer>
+      <FormContainer id="form-citizens-reservation">
         <FormHeader>Naziv događaja:</FormHeader>
         <FormInput
           type="text"
-          name="eventName"
+          name="reservationTitle"
           onChange={handleChange}
           value={post.name}
           required
+          disabled={!enableForm}
         />
         <FormHeader>Opis događaja:</FormHeader>
         <FormInputText
           placeholder="OPIŠITE SVOJ DOGAĐAJ..."
           type="text"
-          name="eventDescription"
+          name="reservationDescription"
           onChange={handleChange}
           maxLength="500"
           required
+          disabled={!enableForm}
         />
         <FormInputTextCharacterCounter>
           <span>{post.charCounter} / 500 znakova</span>
         </FormInputTextCharacterCounter>
         <FormHeader>Vaši kontakt podaci:</FormHeader>
-        <FormContainerInfoGroup>
+        <ContainerInfoGroup>
           <FormInlineInput>
             <FormInlineLabel>Ime i prezime</FormInlineLabel>
             <FormInput
               type="text"
-              name="nameAndSurname"
+              name="citizenFullName"
               onChange={handleChange}
               required
+              disabled={!enableForm}
             />
           </FormInlineInput>
           <FormInlineInput>
             <FormInlineLabel>Organizacija (nije obavezno)</FormInlineLabel>
             <FormInput
               type="text"
-              name="organisation"
+              name="citizenOrganization"
               onChange={handleChange}
               required
+              disabled={!enableForm}
             />
           </FormInlineInput>
           <FormInlineInput>
             <FormInlineLabel>E-mail adresa</FormInlineLabel>
             <FormInput
               type="email"
-              name="email"
+              name="citizenEmail"
               onChange={handleChange}
               pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
               required
+              disabled={!enableForm}
             />
           </FormInlineInput>
           <FormInlineInput>
             <FormInlineLabel>Broj telefona/Mobitela</FormInlineLabel>
             <FormInput
               type="text"
-              name="phoneNumber"
+              name="citizenPhoneNumber"
               onChange={handleChange}
               pattern="(\+[0-9]{0,16})|[0-9]{0,15}"
               required
+              disabled={!enableForm}
             />
           </FormInlineInput>
-        </FormContainerInfoGroup>
+        </ContainerInfoGroup>
       </FormContainer>
     </MainContainer>
   );

@@ -47,7 +47,9 @@ class EditHallComponent extends React.Component {
         }
         return response.status === 200 && response.json();
       })
-      .then(res => this.setState({ pictureUrl: res.data.link }))
+      .then(res => {
+        this.setState({ pictureUrl: res.data.link });
+      })
       .catch(e => console.log(e));
   };
 

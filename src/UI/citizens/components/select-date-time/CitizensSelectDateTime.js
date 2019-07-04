@@ -57,19 +57,21 @@ function displayTime() {
 
 const CitizensSelectDateTime = props => {
   const {
-    hallName,
+    selectedHallName,
     reservationDate,
     reservationStartTime,
     reservationEndTime,
-    reservations,
+    reservedDateTimeSlots,
+    selectedHallReservations,
     handleReservationDateChange,
     handleReservationTimeChange
   } = props;
+
   const filteredReservations = [];
 
   // Filter reservations by selected date
   if (reservationDate) {
-    for (const reservation of reservations) {
+    for (const reservation of selectedHallReservations) {
       const selectedDate = reservationDate.toDateString();
       const reservedDate = new Date(reservation.reservationDate).toDateString();
 
@@ -81,8 +83,6 @@ const CitizensSelectDateTime = props => {
 
   const drawSelected = () => {
     if (!reservationStartTime || !reservationEndTime) return null;
-    console.log('Input time 1::  ', reservationStartTime);
-    console.log('Input time 2::  ', reservationEndTime);
     const startTime = moment(reservationStartTime)
       .format('HH:mm')
       .split(':');
@@ -132,6 +132,150 @@ const CitizensSelectDateTime = props => {
     return divs;
   };
 
+  const setupDatePickerDisabledDays = isHallSelected =>
+    isHallSelected
+      ? { before: new Date() }
+      : { daysOfWeek: [0, 1, 2, 3, 4, 5, 6] };
+
+  const setupDatePickerPlaceholder = isHallSelected =>
+    isHallSelected ? 'ODABERITE DATUM...' : 'DVORANA NIJE ODABRANA';
+
+  const detectReservedSlots = timeUnit => {
+    const reservedHours = [];
+    const reservedMinutes = [];
+
+    const selEndHour = !!reservationEndTime && reservationEndTime.hours();
+    const selStartHour = !!reservationStartTime && reservationStartTime.hours();
+    const reservedDateTimeSlotsLength = reservedDateTimeSlots.length;
+
+    if (reservedDateTimeSlotsLength > 0) {
+      for (let i = 0; i < reservedDateTimeSlotsLength; i++) {
+        const startHour = reservedDateTimeSlots[i].startTime.hour;
+        const endHour = reservedDateTimeSlots[i].endTime.hour;
+        const startMinute = reservedDateTimeSlots[i].startTime.minute;
+        const endMinute = reservedDateTimeSlots[i].endTime.minute;
+
+        const offset = startHour === 8 ? 0 : 1;
+        for (let i = startHour + offset; i < endHour; i++) {
+          reservedHours.push(i);
+        }
+
+        // if (startHour - selStartHour >= 1) {
+        //   for (let i = endHour; i < 22; i++) {
+        //     reservedHours.push(i);
+        //   }
+        // }
+
+        if (selEndHour === startHour) {
+          switch (startMinute) {
+            case 0:
+              reservedMinutes.push.apply(reservedMinutes, [15, 30, 45]);
+              break;
+            case 15:
+              reservedMinutes.push.apply(reservedMinutes, [30, 45]);
+              break;
+            case 30:
+              reservedMinutes.push.apply(reservedMinutes, [45]);
+              break;
+            default:
+              break;
+          }
+        }
+
+        // if (selStartHour === endHour) {
+        //   switch (endMinute) {
+        //     case 15:
+        //       reservedMinutes.push.apply(reservedMinutes, [0]);
+        //       break;
+        //     case 30:
+        //       reservedMinutes.push.apply(reservedMinutes, [0, 15]);
+        //       break;
+        //     case 45:
+        //       reservedMinutes.push.apply(reservedMinutes, [0, 15, 30]);
+        //       break;
+        //     default:
+        //       break;
+        //   }
+        // }
+      }
+    }
+
+    if (timeUnit === 'hours') {
+      return reservedHours;
+    } else {
+      return reservedMinutes;
+    }
+  };
+
+  const disableTimePickerHours = timePosition => {
+    const defaultBlockInterval = [0, 1, 2, 3, 4, 5, 6, 7, 22, 23];
+
+    if (timePosition === 'end') {
+      const startHour = reservationStartTime.hours();
+      defaultBlockInterval.push(startHour);
+    }
+
+    const reservedHours = detectReservedSlots('hours');
+    if (reservedHours.length > 0) {
+      defaultBlockInterval.push.apply(defaultBlockInterval, reservedHours);
+    }
+
+    return defaultBlockInterval;
+  };
+
+  const disableTimePickerMinutes = timePosition => {
+    const defaultBlockInterval = [];
+
+    if (timePosition === 'end') {
+      const startHour = reservationStartTime.hours();
+      const startMinute = reservationStartTime.minutes();
+      const endHour = !!reservationEndTime && reservationEndTime.hours();
+
+      if (startMinute > 0 && endHour - startHour === 1) {
+        switch (startMinute) {
+          case 15:
+            defaultBlockInterval.push(0);
+            break;
+          case 30:
+            defaultBlockInterval.push.apply(defaultBlockInterval, [0, 15]);
+            break;
+          case 45:
+            defaultBlockInterval.push.apply(defaultBlockInterval, [0, 15, 30]);
+            break;
+          default:
+            break;
+        }
+      }
+    }
+
+    const reservedMinutes = detectReservedSlots('minutes');
+    if (reservedMinutes.length > 0) {
+      defaultBlockInterval.push.apply(defaultBlockInterval, reservedMinutes);
+    }
+
+    return defaultBlockInterval;
+  };
+
+  const generateTimePickerProps = timePosition => {
+    const timeFieldIdentifier =
+      timePosition === 'end' ? 'reservationEndTime' : 'reservationStartTime';
+
+    const timePickerProps = {
+      showSecond: false,
+      onChange: handleReservationTimeChange(timeFieldIdentifier),
+      format: 'HH:mm',
+      className: 'xxx',
+      disabled:
+        !reservationDate || (timePosition === 'end' && !reservationStartTime),
+      placeholder: 'VRIJEME...',
+      minuteStep: 15,
+      disabledHours: () => disableTimePickerHours(timePosition),
+      disabledMinutes: () => disableTimePickerMinutes(timePosition)
+    };
+
+    return timePickerProps;
+  };
+
   return (
     <HeadContainer>
       <Circle>
@@ -139,9 +283,9 @@ const CitizensSelectDateTime = props => {
       </Circle>
       <Field>
         <Title>Odaberite datum i vrijeme:</Title>
-        <SubTitle>
+        <SubTitle hallSelected={!!selectedHallName}>
           Označite slobodan termin na kalendaru za Vaš odabir:{' '}
-          <span>{hallName} Velika sportska dvorana.</span>
+          <span>{selectedHallName || 'DVORANA NIJE ODABRANA'}</span>
         </SubTitle>
         <Hlabel>ODABERITE DATUM:</Hlabel>
         <Hlabel>ODABERITE VRIJEME:</Hlabel>
@@ -155,31 +299,22 @@ const CitizensSelectDateTime = props => {
               formatDate={formatDate}
               parseDate={parseDate}
               format="l"
-              placeholder={`ODABERITE DATUM...`}
+              placeholder={setupDatePickerPlaceholder(!!selectedHallName)}
               dayPickerProps={{
                 locale: 'hr',
-                localeUtils: MomentLocaleUtils
+                localeUtils: MomentLocaleUtils,
+                disabledDays: setupDatePickerDisabledDays(!!selectedHallName)
               }}
               onDayChange={handleReservationDateChange}
             />
           </DateInput>
           <TimeInput>
-            <TimePicker
-              showSecond={false}
-              onChange={handleReservationTimeChange('reservationStartTime')}
-              format={'HH:mm'}
-              className="xxx"
-            />
+            <TimePicker {...generateTimePickerProps('start')} />
             <span />
             <Vector />
           </TimeInput>
           <TimeInput>
-            <TimePicker
-              showSecond={false}
-              onChange={handleReservationTimeChange('reservationEndTime')}
-              format={'HH:mm'}
-              className="xxx"
-            />
+            <TimePicker {...generateTimePickerProps('end')} />
             <span />
             <Vector />
           </TimeInput>
