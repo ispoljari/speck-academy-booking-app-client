@@ -94,7 +94,8 @@ class ScheduleComponenet extends React.Component {
         '/reservations/delete/' +
         this.state.currentReservationActive.id,
       {
-        method: 'DELETE'
+        method: 'DELETE',
+        credentials: 'include'
       }
     )
       .then(response => {

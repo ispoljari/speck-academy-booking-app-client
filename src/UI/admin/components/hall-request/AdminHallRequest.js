@@ -41,6 +41,7 @@ function AdminHallRequest(props) {
     fetch(API_BASE_URL + '/reservations/update/' + id, {
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       method: 'PATCH',
+      credentials: 'include',
       body: JSON.stringify({ reservationStatus: 'approved' })
     })
       .then(response => {
@@ -60,6 +61,7 @@ function AdminHallRequest(props) {
     fetch(API_BASE_URL + '/reservations/update/' + id, {
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       method: 'PATCH',
+      credentials: 'include',
       body: JSON.stringify({ reservationStatus: 'denied' })
     })
       .then(response => {

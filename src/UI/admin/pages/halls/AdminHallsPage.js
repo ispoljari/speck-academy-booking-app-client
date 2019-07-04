@@ -1,6 +1,5 @@
 import React from 'react';
 import { API_BASE_URL } from '../../../../config';
-import { Footer } from '../../../common';
 import { AdminAvailableHall } from '../../components/available-hall/AdminAvailableHall';
 import AdminAddHall from '../../components/add-hall/AdminAddHall';
 import { AdminHallPageContainer } from '../../components/available-hall/AdminAvailableHallStyle';
@@ -13,7 +12,7 @@ class AdminHallsPage extends React.Component {
     this.FetchRequests = this.FetchRequests.bind(this);
   }
   FetchRequests() {
-    fetch(API_BASE_URL + '/halls')
+    fetch(API_BASE_URL + '/halls', { credentials: 'include' })
       .then(response => {
         if (!response.ok) {
           throw new Error('There has been an error');
@@ -30,23 +29,20 @@ class AdminHallsPage extends React.Component {
     let items = this.state.data;
     return (
       <React.Fragment>
-        <div style={{ minHeight: 'calc(100vh - 160px)' }}>
-          <AdminHallPageContainer>
-            {items.map(item => (
-              <AdminAvailableHall
-                key={item.id}
-                titleHall={item.name}
-                hallImage={item.pictureUrl}
-                locationText={item.address}
-                descriptionText={item.description}
-                id={item.id}
-                updatePage={this.FetchRequests}
-              />
-            ))}
-            <AdminAddHall updatePage={this.FetchRequests} />
-          </AdminHallPageContainer>
-        </div>
-        <Footer />
+        <AdminHallPageContainer>
+          {items.map(item => (
+            <AdminAvailableHall
+              key={item.id}
+              titleHall={item.name}
+              hallImage={item.pictureUrl}
+              locationText={item.address}
+              descriptionText={item.description}
+              id={item.id}
+              updatePage={this.FetchRequests}
+            />
+          ))}
+          <AdminAddHall updatePage={this.FetchRequests} />
+        </AdminHallPageContainer>
       </React.Fragment>
     );
   }

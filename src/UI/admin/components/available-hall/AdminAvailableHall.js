@@ -86,6 +86,7 @@ class AdminAvailableHall extends React.Component {
     let id = this.props.id;
     const deleteHall = () => {
       fetch(API_BASE_URL + '/halls/delete/' + id, {
+        credentials: 'include',
         method: 'DELETE'
       })
         .then(res => {

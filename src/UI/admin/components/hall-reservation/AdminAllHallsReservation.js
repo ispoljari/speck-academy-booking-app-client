@@ -31,7 +31,7 @@ class AllHallsReservations extends React.Component {
         .toFormat('LL-dd-yyyy')
     };
     url.search = new URLSearchParams(params);
-    fetch(url)
+    fetch(url, { credentials: 'include' })
       .then(response => {
         if (!response.ok) {
           throw new Error('There has been an error');
