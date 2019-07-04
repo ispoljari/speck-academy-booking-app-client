@@ -10,7 +10,9 @@ import {
   CitizensHallInfo,
   CitizensSelectDateTime,
   CitizensEditEventInfo,
-  CitizensSubmitRequest
+  CitizensSubmitRequest,
+  Successfull,
+  Unsuccessful
 } from '../';
 import { API_BASE_URL } from '../../../config';
 import { Footer, Modal } from '../../common';
@@ -26,7 +28,9 @@ class CitizensPage extends Component {
     reservedDateTimeSlots: [],
     modalVisibility: {
       login: false,
-      hallInfo: false
+      hallInfo: false,
+      registrationSuccess: false,
+      registrationFail: false
     },
     post: {
       reservationTitle: '',
@@ -241,6 +245,15 @@ class CitizensPage extends Component {
     this.deselectHall();
     this.removeSelectedDateTime();
     this.getAllHalls();
+    this.openModal('registrationSuccess');
+  };
+
+  processFailSubmit = () => {
+    this.resetForm();
+    this.deselectHall();
+    this.removeSelectedDateTime();
+    this.getAllHalls();
+    this.openModal('registrationFail');
   };
 
   resetForm = () => {
@@ -269,10 +282,6 @@ class CitizensPage extends Component {
       reservationStartTime: '',
       reservationEndTime: ''
     });
-  };
-
-  processFailSubmit = () => {
-    console.log('Fail!');
   };
 
   render() {
@@ -326,6 +335,15 @@ class CitizensPage extends Component {
         {this.state.modalVisibility.hallInfo ? (
           <Modal onClick={this.closeModal.bind(this, 'hallInfo')}>
             <CitizensHallInfo hallInfo={this.state.hallInfo} />
+          </Modal>
+        ) : (
+          ''
+        )}
+        {this.state.modalVisibility.registrationSuccess ? (
+          <Modal onClick={this.closeModal.bind(this, 'registrationSuccess')}>
+            <Successfull
+              onClick={this.closeModal.bind(this, 'registrationSuccess')}
+            />
           </Modal>
         ) : (
           ''

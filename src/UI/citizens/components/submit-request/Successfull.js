@@ -13,7 +13,7 @@ import {
   ButtonContainer
 } from './SuccsessUnsuccessStyle';
 import okImage from '../../../../images/success@2x.png';
-const Successfull = () => (
+const Successfull = ({ onClick }) => (
   <Container>
     <SecContainer>
       <CheckImage imgSrc={okImage} />
@@ -25,7 +25,7 @@ const Successfull = () => (
 
     <ButtonContainer>
       <StyledLink to="">
-        <Button>
+        <Button onClick={onClick}>
           <ButtonText>U REDU</ButtonText>
         </Button>
       </StyledLink>

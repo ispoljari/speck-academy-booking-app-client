@@ -18,3 +18,9 @@ export {
 export {
   default as CitizensAdminLogin
 } from './components/login/CitizensAdminLogin';
+export {
+  default as Successfull
+} from './components/submit-request/Successfull';
+export {
+  default as Unsuccessful
+} from './components/submit-request/Unsuccessfull';
