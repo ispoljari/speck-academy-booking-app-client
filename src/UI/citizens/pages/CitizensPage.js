@@ -23,6 +23,7 @@ class CitizensPage extends Component {
     reservationDate: '',
     reservationStartTime: '',
     reservationEndTime: '',
+    reservedDateTimeSlots: [],
     modalVisibility: {
       login: false,
       hallInfo: false
@@ -121,7 +122,10 @@ class CitizensPage extends Component {
       },
       () => {
         if (this.state.selectedHall.hallReservations.length > 0) {
-          const selectedDateReservedTimeSlots = this.findHallReservationsForSelectedDate();
+          const reservedDateTimeSlots = this.findHallReservationsForSelectedDate();
+          this.setState({
+            reservedDateTimeSlots
+          });
         }
       }
     );
@@ -142,32 +146,23 @@ class CitizensPage extends Component {
         ].reservationDate.toString() === selectedDate
       ) {
         reservations.push({
-          startTime: {
-            hour: moment(
-              this.state.selectedHall.hallReservations[i].reservationStartTime,
-              'HH:mm:ss'
-            ).hours(),
-            minute: moment(
-              this.state.selectedHall.hallReservations[i].reservationStartTime,
-              'HH:mm:ss'
-            ).minutes()
-          },
-          endTime: {
-            hour: moment(
-              this.state.selectedHall.hallReservations[i].reservationEndTime,
-              'HH:mm:ss'
-            ).hours(),
-            minute: moment(
-              this.state.selectedHall.hallReservations[i].reservationStartTime,
-              'HH:mm:ss'
-            ).minutes()
-          }
+          startTime: this.createHourMinuteMomentPair(
+            this.state.selectedHall.hallReservations[i].reservationStartTime
+          ),
+          endTime: this.createHourMinuteMomentPair(
+            this.state.selectedHall.hallReservations[i].reservationEndTime
+          )
         });
       }
     }
 
     return reservations;
   };
+
+  createHourMinuteMomentPair = time => ({
+    hour: moment(time, 'HH:mm:ss').hours(),
+    minute: moment(time, 'HH:mm:ss').minutes()
+  });
 
   handleReservationTimeChange = field => time => {
     this.setState({ [field]: time });
@@ -240,6 +235,7 @@ class CitizensPage extends Component {
           reservationDate={this.state.reservationDate}
           reservationStartTime={this.state.reservationStartTime}
           reservationEndTime={this.state.reservationEndTime}
+          reservedDateTimeSlots={this.state.reservedDateTimeSlots}
         />
 
         <CitizensEditEventInfo

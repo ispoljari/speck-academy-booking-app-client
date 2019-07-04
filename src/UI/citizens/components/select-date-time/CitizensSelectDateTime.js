@@ -61,6 +61,7 @@ const CitizensSelectDateTime = props => {
     reservationDate,
     reservationStartTime,
     reservationEndTime,
+    reservedDateTimeSlots,
     selectedHallReservations,
     handleReservationDateChange,
     handleReservationTimeChange
@@ -139,12 +140,84 @@ const CitizensSelectDateTime = props => {
   const setupDatePickerPlaceholder = isHallSelected =>
     isHallSelected ? 'ODABERITE DATUM...' : 'DVORANA NIJE ODABRANA';
 
+  const detectReservedSlots = timeUnit => {
+    const reservedHours = [];
+    const reservedMinutes = [];
+
+    const selEndHour = !!reservationEndTime && reservationEndTime.hours();
+    const selStartHour = !!reservationStartTime && reservationStartTime.hours();
+    const reservedDateTimeSlotsLength = reservedDateTimeSlots.length;
+
+    if (reservedDateTimeSlotsLength > 0) {
+      for (let i = 0; i < reservedDateTimeSlotsLength; i++) {
+        const startHour = reservedDateTimeSlots[i].startTime.hour;
+        const endHour = reservedDateTimeSlots[i].endTime.hour;
+        const startMinute = reservedDateTimeSlots[i].startTime.minute;
+        const endMinute = reservedDateTimeSlots[i].endTime.minute;
+
+        const offset = startHour === 8 ? 0 : 1;
+        for (let i = startHour + offset; i < endHour; i++) {
+          reservedHours.push(i);
+        }
+
+        // if (startHour - selStartHour >= 1) {
+        //   for (let i = endHour; i < 22; i++) {
+        //     reservedHours.push(i);
+        //   }
+        // }
+
+        if (selEndHour === startHour) {
+          switch (startMinute) {
+            case 0:
+              reservedMinutes.push.apply(reservedMinutes, [15, 30, 45]);
+              break;
+            case 15:
+              reservedMinutes.push.apply(reservedMinutes, [30, 45]);
+              break;
+            case 30:
+              reservedMinutes.push.apply(reservedMinutes, [45]);
+              break;
+            default:
+              break;
+          }
+        }
+
+        // if (selStartHour === endHour) {
+        //   switch (endMinute) {
+        //     case 15:
+        //       reservedMinutes.push.apply(reservedMinutes, [0]);
+        //       break;
+        //     case 30:
+        //       reservedMinutes.push.apply(reservedMinutes, [0, 15]);
+        //       break;
+        //     case 45:
+        //       reservedMinutes.push.apply(reservedMinutes, [0, 15, 30]);
+        //       break;
+        //     default:
+        //       break;
+        //   }
+        // }
+      }
+    }
+
+    if (timeUnit === 'hours') {
+      return reservedHours;
+    } else {
+      return reservedMinutes;
+    }
+  };
+
   const disableTimePickerHours = timePosition => {
     const defaultBlockInterval = [0, 1, 2, 3, 4, 5, 6, 7, 22, 23];
 
     if (timePosition === 'end') {
       const startHour = reservationStartTime.hours();
       defaultBlockInterval.push(startHour);
+    }
+
+    const reservedHours = detectReservedSlots('hours');
+    if (reservedHours.length > 0) {
+      defaultBlockInterval.push.apply(defaultBlockInterval, reservedHours);
     }
 
     return defaultBlockInterval;
@@ -173,6 +246,11 @@ const CitizensSelectDateTime = props => {
             break;
         }
       }
+    }
+
+    const reservedMinutes = detectReservedSlots('minutes');
+    if (reservedMinutes.length > 0) {
+      defaultBlockInterval.push.apply(defaultBlockInterval, reservedMinutes);
     }
 
     return defaultBlockInterval;
@@ -224,8 +302,8 @@ const CitizensSelectDateTime = props => {
               placeholder={setupDatePickerPlaceholder(!!selectedHallName)}
               dayPickerProps={{
                 locale: 'hr',
-                localeUtils: MomentLocaleUtils
-                // disabledDays: setupDatePickerDisabledDays(!!selectedHallName)
+                localeUtils: MomentLocaleUtils,
+                disabledDays: setupDatePickerDisabledDays(!!selectedHallName)
               }}
               onDayChange={handleReservationDateChange}
             />
