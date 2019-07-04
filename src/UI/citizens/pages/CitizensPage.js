@@ -29,15 +29,14 @@ class CitizensPage extends Component {
       hallInfo: false
     },
     post: {
-      hallSelectId: '',
-      eventName: '',
-      eventDescription: '',
-      nameAndSurname: '',
-      email: '',
-      organisation: '',
-      phoneNumber: '',
-      charCounter: 0
-    }
+      reservationTitle: '',
+      reservationDescription: '',
+      citizenFullName: '',
+      citizenEmail: '',
+      citizenOrganization: '',
+      citizenPhoneNumber: ''
+    },
+    charCounter: 0
   };
 
   componentDidMount() {
@@ -170,41 +169,63 @@ class CitizensPage extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-    let charCounter = this.state.post.charCounter;
-
-    /*
-    if (name === 'something') {
-      const isValid = event.target.validity.valid;
-  
-      if (value && !isValid) return;
-    }
-    */
+    let charCounter;
 
     if (name === 'eventDescription') {
-      console.log('length', value.length);
       charCounter = value.length;
     }
 
     this.setState(prevState => ({
       post: {
         ...prevState.post,
-        [name]: value,
-        charCounter: charCounter
-      }
+        [name]: value
+      },
+      charCounter: charCounter
     }));
   };
 
-  onSubmitRequest = () => {
-    const { charCounter, ...rest } = this.state.post;
+  isRequestDataReady = e => {
+    for (const prop in this.state.post)
+      if (!this.state.post[prop]) return false;
 
-    console.log('post data', rest);
+    return true;
+  };
 
-    /* 
-      console.log('event name', rest.eventName);
-      rest.eventName:
-      rest.eventDescription
-      rest.nameAndSurname
-    */
+  onSubmitRequest = async e => {
+    const requestReady = this.isRequestDataReady(e);
+
+    if (requestReady) {
+      e.preventDefault();
+
+      const postReservationEndpoint = `${API_BASE_URL}/reservations/create`;
+      const postHttpConfig = {
+        method: 'POST',
+        body: JSON.stringify({
+          ...this.state.post,
+          hallFk: this.state.selectedHall.id,
+          reservationDate: this.state.reservationDate,
+          reservationStartTime: this.state.reservationStartTime,
+          reservationEndTime: this.state.reservationEndTime
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      };
+      console.log(postHttpConfig.body);
+
+      try {
+        const apiResponse = await fetch(
+          postReservationEndpoint,
+          postHttpConfig
+        );
+        if (!apiResponse.ok) {
+          console.log(apiResponse);
+          throw new Error('Something went wrong!');
+        }
+        const result = apiResponse.json();
+        console.log(result);
+      } catch (error) {
+        console.log(error); //TODO: warn user
+      }
+    }
   };
 
   render() {
@@ -241,8 +262,12 @@ class CitizensPage extends Component {
         <CitizensEditEventInfo
           handleChange={this.handleChange}
           post={this.state.post}
+          enableForm={!!this.state.reservationEndTime}
         />
-        <CitizensSubmitRequest onSubmitRequest={this.onSubmitRequest} />
+        <CitizensSubmitRequest
+          onSubmitRequest={this.onSubmitRequest}
+          enableForm={!!this.state.reservationEndTime}
+        />
         <Footer />
         {this.state.modalVisibility.login ? (
           <Modal onClick={this.closeModal.bind(this, 'login')}>

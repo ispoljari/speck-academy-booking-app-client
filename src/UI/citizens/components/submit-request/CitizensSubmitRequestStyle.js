@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledLink = styled.a`
   font-family: Poppins, sans serif;
@@ -83,12 +83,19 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   margin-right: 32px;
-  &:hover {
-    background-color: #229c7f;
-    border: solid 1px #229c7f;
-    transition-duration: 0.5s;
-    cursor: pointer;
-  }
+  ${props => {
+    return (
+      !props.blockInteractivity &&
+      css`
+        &:hover {
+          background-color: #229c7f;
+          border: solid 1px #229c7f;
+          transition-duration: 0.2s;
+          cursor: pointer;
+        }
+      `
+    );
+  }}
 `;
 
 export const ButtonText = styled.p`

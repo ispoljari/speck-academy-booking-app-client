@@ -27,7 +27,7 @@ export const MainDescription = styled.p`
   color: #000000;
   padding-bottom: 16px;
 `;
-export const FormContainer = styled.div``;
+export const FormContainer = styled.form``;
 
 export const FormHeader = styled.h5`
   line-height: normal;
@@ -38,7 +38,7 @@ export const FormHeader = styled.h5`
   color: #434343;
   padding-top: 16px;
 `;
-export const FormContainerInfoGroup = styled.form`
+export const ContainerInfoGroup = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -55,7 +55,6 @@ export const FormInput = styled.input`
   padding-right: 8px;
   font-family: Poppins, Arial, sans-serif;
   font-size: 14px;
-  opacity: 0.5;
   :required:focus {
     box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
   }
@@ -80,7 +79,6 @@ export const FormInputText = styled.textarea`
   border: solid 1px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   resize: none;
-  opacity: 0.5;
   :required:focus {
     box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
   }
