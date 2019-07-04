@@ -231,14 +231,44 @@ class CitizensPage extends Component {
           this.processSuccessSubmit();
         }
       } catch (error) {
-        console.log(error); //TODO: warn user
         this.processFailSubmit();
       }
     }
   };
 
   processSuccessSubmit = () => {
-    console.log('Success!');
+    this.resetForm();
+    this.deselectHall();
+    this.removeSelectedDateTime();
+    this.getAllHalls();
+  };
+
+  resetForm = () => {
+    this.setState({
+      post: {
+        reservationTitle: '',
+        reservationDescription: '',
+        citizenFullName: '',
+        citizenEmail: '',
+        citizenOrganization: '',
+        citizenPhoneNumber: ''
+      },
+      charCounter: 0
+    });
+  };
+
+  deselectHall = () => {
+    this.setState({
+      selectedHall: null
+    });
+  };
+
+  removeSelectedDateTime = () => {
+    this.setState({
+      reservationDate: '',
+      reservationStartTime: '',
+      reservationEndTime: ''
+    });
   };
 
   processFailSubmit = () => {

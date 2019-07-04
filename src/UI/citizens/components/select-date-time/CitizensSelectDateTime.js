@@ -263,6 +263,10 @@ const CitizensSelectDateTime = props => {
     const timePickerProps = {
       showSecond: false,
       onChange: handleReservationTimeChange(timeFieldIdentifier),
+      value:
+        timeFieldIdentifier === 'reservationStartTime'
+          ? reservationStartTime
+          : reservationEndTime,
       format: 'HH:mm',
       className: 'xxx',
       disabled:
@@ -306,6 +310,7 @@ const CitizensSelectDateTime = props => {
                 disabledDays: setupDatePickerDisabledDays(!!selectedHallName)
               }}
               onDayChange={handleReservationDateChange}
+              value={reservationDate}
             />
           </DateInput>
           <TimeInput>

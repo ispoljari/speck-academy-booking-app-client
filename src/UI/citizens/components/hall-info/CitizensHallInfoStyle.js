@@ -42,7 +42,6 @@ const HallNameTitle = styled.p`
 
 const HallInfo = styled.div`
   display: flex;
-  align-items: flex-end;
   margin-top: 17px;
 `;
 

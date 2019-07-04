@@ -34,7 +34,7 @@ export default ({ handleChange, post, enableForm }) => {
           type="text"
           name="reservationTitle"
           onChange={handleChange}
-          value={post.name}
+          value={post.reservationTitle}
           required
           disabled={!enableForm}
         />
@@ -44,6 +44,7 @@ export default ({ handleChange, post, enableForm }) => {
           type="text"
           name="reservationDescription"
           onChange={handleChange}
+          value={post.reservationDescription}
           maxLength="500"
           required
           disabled={!enableForm}
@@ -59,6 +60,7 @@ export default ({ handleChange, post, enableForm }) => {
               type="text"
               name="citizenFullName"
               onChange={handleChange}
+              value={post.citizenFullName}
               required
               disabled={!enableForm}
             />
@@ -69,6 +71,7 @@ export default ({ handleChange, post, enableForm }) => {
               type="text"
               name="citizenOrganization"
               onChange={handleChange}
+              value={post.citizenOrganization}
               required
               disabled={!enableForm}
             />
@@ -79,6 +82,7 @@ export default ({ handleChange, post, enableForm }) => {
               type="email"
               name="citizenEmail"
               onChange={handleChange}
+              value={post.citizenEmail}
               pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
               required
               disabled={!enableForm}
@@ -90,6 +94,7 @@ export default ({ handleChange, post, enableForm }) => {
               type="text"
               name="citizenPhoneNumber"
               onChange={handleChange}
+              value={post.citizenPhoneNumber}
               pattern="(\+[0-9]{0,16})|[0-9]{0,15}"
               required
               disabled={!enableForm}
