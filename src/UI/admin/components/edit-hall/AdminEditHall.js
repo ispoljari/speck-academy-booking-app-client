@@ -61,6 +61,7 @@ class EditHallComponent extends React.Component {
       description: this.state.description,
       pictureUrl: this.state.pictureUrl || this.props.pictureUrl
     };
+    console.log(data);
     let id = this.props.id;
     if (id) {
       fetch(API_BASE_URL + '/halls/update/' + id, {
@@ -69,8 +70,13 @@ class EditHallComponent extends React.Component {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
       })
-        .then(res => res.json())
-
+        .then(res => {
+          if (!res.ok) {
+            console.log(res.message);
+            throw new Error('Something went wrong!');
+          }
+          return res.json();
+        })
         .catch(error => console.error('Error:', error))
         .finally(() => {
           this.props.handleClose();
