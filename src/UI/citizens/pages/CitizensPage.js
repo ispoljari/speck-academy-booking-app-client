@@ -184,7 +184,7 @@ class CitizensPage extends Component {
     }));
   };
 
-  isRequestDataReady = e => {
+  isRequestDataReady = () => {
     for (const prop in this.state.post)
       if (!this.state.post[prop]) return false;
 
@@ -192,7 +192,7 @@ class CitizensPage extends Component {
   };
 
   onSubmitRequest = async e => {
-    const requestReady = this.isRequestDataReady(e);
+    const requestReady = this.isRequestDataReady();
 
     if (requestReady) {
       e.preventDefault();
