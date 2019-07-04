@@ -24,8 +24,6 @@ export const Container = styled.div`
   flex-direction: column;
   width: 632px;
   height: 250px;
-  border-radius: 4px;
-  border: solid 1px #d9d9d9;
   background-color: #ffffff;
   position: relative;
   margin: 0 auto;

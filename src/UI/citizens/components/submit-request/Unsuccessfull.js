@@ -14,7 +14,7 @@ import {
 } from './SuccsessUnsuccessStyle';
 
 import okImage2 from '../../../../images/unsuccess@2x.png';
-const Unsuccessfull = () => (
+const Unsuccessfull = ({ onClick }) => (
   <Container>
     <SecContainer>
       <CheckImage2 imgSrc={okImage2} />
@@ -26,7 +26,7 @@ const Unsuccessfull = () => (
 
     <ButtonContainer>
       <StyledLink to="">
-        <Button>
+        <Button onClick={onClick}>
           <ButtonText>U REDU</ButtonText>
         </Button>
       </StyledLink>

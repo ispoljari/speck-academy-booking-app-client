@@ -12,7 +12,7 @@ import {
   CitizensEditEventInfo,
   CitizensSubmitRequest,
   Successfull,
-  Unsuccessful
+  Unsuccessfull
 } from '../';
 import { API_BASE_URL } from '../../../config';
 import { Footer, Modal } from '../../common';
@@ -343,6 +343,15 @@ class CitizensPage extends Component {
           <Modal onClick={this.closeModal.bind(this, 'registrationSuccess')}>
             <Successfull
               onClick={this.closeModal.bind(this, 'registrationSuccess')}
+            />
+          </Modal>
+        ) : (
+          ''
+        )}
+        {this.state.modalVisibility.registrationFail ? (
+          <Modal onClick={this.closeModal.bind(this, 'registrationFail')}>
+            <Unsuccessfull
+              onClick={this.closeModal.bind(this, 'registrationFail')}
             />
           </Modal>
         ) : (
