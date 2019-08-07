@@ -1,56 +1,84 @@
 import React from 'react';
 
-import { API_BASE_URL } from '../../../../config';
+import Icon from '../../../../images/info-icon@3x.png';
+import {
+  HallImageContainer,
+  HallNameButton,
+  HallNameTextCenter,
+  HallImage,
+  HeadlineText,
+  SubheadlineText,
+  FirstRow,
+  MainContainer,
+  InfoBtn,
+  TextInfoIcon,
+  Elipse,
+  Number,
+  LayoutWrapper
+} from './SelectHallStyle.js';
 
-// example of component logic that shows how to fetch data from the API
-// remove the code from this component and refactor it into a functional CitizensSelectHall component according to the design mockup
-
-class CitizensSelectHall extends React.Component {
-  state = {
-    response: '',
-    error: ''
+const IndividualHall = ({
+  hall,
+  handleHallSelect,
+  onInfoClick,
+  isSelected
+}) => {
+  const handleHallSelectClick = () => {
+    handleHallSelect(hall);
   };
 
-  componentDidMount() {
-    this.fetchDataFromAPI();
-  }
-
-  fetchDataFromAPI = async () => {
-    try {
-      const apiRawData = await fetch(`${API_BASE_URL}/users`);
-      if (!apiRawData.ok) {
-        throw new Error('An error has occured!');
-      }
-      const apiJSONData = await apiRawData.text();
-      this.processResponse(apiJSONData);
-    } catch (error) {
-      this.processError(error.message);
-    }
+  const handleHallInfoClick = () => {
+    onInfoClick(hall);
   };
 
-  processResponse = response => {
-    this.setState({
-      response,
-      error: ''
-    });
-  };
+  return (
+    <HallImageContainer isSelected={isSelected}>
+      <HallImage src={hall.pictureUrl} />
+      <InfoBtn onClick={handleHallInfoClick} iconSrc={Icon} />
+      <HallNameButton
+        id={hall.name}
+        onClick={handleHallSelectClick}
+        isSelected={isSelected}
+      >
+        <HallNameTextCenter>{hall.name}</HallNameTextCenter>
+      </HallNameButton>
+    </HallImageContainer>
+  );
+};
 
-  processError = error => {
-    this.setState({
-      response: '',
-      error
-    });
-  };
-
-  render() {
-    const { response, error } = this.state;
-
-    return (
-      <div>
-        <p>{response ? response : error}</p>
-      </div>
-    );
-  }
-}
+const CitizensSelectHall = ({
+  allHalls,
+  selectedHallId,
+  handleHallSelect,
+  onInfoClick
+}) => {
+  return (
+    <div>
+      <MainContainer>
+        <Elipse>
+          <Number>1</Number>
+        </Elipse>
+        <LayoutWrapper>
+          <HeadlineText>Odaberite dvoranu</HeadlineText>
+          <SubheadlineText>
+            Pronađite dvoranu koja vam odgovara. Za dodatne informacije kliknite
+            na <TextInfoIcon src={Icon} /> ikonu.
+          </SubheadlineText>
+        </LayoutWrapper>
+        <FirstRow>
+          {allHalls.map((hall, index) => (
+            <IndividualHall
+              hall={hall}
+              key={`${index}-${hall.name}`}
+              handleHallSelect={handleHallSelect}
+              onInfoClick={onInfoClick}
+              isSelected={hall.id === selectedHallId}
+            />
+          ))}
+        </FirstRow>
+      </MainContainer>
+    </div>
+  );
+};
 
 export default CitizensSelectHall;
